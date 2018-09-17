@@ -16,6 +16,6 @@ Route::get('/', function () {
 })->name('started');
 
 
-Route::get('1', function () {
+Route::get('auth', function () {
     return view('auth');
 });
