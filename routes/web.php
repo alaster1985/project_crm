@@ -13,4 +13,9 @@
 
 Route::get('/', function () {
     return view('welcome');
+})->name('started');
+
+
+Route::get('1', function () {
+    return view('auth');
 });
