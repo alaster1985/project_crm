@@ -22,10 +22,10 @@ Route::get('auth', function () {
 
 Route::get('students', function () {
     return view('students');
-})->name('students');
+})->name('stud');
 
-Route::put('students/{post}', 'db_controller@add')->name('add_student');
+Route::post('students', 'Db_controller@add')->name('add_student');
 
-Route::get('test', function () {
-    return view('test');
-});
+//Route::get('test', function () {
+//    return view('test');
+//});
