@@ -13,4 +13,19 @@
 
 Route::get('/', function () {
     return view('welcome');
+})->name('started');
+
+
+Route::get('auth', function () {
+    return view('auth');
+});
+
+Route::get('students', function () {
+    return view('students');
+})->name('students');
+
+Route::put('students/{post}', 'db_controller@add')->name('add_student');
+
+Route::get('test', function () {
+    return view('test');
 });
