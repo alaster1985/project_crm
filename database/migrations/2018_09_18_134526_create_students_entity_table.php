@@ -17,7 +17,7 @@ class CreateStudentsEntityTable extends Migration
             $table->increments('id_student');
             $table->enum('learning_status', ['Обучается', 'Выпустился', 'Отвалился', 'Other']);
             $table->enum('employment_status', ['Трудоустроен', 'В поиске', 'Не актуально в IT', 'Отказался', 'В IT не по направлению', 'Other']);
-            $table->string('C.V.', 255);
+            $table->string('CV', 255);
             $table->text('comment');
             $table->integer('id_person');
             $table->integer('id_group');
