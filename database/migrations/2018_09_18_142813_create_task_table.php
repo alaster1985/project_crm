@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateTaskTable extends Migration
 {
@@ -20,12 +21,10 @@ class CreateTaskTable extends Migration
             $table->dateTime('dead_line');
             $table->integer('id_member_customer')->unsigned();
             $table->integer('id_member_doer')->unsigned();
-            $table->text('doers_report');
-            $table->boolean('task_completed');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-            $table->foreign('id_member_customer')->references('id_member')->on('ALevelMemberEntityTable');
-            $table->foreign('id_member_doer')->references('id_member')->on('ALevelMemberEntityTable');
+            $table->string('doers_report', 255)->default('executing');
+            $table->boolean('task_completed')->default(0);
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

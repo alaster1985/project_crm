@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateStackOfTechnologiesTable extends Migration
 {
@@ -16,8 +17,8 @@ class CreateStackOfTechnologiesTable extends Migration
         Schema::create('stack_of_technologies', function (Blueprint $table) {
             $table->increments('id_stack');
             $table->string('stack_name', 45);
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

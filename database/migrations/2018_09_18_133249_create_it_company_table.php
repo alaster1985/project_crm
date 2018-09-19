@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateItCompanyTable extends Migration
 {
@@ -20,12 +21,12 @@ class CreateItCompanyTable extends Migration
             $table->enum('type', ['Трудоустройство', 'Информационное', 'партнерство', 'Проведение мероприятий', 'Отсутствует']);
             $table->string('site', 255);
             $table->string('address', 45);
-            $table->text('logo');
-            $table->text('comment');
-            $table->integer('id_contact_person');
-            $table->integer('id_student');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->text('logo')->nullable();
+            $table->text('comment')->nullable();
+            $table->integer('id_contact_person')->unsigned();
+            $table->integer('id_student')->unsigned();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

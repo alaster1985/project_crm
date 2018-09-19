@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreatePersonTable extends Migration
 {
@@ -17,8 +18,8 @@ class CreatePersonTable extends Migration
             $table->increments('id_person');
             $table->string('name', 45);
             $table->string('address', 255);
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

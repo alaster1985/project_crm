@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateALevelMemberEntityTable extends Migration
+class CreateSkillPivotTableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,10 @@ class CreateALevelMemberEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create('alevel_member_entity', function (Blueprint $table) {
-            $table->increments('id_member');
+        Schema::create('skill_pivot_table', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_skill')->unsigned();
             $table->integer('id_person')->unsigned();
-            $table->integer('id_position')->nullable()->unsigned();
-            $table->integer('id_direction')->nullable()->unsigned();
-            $table->integer('id_company')->nullable()->unsigned();
-            $table->text('comment')->nullable();
-            $table->boolean('ASPT')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -34,6 +30,6 @@ class CreateALevelMemberEntityTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('skill_pivot_table');
     }
 }

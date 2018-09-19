@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateContactInfoTable extends Migration
 {
@@ -19,9 +20,8 @@ class CreateContactInfoTable extends Migration
             $table->string('contact', 45);
             $table->integer('id_person')->unsigned();
             $table->string('comment')->nullable();
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-            $table->foreign('id_person')->references('id_person')->on('person');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

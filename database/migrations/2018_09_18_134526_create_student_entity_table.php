@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateStudentsEntityTable extends Migration
+class CreateStudentEntityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateStudentsEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create('students_entity', function (Blueprint $table) {
+        Schema::create('student_entity', function (Blueprint $table) {
             $table->increments('id_student');
             $table->enum('learning_status', ['learning', 'graduated', 'fell_of', 'Other']);
             $table->enum('employment_status', ['employed', 'in_search', 'not_relevant_in_IT', 'refused', 'in_IT_not_in_direction', 'Other']);

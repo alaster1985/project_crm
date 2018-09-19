@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateStackPivotTableTable extends Migration
 {
@@ -18,10 +19,8 @@ class CreateStackPivotTableTable extends Migration
             $table->text('comment')->nullable();
             $table->integer('id_stack')->unsigned();
             $table->integer('id_company')->unsigned();
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
-            $table->foreign('id_stack')->references('id_stack')->on('stack_of_technologies');
-            $table->foreign('id_company')->references('id_company')->on('it_company');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
