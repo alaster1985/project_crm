@@ -21,7 +21,7 @@ class Db_controller extends Controller
 //            ->get();
 //        return view('students', ['all_students'=>$all_students]);
 
-        $all_students = DB::table('person')->get();
+        $all_students = DB::table('person')->paginate(2);;
 
 //              $all_students = ["qq"=> 5, "qa"=> 4, "q"=> 57];
 

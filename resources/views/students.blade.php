@@ -44,6 +44,7 @@
                 <a>{{$index->name}}</a>
             </li>
         @endforeach
+            {{ $all_students->links() }}
     </ul>
 </div>
 
