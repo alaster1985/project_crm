@@ -26,6 +26,16 @@ Route::get('students', function () {
 
 Route::post('students', 'Db_controller@add')->name('add_student');
 
+
+
+Route::get('students', 'Db_controller@show_students')->name('all_students');
+
+
+
+
+
+
+
 //Route::get('test', function () {
 //    return view('test');
 //});

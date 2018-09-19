@@ -11,19 +11,6 @@
 </head>
 <body>
 
-<!--<div class="btn-group container">
-    <div class="col-md-2 col-sm-6 ">
-        <div class="row">
-            <button class="btn-block"><a href="{{route('started')}}">Студенты</a></button>
-        </div>
-        <div class="row">
-            <button class="btn-block"><a href="{{route('started')}}">Преподаватели</a></button>
-        </div>
-        <div class="row">
-            <button class="btn-block"><a href="{{route('started')}}">Партнеры</a></button>
-        </div>
-    </div>
--->
 <div class="col-md-2 col-sm-6 ">
     <!-- form adding students to DB.
     Use data in php by
@@ -48,7 +35,18 @@
     </form>
 </div>
 
+
+<div class="col-md-2 col-sm-6 ">
+
+    <ul>
+        @foreach ($all_students as $index)
+            <li>
+                <a>{{$index->name}}</a>
+            </li>
+        @endforeach
+    </ul>
 </div>
+
 
 
 </body>
