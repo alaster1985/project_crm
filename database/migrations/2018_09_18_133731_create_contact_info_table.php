@@ -17,11 +17,11 @@ class CreateContactInfoTable extends Migration
             $table->increments('id_contact');
             $table->string('communication_tool', 45);
             $table->string('contact', 45);
-            $table->integer('id_person');
+            $table->integer('id_person')->unsigned();
             $table->string('comment')->nullable();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
-//            $table->foreign('id_person')->references('id_person')->on('person');
+            $table->foreign('id_person')->references('id_person')->on('person');
         });
     }
 

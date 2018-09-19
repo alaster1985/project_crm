@@ -15,11 +15,13 @@ class CreateStackPivotTableTable extends Migration
     {
         Schema::create('stack_pivot_table', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('comment');
-            $table->integer('id_stack');
-            $table->integer('id_company');
+            $table->text('comment')->nullable();
+            $table->integer('id_stack')->unsigned();
+            $table->integer('id_company')->unsigned();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
+            $table->foreign('id_stack')->references('id_stack')->on('stack_of_technologies');
+            $table->foreign('id_company')->references('id_company')->on('it_company');
         });
     }
 

@@ -15,13 +15,17 @@ class CreateContactPersonEntityTable extends Migration
     {
         Schema::create('contact_person_entity', function (Blueprint $table) {
             $table->increments('id_contact_person');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->integer('id_person');
-            $table->integer('id_position');
-            $table->integer('id_direction');
+            $table->integer('id_position')->nullable()->unsigned();
+            $table->integer('id_direction')->nullable()->unsigned();
             $table->integer('id_company');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
+            $table->foreign('id_person')->references('id_person')->on('person');
+            $table->foreign('id_position')->references('id_position')->on('position');
+            $table->foreign('id_direction')->references('id_direction')->on('direction');
+            $table->foreign('id_company')->references('id_company')->on('it_company');
         });
     }
 
