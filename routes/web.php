@@ -15,24 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('started');
 
-
 Route::get('auth', function () {
     return view('auth');
 });
 
-Route::get('students', function () {
-    return view('students');
-})->name('stud');
+//Route::get('students', function () {
+//    return view('students');
+//})->name('stud');
 
-Route::post('students', 'Db_controller@add')->name('add_student');
+Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
 
-
-
-Route::get('students', 'Db_controller@show_students')->name('all_students');
-
-
-
-
+Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
 
 
 

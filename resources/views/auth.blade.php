@@ -17,17 +17,9 @@
 
 <div class="btn-group container">
     <div class="col-md-2 col-sm-6 ">
-<!--  DIFFERENT BUTTONS
+
         <div class="row">
-            <button type="button" class="btn btn-primary btn-lg btn-block"><a href="{{route('started')}}">Студенты</a></button>
-        </div>
-        <div class="row">
-            <button type="button" class="btn btn-warning btn-lg btn-block"><a href="{{route('started')}}">Студенты</a>
-            </button>
-        </div>
--->
-        <div class="row">
-        <button class="btn-block"><a href="{{route('students')}}">Студенты</a></button>
+            <button class="btn-block"><a href="{{route('stud')}}">Студенты</a></button>
         </div>
         <div class="row">
             <button class="btn-block"><a href="{{route('started')}}">Преподаватели</a></button>
@@ -43,10 +35,7 @@
             <p>Добавление нового студента</p>
             <p><input name="newstudent"></p>
         </form>
-        <form action="add_.php" method="post">
-            <p>Добавление нового студента</p>
-            <p><input name="newstudent"></p>
-        </form>
+
     </div>
 
 </div>
