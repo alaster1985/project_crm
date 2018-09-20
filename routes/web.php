@@ -19,13 +19,12 @@ Route::get('auth', function () {
     return view('auth');
 });
 
-//Route::get('students', function () {
-//    return view('students');
-//})->name('stud');
-
 Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
-
 Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
+
+
+Route::post('employees/add', 'EmployeesController@addEmployee')->name('add.employee');
+Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
 
 
 
