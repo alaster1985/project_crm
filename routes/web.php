@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->name('started');
+})->name('index');
 
 Route::get('auth', function () {
     return view('auth');

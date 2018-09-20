@@ -19,13 +19,13 @@
     <div class="col-md-2 col-sm-6 ">
 
         <div class="row">
-            <button class="btn-block"><a href="{{route('stud')}}">Студенты</a></button>
+            <button class="btn-block"><a href="{{route('ShowAllStudents')}}">Студенты</a></button>
         </div>
         <div class="row">
-            <button class="btn-block"><a href="{{route('started')}}">Преподаватели</a></button>
+            <button class="btn-block"><a href="{{route('index')}}">Преподаватели</a></button>
         </div>
         <div class="row">
-            <button class="btn-block"><a href="{{route('started')}}">Партнеры</a></button>
+            <button class="btn-block"><a href="{{route('index')}}">Партнеры</a></button>
         </div>
     </div>
 
