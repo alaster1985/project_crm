@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-    <title>Студенты A-Level</title>
+    <title>Сотрудники A-Level</title>
 </head>
 <body>
 
@@ -15,35 +15,36 @@
     Use data in php by
     $request->session()->keep(['name', 'email', 'site', 'text_area']);
     -->
-    <form action="{{Route('add.student')}}" method="post">
+    <form action="{{Route('add.employee')}}" method="post">
         @csrf
-        <p>Добавление нового студента</p>
+        <p>Добавление нового сотрудника</p>
         <p>Имя студента</p>
-        <p><input name="student_name"></p>
+        <p><input name="employee_name"></p>
         <p>Фамалия студента</p>
-        <p><input name="student_surname"></p>
+        <p><input name="employee_surname"></p>
         <p>Дата рождения студента</p>
-        <p><input name="student_birth"></p>
+        <p><input name="employee_birth"></p>
         <p>Адрес студента</p>
-        <p><input name="student_adress"></p>
+        <p><input name="employee_adress"></p>
         <p>E-mail студента</p>
-        <p><input name="student_mail"></p>
+        <p><input name="employee_mail"></p>
         <p>Телефон студента</p>
-        <p><input name="student_phone"></p>
-        <input type="submit" value="Add new student">
+        <p><input name="employee_phone"></p>
+        <input class="btn-block" type="submit" value="Add new employee">
     </form>
+    <button class="btn-block"><a href="{{route('index')}}">На главную</a></button>
 </div>
 
 
 <div class="col-md-2 col-sm-6 ">
 
     <ul>
-        @foreach ($all_students as $index)
+        @foreach ($all_employees as $index)
             <li>
                 <a>{{$index->name}}</a>
             </li>
         @endforeach
-        {{ $all_students->links() }}
+        {{ $all_employees->links() }}
     </ul>
 </div>
 
