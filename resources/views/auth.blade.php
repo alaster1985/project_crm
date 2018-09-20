@@ -22,7 +22,7 @@
             <button class="btn-block"><a href="{{route('ShowAllStudents')}}">Студенты</a></button>
         </div>
         <div class="row">
-            <button class="btn-block"><a href="{{route('index')}}">Преподаватели</a></button>
+            <button class="btn-block"><a href="{{route('show.employees')}}">Сотрудники</a></button>
         </div>
         <div class="row">
             <button class="btn-block"><a href="{{route('index')}}">Партнеры</a></button>
