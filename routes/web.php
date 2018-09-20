@@ -39,3 +39,6 @@ Route::get('students', 'Db_controller@show_students')->name('all_students');
 //Route::get('test', function () {
 //    return view('test');
 //});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
