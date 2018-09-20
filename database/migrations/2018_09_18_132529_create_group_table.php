@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateGroupTable extends Migration
 {
@@ -19,8 +20,9 @@ class CreateGroupTable extends Migration
             $table->date('start_date');
             $table->date('finish_date');
             $table->date('homecoming_date');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->integer('id_direction')->unsigned();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

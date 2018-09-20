@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreatePersonTable extends Migration
+class CreateALevelMemberEntityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,14 @@ class CreatePersonTable extends Migration
      */
     public function up()
     {
-        Schema::create('person', function (Blueprint $table) {
-            $table->increments('id_person');
-            $table->string('name', 45);
-            $table->string('address', 255);
+        Schema::create('alevel_member_entity', function (Blueprint $table) {
+            $table->increments('id_member');
+            $table->integer('id_person')->unsigned();
+            $table->integer('id_position')->nullable()->unsigned();
+            $table->integer('id_direction')->nullable()->unsigned();
+            $table->integer('id_company')->nullable()->unsigned();
+            $table->text('comment')->nullable();
+            $table->boolean('ASPT')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -30,6 +34,6 @@ class CreatePersonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('person');
+        //
     }
 }
