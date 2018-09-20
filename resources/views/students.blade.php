@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-
     <title>Студенты A-Level</title>
 </head>
 <body>
@@ -16,7 +15,7 @@
     Use data in php by
     $request->session()->keep(['name', 'email', 'site', 'text_area']);
     -->
-    <form action="{{Route('add_student')}}" method="post">
+    <form action="{{Route('add.student')}}" method="post">
         @csrf
         <p>Добавление нового студента</p>
         <p>Имя студента</p>
@@ -44,10 +43,9 @@
                 <a>{{$index->name}}</a>
             </li>
         @endforeach
-            {{ $all_students->links() }}
+        {{ $all_students->links() }}
     </ul>
 </div>
-
 
 
 </body>
