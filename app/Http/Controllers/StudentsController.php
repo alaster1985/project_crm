@@ -12,6 +12,9 @@ class StudentsController extends Controller
         $new = $request->input('student_name');
         return redirect()->route('ShowAllStudents');
 
+
+//        DB::table('person')->insert(['name'=> $request->input('student_name')]);
+
     }
 
     public function showStudents()
@@ -21,7 +24,7 @@ class StudentsController extends Controller
 //            ->get();
 //        return view('students', ['all_students'=>$all_students]);
 
-        $all_students = DB::table('person')->paginate(2);;
+        $all_students = DB::table('person')->paginate(8);;
         return view('students', ['all_students' => $all_students]);
 
     }

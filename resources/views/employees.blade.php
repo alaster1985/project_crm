@@ -39,12 +39,14 @@
 <div class="col-md-2 col-sm-6 ">
 
     <ul>
+        @if ($all_employees)
         @foreach ($all_employees as $index)
             <li>
                 <a>{{$index->name}}</a>
             </li>
         @endforeach
         {{ $all_employees->links() }}
+        @endif
     </ul>
 </div>
 
