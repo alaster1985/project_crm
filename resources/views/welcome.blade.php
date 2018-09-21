@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FFA500;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -70,8 +70,7 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Sign in</a>
                     @endauth
                 </div>
             @endif
