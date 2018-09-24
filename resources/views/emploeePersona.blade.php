@@ -1,0 +1,1 @@
+<p>Emploee Name: {{$emploeeView->name}}</p>

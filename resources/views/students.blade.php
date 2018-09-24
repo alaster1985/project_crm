@@ -40,7 +40,9 @@
     <ul>
         @foreach ($all_students as $index)
             <li>
-                <a>{{$index->name}}</a>
+                <a>{{$index->name}}  : </a>
+                <a href="{{route('student.view', ['id' => $index->id_person] )}}">View Student</a>
+
             </li>
         @endforeach
         {{ $all_students->links() }}

@@ -21,10 +21,11 @@ Route::get('auth', function () {
 
 Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
 Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
-
+Route::get('students/show/{id}', 'StudentsController@studentPersonaView')->name('student.view');
 
 Route::post('employees/add', 'EmployeesController@addEmployee')->name('add.employee');
 Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
+Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
 
 

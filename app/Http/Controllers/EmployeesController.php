@@ -12,10 +12,6 @@ class EmployeesController extends Controller
     {
         $new = $request->input('employee_name');
         return redirect()->route('show.employees');
-
-
-
-
     }
 
     public function showEmployees()
@@ -27,6 +23,11 @@ class EmployeesController extends Controller
 
         $all_employees = DB::table('person')->paginate(8);;
         return view('employees', ['all_employees' => $all_employees]);
+    }
 
+    public function emploeePersonaView($id)
+    {
+        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();
+        return view('emploeePersona', ['emploeeView' => $emploeeView]);
     }
 }
