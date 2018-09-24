@@ -9,11 +9,16 @@ class StudentsController extends Controller
 {
     public function addStudent(Request $request)
     {
+        if ($request->isMethod('post')) {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $originalFileName = $request->file('image')->getClientOriginalName();
+                $file->move(public_path() . '/images', $originalFileName);
+            }
+        }
         $new = $request->input('student_name');
         return redirect()->route('ShowAllStudents');
-
 //        DB::table('person')->insert(['name'=> $request->input('student_name')]);
-
     }
 
     public function showStudents()
