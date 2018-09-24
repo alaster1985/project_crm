@@ -14,10 +14,10 @@ class CreateSkillPivotTableTable extends Migration
      */
     public function up()
     {
-        Schema::create('skill_pivot_table', function (Blueprint $table) {
+        Schema::create('skill_groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_skill')->unsigned();
-            $table->integer('id_person')->unsigned();
+            $table->integer('skill_id')->unsigned();
+            $table->integer('person_id')->unsigned();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

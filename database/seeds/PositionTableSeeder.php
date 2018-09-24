@@ -14,7 +14,7 @@ class PositionTableSeeder extends Seeder
     {
         $position = ['admin', 'PHP_developer', 'JS_developer', 'director', 'HR_manager', 'Sales', 'Project_Manager', 'Teacher'];
         foreach ($position as $value){
-            DB::table('position')->insert([
+            DB::table('positions')->insert([
                 'position' => $value,
             ]);
         }

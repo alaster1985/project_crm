@@ -14,8 +14,8 @@ class CreatePersonTable extends Migration
      */
     public function up()
     {
-        Schema::create('person', function (Blueprint $table) {
-            $table->increments('id_person');
+        Schema::create('persons', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name', 45);
             $table->string('address', 255);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));

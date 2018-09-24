@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
 
-class CreatePositionTable extends Migration
+class CreateEmploymentStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +13,11 @@ class CreatePositionTable extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
+        Schema::create('employment_students', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('position', 45);
+            $table->text('comment')->nullable();
+            $table->integer('student_id')->unsigned();
+            $table->integer('company_id')->unsigned();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -29,6 +30,6 @@ class CreatePositionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('position');
+        Schema::dropIfExists('employment_students');
     }
 }

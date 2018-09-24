@@ -12,19 +12,19 @@ class ContactPersonEntityTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contact_person_entity')->insert([
+        DB::table('contact_persons')->insert([
             'comment' => 'Рубаха-парень!',
-            'id_person' => '10',
-            'id_position' => '7',
-            'id_direction' => '3',
-            'id_company' => '1',
+            'person_id' => '10',
+            'position_id' => '7',
+            'direction_id' => '3',
+            'company_id' => '1',
         ]);
-        DB::table('contact_person_entity')->insert([
+        DB::table('contact_persons')->insert([
             'comment' => '88005553535 лучше позвонить чем у кого-то занимать',
-            'id_person' => '9',
-            'id_position' => '5',
-            'id_direction' => '3',
-            'id_company' => '2',
+            'person_id' => '9',
+            'position_id' => '5',
+            'direction_id' => '3',
+            'company_id' => '2',
         ]);
     }
 }

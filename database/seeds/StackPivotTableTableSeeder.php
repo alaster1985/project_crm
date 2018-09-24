@@ -14,17 +14,17 @@ class StackPivotTableTableSeeder extends Seeder
     {
         $stack1 = [1, 2, 3, 5];
         foreach ($stack1 as $value) {
-            DB::table('stack_pivot_table')->insert([
-                'id_stack' => $value,
-                'id_company' => '1',
+            DB::table('stack_groups')->insert([
+                'stack_id' => $value,
+                'company_id' => '1',
                 'comment' => 'какой-то коммент для компании №1 для стэка ' . $value,
             ]);
         }
         $stack2 = [1, 4, 5];
         foreach ($stack2 as $value) {
-            DB::table('stack_pivot_table')->insert([
-                'id_stack' => $value,
-                'id_company' => '2',
+            DB::table('stack_groups')->insert([
+                'stack_id' => $value,
+                'company_id' => '2',
                 'comment' => 'какой-то коммент для компании №2 для стэка ' . $value,
             ]);
         }

@@ -14,8 +14,8 @@ class CreateStackOfTechnologiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stack_of_technologies', function (Blueprint $table) {
-            $table->increments('id_stack');
+        Schema::create('stacks', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('stack_name', 45);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
