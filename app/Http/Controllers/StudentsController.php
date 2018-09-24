@@ -11,6 +11,7 @@ class StudentsController extends Controller
     {
         $new = $request->input('student_name');
         return redirect()->route('ShowAllStudents');
+        
 //        DB::table('person')->insert(['name'=> $request->input('student_name')]);
 
     }

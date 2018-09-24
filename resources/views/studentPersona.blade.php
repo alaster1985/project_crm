@@ -1,1 +1,2 @@
-<p>Student Name: {{$studentView->name}}</p>
+<p>Student Name : {{$studentView->name}}</p>
+<p>Contact information : </p>
