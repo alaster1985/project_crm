@@ -32,3 +32,6 @@ Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->nam
 //Route::get('test', function () {
 //    return view('test');
 //});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
