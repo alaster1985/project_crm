@@ -1,2 +1,5 @@
-<p>Student Name : {{$studentView->name}}</p>
-<p>Contact information : </p>
+        <a>{{$studentView->name}}  : </a>
+        <a>{{$studentView->contact}} </a>
+        <a>{{$studentView->communication_tool}} </a>
+
+

@@ -11,7 +11,7 @@ class StudentsController extends Controller
     {
         $new = $request->input('student_name');
         return redirect()->route('ShowAllStudents');
-        
+
 //        DB::table('person')->insert(['name'=> $request->input('student_name')]);
 
     }
@@ -29,7 +29,14 @@ class StudentsController extends Controller
 
     public function studentPersonaView($id)
     {
-        $studentView = DB::table('person')->where('id_person', '=', $id)->first();
+
+        $studentView = DB::table('contact_info')
+            ->leftJoin('person', 'contact_info.id_person', '=', 'person.id_person')
+            ->where('contact_info.id_person', '=', $id)
+            ->first();
         return view('studentPersona', ['studentView' => $studentView]);
+
+//        $studentView = DB::table('person')->where('id_person', '=', $id)->first();
+//        return view('studentPersona', ['studentView' => $studentView]);
     }
 }
