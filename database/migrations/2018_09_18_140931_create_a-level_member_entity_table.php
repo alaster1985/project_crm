@@ -14,12 +14,12 @@ class CreateALevelMemberEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create('alevel_member_entity', function (Blueprint $table) {
-            $table->increments('id_member');
-            $table->integer('id_person')->unsigned();
-            $table->integer('id_position')->nullable()->unsigned();
-            $table->integer('id_direction')->nullable()->unsigned();
-            $table->integer('id_company')->nullable()->unsigned();
+        Schema::create('alevel_members', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('person_id')->unsigned();
+            $table->integer('position_id')->nullable()->unsigned();
+            $table->integer('direction_id')->nullable()->unsigned();
+            $table->integer('company_id')->nullable()->unsigned();
             $table->text('comment')->nullable();
             $table->boolean('ASPT')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
