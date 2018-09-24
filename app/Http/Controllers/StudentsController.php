@@ -18,11 +18,6 @@ class StudentsController extends Controller
 
     public function showStudents()
     {
-//        $all_students = DB::table('students_entity')
-//            ->leftJoin('person', 'students_entity.id_person', '=', 'person.id_person')
-//            ->get();
-//        return view('students', ['all_students'=>$all_students]);
-
         $all_students = DB::table('person')->paginate(8);;
         return view('students', ['all_students' => $all_students]);
     }
