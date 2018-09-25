@@ -13,29 +13,23 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->name('started');
-
+})->name('index');
 
 Route::get('auth', function () {
     return view('auth');
 });
 
-Route::get('students', function () {
-    return view('students');
-})->name('stud');
+Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
+Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
+Route::get('students/show/{id}', 'StudentsController@studentPersonaView')->name('student.view');
 
-Route::post('students', 'Db_controller@add')->name('add_student');
-
-
-
-Route::get('students', 'Db_controller@show_students')->name('all_students');
-
-
-
-
-
-
+Route::post('employees/add', 'EmployeesController@addEmployee')->name('add.employee');
+Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
+Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
 //Route::get('test', function () {
 //    return view('test');
 //});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
