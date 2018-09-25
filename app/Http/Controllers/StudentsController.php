@@ -18,20 +18,20 @@ class StudentsController extends Controller
         }
         $new = $request->input('student_name');
         return redirect()->route('ShowAllStudents');
-//        DB::table('person')->insert(['name'=> $request->input('student_name')]);
+//        DB::table('persons')->insert(['name'=> $request->input('student_name')]);
     }
 
     public function showStudents()
     {
-        $all_students = DB::table('person')->paginate(8);;
+        $all_students = DB::table('persons')->paginate(8);
         return view('students', ['all_students' => $all_students]);
     }
 
     public function studentPersonaView($id)
     {
-        $studentView = DB::table('contact_info')
-            ->leftJoin('person', 'contact_info.id_person', '=', 'person.id_person')
-            ->where('contact_info.id_person', '=', $id)
+        $studentView = DB::table('contacts')
+            ->leftJoin('persons', 'contacts.person_id', '=', 'persons.id')
+            ->where('contacts.person_id', '=', $id)
             ->first();
         return view('studentPersona', ['studentView' => $studentView]);
 
