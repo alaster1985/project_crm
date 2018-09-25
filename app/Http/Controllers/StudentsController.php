@@ -29,7 +29,6 @@ class StudentsController extends Controller
 
     public function studentPersonaView($id)
     {
-
         $studentView = DB::table('contact_info')
             ->leftJoin('person', 'contact_info.id_person', '=', 'person.id_person')
             ->where('contact_info.id_person', '=', $id)

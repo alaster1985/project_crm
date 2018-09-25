@@ -31,33 +31,31 @@
         <p>Телефон студента</p>
         <p><input name="student_phone"></p>
 
-
-
         <div class="fileform">
             <div class="selectbutton">Выберите аватарку</div>
-            <input id="upload" type="file" name="image" />
+            <input id="upload" type="file" name="image"/>
         </div>
-    </br>
+        </br>
         <input type="submit" value="Add new student">
 
     </form>
 </div>
 
-
 <div class="col-md-2 col-sm-6 ">
 
     <ul>
-        @foreach ($all_students as $index)
-            <li>
-                <a>{{$index->name}}  : </a>
-                <a href="{{route('student.view', ['id' => $index->id_person] )}}">View Student</a>
+        @if ($all_students)
+            @foreach ($all_students as $index)
+                <li>
+                    <a>{{$index->name}} : </a>
+                    <a href="{{route('student.view', ['id' => $index->id_person] )}}">View Student</a>
 
-            </li>
-        @endforeach
-        {{ $all_students->links() }}
+                </li>
+            @endforeach
+            {{ $all_students->links() }}
+        @endif
     </ul>
 </div>
-
 
 </body>
 </html>

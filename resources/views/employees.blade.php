@@ -40,13 +40,13 @@
 
     <ul>
         @if ($all_employees)
-        @foreach ($all_employees as $index)
-            <li>
-                <a>{{$index->name}} :   </a>
-            <a href="{{route('employee.view', ['id' => $index->id_person] )}}">View Emploee</a>
-            </li>
-        @endforeach
-        {{ $all_employees->links() }}
+            @foreach ($all_employees as $index)
+                <li>
+                    <a>{{$index->name}} : </a>
+                    <a href="{{route('employee.view', ['id' => $index->id_person] )}}">View Emploee</a>
+                </li>
+            @endforeach
+            {{ $all_employees->links() }}
         @endif
     </ul>
 </div>

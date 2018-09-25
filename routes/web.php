@@ -27,8 +27,6 @@ Route::post('employees/add', 'EmployeesController@addEmployee')->name('add.emplo
 Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
 Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
-
-
 //Route::get('test', function () {
 //    return view('test');
 //});

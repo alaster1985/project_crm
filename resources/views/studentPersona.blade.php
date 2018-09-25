@@ -2,10 +2,10 @@
 
 
 <div id="imga">
-        <img src="/images/image.jpg" alt="текст" id="pic"/>
+    <img src="/images/image.jpg" alt="текст" id="pic"/>
 </div>
 
-<a>{{$studentView->name}}  : </a>
+<a>{{$studentView->name}} : </a>
 </br>
 <a>{{$studentView->contact}} </a>
 </br>
