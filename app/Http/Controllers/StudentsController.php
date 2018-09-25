@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ImageValidation;
 use Illuminate\Support\Facades\DB;
+
 
 class StudentsController extends Controller
 {
-    public function addStudent(Request $request)
+    public function addStudent(ImageValidation $request)
     {
         if ($request->isMethod('post')) {
             if ($request->hasFile('image')) {
