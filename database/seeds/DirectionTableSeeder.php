@@ -14,7 +14,7 @@ class DirectionTableSeeder extends Seeder
     {
         $direction = ['backend', 'frontend', 'fullStack', 'sales', 'PM', 'design'];
         foreach ($direction as $value){
-            DB::table('direction')->insert([
+            DB::table('directions')->insert([
                 'direction' => $value,
             ]);
         }

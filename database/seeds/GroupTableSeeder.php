@@ -12,19 +12,19 @@ class GroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('group')->insert([
+        DB::table('groups')->insert([
             'group_name' => 'predators',
             'start_date' => '2017-09-01',
             'finish_date' => '2018-03-01',
             'homecoming_date' => '2018-03-21',
-            'id_direction' => '1',
+            'direction_id' => '1',
         ]);
-        DB::table('group')->insert([
+        DB::table('groups')->insert([
             'group_name' => 'fish',
             'start_date' => '2018-09-01',
             'finish_date' => '2019-03-01',
             'homecoming_date' => '2019-03-21',
-            'id_direction' => '2',
+            'direction_id' => '2',
         ]);
     }
 }

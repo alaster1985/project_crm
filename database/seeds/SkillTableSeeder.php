@@ -14,7 +14,7 @@ class SkillTableSeeder extends Seeder
     {
         $skills = ['PHP', 'JS', 'Java', 'sales', 'Python', 'Ruby', 'HTML', 'CSS', 'SQL', 'linux', 'HR', 'management'];
         foreach ($skills as $value){
-            DB::table('skill')->insert([
+            DB::table('skills')->insert([
                 'skill_name' => $value,
             ]);
         }

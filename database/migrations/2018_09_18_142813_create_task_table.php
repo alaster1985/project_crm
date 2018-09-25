@@ -14,13 +14,13 @@ class CreateTaskTable extends Migration
      */
     public function up()
     {
-        Schema::create('task', function (Blueprint $table) {
-            $table->increments('id_task');
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('task_name', 45);
             $table->text('description');
             $table->dateTime('dead_line');
-            $table->integer('id_member_customer')->unsigned();
-            $table->integer('id_member_doer')->unsigned();
+            $table->integer('user_id_customer')->unsigned();
+            $table->integer('user_id_doer')->unsigned();
             $table->string('doers_report', 255)->default('executing');
             $table->boolean('task_completed')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));

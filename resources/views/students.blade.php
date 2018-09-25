@@ -15,7 +15,7 @@
     Use data in php by
     $request->session()->keep(['name', 'email', 'site', 'text_area']);
     -->
-    <form action="{{Route('add.student')}}" method="post">
+    <form action="{{Route('add.student')}}" method="post" enctype="multipart/form-data">
         @csrf
         <p>Добавление нового студента</p>
         <p>Имя студента</p>
@@ -30,23 +30,32 @@
         <p><input name="student_mail"></p>
         <p>Телефон студента</p>
         <p><input name="student_phone"></p>
+
+        <div class="fileform">
+            <div class="selectbutton">Выберите аватарку</div>
+            <input id="upload" type="file" name="image"/>
+        </div>
+        </br>
         <input type="submit" value="Add new student">
+
     </form>
 </div>
-
 
 <div class="col-md-2 col-sm-6 ">
 
     <ul>
-        @foreach ($all_students as $index)
-            <li>
-                <a>{{$index->name}}</a>
-            </li>
-        @endforeach
-        {{ $all_students->links() }}
+        @if ($all_students)
+            @foreach ($all_students as $index)
+                <li>
+                    <a>{{$index->name}} : </a>
+                    <a href="{{route('student.view', ['id' => $index->id_person] )}}">View Student</a>
+
+                </li>
+            @endforeach
+            {{ $all_students->links() }}
+        @endif
     </ul>
 </div>
-
 
 </body>
 </html>

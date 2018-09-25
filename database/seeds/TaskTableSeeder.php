@@ -12,30 +12,30 @@ class TaskTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('task')->insert([
+        DB::table('tasks')->insert([
             'task_name' => 'ticket1',
             'description' => 'выполнить первый тикет',
             'dead_line' => '2018-12-20',
-            'id_member_customer' => '12',
-            'id_member_doer' => '13',
+            'user_id_customer' => '2',
+            'user_id_doer' => '3',
             'doers_report' => 'тикет 1 выполнен',
             'task_completed' => '1',
         ]);
-        DB::table('task')->insert([
+        DB::table('tasks')->insert([
             'task_name' => 'ticket2',
             'description' => 'выполнить второй тикет',
             'dead_line' => '2018-11-29',
-            'id_member_customer' => '12',
-            'id_member_doer' => '14',
+            'user_id_customer' => '2',
+            'user_id_doer' => '4',
             'doers_report' => 'тикет 2 выполнен',
             'task_completed' => '1',
         ]);
-        DB::table('task')->insert([
+        DB::table('tasks')->insert([
             'task_name' => 'ticket3',
             'description' => 'выполнить третий тикет',
             'dead_line' => '2018-11-19',
-            'id_member_customer' => '15',
-            'id_member_doer' => '12',
+            'user_id_customer' => '5',
+            'user_id_doer' => '2',
         ]);
     }
 }

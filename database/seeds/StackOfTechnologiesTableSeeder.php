@@ -14,7 +14,7 @@ class StackOfTechnologiesTableSeeder extends Seeder
     {
         $stack = ['i_Shops', 'SQL_support', 'fullStack', 'sales', 'design'];
         foreach ($stack as $value){
-            DB::table('stack_of_technologies')->insert([
+            DB::table('stacks')->insert([
                 'stack_name' => $value,
             ]);
         }

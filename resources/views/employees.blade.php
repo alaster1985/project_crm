@@ -39,12 +39,15 @@
 <div class="col-md-2 col-sm-6 ">
 
     <ul>
-        @foreach ($all_employees as $index)
-            <li>
-                <a>{{$index->name}}</a>
-            </li>
-        @endforeach
-        {{ $all_employees->links() }}
+        @if ($all_employees)
+            @foreach ($all_employees as $index)
+                <li>
+                    <a>{{$index->name}} : </a>
+                    <a href="{{route('employee.view', ['id' => $index->id_person] )}}">View Emploee</a>
+                </li>
+            @endforeach
+            {{ $all_employees->links() }}
+        @endif
     </ul>
 </div>
 
