@@ -16,9 +16,7 @@ Route::middleware('auth')->group(function () {
         return view('welcome');
     })->name('index');
 
-    Route::get('auth', function () {
-        return view('auth');
-    });
+
     Route::post('addimage', 'Files@addImage')->name('add.image');
 
     Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
