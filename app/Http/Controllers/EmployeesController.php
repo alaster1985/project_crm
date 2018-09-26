@@ -21,15 +21,15 @@ class EmployeesController extends Controller
 //            ->get();
 //        return view('students', ['all_students'=>$all_students]);
 
-        $all_employees = DB::table('person')->paginate(8);;
+        $all_employees = DB::table('persons')->paginate(8);;
         return view('employees', ['all_employees' => $all_employees]);
     }
 
     public function emploeePersonaView($id)
     {
-        $emploeeView = DB::table('contact_info')
-            ->leftJoin('person', 'contact_info.id_person', '=', 'person.id_person')
-            ->where('contact_info.id_person', '=', $id)
+        $emploeeView = DB::table('contacts')
+            ->leftJoin('persons', 'contacts.person_id', '=', 'persons.id')
+            ->where('contacts.person_id', '=', $id)
             ->first();
         return view('emploeePersona', ['emploeeView' => $emploeeView]);
 //        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();
