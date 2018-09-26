@@ -27,6 +27,9 @@
         <div class="row">
             <button class="btn-block"><a href="{{route('index')}}">Партнеры</a></button>
         </div>
+        <div class="row">
+            <button class="btn-block"><a href="{{route('show.groups')}}">Группы А-левел</a></button>
+        </div>
     </div>
 
     <div class="col-md-2 col-sm-6 ">
