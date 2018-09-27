@@ -1,4 +1,4 @@
-#pic{
+#pic {
     width: 100%;
 }
 
@@ -7,5 +7,22 @@
     width: 300px;
 
 }
+
+#navbar {
+    height: 60px;
+    display: block;
+    position: fixed;
+}
+
+body {
+    padding-top: 70px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 0px;
+    }
+}
+
 
 
