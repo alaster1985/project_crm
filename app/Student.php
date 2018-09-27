@@ -16,9 +16,7 @@ class Student extends Model
     protected $fillable = [
         'learning_status',
         'employment_status',
-        'company_id',
-        'person_id',
-        'group_id',
+        'group_id' => 'integer',
     ];
 
     public function getQueueableRelations()

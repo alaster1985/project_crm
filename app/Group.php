@@ -16,9 +16,9 @@ class Group extends Model
     protected $fillable = [
         'group_name',
         'start_date' => 'date',
-        'finish_date',
-        'homecoming_date',
-        'direction_id',
+        'finish_date' => 'date',
+        'homecoming_date' => 'date',
+        'direction_id' => 'integer',
     ];
 
     public function getQueueableRelations()
