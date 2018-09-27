@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TextForma extends FormRequest
+class GroupAddFormaValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,9 @@ class TextForma extends FormRequest
     {
         return [
             'group_name' => [
-                'required', 'required|unique:posts|max:255',
+                'required', 'required|max:30',
             ],
         ];
     }
 }
+
