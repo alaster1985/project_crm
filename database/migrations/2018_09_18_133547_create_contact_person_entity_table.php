@@ -17,7 +17,7 @@ class CreateContactPersonEntityTable extends Migration
         Schema::create('contact_persons', function (Blueprint $table) {
             $table->increments('id');
             $table->text('comment')->nullable();
-            $table->integer('person_id')->nullable()->unsigned();
+            $table->integer('person_id')->unsigned();
             $table->integer('position_id')->nullable()->unsigned();
             $table->integer('direction_id')->nullable()->unsigned();
             $table->integer('company_id')->nullable()->unsigned();
