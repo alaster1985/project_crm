@@ -1,4 +1,8 @@
+
+
 <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
+
+
 
 
 <div id="imga">
@@ -11,4 +15,7 @@
 </br>
 <a>{{$emploeeView->communication_tool}} </a>
 </br>
+
+
+
 

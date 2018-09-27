@@ -11,10 +11,7 @@
 <body>
 
 <div class="col-md-2 col-sm-6 ">
-    <!-- form adding students to DB.
-    Use data in php by
-    $request->session()->keep(['name', 'email', 'site', 'text_area']);
-    -->
+
     <form action="{{Route('add.employee')}}" method="post">
         @csrf
         <p>Добавление нового сотрудника</p>
@@ -51,6 +48,34 @@
     </ul>
 </div>
 
+
+<div class="col-md-2 col-sm-6 ">
+    <ul>
+        @if ($directions)
+            @foreach ($directions as $index)
+                <li>
+                    <a>{{$index->direction}} : </a>
+                    {{--<a href="{{route('employee.view', ['id' => $index->id] )}}">View Emploee's page</a>--}}
+                </li>
+            @endforeach
+            {{ $directions->links() }}
+        @endif
+    </ul>
+</div>
+<div class="col-md-2 col-sm-6 ">
+
+    <ul>
+        @if ($groups)
+            @foreach ($groups as $index)
+                <li>
+                    <a>{{$index->group_name}} : </a>
+                    {{--<a href="{{route('employee.view', ['id' => $index->id] )}}">View Emploee's page</a>--}}
+                </li>
+            @endforeach
+            {{ $groups->links() }}
+        @endif
+    </ul>
+</div>
 
 </body>
 </html>
