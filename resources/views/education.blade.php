@@ -4,11 +4,11 @@
     <p>Название группы</p>
     <p><input name="group_name"></p>
     <p>Дата старта</p>
-    <p><input name="start_date"></p>
+    <p><input type="date" class="form-control" placeholder="Дата" name="start_date" required></p>
     <p>Дата окончиная</p>
-    <p><input name="finish_date"></p>
+    <p><input type="date" class="form-control" placeholder="Дата" name="finish_date" required></p>
     <p>Дата защиты</p>
-    <p><input name="homecoming_date"></p>
+    <p><input type="date" class="form-control" placeholder="Дата" name="homecoming_date" required></p>
     <p>Направление</p>
     <p><input name="direction_id"></p>
 
