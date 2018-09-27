@@ -28,8 +28,10 @@ class ImageValidation extends FormRequest
         return [
                 'image' => [
                     'required',
-                    Rule::dimensions()->maxWidth(2000)->maxHeight(2000)->ratio(3 / 2),
+                    Rule::dimensions()->maxWidth(2000)->maxHeight(2000),
                 ],
         ];
     }
 }
+
+//->ratio(2 / 3)
