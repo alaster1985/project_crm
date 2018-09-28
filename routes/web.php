@@ -39,3 +39,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
+
+//JS
+
+
+Route::get('employees/directions', 'Dbrequest@direction');
+
