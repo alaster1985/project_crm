@@ -34,36 +34,22 @@ function fun(extData) {
     console.log(extData)
 		for (let key in extData) {
             var ll = new Option(extData[key].direction, `${key}`);
-            if (key != "") direction.appendChild(ll)
+            direction.appendChild(ll)
         }
 }
 
-// // var ex = JSON.parse(this.responseText)
-// // 			var extData = {};
-// // 			Object.keys(ex).sort().forEach(function(key) {extData[key] = ex[key]})
-//
-//
-// // ИЗМЕНИТЬ НАПРАВЛЕНИЕ ЗАПРОСА!!!
-//  httpGet('/js/temp.php')
-//     .then(response =>  fun(JSON.parse(response)))
-//     .then(fun(extData))
-// function fun(extData) {
-// 	console.log(extData)
-// 		for (let key in extData) {
-// 			var ll = new Option(`${key}`, `${key}`);
-// 			if (key != "") direction.appendChild(ll)
-// 			}
-//
-// 	direction.onchange = function() {
-// 		var directionSelected = direction.options[direction.selectedIndex].value
-//         groupSelector.options.length = 0;
-// 		extData[directionSelected].sort()
-// 			for (var key = 0 ; key <  extData[directionSelected].length; key++) {
-// 				var k = extData[directionSelected][key]
-// 				groupElement = new Option(`${k}`, `${k}`);
-// 				if (k != "") groupSelector.appendChild(groupElement)
-// 			}
-// 	}
+	direction.onchange = function() {
+
+
+		var directionSelected = direction.options[direction.selectedIndex].value
+        groupSelector.options.length = 0;
+//		extData[directionSelected].sort()
+			for (var key = 0 ; key <  extData[directionSelected].length; key++) {
+				var k = extData[directionSelected][key]
+				groupElement = new Option(`${k}`, `${k}`);
+				if (k != "") groupSelector.appendChild(groupElement)
+			}
+	}
 //
 //
 //  	groupSelector.onchange = function() {
