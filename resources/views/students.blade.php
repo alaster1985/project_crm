@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+@extends('layouts.nav')
+@section('title', 'Студенты A-Level')
 
 
-    <title>Студенты A-Level</title>
-</head>
-<body>
-<div class="navbar navbar-default navbar-fixed-top">
-    <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
-    <ul class="nav nav-pills nav-justified ">
-        <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
-            <img style="max-width:100px; margin-top: -7px;"
-                 src="/images/logo.png">
-        </a>
-        <li class="divider-vertioal"></li>
-        <li><a href="{{route('ShowAllStudents')}}">Студенты</a></li>
-        <li><a href="{{route('show.employees')}}">Сотрудники</a></li>
-        <li><a href="{{route('index')}}">Партнеры</a></li>
-        <li><a href="{{route('show.groups')}}">Группы А-левел</a></li>
-        <li class="divider-vertioal"></li>
-    </ul>
-</div>
+
 <div class="container-fluid">
     {{--  Это бутофория
       В этом месте будет меню-аккордион по направлениям и группам--}}
@@ -200,14 +174,6 @@
 
 
 </div>
-</body>
-<footer class="page-footer font-small blue">
 
-    <!-- указать наши данные -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
+@extends('layouts.footer')
 
-</footer>
-</html>

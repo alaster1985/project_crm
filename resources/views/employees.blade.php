@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <title>Сотрудники A-Level</title>
-</head>
-<body>
-
+@extends('layouts.nav')
+@section('title', 'Сотрудники A-Level')
 <div class="col-md-2 col-sm-6 ">
     <!-- form adding students to DB.
     Use data in php by
@@ -50,7 +40,4 @@
         @endif
     </ul>
 </div>
-
-
-</body>
-</html>
+@extends('layouts.footer')
