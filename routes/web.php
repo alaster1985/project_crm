@@ -9,16 +9,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::middleware('auth')->group(function () {
 
-    Route::get('/auth', function () {
+    Route::get('auth', function () {
         return view('auth');
     })->name('index');
 
     Route::get('/', function () {
         return view('welcome');
     })->name('index');
+
     Route::post('addimage', 'Files@addImage')->name('add.image');
     Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
     Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
@@ -29,11 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
-
 });
 //Route::get('test', function () {
 //    return view('test');
 //});
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
