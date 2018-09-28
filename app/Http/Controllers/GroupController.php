@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GroupAddFormaValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
-    public function addGroup(Request $request)
+    public function addGroup(GroupAddFormaValidation $request)
     {
         DB::table('groups')
             ->insert([
