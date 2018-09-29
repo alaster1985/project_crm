@@ -81,9 +81,12 @@
                 @if ($all_students)
                     @foreach ($all_students as $index)
                         <li>
-                            <a>{{$index->name}} : </a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">View Student's page</a>
-
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->address}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
                         </li>
                     @endforeach
                     {{ $all_students->links() }}
