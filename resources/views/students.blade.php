@@ -28,61 +28,74 @@
             <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
         </ul>
     </div>
-
     <div class="col-md-6 col-sm-6 ">
-        <table class="table">
-            <thead>
+        <h3> Список студентов </h3>
+        <table class="table tsble-spred">
             <tr>
-                <th>#</th>
-                <th>Фамилия</th>
+                <th>ФИО</th>
                 <th>Имя</th>
                 <th>Группа</th>
                 <th>Статус обучения</th>
                 <th>Статус трудоустройства</th>
                 <th>Коментарий</th>
             </tr>
+            @if ($all_students)
+            @foreach ($all_students as $index)
+                <tr>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                    </td>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->address}}</a>
+                    </td>
+                </tr>
+            @endforeach
+                {{ $all_students->links() }}
+            @endif
+        </table>
+
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Office
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Age
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Start date
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Salary
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Изменить</td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Изменить</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Изменить</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Изменить</td>
-            </tr>
-
+                @foreach ($all_students as $index)
+                    <tr>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                        </td>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->address}}</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
+
         </table>
-        <div>
+
+
+       {{-- <div>
 
             <ul>
                 @if ($all_students)
                     @foreach ($all_students as $index)
                         <li>
-                            <a>{{$index->name}} : </a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">View Student's page</a>
+                            --}}{{--<a>{{$index->name}} : </a>--}}{{--
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->address}}</a>
 
                         </li>
                     @endforeach
@@ -91,7 +104,18 @@
             </ul>
 
 
-        </div>
+        </div>--}}
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 
@@ -174,6 +198,7 @@
 
 
 </div>
+
 
 @extends('layouts.footer')
 
