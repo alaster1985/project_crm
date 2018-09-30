@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
 
 //JS
 
-
+Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
+Route::get('employees/students', 'Dbrequest@students');
 
