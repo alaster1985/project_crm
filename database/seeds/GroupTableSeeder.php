@@ -26,5 +26,12 @@ class GroupTableSeeder extends Seeder
             'homecoming_date' => '2019-03-21',
             'direction_id' => '2',
         ]);
+        DB::table('groups')->insert([
+            'group_name' => 'riba',
+            'start_date' => '2018-09-01',
+            'finish_date' => '2019-03-01',
+            'homecoming_date' => '2019-03-21',
+            'direction_id' => '2',
+        ]);
     }
 }
