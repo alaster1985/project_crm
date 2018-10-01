@@ -1,5 +1,5 @@
 @extends('layouts.nav')
-@section('title', 'Информация о студенте')
+@section('title', 'Информация о компании')
 
 <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
 

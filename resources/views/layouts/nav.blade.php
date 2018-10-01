@@ -25,6 +25,7 @@
         <li><a href="{{route('show.employees')}}">Сотрудники</a></li>
         <li><a href="{{route('ShowCompanies')}}">Партнеры</a></li>
         <li><a href="{{route('show.groups')}}">Группы А-левел</a></li>
+        <li><a href="{{route('showTasks')}}">Задания</a></li>
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>
