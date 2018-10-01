@@ -21,8 +21,20 @@ class EmployeesController extends Controller
 //            ->get();
 //        return view('students', ['all_students'=>$all_students]);
 
+
         $all_employees = DB::table('persons')->paginate(8);;
-        return view('employees', ['all_employees' => $all_employees]);
+//        return view('employees', ['all_employees' => $all_employees]);
+
+
+
+        $groups = DB::table('groups')->paginate(8);;
+        $directions = DB::table('directions')->paginate(8);;
+        return view('employees', ['all_employees' => $all_employees,
+            'directions' => $directions,
+            'groups' => $groups,]);
+
+
+
     }
 
     public function emploeePersonaView($id)
@@ -35,4 +47,7 @@ class EmployeesController extends Controller
 //        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();
 //        return view('emploeePersona', ['emploeeView' => $emploeeView]);
     }
+
+
+
 }
