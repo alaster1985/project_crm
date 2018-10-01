@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Twilio\Rest\Client;
-use Twilio\Jwt\ClientToken;
 
 class SmsController extends Controller
 {
