@@ -31,23 +31,28 @@ Route::middleware('auth')->group(function () {
     Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
     Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
+    Route::get('companies', 'CompaniesController@showCompanies')->name('ShowCompanies');
+    Route::get('companies/show/{id}', 'CompaniesController@companyPersonalView')->name('company.view');
+
     Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
+
+    Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
+
+    Route::get('addstudent', function () {
+        return view('addstudent');
+    })->name('addstud');
+    Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
+
+//JS
+
+    Route::get('employees/groups', 'Dbrequest@groups');
+    Route::get('employees/directions', 'Dbrequest@direction');
+    Route::get('employees/students', 'Dbrequest@students');
+
 });
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
-
-Route::get('addstudent', function () {
-    return view('addstudent');
-})->name('addstud');
-Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
-
-//JS
-
-Route::get('employees/groups', 'Dbrequest@groups');
-Route::get('employees/directions', 'Dbrequest@direction');
-Route::get('employees/students', 'Dbrequest@students');
 
