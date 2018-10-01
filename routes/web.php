@@ -36,13 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
 });
 
-//Route::get('test', function () {
-//    return view('test');
-//});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
 
+Route::get('addstudent', function () {
+    return view('addstudent');
+});
+Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
 //JS
 

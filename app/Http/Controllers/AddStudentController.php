@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class AddStudentController extends Controller
 {
-    public function addPerson(Request $request)
+    public function addStudent(Request $request)
     {
         DB::transaction(function () use ($request) {
             $lastPersonId = DB::table('persons')
@@ -31,7 +31,7 @@ class AddStudentController extends Controller
                     'member_id' => $request->input('member_id'),
                     'company_id' => $request->input('company_id'),
                     'position_id' => $request->input('position_id'),
-                    'CV' => $request->input('basename($_FILES["file"]["name"])'),
+                    'CV' => basename($_FILES["file"]["name"]),
                     'comment' => $request->input('student_comment'),
                 ]);
             DB::table('contacts')
