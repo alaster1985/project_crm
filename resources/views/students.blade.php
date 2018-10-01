@@ -2,7 +2,6 @@
 @section('title', 'Студенты A-Level')
 
 
-
 <div class="container-fluid">
     {{--  Это бутофория
       В этом месте будет меню-аккордион по направлениям и группам--}}
@@ -147,35 +146,13 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <form action="{{Route('add.student')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <p>Добавление нового студента</p>
-                <p>Имя студента</p>
-                <p><input name="student_name"></p>
-                <p>Фамалия студента</p>
-                <p><input name="student_surname"></p>
-                <p>Дата рождения студента</p>
-                <p><input name="student_birth"></p>
-                <p>Адрес студента</p>
-                <p><input name="student_adress"></p>
-                <p>E-mail студента</p>
-                <p><input name="student_mail"></p>
-                <p>Телефон студента</p>
-                <p><input name="student_phone"></p>
-                </br>
+            <form action="{{Route('addstud')}}">
                 <input type="submit" value="Add new student">
             </form>
-
-
         </div>
-
-
     </div>
-
-
 </div>
 
 @extends('layouts.footer')
