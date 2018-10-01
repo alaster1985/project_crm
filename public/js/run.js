@@ -1,6 +1,8 @@
 var groupSelector = document.getElementById("groups")
 var direction = document.getElementById("direction")  //Формировка Селекта снаправлениями
 var div = document.getElementById("ext")
+var searchfield = document.getElementById("search")
+var findResult = document.getElementById("findresult")
 var extData = {}
 
 function httpGet(url) {
@@ -26,6 +28,35 @@ function fun(extData) {
         direction.appendChild(ll)
     }
 }
+
+function jsonPost(url, data) {
+    return new Promise((resolve, reject) => {
+        var x = new XMLHttpRequest();
+        x.open("POST", url, true);
+        x.send(JSON.stringify(data))
+        x.onreadystatechange = () => {
+            if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
+                resolve(JSON.parse(x.responseText))
+            }
+        }
+    })
+}
+
+
+searchfield.addEventListener("keyup", function addelement() {
+        console.log(searchfield.value)
+    
+}
+)
+
+
+
+// searchfield.addEventListener("click", addelement,false)
+// function addelement() {
+//     console.log(searchfield.input.value)
+// }
+
+
 
 direction.onchange = function () {
     var directionSelected = direction.options[direction.selectedIndex].value
