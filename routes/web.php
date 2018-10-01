@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('addimage', 'Files@addImage')->name('add.image');
 
-    Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
+//    Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
     Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
     Route::get('students/show/{id}', 'StudentsController@studentPersonaView')->name('student.view');
 
@@ -42,7 +42,7 @@ Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
 
 Route::get('addstudent', function () {
     return view('addstudent');
-});
+})->name('addstud');
 Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
 //JS
