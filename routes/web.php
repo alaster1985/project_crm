@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('companies', 'CompaniesController@showCompanies')->name('ShowCompanies');
     Route::get('companies/show/{id}', 'CompaniesController@companyPersonalView')->name('company.view');
 
+    Route::get('tasks', 'TasksController@showTasks')->name('showTasks');
+    Route::get('tasks/show/{id}', 'TasksController@tasksView')->name('tasks.view');
+
     Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
