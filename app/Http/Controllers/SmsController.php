@@ -1,33 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Twilio\Rest\Client;
 
 class SmsController extends Controller
 {
     public function sendSms()
     {
-        $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
-        $authToken  = config('app.twilio')['TWILIO_AUTH_TOKEN'];
-        $client = new Client($accountSid, $authToken);
-        try
-        {
-            // Use the client to do fun stuff like send text messages!
-            $client->messages->create(
-            // the number you'd like to send the message to
-                "+380955702380",
-                array(
-                    // A Twilio phone number you purchased at twilio.com/console
+        if (isset($_POST['mobile']) && isset($_POST['msg'])) {
+            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
+            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
+
+            $client = new Client($accountSid, $authToken);
+            $message = $client->messages->create(
+                $_POST['mobile'], array(
                     'from' => '+18178138897',
-                    // the body of the text message you'd like to send
-                    'body' => 'Наконец-то заработало,блять!'
+                    'body' => $_POST['msg']
                 )
             );
+
+            if ($message->sid) {
+                echo "Message sent!";
+            }
         }
-        catch (Exception $e)
-        {
-            echo "Error: " . $e->getMessage();
-        }
+    }
+    public function index()
+    {
+        return view('sms');
     }
 }

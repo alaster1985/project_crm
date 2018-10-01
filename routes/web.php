@@ -38,11 +38,14 @@ Route::middleware('auth')->group(function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
+
+Route::get('/sms', 'SmsController@index')->name('index');
+Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
+
+
 
 Route::get('addstudent', function () {
-    return view('addstudent');
-})->name('addstud');
+    return view('addstudent');})->name('addstud');
 Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
 //JS
@@ -50,4 +53,6 @@ Route::post('student/add', 'AddStudentController@addStudent')->name('add.student
 Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
+
+
 
