@@ -12,6 +12,10 @@
 */
 Route::middleware('auth')->group(function () {
 
+    Route::get('auth', function () {
+        return view('auth');
+    })->name('index');
+
     Route::get('/', function () {
         return view('welcome');
     })->name('index');
@@ -35,9 +39,9 @@ Route::middleware('auth')->group(function () {
 //Route::get('test', function () {
 //    return view('test');
 //});
-    Auth::routes();
-
-    Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
 
 
 //JS

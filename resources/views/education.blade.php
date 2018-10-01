@@ -1,3 +1,5 @@
+@extends('layouts.nav')
+@section('title', 'Группы A-Level')
 <form action="{{Route('add.group')}}" method="post" enctype="multipart/form-data">
     @csrf
     <p>Добавление новой группы</p>
@@ -31,3 +33,4 @@
     @endif
 </ul>
 </div>
+@extends('layouts.footer')

@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <title>Сотрудники A-Level</title>
-</head>
-<body>
-
+@extends('layouts.nav')
+@section('title', 'Сотрудники A-Level')
 <div class="col-md-2 col-sm-6 ">
-
+    <!-- form adding students to DB.
+    Use data in php by
+    $request->session()->keep(['name', 'email', 'site', 'text_area']);
+    -->
     <form action="{{Route('add.employee')}}" method="post">
         @csrf
         <p>Добавление нового сотрудника</p>
@@ -47,35 +40,4 @@
         @endif
     </ul>
 </div>
-
-
-<div class="col-md-2 col-sm-6 ">
-    <ul>
-        @if ($directions)
-            @foreach ($directions as $index)
-                <li>
-                    <a>{{$index->direction}} : </a>
-                    {{--<a href="{{route('employee.view', ['id' => $index->id] )}}">View Emploee's page</a>--}}
-                </li>
-            @endforeach
-            {{ $directions->links() }}
-        @endif
-    </ul>
-</div>
-<div class="col-md-2 col-sm-6 ">
-
-    <ul>
-        @if ($groups)
-            @foreach ($groups as $index)
-                <li>
-                    <a>{{$index->group_name}} : </a>
-                    {{--<a href="{{route('employee.view', ['id' => $index->id] )}}">View Emploee's page</a>--}}
-                </li>
-            @endforeach
-            {{ $groups->links() }}
-        @endif
-    </ul>
-</div>
-
-</body>
-</html>
+@extends('layouts.footer')
