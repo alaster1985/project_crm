@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Группы A-Level')
+<div class="container-fluid">
+    <div class="col-md-2 col-sm-6 ">
 <form action="{{Route('add.group')}}" method="post" enctype="multipart/form-data">
     @csrf
     <p>Добавление новой группы</p>
@@ -19,8 +21,8 @@
 </form>
 </br>
 </br>
-
-<div>
+    </div>
+    <div class="col-md-8 col-sm-6 ">
 <ul>
     @if ($all_groups)
         @foreach ($all_groups as $index)
@@ -34,3 +36,7 @@
 </ul>
 </div>
 @extends('layouts.footer')
+</div>
+<div class="col-md-2 col-sm-6 ">
+</div>
+</div>
