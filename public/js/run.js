@@ -2,7 +2,7 @@ var groupSelector = document.getElementById("groups")
 var direction = document.getElementById("direction")  //Формировка Селекта снаправлениями
 var div = document.getElementById("ext")
 var searchfield = document.getElementById("search")
-var findResult = document.getElementById("findresult")
+var findResult = document.getElementById("findResult")
 var extData = {}
 
 function httpGet(url) {
@@ -44,17 +44,25 @@ function jsonPost(url, data) {
 
 
 searchfield.addEventListener("keyup", function addelement() {
+    if (searchfield.value != "") {
+        document.getElementById('findResult').innerHTML = ''
+        httpGet('http://public/employees/findstudents')
+//        jsonPost('http://public/employees/findstudents', searchfield.value)
+            .then(response => fun(JSON.parse(response)))
+            .then(fun(extData))
+
+        function fun(extData) {
+            for (var gr = 0; gr < extData.length; gr++) {
+                    var u = document.createElement('a');
+                     u.setAttribute('href', extData[gr]['person_id']);
+                     u.innerHTML = extData[gr]['name'];
+                     findResult.appendChild(u)
+                     findResult.appendChild(document.createElement('br'))
+                }
+        }
         console.log(searchfield.value)
-    
-}
-)
-
-
-
-// searchfield.addEventListener("click", addelement,false)
-// function addelement() {
-//     console.log(searchfield.input.value)
-// }
+    }
+});
 
 
 

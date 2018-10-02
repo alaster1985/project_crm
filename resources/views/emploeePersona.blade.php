@@ -1,11 +1,9 @@
-@extends('layouts.nav')
 
+@extends('layouts.nav')
+@csrf
 <div class="col-md-3 col-sm-8 ">
 
 <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
-
-
-
 
 <div id="imga">
     <img src="/images/image.jpg" alt="текст" id="pic"/>
@@ -38,10 +36,10 @@
 </div>
 
 <div class="col-md-2 col-sm-6 ">
-<div id="findResult">
-</div>
 
 <input type="search" name="search" id="search" placeholder="Поиск по сайту">
+    <div id="findResult">
+    </div>
 
 
 </div>
