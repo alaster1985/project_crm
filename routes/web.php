@@ -65,7 +65,7 @@ Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
 
-});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
