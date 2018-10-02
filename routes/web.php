@@ -45,6 +45,11 @@ Route::get('addstudent', function () {
 })->name('addstud');
 Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
+Route::get('addcompany', function () {
+    return view('addcompany');
+})->name('addcomp');
+Route::post('company/add', 'AddCompanyController@addCompany')->name('add.company');
+
 //JS
 
 Route::get('employees/groups', 'Dbrequest@groups');
