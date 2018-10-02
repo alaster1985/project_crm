@@ -27,73 +27,53 @@
             <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
         </ul>
     </div>
-
-    <div class="col-md-6 col-sm-6 ">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Фамилия</th>
-                <th>Имя</th>
-                <th>Группа</th>
-                <th>Статус обучения</th>
-                <th>Статус трудоустройства</th>
-                <th>Коментарий</th>
+    <div class="col-md-8 col-sm-6 ">
+        <h4> Список студентов </h4>
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">ФИО
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Группа
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Статус обучения
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Статус трудоустройства
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
+            <th class="th-sm">Комментарий
+                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+            </th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Изменить</td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Изменить</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Изменить</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Изменить</td>
-            </tr>
-
+            @if ($all_students)
+            @foreach ($all_students as $index)
+                <tr>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                    </td>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
+                    </td>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
+                    </td>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
+                    </td>
+                    <td>
+                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
+                    </td>
+                </tr>
+            @endforeach
+            {{ $all_students->links() }}
+            @endif
             </tbody>
         </table>
-        <div>
-
-            <ul>
-                @if ($all_students)
-                    @foreach ($all_students as $index)
-                        <li>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->address}}</a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
-                        </li>
-                    @endforeach
-                    {{ $all_students->links() }}
-                @endif
-            </ul>
-
-
-        </div>
     </div>
 
 
@@ -154,6 +134,7 @@
         </div>
     </div>
 </div>
+
 
 @extends('layouts.footer')
 
