@@ -1,6 +1,10 @@
 
 @extends('layouts.nav')
 @csrf
+
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
 <div class="col-md-3 col-sm-8 ">
 
 <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>

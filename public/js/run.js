@@ -31,12 +31,17 @@ function fun(extData) {
 
 function jsonPost(url, data) {
     return new Promise((resolve, reject) => {
-        var x = new XMLHttpRequest();
+        var x = new XMLHttpRequest(),
+        token = document.querySelector('meta[name="csrf-token"]').content;
+
         x.open("POST", url, true);
+        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        x.setRequestHeader('X-CSRF-TOKEN', token);
         x.send(JSON.stringify(data))
+//        x.send(data)
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
-                resolve(JSON.parse(x.responseText))
+                resolve(x.responseText)
             }
         }
     })
@@ -46,12 +51,13 @@ function jsonPost(url, data) {
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {
         document.getElementById('findResult').innerHTML = ''
-        httpGet('http://public/employees/findstudents')
-//        jsonPost('http://public/employees/findstudents', searchfield.value)
+//        httpGet('http://public/employees/findstudents')
+        jsonPost('http://public/employees/findstudents', searchfield.value)
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
 
         function fun(extData) {
+            console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                     var u = document.createElement('a');
                      u.setAttribute('href', extData[gr]['person_id']);
@@ -60,7 +66,7 @@ searchfield.addEventListener("keyup", function addelement() {
                      findResult.appendChild(document.createElement('br'))
                 }
         }
-        console.log(searchfield.value)
+//        console.log(searchfield.value)
     }
 });
 
