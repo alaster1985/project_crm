@@ -9,7 +9,8 @@
     <p>Адрес студента</p>
     <p><input name="person_address"></p>
     <p>Группа</p>
-    <p><input name="group_id"></p>
+    <select id="groups" name="group_id"></select>
+    <script src="/js/run2.js"></script>
     <p>Статус обучения</p>
     <select name="learning_status">
         <option value="learning">learning</option>
@@ -47,4 +48,8 @@
     </br>
     <input type="submit" value="Add new student">
 </form>
+
+
+
+
 @extends('layouts.footer')
