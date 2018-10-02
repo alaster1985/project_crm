@@ -1,9 +1,13 @@
 
+@extends('layouts.nav')
+@csrf
+
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
+<div class="col-md-3 col-sm-8 ">
 
 <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
-
-
-
 
 <div id="imga">
     <img src="/images/image.jpg" alt="текст" id="pic"/>
@@ -28,7 +32,19 @@
 </select>
 <!--</FORM>-->
 <div id="ext">
-    <div>
+    </div>
+
+{{------------------------------------------}}
 
 
-        <script src="/js/run.js"></script>
+</div>
+
+<div class="col-md-2 col-sm-6 ">
+
+<input type="search" name="search" id="search" placeholder="Поиск по сайту">
+    <div id="findResult">
+    </div>
+
+
+</div>
+<script src="/js/run.js"></script>
