@@ -42,6 +42,7 @@ function jsonPost(url, data) {
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
                 resolve(x.responseText)
+                console.log(x.responseText)
             }
         }
     })
@@ -57,7 +58,7 @@ searchfield.addEventListener("keyup", function addelement() {
             .then(fun(extData))
 
         function fun(extData) {
-            console.log(extData)
+ //           console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                     var u = document.createElement('a');
                      u.setAttribute('href', extData[gr]['person_id']);
