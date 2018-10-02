@@ -32,8 +32,13 @@
         @if ($all_employees)
             @foreach ($all_employees as $index)
                 <li>
-                    <a>{{$index->name}} : </a>
-                    <a href="{{route('employee.view', ['id' => $index->id] )}}">View Emploee's page</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->personsAddress}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->position}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->direction}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->company_name}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->ASPT}}</a>
+                    <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->alevelcomment}}</a>
                 </li>
             @endforeach
             {{ $all_employees->links() }}

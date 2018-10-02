@@ -16,13 +16,28 @@ class EmployeesController extends Controller
 
     public function showEmployees()
     {
-//        $all_students = DB::table('students_entity')
-//            ->leftJoin('person', 'students_entity.id_person', '=', 'person.id_person')
-//            ->get();
-//        return view('students', ['all_students'=>$all_students]);
 
-        $all_employees = DB::table('persons')->paginate(8);;
+        $all_employees = DB::table('persons')
+            ->select('persons.id','persons.name','persons.address as personsAddress','positions.position','directions.direction','it_companies.company_name','alevel_members.ASPT','alevel_members.comment as alevelcomment')
+            ->join('alevel_members', 'alevel_members.id', '=', 'persons.id')
+            ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
+            ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
+            ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')
+            ->paginate(8);
+
         return view('employees', ['all_employees' => $all_employees]);
+/*
+        $all_employees = DB::table('persons')->paginate(8);;
+//        return view('employees', ['all_employees' => $all_employees]);
+
+        $groups = DB::table('groups')->paginate(8);;
+        $directions = DB::table('directions')->paginate(8);;
+        return view('employees', ['all_employees' => $all_employees,
+            'directions' => $directions,
+            'groups' => $groups,]);
+*/
+
+
     }
 
     public function emploeePersonaView($id)
@@ -35,4 +50,7 @@ class EmployeesController extends Controller
 //        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();
 //        return view('emploeePersona', ['emploeeView' => $emploeeView]);
     }
+
+
+
 }
