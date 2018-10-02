@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Twilio\Rest\Client;
+require  'autoload.php';
 
 class SmsController extends Controller
 {
@@ -24,6 +25,7 @@ class SmsController extends Controller
             }
         }
     }
+
     public function index()
     {
         return view('sms');
