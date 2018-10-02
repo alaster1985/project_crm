@@ -31,19 +31,22 @@ Route::middleware('auth')->group(function () {
     Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
     Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
+    Route::get('companies', 'CompaniesController@showCompanies')->name('ShowCompanies');
+    Route::get('companies/show/{id}', 'CompaniesController@companyPersonalView')->name('company.view');
+
+    Route::get('tasks', 'TasksController@showTasks')->name('showTasks');
+    Route::get('tasks/show/{id}', 'TasksController@tasksView')->name('tasks.view');
+
     Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
-});
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
+    Route::get('/SMS', 'SmsController@sendSms')->name('SMS');
 
-Route::get('addstudent', function () {
-    return view('addstudent');
-})->name('addstud');
-Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
+    Route::get('addstudent', function () {
+        return view('addstudent');
+    })->name('addstud');
+    Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
 Route::get('addcompany', function () {
     return view('addcompany');
@@ -52,7 +55,12 @@ Route::post('company/add', 'AddCompanyController@addCompany')->name('add.company
 
 //JS
 
-Route::get('employees/groups', 'Dbrequest@groups');
-Route::get('employees/directions', 'Dbrequest@direction');
-Route::get('employees/students', 'Dbrequest@students');
+    Route::get('employees/groups', 'Dbrequest@groups');
+    Route::get('employees/directions', 'Dbrequest@direction');
+    Route::get('employees/students', 'Dbrequest@students');
+
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
