@@ -33,12 +33,10 @@ function jsonPost(url, data) {
     return new Promise((resolve, reject) => {
         var x = new XMLHttpRequest(),
         token = document.querySelector('meta[name="csrf-token"]').content;
-
         x.open("POST", url, true);
-        x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        x.setRequestHeader('Content-Type', 'application/json');
         x.setRequestHeader('X-CSRF-TOKEN', token);
-        x.send(JSON.stringify(data))
-//        x.send(data)
+        x.send(JSON.stringify({key: data}))
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
                 resolve(x.responseText)
@@ -47,11 +45,9 @@ function jsonPost(url, data) {
     })
 }
 
-
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {
         document.getElementById('findResult').innerHTML = ''
-//        httpGet('http://public/employees/findstudents')
         jsonPost('http://public/employees/findstudents', searchfield.value)
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
@@ -66,11 +62,8 @@ searchfield.addEventListener("keyup", function addelement() {
                      findResult.appendChild(document.createElement('br'))
                 }
         }
-//        console.log(searchfield.value)
     }
 });
-
-
 
 direction.onchange = function () {
     var directionSelected = direction.options[direction.selectedIndex].value
@@ -91,14 +84,14 @@ direction.onchange = function () {
 
 groupSelector.onchange = function () {
     var groupSelected = groupSelector.options[groupSelector.selectedIndex].value
-    console.log()
+//    console.log()
     //In GROUPSELECTED - ID of the group
     httpGet('http://public/employees/students')
         .then(response => fun(JSON.parse(response)))
         .then(fun(extData))
 
     function fun(extData) {
-        console.log((extData))
+//        console.log((extData))
         for (var gr = 0; gr < extData.length; gr++) {
 
             if ((extData[gr]['group_id']) == (groupSelected)) {
