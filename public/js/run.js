@@ -36,7 +36,7 @@ function jsonPost(url, data) {
         x.open("POST", url, true);
         x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         x.setRequestHeader('X-CSRF-TOKEN', token);
- //        x.send(data)
+        // x.send(data)
         x.send(JSON.stringify(data))
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
@@ -45,7 +45,6 @@ function jsonPost(url, data) {
         }
     })
 }
-
 
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {

@@ -31,19 +31,21 @@ class Dbrequest extends Controller
         return response()->json($students);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function findStudents(Request $request)
     {
-//        dd($request);
         $req='a';
             $findstudents = DB::table('students')
                 ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
                 ->where('persons.name', 'LIKE', "%{$req}%")
                 ->limit(7)
                 ->get();
-
-//        return response()->json($findstudents);
+        return response()->json($findstudents);
 //        return response()->json($request);
-        return response($request);
-    }
+//        return response($request);
+      }
 
 }
