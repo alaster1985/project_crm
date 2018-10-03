@@ -33,16 +33,14 @@ function jsonPost(url, data) {
     return new Promise((resolve, reject) => {
         var x = new XMLHttpRequest(),
         token = document.querySelector('meta[name="csrf-token"]').content;
-
         x.open("POST", url, true);
         x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         x.setRequestHeader('X-CSRF-TOKEN', token);
+ //        x.send(data)
         x.send(JSON.stringify(data))
-//        x.send(data)
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
                 resolve(x.responseText)
-                console.log(x.responseText)
             }
         }
     })
@@ -58,7 +56,7 @@ searchfield.addEventListener("keyup", function addelement() {
             .then(fun(extData))
 
         function fun(extData) {
- //           console.log(extData)
+            console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                     var u = document.createElement('a');
                      u.setAttribute('href', extData[gr]['person_id']);
@@ -92,14 +90,14 @@ direction.onchange = function () {
 
 groupSelector.onchange = function () {
     var groupSelected = groupSelector.options[groupSelector.selectedIndex].value
-    console.log()
+//    console.log()
     //In GROUPSELECTED - ID of the group
     httpGet('http://public/employees/students')
         .then(response => fun(JSON.parse(response)))
         .then(fun(extData))
 
     function fun(extData) {
-        console.log((extData))
+//        console.log((extData))
         for (var gr = 0; gr < extData.length; gr++) {
 
             if ((extData[gr]['group_id']) == (groupSelected)) {

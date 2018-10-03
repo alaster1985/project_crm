@@ -33,20 +33,17 @@ class Dbrequest extends Controller
 
     public function findStudents(Request $request)
     {
-//        $strRequest = json_decode($request);
 //        dd($request);
         $req='a';
-//        foreach ($strRequest as $key=>$value ) {
             $findstudents = DB::table('students')
                 ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
                 ->where('persons.name', 'LIKE', "%{$req}%")
                 ->limit(7)
                 ->get();
-  //     }
-//        foreach ($request as $k=>$v) {$y = $v;}
-//         return response($y);
+
 //        return response()->json($findstudents);
-        return response()->json($request);
+//        return response()->json($request);
+        return response($request);
     }
 
 }
