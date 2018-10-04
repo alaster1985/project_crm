@@ -74,7 +74,9 @@ Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
 
 
+Route::post('employees/findstudents', 'Dbrequest@findStudents');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 
