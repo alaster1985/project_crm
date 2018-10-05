@@ -64,9 +64,9 @@ Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
 
-
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 
+Route::post('employees/studedition', 'Dbrequest@studedit');
 
 
 
