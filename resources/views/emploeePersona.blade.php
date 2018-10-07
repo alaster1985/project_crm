@@ -2,6 +2,10 @@
 @extends('layouts.nav')
 @csrf
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
@@ -20,7 +24,6 @@
 <a>{{$emploeeView->communication_tool}} </a>
 </br>
 
-
 <!--<FORM name="myForm">-->
 <select id="direction" name="direction">
     <!--    <option value="Albania">Albania</option> -->
@@ -36,15 +39,19 @@
 
 {{------------------------------------------}}
 
-
 </div>
 
-<div class="col-md-2 col-sm-6 ">
+<div class="col-md-3 col-sm-8 ">
 
 <input type="search" name="search" id="search" placeholder="Поиск по сайту">
     <div id="findResult">
     </div>
 
-
 </div>
+
+<div class="col-md-2 col-sm-6 ">
+    <div  id="studParam">
+    </div>
+</div>
+
 <script src="/js/run.js"></script>
