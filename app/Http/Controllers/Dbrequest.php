@@ -21,6 +21,23 @@ class Dbrequest extends Controller
         return response()->json($groups);
     }
 
+    public function skills()
+    {
+        $skills = DB::table('skills')->get();
+        return response()->json($skills);
+    }
+    public function companies()
+    {
+        $companies = DB::table('it_companies')->get();
+        return response()->json($companies);
+    }
+
+    public function positions()
+    {
+        $positions = DB::table('positions')->get();
+        return response()->json($positions);
+    }
+
     public function students()
     {
 //      dd($request);
@@ -31,20 +48,30 @@ class Dbrequest extends Controller
         return response()->json($students);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function findStudents(Request $request)
     {
-//        $strRequest = json_decode($request);
-//        dd($strRequest);
-        $req='a';
-//        foreach ($strRequest as $key=>$value ) {
-            $findstudents = DB::table('students')
-                ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
-                ->where('persons.name', 'LIKE', "%{$req}%")
-                ->limit(7)
-                ->get();
-  //     }
-//         return response()->json($request[0]);
+        $findstudents = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->where('persons.name', 'LIKE', "%{$request->key}%")
+            ->limit(7)
+            ->get();
         return response()->json($findstudents);
     }
-
+    public function studedit(Request $request)
+    {
+//        $request->key
+        $studed = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->where('students.id', '=', 3)
+//            ->get();
+            ->first();
+//        return response()->json($request);
+        return response()->json($studed);
+    }
 }
+
+

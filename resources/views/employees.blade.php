@@ -3,25 +3,13 @@
 
 <div class="container-fluid">
 <div class="col-md-2 col-sm-6 ">
+
     <!-- form adding students to DB.
     Use data in php by
     $request->session()->keep(['name', 'email', 'site', 'text_area']);
     -->
-    <form action="{{Route('add.employee')}}" method="post">
+    <form action="{{Route('addempl')}}">
         @csrf
-        <p>Добавление нового сотрудника</p>
-        <p>Имя студента</p>
-        <p><input name="employee_name"></p>
-        <p>Фамалия студента</p>
-        <p><input name="employee_surname"></p>
-        <p>Дата рождения студента</p>
-        <p><input name="employee_birth"></p>
-        <p>Адрес студента</p>
-        <p><input name="employee_adress"></p>
-        <p>E-mail студента</p>
-        <p><input name="employee_mail"></p>
-        <p>Телефон студента</p>
-        <p><input name="employee_phone"></p>
         <input class="btn-block" type="submit" value="Add new employee">
     </form>
     <button class="btn-block"><a href="{{route('index')}}">На главную</a></button>
