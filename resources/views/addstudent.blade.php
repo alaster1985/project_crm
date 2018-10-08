@@ -3,6 +3,7 @@
 
 <form action="{{Route('add.student')}}" method="post" enctype="multipart/form-data">
     @csrf
+
     <p>Добавление нового студента</p>
     <p>ФИО студента</p>
     <p><input name="person_name"></p>
@@ -10,7 +11,6 @@
     <p><input name="person_address"></p>
     <p>Группа</p>
     <select id="groups" name="group_id"></select>
-    <script src="/js/run2.js"></script>
     <p>Статус обучения</p>
     <select name="learning_status">
         <option value="learning">learning</option>
@@ -30,9 +30,9 @@
     <p>Ответственный HR</p>
     <p><input name="member_id"></p>
     <p>IT компания</p>
-    <p><input name="company_id"></p>
+    <select id="companies" name="company_id"></select>
     <p>Должность</p>
-    <p><input name="position_id"></p>
+    <select id="position" name="position_id"></select>
     <p>Резюме</p>
     <p><input type="file" name="file" id="fileToUpload">
     <p>Комментарий</p>
@@ -44,9 +44,11 @@
     <p>Коментарий</p>
     <p><input name="contact_comment"></p>
     <p>Скилл</p>
-    <p><input name="skill"></p>
+    <select id="skills" name="skill_id"></select>
+    </br>
     </br>
     <input type="submit" value="Add new student">
+    <script src="/js/run2.js"></script>
 </form>
 
 

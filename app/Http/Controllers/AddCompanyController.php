@@ -26,7 +26,7 @@ class AddCompanyController extends Controller
                     'logo' => basename($_FILES["file"]["name"]),
                     'comment' => $request->input('company_comment'),
                 ]);
-            return redirect()->back();
         });
+        return redirect()->back();
     }
 }
