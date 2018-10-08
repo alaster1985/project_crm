@@ -37,7 +37,7 @@ class AddContactPersonController extends Controller
                     'contact' => $request->input('contact'),
                     'comment' => $request->input('contact_comment'),
                 ]);
-            return redirect()->back();
         });
+        return redirect()->back();
     }
 }

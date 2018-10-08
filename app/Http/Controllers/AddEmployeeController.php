@@ -43,7 +43,7 @@ class AddEmployeeController extends Controller
                     'person_id' => $lastPersonId,
                     'skill_id' => $request->input('skill_id'),
                 ]);
-            return redirect()->back();
         });
+        return redirect()->back();
     }
 }
