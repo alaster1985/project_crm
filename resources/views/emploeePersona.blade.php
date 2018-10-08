@@ -1,5 +1,5 @@
-
 @extends('layouts.nav')
+@section('title', 'Информация о сотруднике')
 @csrf
 
 <meta name="csrf-token" content="{{ csrf_token() }}" />

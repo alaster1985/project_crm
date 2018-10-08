@@ -1,29 +1,46 @@
 @extends('layouts.nav')
 @section('title', 'Информация о студенте')
+@csrf
 
-<link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-<div id="imga">
-    <img src="/images/image.jpg" alt="текст" id="pic"/>
+<div class="col-md-3 col-sm-8 ">
+
+    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
+
+    <div id="imga">
+        <img src="/images/image.jpg" alt="текст" id="pic"/>
+    </div>
+
+    <a>{{$studentView->learning_status}} : </a>
+    </br>
+
+
+    <!--<FORM name="myForm">-->
+    <select id="direction" name="direction">
+        <!--    <option value="Albania">Albania</option> -->
+    </select>
+    <!--</FORM>
+    <FORM name="mycity">-->
+    <select id="groups" name="groups">
+        <!--   <option value="Albania">Albania</option>-->
+    </select>
+    <!--</FORM>-->
+    <div id="ext">
+    </div>
+
+    {{------------------------------------------}}
+
+
 </div>
 
-<a>{{$studentView->name}} : </a>
-</br>
-<a>{{$studentView->contact}} </a>
-</br>
-<a>{{$studentView->communication_tool}} </a>
-</br>
-</br>
+<div class="col-md-2 col-sm-6 ">
 
-{{--Форма для загрузки изображений. Использовать можно в любом файле.
-После загрузки возвращается на страницу, откуда вызвана--}}
-<form action="{{Route('add.image')}}" method="post" enctype="multipart/form-data">
-    @csrf
-    <div class="fileform">
-        <div class="selectbutton">Выберите изображение</div>
-        <input id="upload" type="file" name="image"/>
+    <input type="search" name="search" id="search" placeholder="Поиск по сайту">
+    <div id="findResult">
     </div>
-    <input type="submit" value="Add image to user">
-</form>
 
+
+</div>
+<script src="/js/run.js"></script>
