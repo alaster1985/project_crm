@@ -3,31 +3,68 @@
 
 
 <div class="container-fluid">
-    {{--  Это бутофория
-      В этом месте будет меню-аккордион по направлениям и группам--}}
+
     <div class="col-md-2 col-sm-4 ">
-        <form role="search">
+       {{-- <form role="search">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Поиск</button>
-        </form>
+        </form>--}}
         <p></p>
-        <ul class="list-group">
-            <li class="list-group-item">PHP Продвинутый</li>
-            <li class="list-group-item">FRONT_END Продвинутый</li>
-            <li class="list-group-item">HR/RECRUITMENT РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">QA AUTOMATION РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-            <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
-        </ul>
+        {{--  Это бутофория
+      В этом месте будет меню-аккордион по направлениям и группам--}}
+
+        <div id="sidenav1">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sideNavbar">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="sideNavbar">
+                <div class="panel-group" id="accordion">
+                    @forelse($all_students as $index)
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" > <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index->id }}"><span>{{$index->name}}</span></a> </h4>
+                        </div>
+
+                        <!-- Note: By adding "in" after "collapse", it starts with that particular panel open by default; remove if you want them all collapsed by default -->
+                        <div id="collapse{{$index->id }}" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                <li><a href="" class="navlink">Link 1</a></li>
+                                <li><a href="" class="navlink">Link 2</a></li>
+                                <li><a href="" class="navlink">Link 3</a></li>
+                                <li><a href="" class="navlink">Link 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    @empty
+                        <p>OOOOOOO</p>
+                    @endforelse
+                   {{-- <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span>Направление2</span></a> </h4>
+                        </div>
+                        <!-- Note: By adding "in" after "collapse", it starts with that particular panel open by default; remove if you want them all collapsed by default -->
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                <li><a href="" class="navlink">Link 5</a></li>
+                                <li><a href="" class="navlink">Link 6</a></li>
+                                <li><a href="" class="navlink">Link 7</a></li>
+                                <li><a href="" class="navlink">Link 8</a></li>
+                            </ul>
+                        </div>
+                    </div>--}}
+                </div>
+            </div>
+
+        </div>
+
     </div>
     <div class="col-md-8 col-sm-6 ">
+
         <h4> Список студентов </h4>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <i class="fa fa-sort float-right" aria-hidden="true"></i>
@@ -74,6 +111,13 @@
             @endif
             </tbody>
         </table>
+
+        @forelse($all_students as $index)
+            <p>{{$index->name}}</p>
+            @empty
+        <p>OOOOOOO</p>
+            @endforelse
+
     </div>
 
 
