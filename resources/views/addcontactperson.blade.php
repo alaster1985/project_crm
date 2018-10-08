@@ -9,11 +9,11 @@
     <p>Адрес контактного лица</p>
     <p><input name="person_address"></p>
     <p>Должность контактного лица</p>
-    <p><input name="position_id"></p>
+    <select id="position" name="position_id"></select>
     <p>Направление в IT</p>
-    <p><input name="direction_id"></p>
+    <select id="direction" name="direction_id"></select>
     <p>IT компания в которой работает</p>
-    <p><input name="company_id"></p>
+    <select id="companies" name="company_id"></select>
     <p>Комментарий</p>
     <p><input name="contact_person_comment"></p>
     <p>Инструмент связи</p>
@@ -24,5 +24,6 @@
     <p><input name="contact_comment"></p>
     </br>
     <input type="submit" value="Add new contact person">
+    <script src="/js/run2.js"></script>
 </form>
 @extends('layouts.footer')

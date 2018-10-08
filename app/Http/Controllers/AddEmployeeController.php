@@ -41,7 +41,7 @@ class AddEmployeeController extends Controller
             DB::table('skill_groups')
                 ->insert([
                     'person_id' => $lastPersonId,
-                    'skill_id' => $request->input('skill'),
+                    'skill_id' => $request->input('skill_id'),
                 ]);
             return redirect()->back();
         });

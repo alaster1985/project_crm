@@ -21,6 +21,23 @@ class Dbrequest extends Controller
         return response()->json($groups);
     }
 
+    public function skills()
+    {
+        $skills = DB::table('skills')->get();
+        return response()->json($skills);
+    }
+    public function companies()
+    {
+        $companies = DB::table('it_companies')->get();
+        return response()->json($companies);
+    }
+
+    public function positions()
+    {
+        $positions = DB::table('positions')->get();
+        return response()->json($positions);
+    }
+
     public function students()
     {
 //      dd($request);

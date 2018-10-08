@@ -72,6 +72,10 @@ Route::post('contacrperson/add', 'AddContactPersonController@addContactPerson')-
 Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
+Route::get('skills', 'Dbrequest@skills');
+Route::get('company', 'Dbrequest@companies');
+Route::get('position', 'Dbrequest@positions');
+Route::get('direction', 'Dbrequest@direction');
 
 
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
