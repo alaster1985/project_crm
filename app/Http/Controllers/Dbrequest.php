@@ -54,11 +54,24 @@ class Dbrequest extends Controller
      */
     public function findStudents(Request $request)
     {
-            $findstudents = DB::table('students')
-                ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
-                ->where('persons.name', 'LIKE', "%{$request->key}%")
-                ->limit(7)
-                ->get();
+        $findstudents = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->where('persons.name', 'LIKE', "%{$request->key}%")
+            ->limit(7)
+            ->get();
         return response()->json($findstudents);
-      }
+    }
+    public function studedit(Request $request)
+    {
+//        $request->key
+        $studed = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->where('students.id', '=', 3)
+//            ->get();
+            ->first();
+//        return response()->json($request);
+        return response()->json($studed);
+    }
 }
+
+
