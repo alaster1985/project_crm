@@ -22,11 +22,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('addimage', 'Files@addImage')->name('add.image');
 
-//    Route::post('students/add', 'StudentsController@addStudent')->name('add.student');
     Route::get('students', 'StudentsController@showStudents')->name('ShowAllStudents');
     Route::get('students/show/{id}', 'StudentsController@studentPersonaView')->name('student.view');
 
-    Route::post('employees/add', 'EmployeesController@addEmployee')->name('add.employee');
     Route::get('employees', 'EmployeesController@showEmployees')->name('show.employees');
     Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
@@ -50,7 +48,8 @@ Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 
 
 Route::get('addstudent', function () {
-    return view('addstudent');})->name('addstud');
+    return view('addstudent');
+})->name('addstud');
 Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
 
 Route::get('addcompany', function () {
@@ -58,11 +57,25 @@ Route::get('addcompany', function () {
 })->name('addcomp');
 Route::post('company/add', 'AddCompanyController@addCompany')->name('add.company');
 
+Route::get('addemployee', function () {
+    return view('addemployee');
+})->name('addempl');
+Route::post('employee/add', 'AddEmployeeController@addEmployee')->name('add.employee');
+
+Route::get('addcontactperson', function () {
+    return view('addcontactperson');
+})->name('addcontper');
+Route::post('contacrperson/add', 'AddContactPersonController@addContactPerson')->name('add.contactperson');
+
 //JS
 
 Route::get('employees/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
+Route::get('skills', 'Dbrequest@skills');
+Route::get('company', 'Dbrequest@companies');
+Route::get('position', 'Dbrequest@positions');
+Route::get('direction', 'Dbrequest@direction');
 
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 

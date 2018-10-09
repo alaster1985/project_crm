@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Андрей
- * Date: 01.10.2018
- * Time: 11:49
+ * Date: 02.10.2018
+ * Time: 17:05
  */
 
 namespace App\Http\Controllers;
@@ -12,9 +12,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AddStudentController extends Controller
+class AddEmployeeController extends Controller
 {
-    public function addStudent(Request $request)
+    public function addEmployee(Request $request)
     {
         DB::transaction(function () use ($request) {
             $lastPersonId = DB::table('persons')
@@ -22,17 +22,14 @@ class AddStudentController extends Controller
                     'name' => $request->input('person_name'),
                     'address' => $request->input('person_address'),
                 ]);
-            DB::table('students')
+            DB::table('alevel_members')
                 ->insert([
                     'person_id' => $lastPersonId,
-                    'group_id' => $request->input('group_id'),
-                    'learning_status' => $request->input('learning_status'),
-                    'employment_status' => $request->input('employment_status'),
-                    'member_id' => $request->input('member_id'),
-                    'company_id' => $request->input('company_id'),
                     'position_id' => $request->input('position_id'),
-                    'CV' => basename($_FILES["file"]["name"]),
-                    'comment' => $request->input('student_comment'),
+                    'direction_id' => $request->input('direction_id'),
+                    'company_id' => $request->input('company_id'),
+                    'comment' => $request->input('employee_comment'),
+                    'ASPT' => $request->input('ASPT'),
                 ]);
             DB::table('contacts')
                 ->insert([

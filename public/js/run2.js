@@ -1,4 +1,8 @@
 let group_name = document.getElementById("groups");
+let skill_name = document.getElementById("skills");
+let company_name = document.getElementById("companies");
+let position = document.getElementById("position");
+let direction = document.getElementById("direction");
 
 function httpGet(url) {
     return new Promise(function (resolve) {
@@ -14,12 +18,56 @@ function httpGet(url) {
 }
 
 httpGet('http://public/employees/groups')
-    .then(response => fun(JSON.parse(response)));
+    .then(response => funcSelectGroup(JSON.parse(response)))
 
-function fun(extData) {
-    let el;
-    for (let gr = 0; gr < extData.length; gr++) {
-        el = new Option(extData[gr]['group_name'], extData[gr]['id']);
-        group_name.appendChild(el)
+function funcSelectGroup(extData) {
+    // let elem;
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['group_name'], extData[i]['id']);
+        group_name.appendChild(elem)
+    }
+}
+
+httpGet('http://public/skills')
+    .then(response => funcSelectSkill(JSON.parse(response)));
+
+function funcSelectSkill(extData) {
+    // let elem;
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['skill_name'], extData[i]['id']);
+        skill_name.appendChild(elem)
+    }
+}
+
+httpGet('http://public/company')
+    .then(response => funcSelectCompany(JSON.parse(response)));
+
+function funcSelectCompany(extData) {
+    let elem;
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['company_name'], extData[i]['id']);
+        company_name.appendChild(elem)
+    }
+}
+
+httpGet('http://public/position')
+    .then(response => funcSelectPosition(JSON.parse(response)));
+
+function funcSelectPosition(extData) {
+    let elem;
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['position'], extData[i]['id']);
+        position.appendChild(elem)
+    }
+}
+
+httpGet('http://public/direction')
+    .then(response => funcSelectDirection(JSON.parse(response)));
+
+function funcSelectDirection(extData) {
+    let elem;
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['direction'], extData[i]['id']);
+        direction.appendChild(elem)
     }
 }

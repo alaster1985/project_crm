@@ -3,6 +3,9 @@
 <div class="container-fluid">
     <div class="col-md-2 col-sm-6 ">
     </div>
+    <form action="{{Route('addcomp')}}">
+        <input type="submit" value="Add new company">
+    </form>
     <div class="col-md-8 col-sm-6 ">
         <h4> Список компаний </h4>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
