@@ -19,10 +19,7 @@
 
 <a>{{$emploeeView->name}} : </a>
 </br>
-<a>{{$emploeeView->contact}} </a>
-</br>
-<a>{{$emploeeView->communication_tool}} </a>
-</br>
+
 
 <!--<FORM name="myForm">-->
 <select id="direction" name="direction">
