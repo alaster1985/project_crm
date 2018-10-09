@@ -21,6 +21,7 @@ class StudentsController extends Controller
             ->paginate(8);
         return view('students', ['all_students' => $all_students]);
     }
+
     public function studentPersonaView($id)
     {
         $studentView = DB::table('contacts')
@@ -31,5 +32,20 @@ class StudentsController extends Controller
 //        $studentView = DB::table('person')->where('id_person', '=', $id)->first();
 //        return view('studentPersona', ['studentView' => $studentView]);
     }
-}
 
+    public function studentAddDataName(Request $request)
+    {
+        DB::table('persons')
+            ->where('id', $request->id)
+            ->update([
+                'name' => $request->field
+            ]);
+//      return redirect('employees/show/'.`{$request->id}`);
+        return back();
+      //return redirect()->route('employee.view', ['id' => $request->id]);
+      //  return view('emploeePersona');
+//        return  Route::get('employees/show/'.`{$request->id}`, 'EmployeesController@emploeePersonaView')->name('employee.view');
+
+    }
+
+}

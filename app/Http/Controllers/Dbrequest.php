@@ -40,7 +40,6 @@ class Dbrequest extends Controller
 
     public function students()
     {
-//      dd($request);
         $students = DB::table('students')
         ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
         ->get();
@@ -63,13 +62,10 @@ class Dbrequest extends Controller
     }
     public function studedit(Request $request)
     {
-//        $request->key
         $studed = DB::table('students')
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->where('students.person_id', '=', $request->key)
-//            ->get();
             ->first();
-//        return response()->json($request->key);
         return response()->json($studed);
     }
 }

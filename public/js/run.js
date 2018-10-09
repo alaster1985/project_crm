@@ -103,52 +103,45 @@ groupSelector.onchange = function () {
     }
 }
 
-
-
 // SECTION VIEW AND EDIT !!!!!-> STUDENTS <-!!!! INFORMATION
+
+function jsonPostEdit(url, id, field) {
+    return new Promise((resolve, reject) => {
+        var x = new XMLHttpRequest(),
+            token = document.querySelector('meta[name="csrf-token"]').content;
+        x.open("POST", url, true);
+        x.setRequestHeader('Content-Type', 'application/json');
+        x.setRequestHeader('X-CSRF-TOKEN', token);
+        x.send(JSON.stringify({"id": id, "field": field}))
+        x.onreadystatechange = () => {
+            if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
+                resolve(x.responseText)
+            }
+        }
+    })
+}
+
 var urlPart = window.location.pathname.split('/')
-//console.log(urlPart[3])
 
 jsonPost('http://public/employees/studedition', urlPart[3])
     .then(response => studedit(JSON.parse(response)))
     .then(studedit(someth))
 
-
 function studedit(studdata) {
     var studparam = document.getElementById('studParam');
 
     var studnamehtml = document.createElement('p');
-    studnamehtml.innerHTML = '<p>'+ studdata['name'] +'</><button id="stname">Press to edit</button>';
+    studnamehtml.innerHTML = studdata['name'] + '<button id="stname">Press to edit</button>';
     studparam.appendChild(studnamehtml);
     document.getElementById('stname').onclick = function () {
         studnamehtml.innerHTML = "<input type='text' id='stnameInput' value=" + studdata['name'] + "><button id='stname'>Press to edit</button>";
         studparam.appendChild(studnamehtml)
         document.getElementById('stname').onclick = function () {
-//            document.getElementById('stnameInput').value
-            alert(document.getElementById('stnameInput').value)
+            jsonPostEdit('http://public/students/addata', urlPart[3], document.getElementById('stnameInput').value)
+            location.reload();
         }
     }
 }
-
-
-
-// function studedit(studdata) {
-//     var studstring = '<p>'+ studdata['name'] +'</><button id="stname">Press to edit</button>'
-//     var studparam = document.getElementById('studParam');
-//     var studnamehtml = document.createElement('p');
-//     studnamehtml.innerHTML = studstring;
-//     studparam.appendChild(studnamehtml);
-//     document.getElementById('stname').onclick = function () {
-//         studstring = '<input type="text" name="browser" value="firefox"><button id="stname">Press to edit</button>'
-//         studnamehtml.innerHTML = '';
-//         studnamehtml.innerHTML = studstring;
-//         studparam.appendChild(studnamehtml)
-//     }
-// }
-
-
-
-
 
 
 
