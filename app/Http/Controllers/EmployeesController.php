@@ -42,9 +42,10 @@ class EmployeesController extends Controller
 
     public function emploeePersonaView($id)
     {
-        $emploeeView = DB::table('contacts')
-            ->leftJoin('persons', 'contacts.person_id', '=', 'persons.id')
-            ->where('contacts.person_id', '=', $id)
+        $emploeeView = DB::table('alevel_members')
+            ->Join('persons', 'alevel_members.person_id', '=', 'persons.id')
+            ->join('contact_persons','contact_persons.person_id','=','persons.id')
+            ->where('contact_persons.person_id', '=', $id)
             ->first();
         return view('emploeePersona', ['emploeeView' => $emploeeView]);
 //        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();

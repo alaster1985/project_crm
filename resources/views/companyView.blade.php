@@ -14,9 +14,33 @@
 </br>
 <a>{{$companyView->type}} </a>
 </br>
+<a>{{$companyView->site}} </a>
+</br>
 <a>{{$companyView->address}} </a>
 </br>
+<a>{{$companyView->logo}} </a>
 </br>
+<a>{{$companyView->comment}} </a>
+</br>
+<a>
+    @foreach($stack as $index)
+        {{$index->stack_name}}
+        {{$index->comment}}
+        <br>
+    @endforeach
+</a>
+<a>
+    @foreach($contact as $index)
+        {{$index->name}}
+        <br>
+        {{$index->position}}
+        <br>
+        {{$index->direction}}
+        <br>
+        {{$index->comment}}
+        <br>
+    @endforeach
+</a>
 
 {{--Форма для загрузки изображений. Использовать можно в любом файле.
 После загрузки возвращается на страницу, откуда вызвана--}}

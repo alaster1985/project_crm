@@ -55,7 +55,6 @@
             @foreach ($all_students as $index)
                 <tr>
                     <td>
-                        <a>{{$index->id}}</a>
                         <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
                     </td>
                     <td>
