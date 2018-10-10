@@ -1,6 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Студенты A-Level')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="container-fluid">
     {{--  Это бутофория
@@ -27,7 +28,7 @@
             <li class="list-group-item">FULLSTACK JS РАСШИРЕННЫЙ</li>
         </ul>
     </div>
-    <div class="col-md-8 col-sm-6 ">
+    <div id="q" class="col-md-8 col-sm-6 ">
         <h4> Список студентов </h4>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <i class="fa fa-sort float-right" aria-hidden="true"></i>
@@ -54,7 +55,6 @@
             @foreach ($all_students as $index)
                 <tr>
                     <td>
-                        <a>{{$index->id}}</a>
                         <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
                     </td>
                     <td>
@@ -139,3 +139,4 @@
 
 @extends('layouts.footer')
 
+<script src="/js/show.js"></script>
