@@ -97,4 +97,15 @@
 
 
 </div>
+<div class="col-md-2 col-sm-6 ">
+    <div  id="studParam">
+    </div>
+
+</div>
+
+<div class="col-md-2 col-sm-6" id="studgroups" >
+
+</div>
+
 <script src="/js/run.js"></script>
+

@@ -83,12 +83,16 @@ class StudentsController extends Controller
             ->update([
                 'name' => $request->field
             ]);
-//      return redirect('employees/show/'.`{$request->id}`);
         return back();
-      //return redirect()->route('employee.view', ['id' => $request->id]);
-      //  return view('emploeePersona');
-//        return  Route::get('employees/show/'.`{$request->id}`, 'EmployeesController@emploeePersonaView')->name('employee.view');
+    }
 
+    public function studentChangeGroup(Request $request)
+    {
+        DB::table('students')
+            ->where('id', $request->id)
+            ->update([
+                'group_id' => $request->field
+            ]);
     }
 
 }
