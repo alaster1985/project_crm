@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Twilio\Rest\Client;
 
+
 class SmsController extends Controller
 {
     public function sendSms()
@@ -20,10 +21,11 @@ class SmsController extends Controller
             );
 
             if ($message->sid) {
-                echo "Message sent!";
+                echo "Ваше сообщение удачно отправлено!";
             }
         }
     }
+
     public function index()
     {
         return view('sms');
