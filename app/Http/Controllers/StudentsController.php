@@ -93,6 +93,7 @@ class StudentsController extends Controller
             ->update([
                 'group_id' => $request->field
             ]);
+        return back();
     }
 
 }
