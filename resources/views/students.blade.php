@@ -5,66 +5,52 @@
 <div class="container-fluid">
 
     <div class="col-md-2 col-sm-4 ">
-       {{-- <form role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Поиск</button>
-        </form>--}}
-        <p></p>
-        {{--  Это бутофория
-      В этом месте будет меню-аккордион по направлениям и группам--}}
-
         <div id="sidenav1">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sideNavbar">
-                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
             </div>
-
             <div class="collapse navbar-collapse" id="sideNavbar">
                 <div class="panel-group" id="accordion">
-                    @forelse($all_students as $index)
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title" > <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index->id }}"><span>{{$index->name}}</span></a> </h4>
+                    @forelse($directions as $direction)
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion"
+                                                           href="#collapse{{$direction ->id}}"><span>{{$direction ->direction}}</span></a>
+                                </h4>
+                            </div>
+                            <div id="collapse{{$direction ->id}}" class="panel-collapse collapse">
+                                <ul class="list-group">
+                                    @foreach($groups as $group)
+                                        @if($direction->id == $group->direction_id)
+                                            <li><a href="" class="navlink">{{$group->group_name}}</a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-
-                        <!-- Note: By adding "in" after "collapse", it starts with that particular panel open by default; remove if you want them all collapsed by default -->
-                        <div id="collapse{{$index->id }}" class="panel-collapse collapse in">
-                            <ul class="list-group">
-                                <li><a href="" class="navlink">Link 1</a></li>
-                                <li><a href="" class="navlink">Link 2</a></li>
-                                <li><a href="" class="navlink">Link 3</a></li>
-                                <li><a href="" class="navlink">Link 4</a></li>
-                            </ul>
-                        </div>
-                    </div>
                     @empty
-                        <p>OOOOOOO</p>
                     @endforelse
-                   {{-- <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span>Направление2</span></a> </h4>
-                        </div>
-                        <!-- Note: By adding "in" after "collapse", it starts with that particular panel open by default; remove if you want them all collapsed by default -->
-                        <div id="collapseTwo" class="panel-collapse collapse in">
-                            <ul class="list-group">
-                                <li><a href="" class="navlink">Link 5</a></li>
-                                <li><a href="" class="navlink">Link 6</a></li>
-                                <li><a href="" class="navlink">Link 7</a></li>
-                                <li><a href="" class="navlink">Link 8</a></li>
-                            </ul>
-                        </div>
-                    </div>--}}
                 </div>
             </div>
-
         </div>
-
     </div>
     <div class="col-md-8 col-sm-6 ">
-
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                Статус обучения <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                ...
+            </ul>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                Статус трудоустройства <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                ...
+            </ul>
+        </div>
         <h4> Список студентов </h4>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <i class="fa fa-sort float-right" aria-hidden="true"></i>
@@ -87,41 +73,34 @@
             </tr>
             </thead>
             <tbody>
+            {{-- @if(($direction->id == $index->group_name))--}}
             @if ($all_students)
-            @foreach ($all_students as $index)
-                <tr>
-                    <td>
-                        <a>{{$index->id}}</a>
-                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
-                    </td>
-                    <td>
-                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
-                    </td>
-                    <td>
-                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
-                    </td>
-                    <td>
-                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
-                    </td>
-                    <td>
-                        <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
-                    </td>
-                </tr>
-            @endforeach
-            {{ $all_students->links() }}
+                @foreach ($all_students as $index)
+                    {{-- @if(($index->id == $group->direction_id))--}}
+                    <tr>
+                        <td>
+                            <a>{{$index->group_name==$group->group_name}}</a>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
+                        </td>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
+                        </td>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
+                        </td>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
+                        </td>
+                        <td>
+                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
+                        </td>
+                    </tr>
+                @endforeach
+                {{ $all_students->links() }}
             @endif
             </tbody>
         </table>
-
-        @forelse($all_students as $index)
-            <p>{{$index->name}}</p>
-            @empty
-        <p>OOOOOOO</p>
-            @endforelse
-
     </div>
-
-
     <div class="col-md-2 col-sm-6 ">
         <!-- form adding students to DB.
         Use data in php by
@@ -179,7 +158,6 @@
         </div>
     </div>
 </div>
-
 
 @extends('layouts.footer')
 

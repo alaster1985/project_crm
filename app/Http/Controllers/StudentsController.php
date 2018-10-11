@@ -14,12 +14,13 @@ class StudentsController extends Controller
     }
 
     public function showStudents()
-    {
+    {$directions=DB::table('directions')->get();
+        $groups=DB::table('groups')->get();
         $all_students = DB::table('persons')
             ->join('students', 'students.id', '=', 'persons.id')
             ->leftJoin('groups', 'groups.id', '=', 'students.group_id')
             ->paginate(8);
-        return view('students', ['all_students' => $all_students]);
+        return view('students', ['all_students' => $all_students,'directions' => $directions,'groups'=>$groups]);
     }
     public function studentPersonaView($id)
     {
@@ -31,5 +32,9 @@ class StudentsController extends Controller
 //        $studentView = DB::table('person')->where('id_person', '=', $id)->first();
 //        return view('studentPersona', ['studentView' => $studentView]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
 }
 

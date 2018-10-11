@@ -62,8 +62,7 @@
             @endif
             </tbody>
         </table>
-
-        <ul>
+      {{--  <ul>
             @if ($all_tasks)
                 @foreach ($all_tasks as $index)
                     <li>
@@ -78,7 +77,7 @@
                 @endforeach
                 {{ $all_tasks->links() }}
             @endif
-        </ul>
+        </ul>--}}
     </div>
     <div class="col-md-2 col-sm-6 ">
     </div>
