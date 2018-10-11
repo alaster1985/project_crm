@@ -1,5 +1,5 @@
-
 @extends('layouts.nav')
+@section('title', 'Информация о сотруднике')
 @csrf
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,13 +16,12 @@
 <div id="imga">
     <img src="/images/image.jpg" alt="текст" id="pic"/>
 </div>
+    {{--@foreach ($emploeeView as $em)--}}
+    {{--<p>{{$em->id}}</p>--}}
+    {{--@endforeach--}}
+{{--<a>{{$emploeeView->name}} : </a>--}}
+</br>
 
-<a>{{$emploeeView->name}} : </a>
-</br>
-<a>{{$emploeeView->contact}} </a>
-</br>
-<a>{{$emploeeView->communication_tool}} </a>
-</br>
 
 <!--<FORM name="myForm">-->
 <select id="direction" name="direction">
@@ -49,9 +48,10 @@
 
 </div>
 
-<div class="col-md-2 col-sm-6 ">
-    <div  id="studParam">
-    </div>
-</div>
+{{--<div class="col-md-2 col-sm-6 ">--}}
+    {{--<div  id="studParam">--}}
+    {{--</div>--}}
+
+{{--</div>--}}
 
 <script src="/js/run.js"></script>
