@@ -1,4 +1,3 @@
-var searchfield = document.getElementById("search")
 
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {
