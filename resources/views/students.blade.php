@@ -7,12 +7,7 @@
     {{--  Это бутофория
       В этом месте будет меню-аккордион по направлениям и группам--}}
     <div class="col-md-2 col-sm-4 ">
-        <form role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Поиск</button>
-        </form>
+
         <p></p>
         <ul class="list-group">
             <li class="list-group-item">PHP Продвинутый</li>
@@ -135,6 +130,21 @@
         </div>
     </div>
 </div>
+
+
+
+<form role="search">
+    <div class="form-group">
+
+        <input type="search" name="search" class="form-control" id="search" placeholder="Поиск по сайту">
+        <div id="findResult">
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-default">Поиск</button>
+</form>
+
+
 
 
 @extends('layouts.footer')
