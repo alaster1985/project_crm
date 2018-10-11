@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Twilio\Rest\Client;
-require  'autoload.php';
+
 
 class SmsController extends Controller
 {
@@ -21,7 +21,7 @@ class SmsController extends Controller
             );
 
             if ($message->sid) {
-                echo "Message sent!";
+                echo "Ваше сообщение удачно отправлено!";
             }
         }
     }
