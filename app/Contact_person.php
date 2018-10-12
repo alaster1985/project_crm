@@ -15,6 +15,10 @@ class Contact_person extends Model
 {
     protected $fillable = [
         'person_id' => 'integer',
+        'position_id' => 'integer',
+        'direction_id' => 'integer',
+        'company_id' => 'integer',
+        'comment',
     ];
 
     public function getQueueableRelations()

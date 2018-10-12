@@ -16,6 +16,7 @@ class Stack_group extends Model
     protected $fillable = [
         'stack_id' => 'integer',
         'company_id' => 'integer',
+        'comment',
     ];
 
     public function getQueueableRelations()

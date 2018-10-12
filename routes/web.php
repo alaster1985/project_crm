@@ -55,7 +55,7 @@ Route::post('student/add', 'AddStudentController@addStudent')->name('add.student
 Route::get('addcompany', function () {
     return view('addcompany');
 })->name('addcomp');
-Route::post('company/add', 'AddCompanyController@addCompany')->name('add.company');
+Route::post('company/add', 'AddCompanyController@store')->name('add.company');
 
 Route::get('addemployee', function () {
     return view('addemployee');

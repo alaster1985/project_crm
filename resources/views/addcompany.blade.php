@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Company')
 
-<form action="{{Route('add.company')}}" method="post" enctype="multipart/form-data">
+<form action="{{Route('add.company')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <p>Добавление новой компании</p>
     <p>Название компании</p>

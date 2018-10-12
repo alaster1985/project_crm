@@ -17,6 +17,12 @@ class Student extends Model
         'learning_status',
         'employment_status',
         'group_id' => 'integer',
+        'position_id' => 'integer',
+        'company_id' => 'integer',
+        'member_id' => 'integer',
+        'person_id' => 'integer',
+        'CV',
+        'comment',
     ];
 
     public function getQueueableRelations()

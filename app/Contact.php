@@ -17,6 +17,7 @@ class Contact extends Model
         'communication_tool',
         'contact',
         'person_id' => 'integer',
+        'comment',
     ];
 
     public function getQueueableRelations()

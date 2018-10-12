@@ -8,11 +8,12 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 
-class It_companies extends Model
+class It_company extends Model
 {
+    protected $table = 'it_companies';
+
     protected $fillable = [
         'company_name',
         'status',
