@@ -82,7 +82,8 @@ Route::post('employees/findstudents', 'Dbrequest@findStudents');
 Route::post('students/studedition', 'Dbrequest@studedit');
 
 Route::post('students/addata', 'StudentsController@studentAddDataName')->name('studentAddDataName');
-Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentchangeGroup');
+Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
+Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
 
 
 

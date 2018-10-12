@@ -5,7 +5,7 @@ var searchfield = document.getElementById("search")
 var findResult = document.getElementById("findResult")
 var extData = {}
 var studdata = {}
-var selectedGruppaEdit;
+//var selectedGruppaEdit;
 var studgroups = document.getElementById("studgroups")
 var urlPart = window.location.pathname.split('/')
 
