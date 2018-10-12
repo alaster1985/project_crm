@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
-    public function addStudent(Request $request)
-    {
-        $new = $request->input('student_name');
+//    public function addStudent(Request $request)
+//    {
+//        $new = $request->input('student_name');
 //        DB::table('persons')->insert(['name'=> $request->input('student_name')]);
-        return redirect()->back();
+//        return redirect()->back();
 //        return redirect()->route('ShowAllStudents');
-    }
+//    }
 
     public function showStudents()
     {
@@ -100,6 +100,16 @@ class StudentsController extends Controller
             ->where('id', $request->id)
             ->update([
                 'group_id' => $request->field
+            ]);
+        return back();
+    }
+
+    public function studentChangeLearnStatus(Request $request)
+    {
+        DB::table('students')
+            ->where('id', $request->id)
+            ->update([
+                'learning_status' => $request->field
             ]);
         return back();
     }
