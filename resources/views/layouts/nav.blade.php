@@ -10,13 +10,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <title>@yield('title')</title>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
     <ul class="nav nav-pills nav-justified ">
-        <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+        <a class="navbar-brand" rel="home" href="#" title="A-level">
             <img style="max-width:100px; margin-top: -7px;"
                  src="/images/logo.png">
         </a>
@@ -27,10 +26,10 @@
         <li><a href="{{route('show.groups')}}">Группы А-левел</a></li>
         <li><a href="{{route('showTasks')}}">Задания</a></li>
         <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>
             </a>
-
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
