@@ -94,8 +94,6 @@
     <input type="search" name="search" id="search" placeholder="Поиск по сайту">
     <div id="findResult">
     </div>
-
-
 </div>
 
 <div class="col-md-2 col-sm-6 ">
@@ -103,11 +101,7 @@
     <input type="search" name="search" id="searchall" placeholder="Поиск по людям">
     <div id="findAllResult">
     </div>
-
-
 </div>
-
-
 
 <div class="col-md-2 col-sm-6 ">
     <div  id="studParam">

@@ -13,6 +13,9 @@ var studdata = {}
 var studgroups = document.getElementById("studgroups")
 var urlPart = window.location.pathname.split('/')
 
+
+var accordionmenu = document.getElementById("accordionmenu");
+
 function httpGet(url) {
     return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
