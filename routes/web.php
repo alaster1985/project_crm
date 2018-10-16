@@ -78,6 +78,7 @@ Route::get('position', 'Dbrequest@positions');
 Route::get('direction', 'Dbrequest@direction');
 
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
+Route::post('employees/findall', 'Dbrequest@findAll');
 
 Route::post('students/studedition', 'Dbrequest@studedit');
 
