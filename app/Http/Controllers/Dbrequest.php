@@ -77,6 +77,19 @@ class Dbrequest extends Controller
     }
 
 
+    public function studentsDirection(Request $request)
+    {
+        $studentdirection = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
+            ->where('directions.id', '=', "%{$request->key}%")
+            ->get();
+
+        return response()->json($studentdirection);
+    }
+
+
 
 
 

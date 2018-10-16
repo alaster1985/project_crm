@@ -4,8 +4,17 @@ var ind = document.querySelectorAll(".direct");
 console.log(ind)
 ind.forEach(aaa)
 function aaa(item, id) {
-    item.onclick = function(){alert(id+1)}
-    //ЗАПОЛНИТЬ ПОЛЕ ПО НАПРАВЛЕНИЯМ
+    item.onclick = function(){
+        alert(id+1)
+        jsonPost('http://public/employees/studentsdirection', id)
+            .then(response => studedit(JSON.parse(response)))
+            .then(studget(someth))
+        function studget(studdata) {
+            console.log(studdata)
+
+        }
+        //ЗАПОЛНИТЬ ПОЛЕ ПО НАПРАВЛЕНИЯМ
+    }
 }
 
 
