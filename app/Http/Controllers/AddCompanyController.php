@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\It_company;
+use App\Stack_group;
 
 class AddCompanyController extends Controller
 {
@@ -43,6 +44,12 @@ class AddCompanyController extends Controller
             $it_company->logo = basename($_FILES["file"]["name"]);
             $it_company->comment = $request->company_comment;
             $it_company->save();
+            $stack_group = new Stack_group();
+            $stack_group->company_id = $it_company->id;
+            $stack_group->stack_id = $request->stack_id;
+            $stack_group->comment = $request->stack_comment;
+            $stack_group->save();
         });
+        return redirect()->back();
     }
 }

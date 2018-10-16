@@ -26,6 +26,11 @@ class Dbrequest extends Controller
         $skills = DB::table('skills')->get();
         return response()->json($skills);
     }
+    public function stacks()
+    {
+        $stacks = DB::table('stacks')->get();
+        return response()->json($stacks);
+    }
     public function companies()
     {
         $companies = DB::table('it_companies')->get();
