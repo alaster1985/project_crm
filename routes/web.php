@@ -50,22 +50,27 @@ Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 Route::get('addstudent', function () {
     return view('addstudent');
 })->name('addstud');
-Route::post('student/add', 'AddStudentController@addStudent')->name('add.student');
+Route::post('student/add', 'AddStudentController@store')->name('add.student');
 
 Route::get('addcompany', function () {
     return view('addcompany');
 })->name('addcomp');
-Route::post('company/add', 'AddCompanyController@addCompany')->name('add.company');
+Route::post('company/add', 'AddCompanyController@store')->name('add.company');
 
 Route::get('addemployee', function () {
     return view('addemployee');
 })->name('addempl');
-Route::post('employee/add', 'AddEmployeeController@addEmployee')->name('add.employee');
+Route::post('employee/add', 'AddEmployeeController@store')->name('add.employee');
 
 Route::get('addcontactperson', function () {
     return view('addcontactperson');
 })->name('addcontper');
-Route::post('contacrperson/add', 'AddContactPersonController@addContactPerson')->name('add.contactperson');
+Route::post('contacrperson/add', 'AddContactPersonController@store')->name('add.contactperson');
+
+Route::get('addcomponent', function () {
+    return view('addcomponent');
+})->name('addcomponent');
+Route::post('/addcomponent', 'AddComponentController@store')->name('add.component');
 
 //JS
 
@@ -76,6 +81,7 @@ Route::get('skills', 'Dbrequest@skills');
 Route::get('company', 'Dbrequest@companies');
 Route::get('position', 'Dbrequest@positions');
 Route::get('direction', 'Dbrequest@direction');
+Route::get('stacks', 'Dbrequest@stacks');
 
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 Route::post('employees/findall', 'Dbrequest@findAll');
