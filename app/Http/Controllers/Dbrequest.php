@@ -60,6 +60,22 @@ class Dbrequest extends Controller
             ->get();
         return response()->json($findstudents);
     }
+
+
+    public function findAll(Request $request)
+    {
+        $findAll = DB::table('persons')
+            ->where('persons.name', 'LIKE', "%{$request->key}%")
+            ->limit(7)
+            ->get();
+        return response()->json($findAll);
+    }
+
+
+
+
+
+
     public function studedit(Request $request)
     {
         $studed = DB::table('students')

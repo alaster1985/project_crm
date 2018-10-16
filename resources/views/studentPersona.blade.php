@@ -97,6 +97,18 @@
 
 
 </div>
+
+<div class="col-md-2 col-sm-6 ">
+
+    <input type="search" name="search" id="searchall" placeholder="Поиск по людям">
+    <div id="findAllResult">
+    </div>
+
+
+</div>
+
+
+
 <div class="col-md-2 col-sm-6 ">
     <div  id="studParam">
     </div>
@@ -107,7 +119,7 @@
 <div class="col-md-2 col-sm-6" id="studlearning" ></div>
 
 <script src="/js/run.js"></script>
-<script src="/js/studentSearchField.js"></script>
+<script src="/js/search.js"></script>
 <script src="/js/studentSelectGroupDirection.js"></script>
 <script src="/js/viewEditPersonalInformation.js"></script>
 
