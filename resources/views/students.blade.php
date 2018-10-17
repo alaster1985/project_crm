@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Студенты A-Level')
+@csrf
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -36,7 +38,8 @@
                                 <ul class="list-group">
                                     @foreach($groups as $group)
                                         @if($direction->id == $group->direction_id)
-                                            <li><a href="" class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>
+                                            <p><button class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</button></p>
+                                            {{--<li><a href="" class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>--}}
                                         @endif
                                     @endforeach
                                 </ul>
@@ -54,54 +57,53 @@
             </div>
         </div>
     </div>
-    <div id="q" class="col-md-8 col-sm-6 ">
-
-        <h4> Список студентов </h4>
-        <table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-            <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">ФИО
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Группа
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Статус обучения
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Статус трудоустройства
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            <th class="th-sm">Комментарий
-                <i class="fa fa-sort float-right" aria-hidden="true"></i>
-            </th>
-            </tr>
-            </thead>
-            <tbody>
-            @if ($all_students)
-                @foreach ($all_students as $index)
-                    <tr>
-                        <td>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>
-                        </td>
-                        <td>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>
-                        </td>
-                        <td>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>
-                        </td>
-                        <td>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>
-                        </td>
-                        <td>
-                            <a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
-                        </td>
-                    </tr>
-                @endforeach
-                {{ $all_students->links() }}
-            @endif
-            </tbody>
-        </table>
+    <div id="stres" class="col-md-8 col-sm-6 ">
+        {{--<h4> Список студентов </h4>--}}
+        {{--<table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">--}}
+            {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--<th class="th-sm">ФИО--}}
+                {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--<th class="th-sm">Группа--}}
+                {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--<th class="th-sm">Статус обучения--}}
+                {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--<th class="th-sm">Статус трудоустройства--}}
+                {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--<th class="th-sm">Комментарий--}}
+                {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
+            {{--</th>--}}
+            {{--</tr>--}}
+            {{--</thead>--}}
+            {{--<tbody>--}}
+            {{--@if ($all_students)--}}
+                {{--@foreach ($all_students as $index)--}}
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
+                {{--@endforeach--}}
+                {{--{{ $all_students->links() }}--}}
+            {{--@endif--}}
+            {{--</tbody>--}}
+        {{--</table>--}}
     </div>
 
     <div class="col-md-2 col-sm-6 ">

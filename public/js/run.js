@@ -6,6 +6,7 @@ var findResult = document.getElementById("findResult")
 
 var searchall = document.getElementById("searchall")
 var findAllResult = document.getElementById("findAllResult")
+var studext = document.getElementById("stres")
 var extData = {}
 
 var studdata = {}

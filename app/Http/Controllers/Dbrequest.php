@@ -83,10 +83,21 @@ class Dbrequest extends Controller
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
             ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
-            ->where('directions.id', '=', "%{$request->key}%")
+            ->where('directions.id', '=', $request->key)
             ->get();
 
         return response()->json($studentdirection);
+    }
+
+    public function studentsGroup(Request $request)
+    {
+        $studentgroup = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->where('groups.group_name', '=', $request->key)
+            ->get();
+
+        return response()->json($studentgroup);
     }
 
 
