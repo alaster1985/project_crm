@@ -26,6 +26,11 @@ class Dbrequest extends Controller
         $skills = DB::table('skills')->get();
         return response()->json($skills);
     }
+    public function stacks()
+    {
+        $stacks = DB::table('stacks')->get();
+        return response()->json($stacks);
+    }
     public function companies()
     {
         $companies = DB::table('it_companies')->get();
@@ -60,6 +65,46 @@ class Dbrequest extends Controller
             ->get();
         return response()->json($findstudents);
     }
+
+
+    public function findAll(Request $request)
+    {
+        $findAll = DB::table('persons')
+            ->where('persons.name', 'LIKE', "%{$request->key}%")
+            ->limit(7)
+            ->get();
+        return response()->json($findAll);
+    }
+
+
+    public function studentsDirection(Request $request)
+    {
+        $studentdirection = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
+            ->where('directions.id', '=', $request->key)
+            ->get();
+
+        return response()->json($studentdirection);
+    }
+
+    public function studentsGroup(Request $request)
+    {
+        $studentgroup = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->where('groups.group_name', '=', $request->key)
+            ->get();
+
+        return response()->json($studentgroup);
+    }
+
+
+
+
+
+
     public function studedit(Request $request)
     {
         $studed = DB::table('students')

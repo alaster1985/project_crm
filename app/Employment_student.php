@@ -16,6 +16,7 @@ class Employment_student extends Model
     protected $fillable = [
         'student_id' => 'integer',
         'company_id' => 'integer',
+        'comment',
     ];
 
     public function getQueueableRelations()

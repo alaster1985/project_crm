@@ -8,23 +8,28 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
-    public function addStudent(Request $request)
-    {
-        $new = $request->input('student_name');
+//    public function addStudent(Request $request)
+//    {
+//        $new = $request->input('student_name');
 //        DB::table('persons')->insert(['name'=> $request->input('student_name')]);
-        return redirect()->back();
+//        return redirect()->back();
 //        return redirect()->route('ShowAllStudents');
-    }
+//    }
 
     public function showStudents()
     {
+        $directions = DB::table('directions')->get();
+        $groups = DB::table('groups')->get();
+        $learningStatus = DB::table('students')->distinct()->get();
+        $employmentStatus = DB::table('students')->distinct()->get();
         $all_students = DB::table('persons')
             ->select('persons.id', 'persons.name', 'groups.group_name', 'students.learning_status', 'students.employment_status', 'students.comment')
             ->join('students', 'students.person_id', '=', 'persons.id')
             ->leftJoin('groups', 'groups.id', '=', 'students.group_id')
             ->orderByDesc('students.created_at')
             ->paginate(8);
-        return view('students', ['all_students' => $all_students]);
+        return view('students', ['all_students' => $all_students, 'directions' => $directions, 'groups' => $groups,
+            'learning_status' => $learningStatus, 'employment_status' => $employmentStatus]);
     }
 
     public function studentPersonaView($id)
@@ -34,8 +39,8 @@ class StudentsController extends Controller
             ->join('students', 'persons.id', '=', 'students.person_id')
             ->join('employment_students', 'employment_students.student_id', '=', 'students.id')
             ->join('it_companies', 'it_companies.id', '=', 'employment_students.company_id')
-            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
-            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->join('stack_groups', 'stack_groups.company_id', '=', 'it_companies.id')
+            ->join('stacks', 'stack_groups.stack_id', '=', 'stacks.id')
             ->where('students.person_id', '=', $id)
             ->get();
 
@@ -63,7 +68,7 @@ class StudentsController extends Controller
             ->get();
 
         $student = DB::table('persons')
-            ->select('name', 'persons.address', 'CV','company_name','position','students.comment')
+            ->select('name', 'persons.address', 'CV', 'company_name', 'position', 'students.comment')
             ->Join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
             ->leftjoin('employment_students', 'employment_students.student_id', '=', 'students.id')
@@ -76,6 +81,9 @@ class StudentsController extends Controller
 //        return view('studentPersona', ['studentView' => $studentView]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function studentAddDataName(Request $request)
     {
         DB::table('persons')
@@ -92,6 +100,16 @@ class StudentsController extends Controller
             ->where('id', $request->id)
             ->update([
                 'group_id' => $request->field
+            ]);
+        return back();
+    }
+
+    public function studentChangeLearnStatus(Request $request)
+    {
+        DB::table('students')
+            ->where('id', $request->id)
+            ->update([
+                'learning_status' => $request->field
             ]);
         return back();
     }
