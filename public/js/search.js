@@ -2,7 +2,7 @@
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {
         document.getElementById('findResult').innerHTML = ''
-        jsonPost('http://public/employees/findstudents', searchfield.value)
+        jsonPost(location.origin+"/employees/findstudents", searchfield.value)
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
 
@@ -21,7 +21,7 @@ searchfield.addEventListener("keyup", function addelement() {
 searchall.addEventListener("keyup", function addelement() {
     if (searchall.value != "") {
         document.getElementById('findAllResult').innerHTML = ''
-        jsonPost('http://public/employees/findall', searchall.value)
+        jsonPost(location.origin+"/employees/findall", searchall.value)
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
 

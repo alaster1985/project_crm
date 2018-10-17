@@ -1,7 +1,7 @@
 var selectedGruppaEdit;
 var learnStatusValue;
 
-jsonPost('http://public/students/studedition', urlPart[3])
+jsonPost(location.origin+"/students/studedition", urlPart[3])
     .then(response => studedit(JSON.parse(response)))
     .then(studedit(someth))
 
@@ -57,7 +57,7 @@ function studedit(studdata) {
 
 
 //Group SELECTOR START -------
-        httpGet('http://public/employees/groups')
+        httpGet(location.origin+"/employees/groups")
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
         function fun(extData) {
@@ -80,9 +80,9 @@ function studedit(studdata) {
 
         document.getElementById('stname').onclick = function () {
             alert(selectedGruppaEdit);
-             jsonPostEdit('http://public/students/addata', urlPart[3], document.getElementById('stnameInput').value)
-             jsonPostEdit('http://public/students/chgroup', urlPart[3], selectedGruppaEdit);
-             jsonPostEdit('http://public/students/chearnstatus', urlPart[3], learnStatusValue);
+             jsonPostEdit(location.origin+"/students/addata", urlPart[3], document.getElementById('stnameInput').value)
+             jsonPostEdit(location.origin+"/students/chgroup", urlPart[3], selectedGruppaEdit);
+             jsonPostEdit(location.origin+"/students/chearnstatus", urlPart[3], learnStatusValue);
 
             location.reload();
         }
