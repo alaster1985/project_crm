@@ -140,7 +140,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>gi
+            </div>
         </div>
         <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
