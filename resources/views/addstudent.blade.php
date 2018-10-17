@@ -35,13 +35,13 @@
     <select id="position" name="position_id"></select>
     <p>Резюме</p>
     <p><input type="file" name="file" id="fileToUpload">
-    <p>Комментарий</p>
+    <p>Комментарий студента</p>
     <p><input name="student_comment"></p>
     <p>Инструмент связи</p>
     <p><input name="communication_tool"></p>
     <p>Контакт</p>
     <p><input name="contact"></p>
-    <p>Коментарий</p>
+    <p>Коментарий контакта</p>
     <p><input name="contact_comment"></p>
     <p>Скилл</p>
     <select id="skills" name="skill_id"></select>
