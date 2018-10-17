@@ -3,18 +3,25 @@
  * Created by PhpStorm.
  * User: Андрей
  * Date: 24.09.2018
- * Time: 15:23
+ * Time: 15:25
  */
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 
-class Direction extends Model
+class It_company extends Model
 {
+    protected $table = 'it_companies';
+
     protected $fillable = [
-        'direction',
+        'company_name',
+        'status',
+        'type',
+        'site',
+        'comment',
+        'address',
+        'logo',
     ];
 
     public function getQueueableRelations()
@@ -27,9 +34,9 @@ class Direction extends Model
         return $this->hasMany('App\Alevel_member');
     }
 
-    public function groups()
+    public function stack_groups()
     {
-        return $this->hasMany('App\Group');
+        return $this->hasMany('App\Stack_groups');
     }
 
     public function contact_persons()
