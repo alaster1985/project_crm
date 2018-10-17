@@ -39,29 +39,6 @@
         </div>
     </div>
     <div id="q" class="col-md-8 col-sm-6 ">
-        {{-- <div class="btn-group">
-             <button id="learStatus" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                 Статус обучения <span class="caret"></span>
-             </button>
-             <ul class="dropdown-menu">
-                 @foreach ($learning_status as $status)
-                     <li><a class="dropdown-item" href="#"> {{$status->learning_status}}</a></li>
-                 @endforeach
-             </ul>
-         </div>
-         <div class="btn-group">
-             <button id="eplStatus" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                 Статус трудоустройства <span class="caret"></span>
-             </button>
-             <ul class="dropdown-menu" id="a">
-                 @foreach ($employment_status as $status)
-                     <li><a class="dropdown-item" href="#"> {{$status->employment_status}}</a></li>
-                 @endforeach
-             </ul>
-
-         </div>--}}
-
-
         <h4> Список студентов </h4>
         <table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
             <i class="fa fa-sort float-right" aria-hidden="true"></i>
