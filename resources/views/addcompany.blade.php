@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Company')
 
-<form action="{{Route('add.company')}}" method="post" enctype="multipart/form-data">
+<form action="{{Route('add.company')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <p>Добавление новой компании</p>
     <p>Название компании</p>
@@ -25,10 +25,15 @@
         <option value="Проведение мероприятий">Проведение мероприятий</option>
         <option value="Отсутствует">Отсутствует</option>
     </select>
+    <p>Стэк технологий</p>
+    <select id="stacks" name="stack_id"></select>
+    <p>Комментарий к стэк-технологии</p>
+    <p><input name="stack_comment"></p>
     <p>Логотип</p>
     <p><input type="file" name="file" id="fileToUpload">
     <p>Комментарий</p>
     <p><input name="company_comment"></p>
+    <script src="/js/run2.js"></script>
     <input type="submit" value="Add new company">
 </form>
 @extends('layouts.footer')

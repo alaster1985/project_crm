@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Student')
 
-<form action="{{Route('add.student')}}" method="post" enctype="multipart/form-data">
+<form action="{{Route('add.student')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <p>Добавление нового студента</p>

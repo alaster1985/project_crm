@@ -3,7 +3,11 @@ var direction = document.getElementById("direction")  //Формировка С�
 var div = document.getElementById("ext")
 var searchfield = document.getElementById("search")
 var findResult = document.getElementById("findResult")
+
+var searchall = document.getElementById("searchall")
+var findAllResult = document.getElementById("findAllResult")
 var extData = {}
+
 var studdata = {}
 //var selectedGruppaEdit;
 var studgroups = document.getElementById("studgroups")

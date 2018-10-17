@@ -26,6 +26,11 @@ class Dbrequest extends Controller
         $skills = DB::table('skills')->get();
         return response()->json($skills);
     }
+    public function stacks()
+    {
+        $stacks = DB::table('stacks')->get();
+        return response()->json($stacks);
+    }
     public function companies()
     {
         $companies = DB::table('it_companies')->get();
@@ -60,6 +65,22 @@ class Dbrequest extends Controller
             ->get();
         return response()->json($findstudents);
     }
+
+
+    public function findAll(Request $request)
+    {
+        $findAll = DB::table('persons')
+            ->where('persons.name', 'LIKE', "%{$request->key}%")
+            ->limit(7)
+            ->get();
+        return response()->json($findAll);
+    }
+
+
+
+
+
+
     public function studedit(Request $request)
     {
         $studed = DB::table('students')
