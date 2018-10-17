@@ -64,6 +64,7 @@ class Dbrequest extends Controller
     {
         $studed = DB::table('students')
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('contacts','contacts.person_id','=','persons.id')
             ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
             ->where('students.person_id', '=', $request->key)
             ->first();

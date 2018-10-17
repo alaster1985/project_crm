@@ -2,7 +2,7 @@
 searchfield.addEventListener("keyup", function addelement() {
     if (searchfield.value != "") {
         document.getElementById('findResult').innerHTML = ''
-        jsonPost('http://public/employees/findstudents', searchfield.value)
+        jsonPost('http://localhost:8000/employees/students', searchfield.value)
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
 

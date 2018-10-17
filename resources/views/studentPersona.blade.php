@@ -105,6 +105,7 @@
 
 <div class="col-md-2 col-sm-6" id="studgroups" ></div>
 <div class="col-md-2 col-sm-6" id="studlearning" ></div>
+<div class="col-md-2 col-sm-6" id="studemployment" ></div>
 
 <script src="/js/run.js"></script>
 <script src="/js/studentSearchField.js"></script>
