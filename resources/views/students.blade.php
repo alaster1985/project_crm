@@ -5,6 +5,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="/js/pagination.js"></script>
+
 <div class="container-fluid">
     <div class="col-md-2 col-sm-4 ">
 
@@ -49,15 +51,12 @@
                     @empty
                     @endforelse
 
-
-
                 </div>
-
 
             </div>
         </div>
     </div>
-    <div id="stres" class="col-md-8 col-sm-6 ">
+    <div id="stres" class="col-md-8 col-sm-6">
         {{--<h4> Список студентов </h4>--}}
         {{--<table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">--}}
             {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}

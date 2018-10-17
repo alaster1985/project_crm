@@ -101,10 +101,6 @@ class Dbrequest extends Controller
     }
 
 
-
-
-
-
     public function studedit(Request $request)
     {
         $studed = DB::table('students')
