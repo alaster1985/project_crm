@@ -2,9 +2,13 @@
 @section('title', 'Студенты A-Level')
 @csrf
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
+<head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+
+</head>
 
 <div class="container-fluid">
     <div class="col-md-2 col-sm-4 ">
@@ -17,12 +21,7 @@
             </div>
             <div class="collapse navbar-collapse" id="sideNavbar">
 
-
-
-
                 <div class="panel-group" id="accordionmenu">
-
-
 
                     @forelse($directions as $direction)
                         <div class="panel panel-default">
@@ -56,6 +55,19 @@
         </div>
     </div>
     <div id="stres" class="col-md-8 col-sm-6">
+
+        <table id="myTable" class="tablesorter">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+                </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+
         {{--<h4> Список студентов </h4>--}}
         {{--<table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">--}}
         {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
@@ -145,12 +157,13 @@
         <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
 </div>
+
+<div>
+    <table id="example" class="display" width="100%"></table>
+</div>
     @extends('layouts.footer')
 
 
     <script src="/js/run.js"></script>
-    {{--<script src="/js/search.js"></script>--}}
     {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
     <script src="/js/accordgroup.js"></script>
-{{--<script src="/js/viewEditPersonalInformation.js"></script>--}}
-{{-- <script src="/js/show.js"></script>--}}

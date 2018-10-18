@@ -3,7 +3,9 @@
 @csrf
 
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <div class="col-md-3 col-sm-8 ">
 
@@ -88,22 +90,21 @@
 
 
 </div>
-
-<div class="col-md-2 col-sm-6 ">
-
-    <input type="search" name="search" id="search" placeholder="Поиск по сайту">
-    <div id="findResult">
+{{--<div class="col-md-2 col-sm-6 ">--}}
+ <div id="findResult">
     </div>
 </div>
 
 <div class="col-md-2 col-sm-6 ">
-
-    <input type="search" name="search" id="searchall" placeholder="Поиск по людям">
-    <div id="findAllResult">
-    </div>
+<select class="names-select2"></select>
+    <style>
+        select {
+            width: 200px; /* Ширина списка в пикселах */
+        }
+    </style>
 </div>
 
-<div class="col-md-2 col-sm-6 ">
+<div class="col-md-4 col-sm-10">
     <div  id="studParam">
     </div>
 
