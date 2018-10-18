@@ -6,6 +6,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+
 </head>
 
 <div class="container-fluid">
@@ -19,12 +21,7 @@
             </div>
             <div class="collapse navbar-collapse" id="sideNavbar">
 
-
-
-
                 <div class="panel-group" id="accordionmenu">
-
-
 
                     @forelse($directions as $direction)
                         <div class="panel panel-default">
@@ -67,10 +64,6 @@
             </tr>
                 </thead>
             <tbody>
-            {{--<tr>--}}
-                {{--<td>Smith</td>--}}
-                {{--<td>John</td>--}}
-            {{--</tr>--}}
             </tbody>
         </table>
 
@@ -163,6 +156,10 @@
         </div>
         <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
+</div>
+
+<div>
+    <table id="example" class="display" width="100%"></table>
 </div>
     @extends('layouts.footer')
 

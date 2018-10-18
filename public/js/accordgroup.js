@@ -1,12 +1,15 @@
 var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0];;
-
 var ll
+
+var filter = 7;
 
 var ind = document.querySelectorAll(".direct");
 ind.forEach(aaa)
 function aaa(item, id) {
     item.onclick = function(){
         // document.getElementById('stres').innerHTML = '';
+
+        // CLEARE TABLE BY DELETE ROWS
         for (var i = document.getElementById('myTable').getElementsByTagName('tr').length -1; i; i--) {
             document.getElementById('myTable').deleteRow(i);
         }
@@ -17,15 +20,22 @@ function aaa(item, id) {
             function studget(studdata) {
             // document.getElementById('stres').innerHTML = '';
 //            console.log(studdata)
-
+                var rowTable =0;
                 for (var gr = 0; gr < studdata.length; gr++) {
+                    if (filter == 7) {
 
-                    var row = mytable.insertRow(gr);
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    cell1.innerHTML = studdata[gr]['name'];
-                    cell2.innerHTML = gr;
-                     console.log(mytable)
+                        console.log(filter)
+                        if (studdata[gr]['name'] == 'fox') {
+                            console.log(studdata[gr]['name'])
+                            var row = mytable.insertRow(rowTable);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            cell1.innerHTML = studdata[gr]['name'];
+                            cell2.innerHTML = gr;
+                            console.log(mytable)
+                            rowTable ++;
+                        }
+                    }
                 }
 
             // for (var gr = 0; gr < studdata.length; gr++) {
