@@ -27,7 +27,7 @@ function aaa(item, id) {
                     cell2.innerHTML = gr;
                      console.log(mytable)
                 }
-                
+
             // for (var gr = 0; gr < studdata.length; gr++) {
             //     var a = document.createElement('a');
             //     a.setAttribute('href', "students/show/"+ studdata[gr]['person_id']);
