@@ -71,8 +71,9 @@ class Dbrequest extends Controller
     {
         $findAll = DB::table('persons')
             ->where('persons.name', 'LIKE', "%{$request->key}%")
-            ->limit(7)
+            ->limit(10)
             ->get();
+//        return response()->json($request);
         return response()->json($findAll);
     }
 
