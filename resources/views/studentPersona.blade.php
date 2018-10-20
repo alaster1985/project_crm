@@ -7,10 +7,12 @@
 
 <div class="col-md-3 col-sm-8 ">
 
-    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
 
     <div id="imga">
         <img src="/images/image.jpg" alt="текст" id="pic"/>
+    </div>
+    <div>
+        <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
     </div>
     <a>{{$student->name}}</a>
     <br>
