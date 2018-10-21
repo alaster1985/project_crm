@@ -1,3 +1,4 @@
+/*
 var selectedGruppaEdit;
 var learnStatusValue;
 
@@ -138,4 +139,12 @@ function studedit(studdata) {
             location.reload();
         }
     }
+}
+*/
+jsonPost('http://localhost:8000/students/getStudName', urlPart[3])
+    .then(response => change_studentName(JSON.parse(response)))
+
+function change_studentName(studname){
+    console.log(studname);
+
 }

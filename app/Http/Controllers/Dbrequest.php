@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Person;
+use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -83,6 +85,7 @@ class Dbrequest extends Controller
 
     public function studedit(Request $request)
     {
+
         $studed = DB::table('students')
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->leftJoin('contacts','contacts.person_id','=','persons.id')
@@ -90,6 +93,27 @@ class Dbrequest extends Controller
             ->where('students.person_id', '=', $request->key)
             ->first();
         return response()->json($studed);
+    }
+
+    public function getStudName(Request $request){
+
+         $person =  Person::where('id',$request->key)->get();
+         //$person = Person::with($request->key)->get()->toArray();
+            //$student = new Student();
+
+//            $person->id = $request->key;
+//            $person->name = 'sad';
+//            $person->address = $request->address;
+//            $request->created_at = $person->created_at;
+
+       // return json_decode($request);
+     //   return response($request);
+        return response()->json($person);
+    }
+    public function test(){
+        $person = new Person();
+        $person->contacts();
+        return response()->json($person);
     }
 }
 

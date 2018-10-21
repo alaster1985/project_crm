@@ -18,7 +18,7 @@ function httpGet(url) {
     });
 }
 
-httpGet('http://public/employees/groups')
+httpGet('http://localhost:8000/employees/groups')
     .then(response => funcSelectGroup(JSON.parse(response)))
 
 function funcSelectGroup(extData) {
@@ -28,7 +28,7 @@ function funcSelectGroup(extData) {
     }
 }
 
-httpGet('http://public/skills')
+httpGet('http://localhost:8000/skills')
     .then(response => funcSelectSkill(JSON.parse(response)));
 
 function funcSelectSkill(extData) {
@@ -38,7 +38,7 @@ function funcSelectSkill(extData) {
     }
 }
 
-httpGet('http://public/company')
+httpGet('http://localhost:8000/company')
     .then(response => funcSelectCompany(JSON.parse(response)));
 
 function funcSelectCompany(extData) {
@@ -48,7 +48,7 @@ function funcSelectCompany(extData) {
     }
 }
 
-httpGet('http://public/position')
+httpGet('http://localhost:8000/position')
     .then(response => funcSelectPosition(JSON.parse(response)));
 
 function funcSelectPosition(extData) {
@@ -58,7 +58,7 @@ function funcSelectPosition(extData) {
     }
 }
 
-httpGet('http://public/direction')
+httpGet('http://localhost:8000/direction')
     .then(response => funcSelectDirection(JSON.parse(response)));
 
 function funcSelectDirection(extData) {
@@ -68,7 +68,7 @@ function funcSelectDirection(extData) {
     }
 }
 
-httpGet('http://public/stacks')
+httpGet('http://localhost:8000/stacks')
     .then(response => funcSelectStack(JSON.parse(response)));
 
 function funcSelectStack(extData) {
