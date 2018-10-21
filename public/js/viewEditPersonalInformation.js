@@ -2,7 +2,11 @@
 var selectedGruppaEdit;
 var learnStatusValue;
 
+<<<<<<< HEAD
 jsonPost('http://localhost:8000/students/studedition', urlPart[3])
+=======
+jsonPost(location.origin+"/students/studedition", urlPart[3])
+>>>>>>> 882514bcca512efd6000a28491f63252940cd5ad
     .then(response => studedit(JSON.parse(response)))
     //.then(studedit(someth))
 
@@ -109,7 +113,11 @@ function studedit(studdata) {
 
 
 //Group SELECTOR START -------
+<<<<<<< HEAD
         httpGet('http://localhost:8000/employees/groups')
+=======
+        httpGet(location.origin+"/employees/groups")
+>>>>>>> 882514bcca512efd6000a28491f63252940cd5ad
             .then(response => fun(JSON.parse(response)))
             .then(fun(extData))
         function fun(extData) {
@@ -132,9 +140,15 @@ function studedit(studdata) {
 
         document.getElementById('stname').onclick = function () {
             alert(selectedGruppaEdit);
+<<<<<<< HEAD
              jsonPostEdit('http://localhost:8000/students/addata', urlPart[3], document.getElementById('stnameInput').value)
              jsonPostEdit('http://localhost:8000/students/chgroup', urlPart[3], selectedGruppaEdit);
              jsonPostEdit('http://localhost:8000/students/chearnstatus', urlPart[3], learnStatusValue);
+=======
+             jsonPostEdit(location.origin+"/students/addata", urlPart[3], document.getElementById('stnameInput').value)
+             jsonPostEdit(location.origin+"/students/chgroup", urlPart[3], selectedGruppaEdit);
+             jsonPostEdit(location.origin+"/students/chearnstatus", urlPart[3], learnStatusValue);
+>>>>>>> 882514bcca512efd6000a28491f63252940cd5ad
 
             location.reload();
         }

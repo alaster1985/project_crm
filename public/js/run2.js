@@ -18,7 +18,8 @@ function httpGet(url) {
     });
 }
 
-httpGet('http://localhost:8000/employees/groups')
+
+httpGet(location.origin+"/employees/groups")
     .then(response => funcSelectGroup(JSON.parse(response)))
 
 function funcSelectGroup(extData) {
@@ -28,7 +29,8 @@ function funcSelectGroup(extData) {
     }
 }
 
-httpGet('http://localhost:8000/skills')
+
+httpGet(location.origin+"/skills")
     .then(response => funcSelectSkill(JSON.parse(response)));
 
 function funcSelectSkill(extData) {
@@ -38,7 +40,8 @@ function funcSelectSkill(extData) {
     }
 }
 
-httpGet('http://localhost:8000/company')
+
+httpGet(location.origin+"/company")
     .then(response => funcSelectCompany(JSON.parse(response)));
 
 function funcSelectCompany(extData) {
@@ -48,7 +51,8 @@ function funcSelectCompany(extData) {
     }
 }
 
-httpGet('http://localhost:8000/position')
+
+httpGet(location.origin+"/position")
     .then(response => funcSelectPosition(JSON.parse(response)));
 
 function funcSelectPosition(extData) {
@@ -58,7 +62,8 @@ function funcSelectPosition(extData) {
     }
 }
 
-httpGet('http://localhost:8000/direction')
+
+httpGet(location.origin+"/direction")
     .then(response => funcSelectDirection(JSON.parse(response)));
 
 function funcSelectDirection(extData) {
@@ -68,7 +73,8 @@ function funcSelectDirection(extData) {
     }
 }
 
-httpGet('http://localhost:8000/stacks')
+
+httpGet(location.origin+"/stacks")
     .then(response => funcSelectStack(JSON.parse(response)));
 
 function funcSelectStack(extData) {

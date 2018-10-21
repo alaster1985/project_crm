@@ -73,14 +73,35 @@ class Dbrequest extends Controller
     {
         $findAll = DB::table('persons')
             ->where('persons.name', 'LIKE', "%{$request->key}%")
-            ->limit(7)
+            ->limit(10)
             ->get();
+//        return response()->json($request);
         return response()->json($findAll);
     }
 
 
+    public function studentsDirection(Request $request)
+    {
+        $studentdirection = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
+            ->where('directions.id', '=', $request->key)
+            ->get();
 
+        return response()->json($studentdirection);
+    }
 
+    public function studentsGroup(Request $request)
+    {
+        $studentgroup = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->where('groups.group_name', '=', $request->key)
+            ->get();
+
+        return response()->json($studentgroup);
+    }
 
 
     public function studedit(Request $request)

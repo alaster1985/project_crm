@@ -1,4 +1,4 @@
-httpGet('http://localhost:8000/employees/directions')
+httpGet(location.origin+"/employees/directions")
     .then(response => fun(JSON.parse(response)))
     .then(fun(extData))
 
@@ -12,7 +12,7 @@ function fun(extData) {
 direction.onchange = function () {
     var directionSelected = direction.options[direction.selectedIndex].value
     groupSelector.options.length = 0;
-    httpGet('http://localhost:8000/employees/groups')
+    httpGet(location.origin+"/employees/groups")
         .then(response => fun(JSON.parse(response)))
         .then(fun(extData))
 
@@ -29,7 +29,7 @@ direction.onchange = function () {
 groupSelector.onchange = function () {
     var groupSelected = groupSelector.options[groupSelector.selectedIndex].value
     //In GROUPSELECTED - ID of the group
-    httpGet('http://localhost:8000/employees/students')
+    httpGet(location.origin+"/employees/students")
         .then(response => fun(JSON.parse(response)))
         .then(fun(extData))
 
