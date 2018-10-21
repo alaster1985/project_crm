@@ -7,7 +7,7 @@
         <p>Добавление нового студента</p>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
-                <label for="person_name">ФИО студента:</label>
+                <label for="person_name">ФИО студента</label>
                 <input class="form-control" name="person_name" placeholder="ФИО студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
