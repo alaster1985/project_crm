@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ImageValidation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Twilio\Rest\Client;
 class StudentsController extends Controller
 {
 //    public function addStudent(Request $request)
@@ -114,4 +114,33 @@ class StudentsController extends Controller
         return back();
     }
 
+    public function studentPersonaMobila(Request $request)
+    {
+
+        $contact = DB::table('contacts')-> where('person_id',$request->id)->where('communication_tool','cell')->first();
+        $this->sendSms($contact->contact,$request->msg);
+
+    }
+
+
+    public function sendSms($mobila,$mess)
+    {
+        if (isset($_POST['msg'])) {
+            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
+            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
+            $client = new Client($accountSid, $authToken);
+            $message = $client->messages->create(
+                "$mobila", array(
+                    'from' => '+18178138897',
+                    'body' => $mess
+                )
+            );
+
+            if ($message->sid) {
+                echo "Ваше сообщение удачно отправлено!";
+            }
+        }
+    }
+
 }
+
