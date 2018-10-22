@@ -6,7 +6,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+{{--<script type="text/javascript" src="/js/tablesort.js"></script>--}}
+{{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
+{{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
 
 </head>
 
@@ -61,6 +65,8 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Direction</th>
+
             </tr>
                 </thead>
             <tbody>
@@ -68,52 +74,6 @@
         </table>
 
 
-        {{--<h4> Список студентов </h4>--}}
-        {{--<table id="tableStudents" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--<th class="th-sm">ФИО--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--<th class="th-sm">Группа--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--<th class="th-sm">Статус обучения--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--<th class="th-sm">Статус трудоустройства--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--<th class="th-sm">Комментарий--}}
-        {{--<i class="fa fa-sort float-right" aria-hidden="true"></i>--}}
-        {{--</th>--}}
-        {{--</tr>--}}
-        {{--</thead>--}}
-        {{--<tbody>--}}
-        {{--@if ($all_students)--}}
-        {{--@foreach ($all_students as $index)--}}
-        {{--<tr>--}}
-        {{--<td>--}}
-        {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->name}}</a>--}}
-        {{--</td>--}}
-        {{--<td>--}}
-        {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->group_name}}</a>--}}
-        {{--</td>--}}
-        {{--<td>--}}
-        {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->learning_status}}</a>--}}
-        {{--</td>--}}
-        {{--<td>--}}
-        {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->employment_status}}</a>--}}
-        {{--</td>--}}
-        {{--<td>--}}
-        {{--<a href="{{route('student.view', ['id' => $index->id] )}}">{{$index->comment}}</a>--}}
-        {{--</td>--}}
-        {{--</tr>--}}
-        {{--@endforeach--}}
-        {{--{{ $all_students->links() }}--}}
-        {{--@endif--}}
-        {{--</tbody>--}}
-        {{--</table>--}}
     </div>
 
     <div class="col-md-2 col-sm-6 ">
@@ -158,11 +118,9 @@
     </div>
 </div>
 
-<div>
-    <table id="example" class="display" width="100%"></table>
-</div>
-    @extends('layouts.footer')
 
+
+    @extends('layouts.footer')
 
     <script src="/js/run.js"></script>
     {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
