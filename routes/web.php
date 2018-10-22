@@ -86,6 +86,7 @@ Route::get('stacks', 'Dbrequest@stacks');
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 Route::post('employees/studentsdirection', 'Dbrequest@studentsDirection');
 Route::post('employees/studentgroup', 'Dbrequest@studentsGroup');
+Route::post('students/studentsgroupoutput', 'Dbrequest@studentsGroupsOutput');
 
 Route::post('employees/findall', 'Dbrequest@findAll');
 
