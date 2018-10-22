@@ -1,10 +1,11 @@
 @extends('layouts.nav')
 @section('title', 'Add Student')
-<div class="container-fluid">
+<div class="container-fluid" style="background-color:#fdfdfd">
+
     <form action="{{Route('add.student')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <p>Добавление нового студента</p>
+        <h3 id="title">Добавление нового студента</h3>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО студента</label>
@@ -73,7 +74,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="employment_status">Статус трудоустройства</label>
                 <div>
-                    <select name="employment_status" class="form-control" placeholder="Статус трудоустройства">
+                    <select name="employment_status" class="form-control">
                         <option value="employed">employed</option>
                         <option value="in_search">in_search</option>
                         <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -95,7 +96,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="companies">IT компания</label>
                 <div>
-                    <select id="companies" name="company_id" class="form-control" placeholder="IT компания"></select>
+                    <select id="companies" name="company_id" class="form-control"></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
@@ -103,7 +104,7 @@
             <div class="form-group col-md-2 col-sm-2">
                 <label for="position">Должность</label>
                 <div>
-                    <select id="position" name="position_id" class="form-control" placeholder="Должность"></select>
+                    <select id="position" name="position_id" class="form-control"></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
