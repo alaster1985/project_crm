@@ -8,13 +8,13 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО контактного лица</label>
-                <input class="form-control" name="person_name" placeholder="ФИО контактного лица">
+                <input class="form-control" name="name" placeholder="ФИО контактного лица">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес контактного лица</label>
-                <input class="form-control" name="person_address" placeholder="Адрес контактного лица">
+                <input class="form-control" name="address" placeholder="Адрес контактного лица">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
