@@ -16,11 +16,10 @@ function studget(studdata) {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(1);
-        cell1.innerHTML = studdata[gr]['name'];
+        cell1.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['name'] + '</a>';
         cell2.innerHTML = gr;
-        cell3.innerHTML = studdata[gr]['direction'];
+        cell3.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['direction'] + '</a>';
         rowTable++;
-//                          }
     }
 }
 
