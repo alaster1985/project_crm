@@ -97,7 +97,7 @@
             <div class="form-group col-md-3 col-sm-3">
                 <label for="member_id">Ответственный HR</label>
                 <div>
-                    <select id="members" name="member_id" class="form-control" placeholder="Ответственный HR"></select>
+                    <select id="members" name="member_id" class="form-control"></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
