@@ -42,10 +42,17 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="communication_tool">Инструмент связи</label>
-                <p><input class="form-control" name="communication_tool"></p>
+                <p></p>
                 <p>Контакт</p>
                 <p><input class="form-control" name="contact"></p>
-                <p>Коментарий</p>
+                <select class="form-control" name="communication_tool">
+                    <option value="mob1">mob1</option>
+                    <option value="mob2">mob2</option>
+                    <option value="email">email</option>
+                    <option value="skype">skype</option>
+                    <option value="Other">Other</option>
+                </select>
+                    <p>Коментарий</p>
                 <p><input class="form-control" name="contact_comment"></p>
                 <p class="help-block">*обязательное поле</p>
             </div>

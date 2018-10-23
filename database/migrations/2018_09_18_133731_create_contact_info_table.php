@@ -16,7 +16,7 @@ class CreateContactInfoTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('communication_tool', 45);
+            $table->enum('communication_tool', ['mob1', 'mob2', 'email', 'skype', 'Other']);
             $table->string('contact', 45);
             $table->integer('person_id')->unsigned();
             $table->string('comment')->nullable();
