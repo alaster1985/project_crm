@@ -21,7 +21,6 @@ class AddStudentController extends Controller
     public function store(Request $request)
     {
         DB::transaction(function () use ($request) {
-
             $person = new Person($request->toArray());
             $person->save();
             $student = new Student($request->toArray());
