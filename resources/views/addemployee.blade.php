@@ -7,13 +7,13 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО сотрудника</label>
-                <input class="form-control" name="person_name" placeholder="ФИО сотрудника">
+                <input class="form-control" name="name" placeholder="ФИО сотрудника">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес сотрудника</label>
-                <input class="form-control" name="person_address" placeholder="Адрес сотрудника">
+                <input class="form-control" name="address" placeholder="Адрес сотрудника">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
@@ -65,7 +65,13 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="communication_tool">Инструмент связи</label>
-                <p><input class="form-control" name="communication_tool"></p>
+                <select class="form-control" name="communication_tool">
+                    <option value="mob1">mob1</option>
+                    <option value="mob2">mob2</option>
+                    <option value="email">email</option>
+                    <option value="skype">skype</option>
+                    <option value="Other">Other</option>
+                </select>
                 <p>Контакт</p>
                 <p><input class="form-control" name="contact"></p>
                 <p>Коментарий</p>

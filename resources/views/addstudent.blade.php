@@ -9,12 +9,12 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО студента</label>
-                <input class="form-control" name="person_name" placeholder="ФИО студента">
+                <input class="form-control" name="name" placeholder="ФИО студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес студента</label>
-                <input class="form-control" name="person_address" placeholder="Адрес студента">
+                <input class="form-control" name="address" placeholder="Адрес студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
@@ -43,10 +43,17 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="communication_tool">Инструмент связи</label>
-                <p><input class="form-control" name="communication_tool"></p>
+                <p></p>
                 <p>Контакт</p>
                 <p><input class="form-control" name="contact"></p>
-                <p>Коментарий</p>
+                <select class="form-control" name="communication_tool">
+                    <option value="mob1">mob1</option>
+                    <option value="mob2">mob2</option>
+                    <option value="email">email</option>
+                    <option value="skype">skype</option>
+                    <option value="Other">Other</option>
+                </select>
+                    <p>Коментарий</p>
                 <p><input class="form-control" name="contact_comment"></p>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -58,7 +65,7 @@
             </div>
 
             <div class="form-group col-md-3 col-sm-2">
-                <label for="skills">Скилл</label>
+                <label for="skill_id">Скилл</label>
                 <select class="form-control" id="skills" name="skill_id"></select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
@@ -89,7 +96,9 @@
 
             <div class="form-group col-md-3 col-sm-3">
                 <label for="member_id">Ответственный HR</label>
-                <input type="member_id" class="form-control" placeholder="Ответственный HR">
+                <div>
+                    <select id="members" name="member_id" class="form-control" placeholder="Ответственный HR"></select>
+                </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
 

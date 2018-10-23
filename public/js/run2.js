@@ -4,6 +4,7 @@ let company_name = document.getElementById("companies");
 let position = document.getElementById("position");
 let direction = document.getElementById("direction");
 let stack_name = document.getElementById("stacks");
+let member_name = document.getElementById("members");
 
 function httpGet(url) {
     return new Promise(function (resolve) {
@@ -77,3 +78,14 @@ function funcSelectStack(extData) {
         stack_name.appendChild(elem)
     }
 }
+
+httpGet(location.origin+"/members")
+    .then(response => funcSelectMember(JSON.parse(response)));
+
+function funcSelectMember(extData) {
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['name'], extData[i]['id']);
+        member_name.appendChild(elem)
+    }
+}
+
