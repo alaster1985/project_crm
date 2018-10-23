@@ -14,11 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 class Alevel_member extends Model
 {
     protected $fillable = [
-        'person_id' => 'integer',
-        'ASPT' => 'bool',
-        'position_id' => 'integer',
-        'direction_id' => 'integer',
-        'company_id' => 'integer',
+        'person_id',
+        'ASPT',
+        'position_id',
+        'direction_id',
+        'company_id',
         'comment',
     ];
 

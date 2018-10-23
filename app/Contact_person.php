@@ -16,10 +16,10 @@ class Contact_person extends Model
     protected $table = 'contact_persons';
 
     protected $fillable = [
-        'person_id' => 'integer',
-        'position_id' => 'integer',
-        'direction_id' => 'integer',
-        'company_id' => 'integer',
+        'person_id',
+        'position_id',
+        'direction_id',
+        'company_id',
         'comment',
     ];
 

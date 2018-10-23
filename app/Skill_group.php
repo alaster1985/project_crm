@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 class Skill_group extends Model
 {
     protected $fillable = [
-        'person_id' => 'integer',
-        'skill_id' => 'integer',
+        'person_id',
+        'skill_id',
     ];
 
     public function getQueueableRelations()

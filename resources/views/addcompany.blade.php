@@ -15,7 +15,7 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">Адрес офиса компании</label>
-                <input class="form-control" name="company_address" placeholder="Адрес офиса компании">
+                <input class="form-control" name="address" placeholder="Адрес офиса компании">
                 <p class="help-block">*обязательное поле</p>
             </div>
 

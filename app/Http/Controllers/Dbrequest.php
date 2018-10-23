@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Alevel_member;
+use App\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,11 +28,13 @@ class Dbrequest extends Controller
         $skills = DB::table('skills')->get();
         return response()->json($skills);
     }
+
     public function stacks()
     {
         $stacks = DB::table('stacks')->get();
         return response()->json($stacks);
     }
+
     public function companies()
     {
         $companies = DB::table('it_companies')->get();
@@ -43,11 +47,20 @@ class Dbrequest extends Controller
         return response()->json($positions);
     }
 
+    public function member()
+    {
+        $members = [];
+        foreach (Alevel_member::all() as $member) {
+            array_push($members, Person::find($member->person_id));
+        }
+        return response()->json($members);
+    }
+
     public function students()
     {
         $students = DB::table('students')
-        ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
-        ->get();
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->get();
 
         return response()->json($students);
     }
