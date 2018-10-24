@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\Direction;
 use App\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,8 +51,12 @@ class Dbrequest extends Controller
     public function member()
     {
         $members = [];
-        foreach (Alevel_member::all() as $member) {
-            array_push($members, Person::find($member->person_id));
+        foreach (Alevel_member::all()->where('ASPT', '=', '0') as $member) {
+            $person =Person::find($member->person_id);
+            array_push($members,[
+                'id' => Alevel_member::where('person_id', $person->id)->first()->id,
+                'name' => $person->name,
+            ]);
         }
         return response()->json($members);
     }
@@ -97,9 +102,11 @@ class Dbrequest extends Controller
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
             ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
-            ->where('directions.id', '=', $request->key)
+            ->where('groups.direction_id', '=', $request->key)
             ->get();
-        return response()->json($studentdirection);
+//        $studentdirection = Direction::find(dd($request->key))->first()->groups;
+//            dd($studentdirection);
+          return response()->json($studentdirection);
     }
 
     public function studentsGroupsOutput(Request $request)
@@ -135,5 +142,3 @@ class Dbrequest extends Controller
         return response()->json($studed);
     }
 }
-
-

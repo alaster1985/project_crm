@@ -26,10 +26,14 @@ class AddContactPersonController extends Controller
             $contact_Person->person_id = $person->id;
             $contact_Person->comment = $request->contact_person_comment;
             $contact_Person->save();
-            $contact = new Contact($request->toArray());
-            $contact->person_id = $person->id;
-            $contact->comment = $request->contact_comment;
-            $contact->save();
+            foreach ($request->contacts as $value) {
+                if (empty($value['contact'])) {
+                    continue;
+                }
+                $contact = new Contact($value);
+                $contact->person_id = $person->id;
+                $contact->save();
+            };
         });
         return redirect()->back();
     }

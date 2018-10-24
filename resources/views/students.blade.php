@@ -42,8 +42,7 @@
                                 <ul class="list-group">
                                     @foreach($groups as $group)
                                         @if($direction->id == $group->direction_id)
-                                           {{-- <p><button class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</button></p>--}}
-                                            <li class="list-group-item"><a class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>
+                                            <li class="list-group-item"><a href="#" class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>
