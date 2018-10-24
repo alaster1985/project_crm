@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\Direction;
 use App\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -101,9 +102,11 @@ class Dbrequest extends Controller
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
             ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
-            ->where('directions.id', '=', $request->key)
+            ->where('groups.direction_id', '=', $request->key)
             ->get();
-        return response()->json($studentdirection);
+//        $studentdirection = Direction::find(dd($request->key))->first()->groups;
+//            dd($studentdirection);
+          return response()->json($studentdirection);
     }
 
     public function studentsGroupsOutput(Request $request)
