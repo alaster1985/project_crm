@@ -50,7 +50,7 @@ class Dbrequest extends Controller
     public function member()
     {
         $members = [];
-        foreach (Alevel_member::all() as $member) {
+        foreach (Alevel_member::all()->where('ASPT', '=', '0') as $member) {
             array_push($members, Person::find($member->person_id));
         }
         return response()->json($members);
@@ -135,5 +135,3 @@ class Dbrequest extends Controller
         return response()->json($studed);
     }
 }
-
-
