@@ -78,8 +78,29 @@
     </div>
 
     <div class="col-md-2 col-sm-6 ">
+        <div class="row"></div>
+        <label for="learning_status">Статус обучения</label>
+        <div>
+            <select class="form-control" name="learning_status">
+                <option value="learning">learning</option>
+                <option value="graduated">graduated</option>
+                <option value="fell_of">fell_of</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <label for="employment_status">Статус трудоустройства</label>
+        <div>
+            <select name="employment_status" class="form-control">
+                <option value="employed">employed</option>
+                <option value="in_search">in_search</option>
+                <option value="not_relevant_in_IT">not_relevant_in_IT</option>
+                <option value="refused">refused</option>
+                <option value="in_IT_not_in_direction">in_IT_not_in_direction</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
 
-        <div class="panel-group" id="accordion">
+       {{-- <div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <!-- Заголовок 1 панели -->
                 <div class="panel-heading">
@@ -114,7 +135,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
         <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
 </div>
