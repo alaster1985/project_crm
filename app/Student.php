@@ -40,11 +40,6 @@ class Student extends Model
         return $this->belongsTo('App\Position');
     }
 
-    public function directions()
-    {
-        return $this->belongsTo('App\Direction');
-    }
-
     public function it_companies()
     {
         return $this->belongsTo('App\It_company');

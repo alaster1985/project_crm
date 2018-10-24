@@ -37,8 +37,4 @@ class Direction extends Model
         return $this->hasMany('App\Contact_person');
     }
 
-    public function students()
-    {
-        return $this->hasMany('App\Student');
-    }
 }

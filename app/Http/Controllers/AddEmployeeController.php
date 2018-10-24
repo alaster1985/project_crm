@@ -27,10 +27,14 @@ class AddEmployeeController extends Controller
             $alevel_Member->person_id = $person->id;
             $alevel_Member->comment = $request->employee_comment;
             $alevel_Member->save();
-            $contact = new Contact($request->toArray());
-            $contact->person_id = $person->id;
-            $contact->comment = $request->contact_comment;
-            $contact->save();
+            foreach ($request->contacts as $value) {
+                if (empty($value['contact'])) {
+                    continue;
+                }
+                $contact = new Contact($value);
+                $contact->person_id = $person->id;
+                $contact->save();
+            };
             $skill_Group = new Skill_group($request->toArray());
             $skill_Group->person_id = $person->id;
             $skill_Group->save();
