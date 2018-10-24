@@ -63,8 +63,10 @@
             <thead>
             <tr>
                 <th>First Name</th>
-                <th>Last Name</th>
+                <th>Group</th>
                 <th>Direction</th>
+                <th>Learning Status</th>
+                <th>Employment Status</th>
 
             </tr>
                 </thead>
