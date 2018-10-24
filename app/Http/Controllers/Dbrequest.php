@@ -120,6 +120,16 @@ class Dbrequest extends Controller
         return response()->json($studentsGroupsOutput);
     }
 
+    public function studentsAllOutput(Request $request)
+    {
+        $studentsAllOutput = DB::table('students')
+            ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
+            ->leftJoin('groups', 'students.group_id', '=', 'groups.id')
+            ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
+            ->get();
+        return response()->json($studentsAllOutput);
+    }
+
     public function studentsGroup(Request $request)
     {
         $studentgroup = DB::table('students')

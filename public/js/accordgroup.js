@@ -2,12 +2,53 @@ var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0
 
 var ll
 var globalDirectionId;
-var globalStudSata;
+var globalStudData;
+var studdata;
+
+
+function add(extData) {
+    for (var gr = 0; gr < extData.length; gr++) {
+        if (((extData[gr]['direction_id']) - 1) == (directionSelected)) {
+            groupElement = new Option(extData[gr]['group_name'], extData[gr]['id']);
+            groupSelector.appendChild(groupElement)
+        }
+    }
+}
+
+
+function allStudensShow() {
+    jsonPost(location.origin + "/students/studentsalloutput", 5)
+        .then(response => studget(JSON.parse(response)))
+        .then(studget(studdata))
+}
+allStudensShow();
+
+
+mySelect.onchange = function filterLearning() {
+    let sel = document.getElementById('mySelect').selectedIndex;
+    var options = document.getElementById('mySelect').options;
+    alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
+
+    // var directionSelected = direction.options[direction.selectedIndex].value
+    // groupSelector.options.length = 0;
+    // httpGet(location.origin+"/employees/groups")
+    //     .then(response => fun(JSON.parse(response)))
+    //     .then(fun(extData))
+    //
+    // function fun(extData) {
+    //     for (var gr = 0; gr < extData.length; gr++) {
+    //         if (((extData[gr]['direction_id']) - 1) == (directionSelected)) {
+    //             groupElement = new Option(extData[gr]['group_name'], extData[gr]['id']);
+    //             groupSelector.appendChild(groupElement)
+    //         }
+    //     }
+    // }
+
+}
 
 function studget(studdata) {
-    console.log(studdata)
     // CLEAR TABLE BY DELETE ROWS
-    globalStudSata = studdata;
+    globalStudData = studdata;
     for (var i = document.getElementById('myTable').getElementsByTagName('tr').length - 1; i; i--) {
         document.getElementById('myTable').deleteRow(i);
     }
