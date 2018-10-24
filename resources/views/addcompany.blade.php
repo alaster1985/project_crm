@@ -14,14 +14,14 @@
             </div>
 
             <div class="form-group col-md-3 col-sm-2">
-                <label for="company_address">Адрес офиса компании</label>
-                <input class="form-control" name="company_address" placeholder="Адрес офиса компании">
+                <label for="person_name">Адрес офиса компании</label>
+                <input class="form-control" name="address" placeholder="Адрес офиса компании">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
 
             <div class="form-group col-md-3 col-sm-2">
-                <label for="site">Сайт</label>
+                <label for="person_name">Сайт</label>
                 <input class="form-control" name="site" placeholder="Сайт">
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -71,11 +71,10 @@
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
-
             <div class="form-group col-md-2 col-sm-2">
-                <label for="stack">Стэк технологий</label>
+                <label for="stack_id">Стэк технологий</label>
                 <div>
-                    <select class="form-control" id="stacks" name="stack_id"></select>
+                    <select class="form-control" id="stacks" name="stack_id" placeholder="Стэк технологий"></select>
                 </div>
                 <p>Комментарий к стэк-технологии</p>
                 <p><input class="form-control" name="stack_comment"></p>
