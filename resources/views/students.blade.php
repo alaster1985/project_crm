@@ -3,20 +3,19 @@
 @csrf
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-{{--<script type="text/javascript" src="/js/tablesort.js"></script>--}}
-{{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
-{{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
+    {{--<script type="text/javascript" src="/js/tablesort.js"></script>--}}
+    {{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
+    {{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
 
 </head>
 
 <div class="container-fluid">
     <div class="col-md-2 col-sm-4 ">
-
         <div id="menu">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sideNavbar">
@@ -32,7 +31,8 @@
 
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordionmenu" href="#collapse{{$direction ->id}}">
+                                    <a data-toggle="collapse" data-parent="#accordionmenu"
+                                       href="#collapse{{$direction ->id}}">
                                         <span class="direct" id="{{$direction ->id}}">{{$direction ->direction}}</span>
                                     </a>
                                 </h4>
@@ -42,7 +42,9 @@
                                 <ul class="list-group">
                                     @foreach($groups as $group)
                                         @if($direction->id == $group->direction_id)
-                                            <li class="list-group-item"><a href="#" class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>
+                                            <li class="list-group-item"><a href="#" class="navlink"
+                                                                           id="{{$group->group_name}}">{{$group->group_name}}</a>
+                                            </li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -53,31 +55,63 @@
                     @endforelse
 
                 </div>
-
             </div>
         </div>
     </div>
-    <div id="stres" class="col-md-8 col-sm-6">
+    <div class="col-md-8 col-sm-6">
+        {{--<div class="row">
+            <div class="form-group col-md-5 col-sm-3">
+                <label for="learning_status">Статус обучения</label>
+                <div>
+                    <select class="form-control" name="learning_status">
+                        <option value="learning">learning</option>
+                        <option value="graduated">graduated</option>
+                        <option value="fell_of">fell_of</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
 
-        <table id="myTable" class="tablesorter">
-            <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Direction</th>
+        </div>--}}
 
-            </tr>
+        <div id="stres">
+
+            <table id="myTable" class="tablesorter">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Direction</th>
+
+                </tr>
                 </thead>
-            <tbody>
-            </tbody>
-        </table>
-
-
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-
     <div class="col-md-2 col-sm-6 ">
-
-        <div class="panel-group" id="accordion">
+        <label for="learning_status">Статус обучения</label>
+        <div>
+            <select class="form-control" name="learning_status">
+                <option value="learning">learning</option>
+                <option value="graduated">graduated</option>
+                <option value="fell_of">fell_of</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <label for="employment_status">Статус трудоустройства</label>
+        <div>
+            <select name="employment_status" class="form-control">
+                <option value="employed">employed</option>
+                <option value="in_search">in_search</option>
+                <option value="not_relevant_in_IT">not_relevant_in_IT</option>
+                <option value="refused">refused</option>
+                <option value="in_IT_not_in_direction">in_IT_not_in_direction</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        {{--<div class="panel-group" id="accordion">
             <div class="panel panel-default">
                 <!-- Заголовок 1 панели -->
                 <div class="panel-heading">
@@ -86,7 +120,7 @@
                     </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
-                    <!-- Содержимое 1 панели -->
+                    <!-- Содеримое 1 панели -->
                     <div class="panel-body">
                         @foreach ($learning_status as $status)
                             <li><a class="dropdown-item" href="#"> {{$status->learning_status}}</a></li>
@@ -112,15 +146,16 @@
                     </div>
                 </div>
             </div>
+        </div>--}}
+        <div>
+            <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
         </div>
-        <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
 </div>
 
 
+@extends('layouts.footer')
 
-    @extends('layouts.footer')
-
-    <script src="/js/run.js"></script>
-    {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
-    <script src="/js/accordgroup.js"></script>
+<script src="/js/run.js"></script>
+{{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
+<script src="/js/accordgroup.js"></script>
