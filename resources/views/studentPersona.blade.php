@@ -27,7 +27,9 @@
         @csrf
         Введите сообщение:<br>
         <textarea placeholder="Message" name="msg"></textarea><br>
+{{--
         <input type="hidden" name="id" value="{{$id}}">
+--}}
         <input type="submit" value="Отправить">
     </form>
 

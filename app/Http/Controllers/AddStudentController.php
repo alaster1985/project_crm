@@ -28,10 +28,14 @@ class AddStudentController extends Controller
             $student->CV = basename($_FILES["file"]["name"]);
             $student->comment = $request->student_comment;
             $student->save();
-            $contact = new Contact($request->toArray());
-            $contact->person_id = $person->id;
-            $contact->comment = $request->contact_comment;
-            $contact->save();
+            foreach ($request->contacts as $value) {
+                if (empty($value['contact'])) {
+                    continue;
+                }
+                $contact = new Contact($value);
+                $contact->person_id = $person->id;
+                $contact->save();
+            };
             $skill_Group = new Skill_group($request->toArray());
             $skill_Group->person_id = $person->id;
             $skill_Group->save();

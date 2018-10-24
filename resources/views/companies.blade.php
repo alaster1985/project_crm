@@ -5,6 +5,10 @@
         <form action="{{Route('addcomp')}}">
             <input type="submit" value="Add new company">
         </form>
+        <form action="{{Route('addcontper')}}">
+            @csrf
+            <input class="btn-block" type="submit" value="Add new contact person">
+        </form>
     </div>
     <div class="col-md-8 col-sm-6 ">
         <h4> Список компаний </h4>

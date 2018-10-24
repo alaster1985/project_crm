@@ -51,8 +51,12 @@ class Dbrequest extends Controller
     public function member()
     {
         $members = [];
-        foreach (Alevel_member::all() as $member) {
-            array_push($members, Person::find($member->person_id));
+        foreach (Alevel_member::all()->where('ASPT', '=', '0') as $member) {
+            $person =Person::find($member->person_id);
+            array_push($members,[
+                'id' => Alevel_member::where('person_id', $person->id)->first()->id,
+                'name' => $person->name,
+            ]);
         }
         return response()->json($members);
     }
@@ -138,5 +142,3 @@ class Dbrequest extends Controller
         return response()->json($studed);
     }
 }
-
-
