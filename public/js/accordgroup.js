@@ -1,13 +1,11 @@
 var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-
-var ll
-var globalDirectionId;
-var globalStudData;
+var ll;
+var globaldata;
 var studdata;
-
+var newdata = {};
 
 function add(extData) {
-    for (var gr = 0; gr < extData.length; gr++) {
+    for (let gr = 0; gr < extData.length; gr++) {
         if (((extData[gr]['direction_id']) - 1) == (directionSelected)) {
             groupElement = new Option(extData[gr]['group_name'], extData[gr]['id']);
             groupSelector.appendChild(groupElement)
@@ -23,33 +21,34 @@ function allStudensShow() {
 }
 allStudensShow();
 
+// selectemployment.onchange = function(){
+//     var sel = myselect.selectedIndex;
+//     var options = myselect.options;
+//     alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
+// }
 
-mySelect.onchange = function filterLearning() {
-    let sel = document.getElementById('mySelect').selectedIndex;
-    var options = document.getElementById('mySelect').options;
-    alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-
-    // var directionSelected = direction.options[direction.selectedIndex].value
-    // groupSelector.options.length = 0;
-    // httpGet(location.origin+"/employees/groups")
-    //     .then(response => fun(JSON.parse(response)))
-    //     .then(fun(extData))
-    //
-    // function fun(extData) {
-    //     for (var gr = 0; gr < extData.length; gr++) {
-    //         if (((extData[gr]['direction_id']) - 1) == (directionSelected)) {
-    //             groupElement = new Option(extData[gr]['group_name'], extData[gr]['id']);
-    //             groupSelector.appendChild(groupElement)
-    //         }
-    //     }
-    // }
-
+selectlearn.onchange = function () {
+    var sel = selectlearn.selectedIndex;
+    var options = selectlearn.options;
+    // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
+    // console.log(globaldata)
+    let i = 0;
+    for (let key in globaldata) {
+        if (options[sel].value == globaldata[key]['learning_status']) {
+            newdata[i] = globaldata[key];
+            i++;
+        }
+    }
+    console.log(newdata);
+//    globaldata = newdata;
+    studget(newdata);
 }
 
 function studget(studdata) {
     // CLEAR TABLE BY DELETE ROWS
-    globalStudData = studdata;
-    for (var i = document.getElementById('myTable').getElementsByTagName('tr').length - 1; i; i--) {
+    alert('aaa')
+    globaldata = studdata;
+    for (let i = document.getElementById('myTable').getElementsByTagName('tr').length - 1; i; i--) {
         document.getElementById('myTable').deleteRow(i);
     }
     var rowTable = 0;
@@ -69,11 +68,13 @@ function studget(studdata) {
     }
 }
 
+
+
 var ind = document.querySelectorAll(".direct")
 ind.forEach(studDirection)
+
 function studDirection(item, id) {
     item.onclick = function () {
-        globalDirectionId = id;
         jsonPost(location.origin + "/employees/studentsdirection", item.id)
             .then(response => studget(JSON.parse(response)))
             .then(studget(studdata))
@@ -82,6 +83,7 @@ function studDirection(item, id) {
 
 var navlink = document.querySelectorAll(".navlink");
 navlink.forEach(studGroup)
+
 function studGroup(itemgr, idgr) {
     itemgr.onclick = function () {
         jsonPost(location.origin + "/students/studentsgroupoutput", itemgr.id)

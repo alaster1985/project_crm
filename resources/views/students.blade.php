@@ -81,7 +81,7 @@
         <div class="row"></div>
         <label for="learning_status">Статус обучения</label>
         <div>
-            <select class="form-control" name="learning_status">
+            <select id ="learningstatus" class="form-control" name="learning_status">
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -90,7 +90,7 @@
         </div>
         <label for="employment_status">Статус трудоустройства</label>
         <div>
-            <select name="employment_status" class="form-control">
+            <select id ="employmentstatus" name="employment_status" class="form-control">
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -100,42 +100,6 @@
             </select>
         </div>
 
-       {{-- <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <!-- Заголовок 1 панели -->
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Статус обучения</a>
-                    </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse">
-                    <!-- Содержимое 1 панели -->
-                    <div class="panel-body">
-                        @foreach ($learning_status as $status)
-                            <li><a class="dropdown-item" href="#"> {{$status->learning_status}}</a></li>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <!-- 2 панель -->
-            <div class="panel panel-default">
-                <!-- Заголовок 2 панели -->
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Статус
-                            трудоустройства</a>
-                    </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse">
-                    <!-- Содержимое 2 панели -->
-                    <div class="panel-body">
-                        @foreach ($employment_status as $status)
-                            <li><a class="dropdown-item" href="#"> {{$status->employment_status}}</a></li>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>--}}
         <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
 </div>

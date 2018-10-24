@@ -95,7 +95,7 @@ class Dbrequest extends Controller
         return response()->json($findAll);
     }
 
-
+// Students from direct
     public function studentsDirection(Request $request)
     {
         $studentdirection = DB::table('students')
@@ -109,6 +109,7 @@ class Dbrequest extends Controller
           return response()->json($studentdirection);
     }
 
+// Students from group
     public function studentsGroupsOutput(Request $request)
     {
         $studentsGroupsOutput = DB::table('students')
@@ -120,6 +121,7 @@ class Dbrequest extends Controller
         return response()->json($studentsGroupsOutput);
     }
 
+// All students
     public function studentsAllOutput(Request $request)
     {
         $studentsAllOutput = DB::table('students')
