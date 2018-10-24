@@ -58,8 +58,8 @@
         </div>
     </div>
     <div id="stres" class="col-md-8 col-sm-6">
-
-        <table id="myTable" class="tablesorter">
+        <h4> Список студентов </h4>
+        <table id="myTable" class="table table-striped table-bordered table-sm tablesorter">
             <thead>
             <tr>
                 <th>First Name</th>
