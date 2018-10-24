@@ -88,4 +88,3 @@ function funcSelectMember(extData) {
         member_name.appendChild(elem)
     }
 }
-
