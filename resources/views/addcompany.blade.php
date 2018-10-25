@@ -15,7 +15,7 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">Адрес офиса компании</label>
-                <input class="form-control" name="company_address" placeholder="Адрес офиса компании">
+                <input class="form-control" name="address" placeholder="Адрес офиса компании">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
@@ -72,8 +72,10 @@
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-2">
-                <label for="stacks">Стэк технологий</label>
-                <input class="form-control" name="stacks" placeholder="Стэк технологий">
+                <label for="stack_id">Стэк технологий</label>
+                <div>
+                    <select class="form-control" id="stacks" name="stack_id" placeholder="Стэк технологий"></select>
+                </div>
                 <p>Комментарий к стэк-технологии</p>
                 <p><input class="form-control" name="stack_comment"></p>
                 <p class="help-block">*не обязательное поле</p>

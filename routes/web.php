@@ -42,8 +42,11 @@ Route::middleware('auth')->group(function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/sms', 'SmsController@index')->name('index');
 Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
+
+Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
 
 
 Route::get('addstudent', function () {
@@ -81,13 +84,19 @@ Route::get('company', 'Dbrequest@companies');
 Route::get('position', 'Dbrequest@positions');
 Route::get('direction', 'Dbrequest@direction');
 Route::get('stacks', 'Dbrequest@stacks');
+
 Route::get('communicationTools', 'Dbrequest@getCommunicationTools');
 Route::get('learningStatus', 'Dbrequest@getLearningStatus');
 Route::get('employmentStatus', 'Dbrequest@getEmploymentStatus');
 
+Route::get('members', 'Dbrequest@member');
+
+
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 Route::post('employees/studentsdirection', 'Dbrequest@studentsDirection');
 Route::post('employees/studentgroup', 'Dbrequest@studentsGroup');
+Route::post('students/studentsgroupoutput', 'Dbrequest@studentsGroupsOutput');
+Route::post('students/studentsalloutput', 'Dbrequest@studentsAllOutput');
 
 Route::post('employees/findall', 'Dbrequest@findAll');
 
@@ -118,7 +127,6 @@ Route::post('students/ChangeCompanyPosition', 'StudentsController@studentChangeC
 
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
-
 
 
 

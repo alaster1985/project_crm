@@ -13,6 +13,9 @@ var studdata = {}
 //var selectedGruppaEdit;
 var studgroups = document.getElementById("studgroups")
 var urlPart = window.location.pathname.split('/')
+var selectlearn = document.getElementById("learningstatus");
+var selectemployment = document.getElementById("employmentstatus");
+
 
 
 var accordionmenu = document.getElementById("accordionmenu");

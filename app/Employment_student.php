@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 class Employment_student extends Model
 {
     protected $fillable = [
-        'student_id' => 'integer',
-        'company_id' => 'integer',
+        'student_id',
+        'company_id',
         'comment',
     ];
 

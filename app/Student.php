@@ -16,11 +16,11 @@ class Student extends Model
     protected $fillable = [
         'learning_status',
         'employment_status',
-        'group_id' => 'integer',
-        'position_id' => 'integer',
-        'company_id' => 'integer',
-        'member_id' => 'integer',
-        'person_id' => 'integer',
+        'group_id',
+        'position_id',
+        'company_id',
+        'member_id',
+        'person_id',
         'CV',
         'comment',
     ];
@@ -38,11 +38,6 @@ class Student extends Model
     public function positions()
     {
         return $this->belongsTo('App\Position');
-    }
-
-    public function directions()
-    {
-        return $this->belongsTo('App\Direction');
     }
 
     public function it_companies()

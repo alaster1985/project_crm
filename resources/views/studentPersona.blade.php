@@ -9,11 +9,30 @@
 
 <div class="col-md-3 col-sm-8 ">
 
-    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
 
     <div id="imga">
         <img src="/images/image.jpg" alt="текст" id="pic"/>
     </div>
+    <div>
+        <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
+    </div>
+    <div>
+        <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
+    </div>
+
+
+
+    <h2>Отправка Сообщений </h2>
+    <form action="{{Route('sendSMS')}}" method="post">
+        @csrf
+        Введите сообщение:<br>
+        <textarea placeholder="Message" name="msg"></textarea><br>
+{{--
+        <input type="hidden" name="id" value="{{$id}}">
+--}}
+        <input type="submit" value="Отправить">
+    </form>
+
     <a>{{$student->name}}</a>
     <br>
     <a>{{$student->address}}</a>
