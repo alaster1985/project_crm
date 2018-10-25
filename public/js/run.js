@@ -14,7 +14,7 @@ var studdata = {}
 var studgroups = document.getElementById("studgroups")
 var urlPart = window.location.pathname.split('/')
 var selectlearn = document.getElementById("learningstatus");
-var selectemployment = document.getElementById("learningstatus");
+var selectemployment = document.getElementById("employmentstatus");
 
 
 
