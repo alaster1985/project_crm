@@ -46,7 +46,6 @@ Route::get('/sms', 'SmsController@index')->name('index');
 Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 
 
-
 Route::get('addstudent', function () {
     return view('addstudent');
 })->name('addstud');
@@ -74,7 +73,7 @@ Route::post('/addcomponent', 'AddComponentController@store')->name('add.componen
 
 //JS
 
-Route::get('employees/groups', 'Dbrequest@groups');
+Route::get('students/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
 Route::get('employees/students', 'Dbrequest@students');
 Route::get('skills', 'Dbrequest@skills');
@@ -82,6 +81,9 @@ Route::get('company', 'Dbrequest@companies');
 Route::get('position', 'Dbrequest@positions');
 Route::get('direction', 'Dbrequest@direction');
 Route::get('stacks', 'Dbrequest@stacks');
+Route::get('communicationTools', 'Dbrequest@getCommunicationTools');
+Route::get('learningStatus', 'Dbrequest@getLearningStatus');
+Route::get('employmentStatus', 'Dbrequest@getEmploymentStatus');
 
 Route::post('employees/findstudents', 'Dbrequest@findStudents');
 Route::post('employees/studentsdirection', 'Dbrequest@studentsDirection');
@@ -89,12 +91,31 @@ Route::post('employees/studentgroup', 'Dbrequest@studentsGroup');
 
 Route::post('employees/findall', 'Dbrequest@findAll');
 
+//JS GET DATA
 Route::post('students/studedition', 'Dbrequest@studedit');
-Route::post('students/getStudName', 'Dbrequest@getStudName');
-Route::get('students/test', 'Dbrequest@test');
+Route::post('students/getStudName', 'StudentsController@getStudentNameAddress');
+Route::post('students/getStudentContacts', 'StudentsController@getStudentContacts');
+Route::post('students/getStudyInfo', 'StudentsController@getStudyInfo');
+Route::post('students/getSkills', 'StudentsController@getSkills');
+Route::post('students/getStudyCompany','StudentsController@getStudyCompany');
 
+//JS EDITION (O_o)
+Route::post('students/ChangeName', 'StudentsController@studentChangeName')->name('studentChangeName');
+Route::post('students/ChangeAddress', 'StudentsController@studentChangeAddress')->name('studentChangeAddress');
+Route::post('students/ChangeCommTool', 'StudentsController@studentChangeCommTool')->name('studentChangeCommTool');
+Route::post('students/ChangeContact', 'StudentsController@studentChangeContact')->name('studentChangeContact');
+Route::post('students/ChangeContactComment', 'StudentsController@studentChangeContactComment')->name('studentChangeContactComment');
+Route::post('students/ChangeSkill', 'StudentsController@studentChangeContactSkill')->name('studentChangeContactSkill');
+Route::post('students/ChangeGroup', 'StudentsController@studentChangeContactGroup')->name('studentChangeContactGroup');
+Route::post('students/ChangeLearningStatus', 'StudentsController@studentChangeContactLearningStatus')->name('studentChangeContactLearningStatus');
+Route::post('students/ChangeEmploymentStatus', 'StudentsController@studentChangeContactEmploymentStatus')->name('studentChangeContactEmploymentStatus');
+Route::post('students/ChangeDirection', 'StudentsController@studentChangeContactDirection')->name('studentChangeContactDirection');
+Route::post('students/ChangeStartDate', 'StudentsController@studentChangeContactStartDate')->name('studentChangeContactStartDate');
+Route::post('students/ChangeFinishDate', 'StudentsController@studentChangeContactFinishDate')->name('studentChangeContactFinishDate');
+Route::post('students/ChangeHomecomingDate', 'StudentsController@studentChangeContactHomecomingDate')->name('studentChangeContactHomecomingDate');
+Route::post('students/ChangeCompany', 'StudentsController@studentChangeContactCompany')->name('studentChangeContactCompany');
+Route::post('students/ChangeCompanyPosition', 'StudentsController@studentChangeContactCompanyPosition')->name('studentChangeContactCompanyPosition');
 
-Route::post('students/addata', 'StudentsController@studentAddDataName')->name('studentAddDataName');
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
 

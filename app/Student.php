@@ -60,3 +60,4 @@ class Student extends Model
         return $this->belongsTo('App\Group');
     }
 }
+
