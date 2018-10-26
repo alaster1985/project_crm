@@ -20,7 +20,6 @@ class AddStudentController extends Controller
 {
     public function store(Request $request)
     {
-        dd($request);
         DB::transaction(function () use ($request) {
             $person = new Person($request->toArray());
             $person->save();
