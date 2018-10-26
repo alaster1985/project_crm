@@ -79,12 +79,8 @@
         <div class="row"></div>
         <label for="learning_status">Статус обучения</label>
         <div>
-<<<<<<< HEAD
             <select id ="learningstatus" class="form-control" name="learning_status">
                 <OPTION SELECTED VALUE="0"></OPTION>
-=======
-            <select id="learningstatus" class="form-control" name="learning_status">
->>>>>>> 41b757f0baf9686390d16a66d34adf9cc8f9f1db
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -93,12 +89,9 @@
         </div>
         <label for="employment_status">Статус трудоустройства</label>
         <div>
-<<<<<<< HEAD
+
             <select id ="employmentstatus" name="employment_status" class="form-control">
                 <OPTION SELECTED VALUE="0"></OPTION>
-=======
-            <select id="employmentstatus" name="employment_status" class="form-control">
->>>>>>> 41b757f0baf9686390d16a66d34adf9cc8f9f1db
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
