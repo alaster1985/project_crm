@@ -8,7 +8,6 @@
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-{{--<script type="text/javascript" src="/js/tablesort.js"></script>--}}
 {{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
 {{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
 
