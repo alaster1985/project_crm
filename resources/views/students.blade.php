@@ -3,13 +3,10 @@
 @csrf
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-{{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
-{{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 </head>
 
@@ -31,7 +28,8 @@
 
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordionmenu" href="#collapse{{$direction ->id}}">
+                                    <a data-toggle="collapse" data-parent="#accordionmenu"
+                                       href="#collapse{{$direction ->id}}">
                                         <span class="direct" id="{{$direction ->id}}">{{$direction ->direction}}</span>
                                     </a>
                                 </h4>
@@ -41,12 +39,13 @@
                                 <ul class="list-group">
                                     @foreach($groups as $group)
                                         @if($direction->id == $group->direction_id)
-                                            <li class="list-group-item"><a href="#" class="navlink" id="{{$group->group_name}}">{{$group->group_name}}</a></li>
+                                            <li class="list-group-item"><a href="#" class="navlink"
+                                                                           id="{{$group->group_name}}">{{$group->group_name}}</a>
+                                            </li>
                                         @endif
                                     @endforeach
                                 </ul>
                             </div>
-
                         </div>
                     @empty
                     @endforelse
@@ -57,8 +56,9 @@
         </div>
     </div>
     <div id="stres" class="col-md-8 col-sm-6">
-        <h4> Список студентов </h4>
-        <table id="myTable" class="table table-striped table-bordered table-sm tablesorter">
+        <h4 class="name_table"> Список студентов </h4>
+        <table id="myTable" class="table table-striped table-bordered table-sm tablesorter"
+               style="height:500px;display:block;overflow:scroll">
             <thead>
             <tr>
                 <th>First Name</th>
@@ -66,9 +66,8 @@
                 <th>Direction</th>
                 <th>Learning Status</th>
                 <th>Employment Status</th>
-
             </tr>
-                </thead>
+            </thead>
             <tbody>
             </tbody>
         </table>
@@ -80,8 +79,12 @@
         <div class="row"></div>
         <label for="learning_status">Статус обучения</label>
         <div>
+<<<<<<< HEAD
             <select id ="learningstatus" class="form-control" name="learning_status">
                 <OPTION SELECTED VALUE="0"></OPTION>
+=======
+            <select id="learningstatus" class="form-control" name="learning_status">
+>>>>>>> 41b757f0baf9686390d16a66d34adf9cc8f9f1db
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -90,8 +93,12 @@
         </div>
         <label for="employment_status">Статус трудоустройства</label>
         <div>
+<<<<<<< HEAD
             <select id ="employmentstatus" name="employment_status" class="form-control">
                 <OPTION SELECTED VALUE="0"></OPTION>
+=======
+            <select id="employmentstatus" name="employment_status" class="form-control">
+>>>>>>> 41b757f0baf9686390d16a66d34adf9cc8f9f1db
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -106,9 +113,8 @@
 </div>
 
 
+@extends('layouts.footer')
 
-    @extends('layouts.footer')
-
-    <script src="/js/run.js"></script>
-    {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
-    <script src="/js/accordgroup.js"></script>
+<script src="/js/run.js"></script>
+{{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
+<script src="/js/accordgroup.js"></script>
