@@ -14,7 +14,7 @@
 
 </head>
 
-<div class="container-fluid">
+<div class="container-fluid" id="color_page">
     <div class="col-md-2 col-sm-4 ">
 
         <div id="menu">
@@ -62,11 +62,14 @@
     </div>
 
     <div id="stres" class="col-md-8 col-sm-6">
-        <h4> Список студентов </h4>
+        <h4 class="name_table"> Список студентов </h4>
         <table id="myTable" class="table table-striped table-bordered table-sm tablesorter"
+            {{--style="display: block;
+               max-height: 300px;
+               overflow-y: scroll;"--}}
                style="height:500px;display:block;overflow:scroll">
             <thead>
-            <tr>
+            <tr {{--style="display: table; width: 100%; table-layout: fixed;"--}}>
                 <th>First Name</th>
                 <th>Group</th>
                 <th>Direction</th>
