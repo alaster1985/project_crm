@@ -14,7 +14,7 @@
 
 </head>
 
-<div class="container-fluid" id="color_page">
+<div class="container-fluid">
     <div class="col-md-2 col-sm-4 ">
 
         <div id="menu">
@@ -50,7 +50,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-
                         </div>
                     @empty
                     @endforelse
@@ -60,16 +59,12 @@
             </div>
         </div>
     </div>
-
     <div id="stres" class="col-md-8 col-sm-6">
         <h4 class="name_table"> Список студентов </h4>
         <table id="myTable" class="table table-striped table-bordered table-sm tablesorter"
-            {{--style="display: block;
-               max-height: 300px;
-               overflow-y: scroll;"--}}
                style="height:500px;display:block;overflow:scroll">
             <thead>
-            <tr {{--style="display: table; width: 100%; table-layout: fixed;"--}}>
+            <tr>
                 <th>First Name</th>
                 <th>Group</th>
                 <th>Direction</th>
@@ -80,13 +75,15 @@
             <tbody>
             </tbody>
         </table>
+
+
     </div>
 
     <div class="col-md-2 col-sm-6 ">
         <div class="row"></div>
         <label for="learning_status">Статус обучения</label>
         <div>
-            <select class="form-control" name="learning_status">
+            <select id="learningstatus" class="form-control" name="learning_status">
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -95,7 +92,7 @@
         </div>
         <label for="employment_status">Статус трудоустройства</label>
         <div>
-            <select name="employment_status" class="form-control">
+            <select id="employmentstatus" name="employment_status" class="form-control">
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -104,18 +101,8 @@
                 <option value="Other">Other</option>
             </select>
         </div>
-        <div>
-            <br>
-            <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
-        </div>
-        <div>
-            <br>
-            <button type="button">Отправить СМС</button>
-        </div>
-        <div>
-            <br>
-            <button type="button">Отправить e-mail</button>
-        </div>
+
+        <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
     </div>
 </div>
 

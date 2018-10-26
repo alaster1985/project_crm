@@ -17,7 +17,7 @@
 
 
 <div class="col-md-8 col-sm-6 ">
-    <h4> Список сотрудников </h4>
+    <h4 class="name_table"> Список сотрудников </h4>
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
         </th>
