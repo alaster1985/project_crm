@@ -20,7 +20,7 @@ class Dbrequest extends Controller
 
     public function direction()
     {
-        return response()->json(Direction::select('direction')->distinct()->get());
+        return response()->json(Direction::select('id','direction')->distinct()->get());
     }
 
     public function groups()
@@ -43,12 +43,12 @@ class Dbrequest extends Controller
 
     public function companies()
     {
-        return response()->json(It_company::select('company_name')->distinct()->get());
+        return response()->json(It_company::select('id','company_name')->distinct()->get());
     }
 
     public function positions()
     {
-        return response()->json(Position::select('position')->distinct()->get());
+        return response()->json(Position::select('id','position')->distinct()->get());
     }
 
     public function member()

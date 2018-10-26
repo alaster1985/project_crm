@@ -20,7 +20,7 @@ function httpGet(url) {
 }
 
 
-httpGet(location.origin+"/employees/groups")
+httpGet(location.origin+"/students/groups")
     .then(response => funcSelectGroup(JSON.parse(response)))
 
 function funcSelectGroup(extData) {
