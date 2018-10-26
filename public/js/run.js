@@ -49,14 +49,14 @@ function jsonPost(url, data) {
     })
 }
 
-function jsonPostEdit(url, id, field) {
+function jsonPostEdit(url, id, field, counter = null) {
     return new Promise((resolve, reject) => {
         var x = new XMLHttpRequest(),
             token = document.querySelector('meta[name="csrf-token"]').content;
         x.open("POST", url, true);
         x.setRequestHeader('Content-Type', 'application/json');
         x.setRequestHeader('X-CSRF-TOKEN', token);
-        x.send(JSON.stringify({"id": id, "field": field}))
+        x.send(JSON.stringify({"id": id, "field": field, "counter": counter}))
         x.onreadystatechange = () => {
             if (x.readyState == XMLHttpRequest.DONE && x.status == 200){
                 resolve(x.responseText)
