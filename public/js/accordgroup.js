@@ -19,15 +19,19 @@ function allStudensShow() {
         .then(studget(studdata))
 }
 allStudensShow();
-
 // Select-filter employment status
 selectemployment.onchange = function(){
     let sel = selectemployment.selectedIndex;
     let options = selectemployment.options;
+
+    // console.log(sel)
+    // console.log(options)
     // // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-    for (let key in globaldata) {
-        if (options[sel].value !== globaldata[key]['employment_status']) {
-            delete globaldata[key];
+    if (sel !== 0) {
+        for (let key in globaldata) {
+            if (options[sel].value !== globaldata[key]['employment_status']) {
+                delete globaldata[key];
+            }
         }
     }
     studget(globaldata);
@@ -38,9 +42,11 @@ selectlearn.onchange = function () {
     let sel = selectlearn.selectedIndex;
     let options = selectlearn.options;
     // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-    for (let key in globaldata) {
-        if (options[sel].value !== globaldata[key]['learning_status']) {
-            delete globaldata[key];
+    if (sel !== 0) {
+        for (let key in globaldata) {
+            if (options[sel].value !== globaldata[key]['learning_status']) {
+                delete globaldata[key];
+            }
         }
     }
     studget(globaldata);
