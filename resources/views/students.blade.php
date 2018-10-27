@@ -34,7 +34,8 @@
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordionmenu"
                                            href="#collapse{{$direction ->id}}">
-                                            <span class="direct" id="{{$direction ->id}}">{{$direction ->direction}}</span>
+                                            <span class="direct"
+                                                  id="{{$direction ->id}}">{{$direction ->direction}}</span>
                                         </a>
                                     </h4>
                                 </div>
@@ -59,28 +60,28 @@
                 </div>
             </div>
         </div>
-        <div id="stres" class="col-md-8 col-sm-6 ">
+        <div class="col-md-8 col-sm-6 table-responsive" style="height: 95%">
             <h4 class="name_table"> Список студентов </h4>
-
-            <table id="myTable" class="table table-striped table-bordered table-responsive  table-hover table-sm"
-                   style="height:500px;display:block;overflow:scroll">
-                <thead >
-                <tr>
-                    <th>First Name</th>
-                    <th>Group</th>
-                    <th>Direction</th>
-                    <th>Learning Status</th>
-                    <th>Employment Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div id="stres" style="height: 93%;display:block;overflow:Auto">
 
 
+                <table id="myTable" class="table{{-- table-striped--}} table-bordered table-hover table-sm" style="">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-4">First Name</th>
+                        <th class="col-xs-2">Group</th>
+                        <th class="col-xs-2">Direction</th>
+                        <th class="col-xs-2">Learning Status</th>
+                        <th class="col-xs-2">Employment Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div class="col-md-2 col-sm-6 ">
+        <div class="col-md-2 col-sm-2 ">
             <div class="row"></div>
             <label for="learning_status">Статус обучения</label>
             <div>
