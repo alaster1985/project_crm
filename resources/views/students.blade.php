@@ -80,7 +80,7 @@
         <label for="learning_status">Статус обучения</label>
         <div>
             <select id ="learningstatus" class="form-control" name="learning_status">
-                <OPTION SELECTED VALUE="0"></OPTION>
+                <OPTION SELECTED VALUE="0" disabled></OPTION>
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -91,7 +91,7 @@
         <div>
 
             <select id ="employmentstatus" name="employment_status" class="form-control">
-                <OPTION SELECTED VALUE="0"></OPTION>
+                <OPTION SELECTED VALUE="0" disabled></OPTION>
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
