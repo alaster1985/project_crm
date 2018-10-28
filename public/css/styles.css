@@ -33,6 +33,7 @@ body {
     background: white;
 }
 .table_scroll{
+    border: #ddd;
     height: 93%;display:block;overflow:Auto
 }
 .table-responsive{
