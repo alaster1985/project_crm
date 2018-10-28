@@ -12,7 +12,7 @@ function fun(extData) {
 direction.onchange = function () {
     var directionSelected = direction.options[direction.selectedIndex].value
     groupSelector.options.length = 0;
-    httpGet(location.origin+"/employees/groups")
+    httpGet(location.origin+"/students/groups")
         .then(response => fun(JSON.parse(response)))
         .then(fun(extData))
 
