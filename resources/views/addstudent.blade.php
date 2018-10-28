@@ -56,7 +56,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="employment_status">Статус трудоустройства</label>
                 <div>
-                    <select name="employment_status" class="form-control" placeholder="Статус трудоустройства">
+                    <select name="employment_status" class="form-control">
                         <option value="employed">employed</option>
                         <option value="in_search">in_search</option>
                         <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -68,16 +68,16 @@
                 </div>
             </div>
             <div class="form-group col-md-3 col-sm-3">
-                <label for="member_id">Ответственный HR</label>
+                <label for="members">Ответственный HR</label>
                 <div>
-                    <select id="members" name="member_id" class="form-control" placeholder="Ответственный HR"></select>
+                    <select id="members" name="member_id" class="form-control"></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="companies">IT компания</label>
                 <div>
-                    <select id="companies" name="company_id" class="form-control" placeholder="IT компания"></select>
+                    <select id="companies" name="company_id" class="form-control" ></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
@@ -85,7 +85,7 @@
             <div class="form-group col-md-2 col-sm-2">
                 <label for="position">Должность</label>
                 <div>
-                    <select id="position" name="position_id" class="form-control" placeholder="Должность"></select>
+                    <select id="position" name="position_id" class="form-control"></select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>

@@ -15,11 +15,12 @@
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
     <ul class="nav nav-pills nav-justified ">
-        <a class="navbar-brand" rel="home" href="#" title="A-level">
-            <img style="max-width:100px; margin-top: -7px;"
-                 src="/images/logo.png">
-        </a>
-        <li class="divider-vertioal"></li>
+
+        <li><a href="{{route('index')}}" title="A-level">
+                <img style="max-width:100px; margin-top: -7px;"
+                     src="/images/logo.png"> </a>
+        </li>
+
         <li><a href="{{route('ShowAllStudents')}}">Студенты</a></li>
         <li><a href="{{route('show.employees')}}">Сотрудники</a></li>
         <li><a href="{{route('ShowCompanies')}}">Партнеры</a></li>

@@ -26,6 +26,16 @@ body {
 .name_table{
     color: #ff5722;
 }
-/*#color_page{
-    color: #bdbdbd;
-}*/
+.head{
+    background: gainsboro;
+    position: sticky;
+    top: 0;
+    background: white;
+}
+.table_scroll{
+    border: #ddd;
+    height: 93%;display:block;overflow:Auto
+}
+.table-responsive{
+    height: 95%
+}
