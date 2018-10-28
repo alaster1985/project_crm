@@ -26,3 +26,15 @@ body {
 .name_table{
     color: #ff5722;
 }
+.head{
+    background: gainsboro;
+    position: sticky;
+    top: 0;
+    background: white;
+}
+.table_scroll{
+    height: 93%;display:block;overflow:Auto
+}
+.table-responsive{
+    height: 95%
+}

@@ -60,19 +60,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-sm-6 table-responsive" style="height: 95%">
+        <div class="col-md-8 col-sm-6 table-responsive">
             <h4 class="name_table"> Список студентов </h4>
-            <div id="stres" style="height: 93%;display:block;overflow:Auto">
-
-
-                <table id="myTable" class="table{{-- table-striped--}} table-bordered table-hover table-sm" style="">
+            <div id="stres" class="table_scroll">
+                <table id="myTable" class="table{{-- table-striped--}} table-bordered table-hover table-sm">
                     <thead>
                     <tr>
-                        <th class="col-xs-4">First Name</th>
-                        <th class="col-xs-2">Group</th>
-                        <th class="col-xs-2">Direction</th>
-                        <th class="col-xs-2">Learning Status</th>
-                        <th class="col-xs-2">Employment Status</th>
+                        <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">First Name
+                        </th>
+                        <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Group
+                        </th>
+                        <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Direction
+                        </th>
+                        <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Learning Status
+                        </th>
+                        <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Employment Status
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -105,8 +108,11 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-
-            <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента</button>
+            <div>
+                <br/>
+                <button type="button" onclick="window.location='{{ route("addstud")}}'">Добавить нового студента
+                </button>
+            </div>
         </div>
     </div>
 </div>
