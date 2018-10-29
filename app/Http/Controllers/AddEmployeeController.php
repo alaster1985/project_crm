@@ -35,9 +35,15 @@ class AddEmployeeController extends Controller
                 $contact->person_id = $person->id;
                 $contact->save();
             };
-            $skill_Group = new Skill_group($request->toArray());
-            $skill_Group->person_id = $person->id;
-            $skill_Group->save();
+            foreach ($request->skill_id as $value) {
+                if (is_null($value)) {
+                    continue;
+                }
+                $skill_Group = new Skill_group();
+                $skill_Group->person_id = $person->id;
+                $skill_Group->skill_id = $value;
+                $skill_Group->save();
+            }
         });
         return redirect()->back();
     }

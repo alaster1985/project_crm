@@ -26,18 +26,24 @@
         <div class="row">
             <div class="form-group  col-md-3 col-sm-3">
                 <label for="direction">IT компания в которой работает</label>
-                <select class="form-control" id="companies" name="company_id"></select>
+                <select class="form-control" id="companies" name="company_id">
+                    <option selected>Выберите компанию</option>
+                </select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-3">
                 <label for="position">Должность контактного лица</label>
-                <select class="form-control" id="position" name="position_id"></select>
+                <select class="form-control" id="position" name="position_id">
+                    <option selected>Выберите должность</option>
+                </select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="direction">Направление в IT</label>
-                <select class="form-control" id="direction" name="direction_id"></select>
+                <select class="form-control" id="direction" name="direction_id">
+                    <option selected>Выберите направление</option>
+                </select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
 
