@@ -7,28 +7,40 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО студента</label>
+                @if ($errors->has('name'))
+                    <div style="color: red">{{($errors->first('name'))}}</div>
+                @endif
                 <input class="form-control" name="name" placeholder="ФИО студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес студента</label>
+                @if ($errors->has('address'))
+                    <div style="color: red">{{($errors->first('address'))}}</div>
+                @endif
                 <input class="form-control" name="address" placeholder="Адрес студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="groups">Группа</label>
+                @if ($errors->has('group_id'))
+                    <div style="color: red">{{($errors->first('group_id'))}}</div>
+                @endif
                 <div>
-                    <select id="groups" name="group_id" class="form-control">
-                        <option selected>Выберите группу</option>
+                    <select required id="groups" name="group_id" class="form-control">
+                        <option selected disabled>Выберите группу</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-2">
                 <label for="learning_status">Статус обучения</label>
+                @if ($errors->has('learning_status'))
+                    <div style="color: red">{{($errors->first('learning_status'))}}</div>
+                @endif
                 <div>
-                    <select class="form-control" name="learning_status">
-                        <option selected>Выберите статус обучения</option>
+                    <select required class="form-control" name="learning_status">
+                        <option selected disabled>Выберите статус обучения</option>
                         <option value="learning">learning</option>
                         <option value="graduated">graduated</option>
                         <option value="fell_of">fell_of</option>
@@ -47,7 +59,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skill_id">Скилл</label>
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
-                    <option selected value="">Отсутствует</option>
+                    <option selected disabled>Отсутствует</option>
                 </select>
                 <p class="help-block">*не обязательное поле</p>
                 <p class="help-block">*выбор нескольких значений через 'ctrl'</p>
@@ -63,7 +75,7 @@
                 <label for="employment_status">Статус трудоустройства</label>
                 <div>
                     <select name="employment_status" class="form-control">
-                        <option selected>Выберите статус трудоустройства</option>
+                        <option selected value="">Выберите статус трудоустройства</option>
                         <option value="employed">employed</option>
                         <option value="in_search">in_search</option>
                         <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -78,7 +90,7 @@
                 <label for="members">Ответственный HR</label>
                 <div>
                     <select id="members" name="member_id" class="form-control">
-                        <option selected>Выберите ответственного HR</option>
+                        <option selected value="">Выберите ответственного HR</option>
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -87,7 +99,7 @@
                 <label for="companies">IT компания</label>
                 <div>
                     <select id="companies" name="company_id" class="form-control" >
-                        <option selected>Выберите компанию</option>
+                        <option selected value="">Выберите компанию</option>
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -97,13 +109,16 @@
                 <label for="position">Должность</label>
                 <div>
                     <select id="position" name="position_id" class="form-control">
-                        <option selected>Выберите должность</option>
+                        <option selected value="">Выберите должность</option>
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
         <p><label>Контакты</label></p>
+        @if ($errors->has('contacts.contact'))
+            <div style="color: red">{{($errors->first('contacts.contact'))}}</div>
+        @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>
