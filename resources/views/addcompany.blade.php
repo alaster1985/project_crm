@@ -47,6 +47,7 @@
                 <label for="status">Статус взаимодействия</label>
                 <div>
                     <select class="form-control" name="status">
+                        <option selected>Выберите статус взаимодействия</option>
                         <option value="Партнеры">Партнеры</option>
                         <option value="Ведется диалог">Ведется диалог</option>
                         <option value="Потенциальные">Потенциальные</option>
@@ -62,6 +63,7 @@
                 <label for="type">Тип сотрудничества</label>
                 <div>
                     <select class="form-control" name="type">
+                        <option selected>Выберите тип сотрудничества</option>
                         <option value="Трудоустройство">Трудоустройство</option>
                         <option value="Информационное">Информационное</option>
                         <option value="партнерство">партнерство</option>
@@ -74,7 +76,9 @@
             <div class="form-group col-md-2 col-sm-2">
                 <label for="stack_id">Стэк технологий</label>
                 <div>
-                    <select class="form-control" id="stacks" name="stack_id" placeholder="Стэк технологий"></select>
+                    <select class="form-control" id="stacks" name="stack_id">
+                        <option selected>Выберите стэк</option>
+                    </select>
                 </div>
                 <p>Комментарий к стэк-технологии</p>
                 <p><input class="form-control" name="stack_comment"></p>

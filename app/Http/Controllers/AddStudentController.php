@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreStudent;
 use Illuminate\Support\Facades\DB;
 
 use App\Person;
@@ -18,8 +18,9 @@ use App\Skill_group;
 
 class AddStudentController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreStudent $request)
     {
+//        dd($request);
         DB::transaction(function () use ($request) {
             $person = new Person($request->toArray());
             $person->save();
@@ -36,9 +37,14 @@ class AddStudentController extends Controller
                 $contact->person_id = $person->id;
                 $contact->save();
             };
-            $skill_Group = new Skill_group($request->toArray());
-            $skill_Group->person_id = $person->id;
-            $skill_Group->save();
+            if (isset($request->skill_id)) {
+                foreach ($request->skill_id as $value) {
+                    $skill_Group = new Skill_group();
+                    $skill_Group->person_id = $person->id;
+                    $skill_Group->skill_id = $value;
+                    $skill_Group->save();
+                }
+            }
         });
         return redirect()->back();
     }

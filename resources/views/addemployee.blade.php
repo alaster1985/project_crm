@@ -20,7 +20,9 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="groups">Должность сотрудника</label>
                 <div>
-                    <select class="form-control" id="position" name="position_id"></select>
+                    <select class="form-control" id="position" name="position_id">
+                        <option selected>Выберите должность</option>
+                    </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -28,7 +30,9 @@
             <div class="form-group col-md-2 col-sm-2">
                 <label for="groups">Направление в IT</label>
                 <div>
-                    <select class="form-control" id="direction" name="direction_id"></select>
+                    <select class="form-control" id="direction" name="direction_id">
+                        <option selected>Выберите направление</option>
+                    </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -37,7 +41,9 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="groups">IT компания в которой работает</label>
                 <div>
-                    <select class="form-control" id="companies" name="company_id"></select>
+                    <select class="form-control" id="companies" name="company_id">
+                        <option selected>Выберите компанию</option>
+                    </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -50,7 +56,9 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skills">Скилл</label>
-                <select class="form-control" id="skills" name="skill_id"></select>
+                <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
+                    <option selected value="">Отсутствует</option>
+                </select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
 
