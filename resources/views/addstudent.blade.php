@@ -98,7 +98,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="companies">IT компания</label>
                 <div>
-                    <select id="companies" name="company_id" class="form-control" >
+                    <select id="companies" name="company_id" class="form-control">
                         <option selected value="">Выберите компанию</option>
                     </select>
                 </div>
