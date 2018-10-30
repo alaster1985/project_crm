@@ -43,7 +43,7 @@
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skill_id">Скилл</label>
-                <select class="form-control" id="skills" size="4" name="skill_id"></select>
+                <select class="form-control" id="skills" size="4" name="skill_id" multiple></select>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-2">

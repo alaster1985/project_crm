@@ -39,3 +39,6 @@ body {
 .table-responsive{
     height: 95%
 }
+.table_bth{
+    text-align: right;
+}
