@@ -58,7 +58,7 @@
         <div class="col-md-8 col-sm-6 table-responsive">
             <div class="row">
                 <div class="col-md-9 col-sm-8"><h4 class="name_table"> Список студентов </h4></div>
-                <div class="col-md-3 col-sm-4 table_bth" {{--style="text-align: right;"--}}>
+                <div class="col-md-3 col-sm-4 table_bth">
                     <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
                                 class='glyphicon glyphicon-user' title="Добавить нового студента"></i>
                     </button>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div id="stres" class="table_scroll">
-                <table id="myTable" class="table{{-- table-striped--}} table-bordered table-hover table-sm">
+                <table id="myTable" class="table table-striped table-bordered table-hover table-sm">
                     <thead>
                     <tr>
                         <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">First Name
