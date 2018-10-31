@@ -9,7 +9,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<div class="color_page">
     <div class="container-fluid ">
         <div class="col-md-2 col-sm-4 ">
 
@@ -88,7 +87,7 @@
             </div>
         </div>
 
-        <div class="col-md-2 col-sm-2 ">
+        <div class="col-md-2 col-sm-2">
             <div class="row"></div>
             <label for="learning_status">Статус обучения</label>
             <div>
@@ -134,7 +133,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 @extends('layouts.footer')
 
