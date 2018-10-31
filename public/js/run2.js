@@ -114,7 +114,6 @@ async function filling(startJSON){
     }
     stacks1.onchange = function(){
         var val1 = stack_name1.options[stack_name1.selectedIndex].value;
-        // alert(val1)
         for (let i = 0; i < startJSON.length; i++) {
             if (val1 == startJSON[i]['id']) {continue}
             // alert(startJSON[i]['id'])
@@ -125,10 +124,8 @@ async function filling(startJSON){
     stacks2.onchange = function(){
         var val2 = stack_name2.options[stack_name2.selectedIndex].value;
         var val1 = stack_name1.options[stack_name1.selectedIndex].value;
-        // alert(val2)
         for (let i = 0; i < startJSON.length; i++) {
             if ((val1 == startJSON[i]['id']) || (val2 == startJSON[i]['id'])) {continue}
-            // alert(startJSON[i]['id'])
             elem = new Option(startJSON[i]['stack_name'], startJSON[i]['id']);
             stack_name3.appendChild(elem)
         }
