@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class StoreStudent extends FormRequest
 {
     /**
@@ -28,7 +29,11 @@ class StoreStudent extends FormRequest
             'address' => 'required|max:255',
             'group_id' => 'required',
             'learning_status' => 'required',
-            'contacts.contact' => 'required',
+            'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
+            'contacts.1.contact' => 'required_without_all:contacts.0.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
+            'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact',
+            'contacts.3.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.4.contact',
+            'contacts.4.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.3.contact',
         ];
     }
 
@@ -41,7 +46,7 @@ class StoreStudent extends FormRequest
             'address.max' => 'So long address. Max 255',
             'group_id.required' => 'Group must be selected',
             'learning_status.required' => 'Please, select learning_status',
-            'contacts.contact.required' => 'At least one contact must be specified',
+            'contacts.0.contact.required_without_all' => 'At least one contact must be specified',
         ];
     }
 }

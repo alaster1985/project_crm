@@ -7,31 +7,43 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО сотрудника</label>
+                @if ($errors->has('name'))
+                    <div style="color: red">{{($errors->first('name'))}}</div>
+                @endif
                 <input class="form-control" name="name" placeholder="ФИО сотрудника">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес сотрудника</label>
+                @if ($errors->has('address'))
+                    <div style="color: red">{{($errors->first('address'))}}</div>
+                @endif
                 <input class="form-control" name="address" placeholder="Адрес сотрудника">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group col-md-3 col-sm-2">
-                <label for="groups">Должность сотрудника</label>
+                <label for="positions">Должность сотрудника</label>
+                @if ($errors->has('position_id'))
+                    <div style="color: red">{{($errors->first('position_id'))}}</div>
+                @endif
                 <div>
                     <select class="form-control" id="position" name="position_id">
-                        <option selected>Выберите должность</option>
+                        <option selected disabled>Выберите должность</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group col-md-2 col-sm-2">
-                <label for="groups">Направление в IT</label>
+                <label for="directions">Направление в IT</label>
+                @if ($errors->has('direction_id'))
+                    <div style="color: red">{{($errors->first('direction_id'))}}</div>
+                @endif
                 <div>
                     <select class="form-control" id="direction" name="direction_id">
-                        <option selected>Выберите направление</option>
+                        <option selected disabled>Выберите направление</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
@@ -40,9 +52,12 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="groups">IT компания в которой работает</label>
+                @if ($errors->has('company_id'))
+                    <div style="color: red">{{($errors->first('company_id'))}}</div>
+                @endif
                 <div>
                     <select class="form-control" id="companies" name="company_id">
-                        <option selected>Выберите компанию</option>
+                        <option selected disabled>Выберите компанию</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
@@ -51,15 +66,18 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="employee_comment">Комментарий</label>
                 <input class="form-control" name="employee_comment" placeholder="Комментарий">
-                <p class="help-block">*обязательное поле</p>
+                <p class="help-block">*не обязательное поле</p>
             </div>
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skills">Скилл</label>
+                @if ($errors->has('skill_id'))
+                    <div style="color: red">{{($errors->first('skill_id'))}}</div>
+                @endif
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
                     <option selected value="">Отсутствует</option>
                 </select>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group col-md-3 col-sm-2">
@@ -69,6 +87,9 @@
             </div>
         </div>
         <p><label>Контакты</label></p>
+        @if ($errors->has('*.contact'))
+            <div style="color: red">{{($errors->first('*.contact'))}}</div>
+        @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>
@@ -78,6 +99,7 @@
                 <p>Коментарий</p>
                 <p><input class="form-control" name="contacts[0][comment]"></p>
                 <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
