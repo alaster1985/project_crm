@@ -1,21 +1,22 @@
 @extends('layouts.nav')
 @section('title', 'Сотрудники A-Level')
-
+@csrf
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div class="container-fluid">
     <div class="col-md-2 col-sm-4 ">
         <div>
             <label for="groups">Должность сотрудника</label>
             <div>
-                <select class="form-control" id="position" name="position_id">
-                    <option selected>Выберите должность</option>
+                <select class="form-control" id="position_it" name="position_id">
+                    <OPTION SELECTED VALUE="0" disabled>Выберите должность</OPTION>
                 </select>
             </div>
         </div>
         <div>
             <label for="groups">Направление в IT</label>
             <div>
-                <select class="form-control" id="direction" name="direction_id">
-                    <option selected>Выберите направление</option>
+                <select class="form-control" id="direction_it" name="direction_it">
+                    <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
                 </select>
             </div>
         </div>
@@ -38,7 +39,7 @@
             </div>
         </div>
         <div id="stres" class="table_scroll">
-            <table id="myTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="employeeTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-3 head" style="position: sticky;top: 0;background: white;">ФИО
@@ -90,7 +91,7 @@
     <div class="col-md-2 col-sm-2">
         <div>
             <label for="skills">Скилл</label>
-            <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
+            <select class="form-control" id="skill_name_employees" size="4" name="skill_id[]" multiple>
                 <option selected value="">Отсутствует</option>
             </select>
             <p class="help-block">*нажмите Ctrl для множественного выбора</p>
@@ -100,6 +101,12 @@
             <label><input type="checkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
-    <script src="/js/run2.js"></script>
+    {{--<script src="/js/run2.js"></script>--}}
 </div>
 @extends('layouts.footer')
+
+<script src="/js/run.js"></script>
+{{--<script src="/js/search.js"></script>--}}
+{{--<script src="/js/accordgroup.js"></script>--}}
+<script src="/js/employeestable.js"></script>
+
