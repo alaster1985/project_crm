@@ -3,6 +3,7 @@ let skill_name = document.getElementById("skills");
 let company_name = document.getElementById("companies");
 let position = document.getElementById("position");
 let direction = document.getElementById("direction");
+
 let stack_name = document.getElementById("stacks");
 let member_name = document.getElementById("members");
 
