@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreEmployee;
 use Illuminate\Support\Facades\DB;
 use App\Person;
 use App\Alevel_member;
@@ -18,7 +18,7 @@ Use App\Skill_group;
 
 class AddEmployeeController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreEmployee $request)
     {
         DB::transaction(function () use ($request) {
             $person = new Person($request->toArray());
@@ -36,9 +36,6 @@ class AddEmployeeController extends Controller
                 $contact->save();
             };
             foreach ($request->skill_id as $value) {
-                if (is_null($value)) {
-                    continue;
-                }
                 $skill_Group = new Skill_group();
                 $skill_Group->person_id = $person->id;
                 $skill_Group->skill_id = $value;

@@ -116,8 +116,8 @@
             </div>
         </div>
         <p><label>Контакты</label></p>
-        @if ($errors->has('contacts.contact'))
-            <div style="color: red">{{($errors->first('contacts.contact'))}}</div>
+        @if ($errors->has('*.contact'))
+            <div style="color: red">{{($errors->first('*.contact'))}}</div>
         @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
@@ -128,6 +128,7 @@
                 <p>Коментарий</p>
                 <p><input class="form-control" name="contacts[0][comment]"></p>
                 <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
