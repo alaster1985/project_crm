@@ -78,6 +78,7 @@ Route::post('/addcomponent', 'AddComponentController@store')->name('add.componen
 
 Route::get('students/groups', 'Dbrequest@groups');
 Route::get('employees/directions', 'Dbrequest@direction');
+Route::post('employees/data', 'Dbrequest@employeesdata');  // All employees
 Route::get('employees/students', 'Dbrequest@students');
 Route::get('skills', 'Dbrequest@skills');
 Route::get('company', 'Dbrequest@companies');
