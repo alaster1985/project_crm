@@ -7,10 +7,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
-<div class="col-md-3 col-sm-8 ">
 
 
-    <div id="imga">
+
+{{--    <div id="imga">
         <img src="/images/image.jpg" alt="текст" id="pic"/>
     </div>
     <div>
@@ -18,22 +18,22 @@
     </div>
     <div>
         <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
-    </div>
+    </div>--}}
 
 
 
-    <h2>Отправка Сообщений </h2>
+{{--    <h2>Отправка Сообщений </h2>
     <form action="{{Route('sendSMS')}}" method="post">
         @csrf
         Введите сообщение:<br>
         <textarea placeholder="Message" name="msg"></textarea><br>
-{{--
+--}}{{--
         <input type="hidden" name="id" value="{{$id}}">
---}}
+--}}{{--
         <input type="submit" value="Отправить">
-    </form>
+    </form>--}}
 
-    <a>{{$student->name}}</a>
+    {{--<a>{{$student->name}}</a>
     <br>
     <a>{{$student->address}}</a>
     <br>
@@ -103,19 +103,18 @@
     </select>
     <!--</FORM>-->
     <div id="ext">
-    </div>
+    </div>--}}
 
     {{------------------------------------------}}
 
 
-</div>
 {{--<div class="col-md-2 col-sm-6 ">--}}
- <div id="findResult">
-    </div>
-</div>
+
+
+
 
 <div class="col-md-2 col-sm-6 ">
-<select class="names-select2"></select>
+    <select class="names-select2"></select>
     <style>
         select {
             width: 200px; /* Ширина списка в пикселах */
@@ -126,9 +125,8 @@
 <div class="col-md-4 col-sm-10">
     <div  id="studParam">
     </div>
-
-</div>
-
+    <div id="findResult">
+    </div>
 <div class="col-md-2 col-sm-6" id="studgroups" ></div>
 <div class="col-md-2 col-sm-6" id="studlearning" ></div>
 <div class="col-md-2 col-sm-6" id="studemployment" ></div>

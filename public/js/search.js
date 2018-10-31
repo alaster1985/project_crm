@@ -1,7 +1,7 @@
 $(".names-select2").select2({
     minimumInputLength: 1, // минимальная длинна ввода, после которой можно отправлять запрос на сервер
     allowClear: true,
-    placeholder: "Enter name to search",
+    placeholder: "Поиск по сайту",
     ajax: {
         url: location.origin+"/employees/findall", // адрес бэкэн-обработчика (url)
         delay: 250,
@@ -32,7 +32,7 @@ $(".names-select2").select2({
             console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                 var u = document.createElement('a');
-                u.setAttribute('href', extData[gr]['id']);
+                u.setAttribute('href', 'students/show/'+extData[gr]['id']);
                 u.innerHTML = extData[gr]['name'];
                 findResult.appendChild(u)
                 findResult.appendChild(document.createElement('br'))

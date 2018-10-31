@@ -16,6 +16,8 @@
 
 body {
     padding-top: 70px;
+    background: url("/images/crm1.jpg")no-repeat;
+    -webkit-background-size: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -34,7 +36,11 @@ body {
 }
 .table_scroll{
     border: #ddd;
-    height: 93%;display:block;overflow:Auto
+    height: 93%;
+    display:block;
+    overflow:Auto;
+    background: white;;
+    opacity: 0.75;
 }
 .table-responsive{
     height: 95%

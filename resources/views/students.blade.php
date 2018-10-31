@@ -2,17 +2,13 @@
 @section('title', 'Студенты A-Level')
 @csrf
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-    {{--<script type="text/javascript" src="/js/tablesort.js"></script>--}}
-    {{--<script type="text/javascript" src="/js/jquery-latest.js"></script>--}}
-    {{--<script type="text/javascript" src="/js/jquery.tablesorter.js"></script>--}}
-
-</head>
 <div class="color_page">
     <div class="container-fluid ">
         <div class="col-md-2 col-sm-4 ">
@@ -71,7 +67,7 @@
                 </div>
             </div>
             <div id="stres" class="table_scroll">
-                <table id="myTable" class="table table-striped table-bordered table-hover table-sm">
+                <table id="myTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
                     <thead>
                     <tr>
                         <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">First Name
@@ -116,12 +112,32 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
+
+
+            <div>
+                <br/>
+                <select class="names-select2"></select>
+                <style>
+                    select {
+                        width: 195px; /* Ширина списка в пикселах */
+                    }
+                </style>
+            </div>
+            <div>
+                <div id="studParam">
+                </div>
+                <div>
+                    <div id="findResult">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>
 
 @extends('layouts.footer')
 
 <script src="/js/run.js"></script>
-{{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
+<script src="/js/search.js"></script>
 <script src="/js/accordgroup.js"></script>
