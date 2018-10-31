@@ -1,7 +1,7 @@
 let direction_it = document.getElementById("direction_it");
 let position_it = document.getElementById("position_it");
 let skill_name_employees = document.getElementById("skill_name_employees");
-
+let outDataASPT;
 
 var employeetable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
 
@@ -39,6 +39,7 @@ function funcSelectSkill(extData) {
 
 function studget(studdata) {
     // CLEAR TABLE BY DELETE ROWS
+    console.log(studdata)
     globaldata = studdata;
     for (let i = document.getElementById('employeeTable').getElementsByTagName('tr').length - 1; i; i--) {
         document.getElementById('employeeTable').deleteRow(i);
@@ -46,23 +47,33 @@ function studget(studdata) {
     var rowTable = 0;
     for (var gr in studdata) {
         var row = employeetable.insertRow(rowTable);
+        if(studdata[gr]['ASPT'] === 1) {outDataASPT = 'Yes' } else outDataASPT = 'No';
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
-        cell1.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['name'] + '</a>';
-        cell2.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['group_name'] + '</a>';
-        cell3.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['direction'] + '</a>';
-        cell4.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['learning_status'] + '</a>';
-        cell5.innerHTML = '<a href="students/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['employment_status'] + '</a>';
+        var cell6 = row.insertCell(5);
+        cell1.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['name'] + '</a>';
+        cell2.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['position'] + '</a>';
+        cell3.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['direction'] + '</a>';
+        cell4.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['company_name'] + '</a>';
+        cell5.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + outDataASPT + '</a>';
+        cell6.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['comment'] + '</a>';
         rowTable++;
     }
 }
 
-function allStudensShow() {
-    jsonPost(location.origin + "/students/studentsalloutput", 5)
+function allEmployeesShow() {
+    jsonPost(location.origin + "/employees/data", 5)
         .then(response => studget(JSON.parse(response)))
         .then(studget(studdata))
 }
-    allStudensShow();
+allEmployeesShow();
+
+// function allStudensShow() {
+//     jsonPost(location.origin + "/students/studentsalloutput", 5)
+//         .then(response => studget(JSON.parse(response)))
+//         .then(studget(studdata))
+// }
+//     allStudensShow();

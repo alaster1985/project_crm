@@ -26,7 +26,8 @@ class EmployeesController extends Controller
             ->paginate(8);
 
         return view('employees', ['all_employees' => $all_employees]);
-/*
+
+        /*
         $all_employees = DB::table('persons')->paginate(8);;
 //        return view('employees', ['all_employees' => $all_employees]);
 
@@ -36,8 +37,6 @@ class EmployeesController extends Controller
             'directions' => $directions,
             'groups' => $groups,]);
 */
-
-
     }
 
     public function emploeePersonaView($id)
