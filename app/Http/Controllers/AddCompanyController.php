@@ -8,15 +8,14 @@
 
 namespace App\Http\Controllers;
 
-use function GuzzleHttp\Promise\all;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreCompany;
 use Illuminate\Support\Facades\DB;
 use App\It_company;
 use App\Stack_group;
 
 class AddCompanyController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreCompany $request)
     {
         DB::transaction(function () use ($request) {
             $it_Company = new It_company();
@@ -25,12 +24,17 @@ class AddCompanyController extends Controller
                     'logo' => basename($_FILES["file"]["name"]),
                 ]);
             $it_Company->save();
-            $stack_Group = new Stack_group();
-            $stack_Group->company_id = $it_Company->id;
-            $stack_Group->fill($request->all() + [
-                    'comment' => $request->stack_comment,
+            foreach ($request->stacks as $value) {
+                if (empty($value['stack_id'])) {
+                    continue;
+                }
+                $stack_Group = new Stack_group($value);
+                $stack_Group->company_id = $it_Company->id;
+                $stack_Group->fill([
+                    'comment' => $value['stack_comment'],
                 ]);
-            $stack_Group->save();
+                $stack_Group->save();
+            }
         });
         return redirect()->back();
     }
