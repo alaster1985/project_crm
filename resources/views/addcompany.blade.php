@@ -73,21 +73,45 @@
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
-            <div class="form-group col-md-2 col-sm-2">
-                <label for="stack_id">Стэк технологий</label>
+        </div>
+        <p><label>Стэк технологий</label></p>
+        <div class="row">
+            <div class="form-group col-md-2 col-sm-3">
+                <label for="stack1">Стэк 1</label>
                 <div>
-                    <select class="form-control" id="stacks" name="stack_id">
-                        <option selected>Выберите стэк</option>
+                    <select class="form-control" id="stacks1" name="stack_id">
+                        <option selected disabled>Выберите стэк</option>
                     </select>
                 </div>
                 <p>Комментарий к стэк-технологии</p>
                 <p><input class="form-control" name="stack_comment"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*при выборе стэка обязательное поле</p>
+            </div>
+            <div class="form-group col-md-2 col-sm-3">
+                <label for="stack1">Стэк 2</label>
+                <div>
+                    <select class="form-control" id="stacks2" name="stack_id">
+                        <option selected disabled>Выберите стэк</option>
+                    </select>
+                </div>
+                <p>Комментарий к стэк-технологии</p>
+                <p><input class="form-control" name="stack_comment"></p>
+                <p class="help-block">*при выборе стэка обязательное поле</p>
+            </div>
+            <div class="form-group col-md-2 col-sm-3">
+                <label for="stack1">Стэк 3</label>
+                <div>
+                    <select class="form-control" id="stacks3" name="stack_id">
+                        <option selected disabled>Выберите стэк</option>
+                    </select>
+                </div>
+                <p>Комментарий к стэк-технологии</p>
+                <p><input class="form-control" name="stack_comment"></p>
+                <p class="help-block">*при выборе стэка обязательное поле</p>
             </div>
         </div>
         <script src="/js/run2.js"></script>
         <div><input type="submit" value="Add new company"></div>
-
     </form>
 </div>
 @extends('layouts.footer')

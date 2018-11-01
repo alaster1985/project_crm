@@ -8,12 +8,18 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО контактного лица</label>
+                @if ($errors->has('name'))
+                    <div style="color: red">{{($errors->first('name'))}}</div>
+                @endif
                 <input class="form-control" name="name" placeholder="ФИО контактного лица">
                 <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес контактного лица</label>
+                @if ($errors->has('address'))
+                    <div style="color: red">{{($errors->first('address'))}}</div>
+                @endif
                 <input class="form-control" name="address" placeholder="Адрес контактного лица">
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -26,31 +32,43 @@
         <div class="row">
             <div class="form-group  col-md-3 col-sm-3">
                 <label for="direction">IT компания в которой работает</label>
+                @if ($errors->has('company_id'))
+                    <div style="color: red">{{($errors->first('company_id'))}}</div>
+                @endif
                 <select class="form-control" id="companies" name="company_id">
-                    <option selected>Выберите компанию</option>
+                    <option selected disabled>Выберите компанию</option>
                 </select>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-3">
                 <label for="position">Должность контактного лица</label>
+                @if ($errors->has('position_id'))
+                    <div style="color: red">{{($errors->first('position_id'))}}</div>
+                @endif
                 <select class="form-control" id="position" name="position_id">
-                    <option selected>Выберите должность</option>
+                    <option selected disabled>Выберите должность</option>
                 </select>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*обязательное поле</p>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="direction">Направление в IT</label>
+                @if ($errors->has('direction_id'))
+                    <div style="color: red">{{($errors->first('direction_id'))}}</div>
+                @endif
                 <select class="form-control" id="direction" name="direction_id">
-                    <option selected>Выберите направление</option>
+                    <option selected disabled>Выберите направление</option>
                 </select>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*обязательное поле</p>
             </div>
 
 
         </div>
 
         <p><label>Контакты</label></p>
+        @if ($errors->has('*.contact'))
+            <div style="color: red">{{($errors->first('*.contact'))}}</div>
+        @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>

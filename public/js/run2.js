@@ -3,9 +3,11 @@ let skill_name = document.getElementById("skills");
 let company_name = document.getElementById("companies");
 let position = document.getElementById("position");
 let direction = document.getElementById("direction");
-
-let stack_name = document.getElementById("stacks");
 let member_name = document.getElementById("members");
+let stack_name1 = document.getElementById("stacks1");
+let stack_name2 = document.getElementById("stacks2");
+let stack_name3 = document.getElementById("stacks3");
+
 
 function httpGet(url) {
     return new Promise(function (resolve) {
@@ -75,17 +77,6 @@ function funcSelectDirection(extData) {
     }
 }
 
-
-httpGet(location.origin+"/stacks")
-    .then(response => funcSelectStack(JSON.parse(response)));
-
-function funcSelectStack(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['stack_name'], extData[i]['id']);
-        stack_name.appendChild(elem)
-    }
-}
-
 httpGet(location.origin+"/members")
     .then(response => funcSelectMember(JSON.parse(response)));
 
@@ -94,4 +85,53 @@ function funcSelectMember(extData) {
         elem = new Option(extData[i]['name'], extData[i]['id']);
         member_name.appendChild(elem)
     }
+}
+
+// httpGet(location.origin+"/stacks")
+//     .then(response => funcSelectStack1(JSON.parse(response)));
+
+// function funcSelectStack1(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['stack_name'], extData[i]['id']);
+//         stack_name1.appendChild(elem)
+//     }
+// }
+
+
+
+httpGet(location.origin+"/stacks")
+    .then(responseText => {
+        startJSON = JSON.parse(responseText)
+        filling(startJSON)
+    })
+
+async function filling(startJSON){
+    stack1 = await function (startJSON) {
+        for (let i = 0; i < startJSON.length; i++) {
+            elem = new Option(startJSON[i]['stack_name'], startJSON[i]['id']);
+            stack_name1.appendChild(elem)
+        }
+    }
+    stacks1.onchange = function(){
+        var val1 = stack_name1.options[stack_name1.selectedIndex].value;
+        // alert(val1)
+        for (let i = 0; i < startJSON.length; i++) {
+            if (val1 == startJSON[i]['id']) {continue}
+            // alert(startJSON[i]['id'])
+            elem = new Option(startJSON[i]['stack_name'], startJSON[i]['id']);
+            stack_name2.appendChild(elem)
+        }
+    }
+    stacks2.onchange = function(){
+        var val2 = stack_name2.options[stack_name2.selectedIndex].value;
+        var val1 = stack_name1.options[stack_name1.selectedIndex].value;
+        // alert(val2)
+        for (let i = 0; i < startJSON.length; i++) {
+            if ((val1 == startJSON[i]['id']) || (val2 == startJSON[i]['id'])) {continue}
+            // alert(startJSON[i]['id'])
+            elem = new Option(startJSON[i]['stack_name'], startJSON[i]['id']);
+            stack_name3.appendChild(elem)
+        }
+    }
+    stack1(startJSON)
 }

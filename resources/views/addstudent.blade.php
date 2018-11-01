@@ -8,7 +8,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО студента</label>
                 @if ($errors->has('name'))
-                    <div style="color: red">{{($errors->first('name'))}}</div>
+                    <div class="error">{{($errors->first('name'))}}</div>
                 @endif
                 <input class="form-control" name="name" placeholder="ФИО студента">
                 <p class="help-block">*обязательное поле</p>
@@ -16,7 +16,7 @@
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес студента</label>
                 @if ($errors->has('address'))
-                    <div style="color: red">{{($errors->first('address'))}}</div>
+                    <div class="error">{{($errors->first('address'))}}</div>
                 @endif
                 <input class="form-control" name="address" placeholder="Адрес студента">
                 <p class="help-block">*обязательное поле</p>
@@ -24,7 +24,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="groups">Группа</label>
                 @if ($errors->has('group_id'))
-                    <div style="color: red">{{($errors->first('group_id'))}}</div>
+                    <div class="error">{{($errors->first('group_id'))}}</div>
                 @endif
                 <div>
                     <select required id="groups" name="group_id" class="form-control">
@@ -36,7 +36,7 @@
             <div class="form-group col-md-2 col-sm-2">
                 <label for="learning_status">Статус обучения</label>
                 @if ($errors->has('learning_status'))
-                    <div style="color: red">{{($errors->first('learning_status'))}}</div>
+                    <div class="error">{{($errors->first('learning_status'))}}</div>
                 @endif
                 <div>
                     <select required class="form-control" name="learning_status">
@@ -116,8 +116,8 @@
             </div>
         </div>
         <p><label>Контакты</label></p>
-        @if ($errors->has('contacts.contact'))
-            <div style="color: red">{{($errors->first('contacts.contact'))}}</div>
+        @if ($errors->has('*.contact'))
+            <div class="error">{{($errors->first('*.contact'))}}</div>
         @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
@@ -127,7 +127,7 @@
                 <p><input class="form-control" name="contacts[0][contact]"></p>
                 <p>Коментарий</p>
                 <p><input class="form-control" name="contacts[0][comment]"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
