@@ -73,6 +73,22 @@ class Dbrequest extends Controller
         return response()->json($students);
     }
 
+
+
+    public function employeesdata()
+    {
+        $employeesdata = DB::table('alevel_members')
+            ->leftJoin('persons', 'alevel_members.person_id', '=', 'persons.id')
+            ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
+            ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
+            ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')
+            ->get();
+
+        return response()->json($employeesdata);
+    }
+
+
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

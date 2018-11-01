@@ -98,7 +98,7 @@
         </div>
         <div>
             <input class="form-control" type="hidden" name="ASPT" value="0"/>
-            <label><input type="checkbox" name="ASPT" value="1"/> Кандидат? </label>
+            <label><input type="checkbox" id= "chkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
     {{--<script src="/js/run2.js"></script>--}}
