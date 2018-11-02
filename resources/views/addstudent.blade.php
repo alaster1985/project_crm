@@ -10,7 +10,7 @@
                 @if ($errors->has('name'))
                     <div style="color: red">{{($errors->first('name'))}}</div>
                 @endif
-                <input class="form-control" name="name" placeholder="ФИО студента">
+                <input class="form-control" name="name" value="{{old('name')}}" placeholder="ФИО студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-2">
@@ -18,7 +18,7 @@
                 @if ($errors->has('address'))
                     <div style="color: red">{{($errors->first('address'))}}</div>
                 @endif
-                <input class="form-control" name="address" placeholder="Адрес студента">
+                <input class="form-control" name="address" value="{{old('address')}}" placeholder="Адрес студента">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
@@ -40,11 +40,11 @@
                 @endif
                 <div>
                     <select required class="form-control" name="learning_status">
-                        <option selected disabled>Выберите статус обучения</option>
-                        <option value="learning">learning</option>
-                        <option value="graduated">graduated</option>
-                        <option value="fell_of">fell_of</option>
-                        <option value="Other">Other</option>
+                        <option selected disabled @if (old('learning_status') == '') selected="selected" @endif>Выберите статус обучения</option>
+                        <option value="learning" @if (old('learning_status') == 'learning') selected="selected" @endif>learning</option>
+                        <option value="graduated" @if (old('learning_status') == 'graduated') selected="selected" @endif>graduated</option>
+                        <option value="fell_of" @if (old('learning_status') == 'fell_of') selected="selected" @endif>fell_of</option>
+                        <option value="Other" @if (old('learning_status') == 'Other') selected="selected" @endif>Other</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="student_comment">Комментарий</label>
-                <input class="form-control" name="student_comment">
+                <input class="form-control" name="student_comment" value="{{old('student_comment')}}">
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
@@ -76,12 +76,12 @@
                 <div>
                     <select name="employment_status" class="form-control">
                         <option selected value="">Выберите статус трудоустройства</option>
-                        <option value="employed">employed</option>
-                        <option value="in_search">in_search</option>
-                        <option value="not_relevant_in_IT">not_relevant_in_IT</option>
-                        <option value="refused">refused</option>
-                        <option value="in_IT_not_in_direction">in_IT_not_in_direction</option>
-                        <option value="Other">Other</option>
+                        <option value="employed" @if (old('employment_status') == 'employed') selected="selected" @endif>employed</option>
+                        <option value="in_search" @if (old('employment_status') == 'in_search') selected="selected" @endif>in_search</option>
+                        <option value="not_relevant_in_IT" @if (old('employment_status') == 'not_relevant_in_IT') selected="selected" @endif>not_relevant_in_IT</option>
+                        <option value="refused" @if (old('employment_status') == 'refused') selected="selected" @endif>refused</option>
+                        <option value="in_IT_not_in_direction" @if (old('employment_status') == 'in_IT_not_in_direction') selected="selected" @endif>in_IT_not_in_direction</option>
+                        <option value="Other" @if (old('employment_status') == 'Other') selected="selected" @endif>Other</option>
                     </select>
                     <p class="help-block">*не обязательное поле</p>
                 </div>
@@ -124,9 +124,9 @@
                 <label for="communication_tool">Мобильный 1</label>
                 <p>Номер телефона</p>
                 <input hidden name="contacts[0][communication_tool]" value="mob1">
-                <p><input class="form-control" name="contacts[0][contact]"></p>
+                <p><input class="form-control" name="contacts[0][contact]" value="{{old('contacts.0.contact]')}}"></p>
                 <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[0][comment]"></p>
+                <p><input class="form-control" name="contacts[0][comment]" value="{{old('contacts.0.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
                 <p class="help-block">*used for SMS sending</p>
             </div>
@@ -134,41 +134,43 @@
                 <label for="communication_tool">Мобильный 2</label>
                 <p>Номер телефона</p>
                 <input hidden name="contacts[1][communication_tool]" value="mob2">
-                <p><input class="form-control" name="contacts[1][contact]"></p>
+                <p><input class="form-control" name="contacts[1][contact]" value="{{old('contacts.1.contact')}}"></p>
                 <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[1][comment]"></p>
+                <p><input class="form-control" name="contacts[1][comment]" value="{{old('contacts.1.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
                 <p>мыло</p>
                 <input hidden name="contacts[2][communication_tool]" value="email">
-                <p><input class="form-control" name="contacts[2][contact]"></p>
+                <p><input class="form-control" name="contacts[2][contact]" value="{{old('contacts.2.contact')}}"></p>
                 <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[2][comment]"></p>
+                <p><input class="form-control" name="contacts[2][comment]" value="{{old('contacts.2.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
                 <p>Скайп</p>
                 <input hidden name="contacts[3][communication_tool]" value="skype">
-                <p><input class="form-control" name="contacts[3][contact]"></p>
+                <p><input class="form-control" name="contacts[3][contact]" value="{{old('contacts.3.contact')}}"></p>
                 <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[3][comment]"></p>
+                <p><input class="form-control" name="contacts[3][comment]" value="{{old('contacts.3.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
                 <p>Контакт</p>
                 <input hidden name="contacts[4][communication_tool]" value="Other">
-                <p><input class="form-control" name="contacts[4][contact]"></p>
+                <p><input class="form-control" name="contacts[4][contact]" value="{{old('contacts.4.contact')}}"></p>
                 <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[4][comment]"></p>
+                <p><input class="form-control" name="contacts[4][comment]" value="{{old('contacts.4.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
         <div><input type="submit" value="Add new student"></div>
         <script src="/js/run2.js"></script>
+{{--        $audio = "<embed src="/js/123.mp3">";
+        echo $audio;--}}
     </form>
 </div>
 
