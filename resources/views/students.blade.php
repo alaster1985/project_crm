@@ -10,7 +10,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <div class="container-fluid ">
-        <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="col-md-2 col-sm-4 col-xs-4">
 
             <div id="menu">
                 <div class="navbar-header ">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-sm-6 col-xs-6 table-responsive">
+        <div class="col-md-8 col-sm-6 col-xs-4 table-responsive">
             <div class="row">
                 <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table"> Список студентов </h4></div>
                 <div class="col-md-3 col-sm-4 col-xs-6 table_bth">
@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div class="col-md-2 col-sm-2 col-xs-8">
+        <div class="col-md-2 col-sm-2 col-xs-4">
             <div class="row"></div>
             <label for="learning_status">Статус обучения</label>
             <div>
@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 @extends('layouts.footer')
