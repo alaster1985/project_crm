@@ -20,7 +20,7 @@
         <div class="headers_PP">Персональная информация.</div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">ФИО студента:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="name_student">aaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="name_student">aaaaaaaaaaaa</div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Адрес студента:</div>
