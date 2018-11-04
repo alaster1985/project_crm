@@ -9,28 +9,21 @@
 
 <div class="col-md-3 col-sm-8 ">
 
-
     <div id="imga">
         <img src="/images/image.jpg" alt="текст" id="pic"/>
     </div>
     <div>
         <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
     </div>
-    <div>
-        <link rel="stylesheet" href="{{ asset('/css/styles.css') }}"/>
-    </div>
-
-
 
     <h2>Отправка Сообщений </h2>
     <form action="{{Route('sendSMS')}}" method="post">
         @csrf
         Введите сообщение:<br>
         <textarea placeholder="Message" name="msg"></textarea><br>
-        <input type="hidden" name="id" value="{{$id}}">
+        <input type="hidden" name="contact" value="{{$fone->contact}}">
         <input type="submit" value="Отправить">
     </form>
-
     <a>{{$student->name}}</a>
     <br>
     <a>{{$student->address}}</a>
@@ -121,7 +114,7 @@
     </style>
 </div>
 
-<div class="col-md-4 col-sm-10">
+<div class="col-md-4 col-sm-10 ">
     <div  id="studParam">
     </div>
 

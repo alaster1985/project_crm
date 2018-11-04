@@ -32,6 +32,10 @@ class StudentsController extends Controller
             'learning_status' => $learningStatus, 'employment_status' => $employmentStatus]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function studentPersonaView($id)
     {
         $company = DB::table('persons')
@@ -66,6 +70,13 @@ class StudentsController extends Controller
             ->join('students', 'persons.id', '=', 'students.person_id')
             ->where('students.person_id', '=', $id)
             ->get();
+        $fone = DB::table('persons')
+            ->select('contact')
+            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
+            ->join('students', 'persons.id', '=', 'students.person_id')
+            ->where('communication_tool' , 'cell')
+            ->where('students.person_id', '=', $id)
+            ->first();
 
         $student = DB::table('persons')
             ->select('name', 'persons.address', 'CV', 'company_name', 'position', 'students.comment')
@@ -76,8 +87,8 @@ class StudentsController extends Controller
             ->leftjoin('positions', 'students.position_id', '=', 'positions.id')
             ->where('students.person_id', '=', $id)
             ->first();
-        return view('studentPersona', ['student' => $student, 'contact' => $contact, 'group' => $group, 'skill' => $skill, 'company' => $company]);
-//        $studentView = DB::table('person')->where('id_person', '=', $id)->first();
+        return view('studentPersona', ['student' => $student, 'contact' => $contact, 'group' => $group, 'skill' => $skill, 'company' => $company, 'fone' => $fone]);
+//        $studentView = DB::table('person')->where('id_person', '=', $id)->first();01
 //        return view('studentPersona', ['studentView' => $studentView]);
     }
 
@@ -116,10 +127,8 @@ class StudentsController extends Controller
 
     public function studentPersonaMobila(Request $request)
     {
-
-        $contact = DB::table('contacts')-> where('person_id',$request->id)->where('communication_tool','cell')->first();
-        $this->sendSms($contact->contact,$request->msg);
-
+//
+        $this->sendSms($request->contact,$request->msg);
     }
 
 
@@ -143,4 +152,3 @@ class StudentsController extends Controller
     }
 
 }
-
