@@ -16,7 +16,7 @@ class Contact extends Model
     protected $fillable = [
         'communication_tool',
         'contact',
-        'person_id' => 'integer',
+        'person_id',
         'comment',
     ];
 

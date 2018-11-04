@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreEmployee;
 use Illuminate\Support\Facades\DB;
 use App\Person;
 use App\Alevel_member;
@@ -18,63 +18,29 @@ Use App\Skill_group;
 
 class AddEmployeeController extends Controller
 {
-//    public function addEmployee(Request $request)
-//    {
-//        DB::transaction(function () use ($request) {
-//            $lastPersonId = DB::table('persons')
-//                ->insertGetId([
-//                    'name' => $request->input('person_name'),
-//                    'address' => $request->input('person_address'),
-//                ]);
-//            DB::table('alevel_members')
-//                ->insert([
-//                    'person_id' => $lastPersonId,
-//                    'position_id' => $request->input('position_id'),
-//                    'direction_id' => $request->input('direction_id'),
-//                    'company_id' => $request->input('company_id'),
-//                    'comment' => $request->input('employee_comment'),
-//                    'ASPT' => $request->input('ASPT'),
-//                ]);
-//            DB::table('contacts')
-//                ->insert([
-//                    'person_id' => $lastPersonId,
-//                    'communication_tool' => $request->input('communication_tool'),
-//                    'contact' => $request->input('contact'),
-//                    'comment' => $request->input('contact_comment'),
-//                ]);
-//            DB::table('skill_groups')
-//                ->insert([
-//                    'person_id' => $lastPersonId,
-//                    'skill_id' => $request->input('skill_id'),
-//                ]);
-//        });
-//        return redirect()->back();
-//    }
-    public function store(Request $request)
+    public function store(StoreEmployee $request)
     {
         DB::transaction(function () use ($request) {
-            $person = new Person();
-            $person->name = $request->person_name;
-            $person->address = $request->person_address;
+            $person = new Person($request->toArray());
             $person->save();
-            $alevel_member = new Alevel_member();
-            $alevel_member->person_id = $person->id;
-            $alevel_member->position_id = $request->position_id;
-            $alevel_member->direction_id = $request->direction_id;
-            $alevel_member->company_id = $request->company_id;
-            $alevel_member->comment = $request->employee_comment;
-            $alevel_member->ASPT = $request->ASPT;
-            $alevel_member->save();
-            $contact = new Contact();
-            $contact->person_id = $person->id;
-            $contact->communication_tool = $request->communication_tool;
-            $contact->contact = $request->contact;
-            $contact->comment = $request->contact_comment;
-            $contact->save();
-            $skill_group = new Skill_group();
-            $skill_group->person_id = $person->id;
-            $skill_group->skill_id = $request->skill_id;
-            $skill_group->save();
+            $alevel_Member = new Alevel_member($request->toArray());
+            $alevel_Member->person_id = $person->id;
+            $alevel_Member->comment = $request->employee_comment;
+            $alevel_Member->save();
+            foreach ($request->contacts as $value) {
+                if (empty($value['contact'])) {
+                    continue;
+                }
+                $contact = new Contact($value);
+                $contact->person_id = $person->id;
+                $contact->save();
+            };
+            foreach ($request->skill_id as $value) {
+                $skill_Group = new Skill_group();
+                $skill_Group->person_id = $person->id;
+                $skill_Group->skill_id = $value;
+                $skill_Group->save();
+            }
         });
         return redirect()->back();
     }

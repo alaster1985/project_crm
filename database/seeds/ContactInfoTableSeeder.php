@@ -14,7 +14,7 @@ class ContactInfoTableSeeder extends Seeder
     {
         for ($i = 1; $i <= 29; $i++) {
             DB::table('contacts')->insert([
-                'communication_tool' => 'cell',
+                'communication_tool' => 'mob1',
                 'contact' => '8-011-222-33-' . rand(10, 99),
                 'person_id' => $i,
                 'comment' => rand(10, 29)

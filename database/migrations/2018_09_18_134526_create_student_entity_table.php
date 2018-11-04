@@ -17,7 +17,7 @@ class CreateStudentEntityTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('learning_status', ['learning', 'graduated', 'fell_of', 'Other']);
-            $table->enum('employment_status', ['employed', 'in_search', 'not_relevant_in_IT', 'refused', 'in_IT_not_in_direction', 'Other']);
+            $table->enum('employment_status', ['employed', 'in_search', 'not_relevant_in_IT', 'refused', 'in_IT_not_in_direction', 'Other'])->nullable();
             $table->string('CV', 255)->nullable();
             $table->text('comment')->nullable();
             $table->integer('person_id')->unsigned();

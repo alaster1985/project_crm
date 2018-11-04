@@ -9,13 +9,16 @@
 }
 
 #navbar {
-    height: 60px;
+    /*  height: 60px;*/
     display: block;
     position: fixed;
 }
 
 body {
     padding-top: 70px;
+    background: url("/images/crm1.jpg") no-repeat;
+    -webkit-background-size: 100%;
+    font: 16px/1.4em 'PT Sans', sans-serif;
 }
 
 @media screen and (max-width: 768px) {
@@ -24,4 +27,50 @@ body {
     }
 }
 
+.name_table {
+    color: #ff5722;
+}
 
+.head {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+.table_scroll {
+    border: #ddd;
+    height: 89%;
+    display: block;
+    overflow: Auto;
+    background: white;
+    opacity: 0.9;
+}
+
+.table_bth {
+    text-align: right;
+}
+
+.error {
+    color: red
+}
+
+form {
+    display: block;
+    overflow-x: hidden;
+    /*background: whitesmoke;*/
+    opacity: 1;
+    height: 89%;
+}
+
+.headers_PP{
+    font-style: italic;
+    font-stretch: ultra-condensed;
+}
+.personal_page{
+    border: #ddd;
+    height: 96%;
+    display: block;
+    overflow: Auto;
+    background: white;
+    opacity: 0.9;
+}
