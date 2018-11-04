@@ -367,6 +367,7 @@ class StudentsController extends Controller
 
     public function studentPersonaMobila(Request $request)
     {
+//        dd($request);
 //
         $this->sendSms($request->contact,$request->msg);
     }
