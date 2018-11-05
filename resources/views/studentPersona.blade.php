@@ -123,11 +123,13 @@
 
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <form action="./m.php" method="post">{{-- // указать путь к обработчику--}}
+                <form action="{{Route('sendSMS')}}" method="post">{{-- // указать путь к обработчику--}}
                     <div class="form-group">
-                    <textarea class="form-control" name="message" rows="3"
+                        @csrf
+                    <textarea class="form-control" name="msg" rows="3"
                               placeholder="Введите текст сообщения:"></textarea>
                     </div>
+                    <input type="hidden" name="contact" value="{{$fone->contact}}">
                     <button type="submit" class="btn btn-info">Отправить сообщение</button>
                 </form>
             </div>
