@@ -25,7 +25,15 @@ httpGet(location.origin + "/students/groups")
     .then(response => funcSelectGroup(JSON.parse(response)))
 
 function funcSelectGroup(extData) {
+    var oldgr = group_name.options[group_name.selectedIndex].value
+    if (oldgr != '') {
+        group_name.appendChild(new Option(extData[(oldgr-1)]['group_name'], oldgr, true, true))
+    }
+
     for (let i = 0; i < extData.length; i++) {
+        if (group_name.options[group_name.selectedIndex].value == extData[i]['id']) {
+            continue
+        }
         elem = new Option(extData[i]['group_name'], extData[i]['id']);
         group_name.appendChild(elem)
     }
