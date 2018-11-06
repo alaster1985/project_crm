@@ -18,14 +18,20 @@ use App\Skill_group;
 
 class AddStudentController extends Controller
 {
+    protected $uploadFile;
+    public function __construct()
+    {
+        $this->uploadFile = new UploadCVController();
+    }
     public function store(StoreStudent $request)
     {
         DB::transaction(function () use ($request) {
+            $this->uploadFile->upload($request);
             $person = new Person($request->toArray());
             $person->save();
             $student = new Student($request->toArray());
             $student->person_id = $person->id;
-            $student->CV = basename($_FILES["file"]["name"]);
+            $student->CV = $this->uploadFile->pathForCV .'/'. $request->file->getClientOriginalName().'_'.time();
             $student->comment = $request->student_comment;
             $student->save();
             foreach ($request->contacts as $value) {
