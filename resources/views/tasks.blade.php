@@ -1,6 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Задачи')
 <div>
+    <input type="date">
     <h4 class="name_table"> Список заданий </h4>
     <table id="tableTasks" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <i class="fa fa-sort float-right" aria-hidden="true"></i>

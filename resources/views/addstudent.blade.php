@@ -28,7 +28,7 @@
                 @endif
                 <div>
                     <select required id="groups" name="group_id" class="form-control">
-                        <option selected disabled>Выберите группу</option>
+                        <option selected disabled value="{{old('group_id')}}">Выберите группу</option>
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
@@ -40,8 +40,7 @@
                 @endif
                 <div>
                     <select required class="form-control" name="learning_status">
-                        <option selected disabled @if (old('learning_status') == '') selected="selected" @endif>Выберите статус обучения</option>
-                        <option value="learning" @if (old('learning_status') == 'learning') selected="selected" @endif>learning</option>
+                        <option selected value="learning" @if (old('learning_status') == 'learning') selected="selected" @endif>learning</option>
                         <option value="graduated" @if (old('learning_status') == 'graduated') selected="selected" @endif>graduated</option>
                         <option value="fell_of" @if (old('learning_status') == 'fell_of') selected="selected" @endif>fell_of</option>
                         <option value="Other" @if (old('learning_status') == 'Other') selected="selected" @endif>Other</option>
@@ -124,7 +123,7 @@
                 <label for="communication_tool">Мобильный 1</label>
                 <p>Номер телефона</p>
                 <input hidden name="contacts[0][communication_tool]" value="mob1">
-                <p><input class="form-control" name="contacts[0][contact]" value="{{old('contacts.0.contact]')}}"></p>
+                <p><input class="form-control" name="contacts[0][contact]" value="{{old('contacts.0.contact')}}"></p>
                 <p>Коментарий</p>
                 <p><input class="form-control" name="contacts[0][comment]" value="{{old('contacts.0.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
