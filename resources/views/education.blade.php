@@ -44,6 +44,10 @@
                         </form>
                     </div>
                 </div>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
+                </button>
             </div>
         </div>
         <div class="table_scroll">

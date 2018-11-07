@@ -1,5 +1,6 @@
 @extends('layouts.nav')
 @section('title', 'Задачи')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div class="container-fluid ">
     <div class="col-md-2 col-sm-4 col-xs-4">
         <div>
@@ -20,6 +21,10 @@
             <div class="col-md-3 col-sm-4 col-xs-6 table_bth">{{--блок для кнопок добавления задания и тд--}}
                 <button class="btn btn-warning" {{--onclick="window.location='{{ route("")}}'"--}}>
                     <i class='glyphicon glyphicon-list-alt' title="Добавить нового студента"></i>
+                </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
