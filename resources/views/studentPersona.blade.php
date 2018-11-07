@@ -121,9 +121,9 @@
             </br></br>
         </div>
 
-        {{--<div class="row">
+        <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <form action="{{Route('sendSMS')}}" method="post">--}}{{-- // указать путь к обработчику--}}{{--
+                <form action="{{Route('sendSMS')}}" method="post">
                     <div class="form-group">
                         @csrf
                     <textarea class="form-control" name="msg" rows="3"
@@ -133,7 +133,7 @@
                     <button type="submit" class="btn btn-info">Отправить сообщение</button>
                 </form>
             </div>
-        </div>--}}
+        </div>
     </div>
 </div>
 
