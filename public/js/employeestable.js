@@ -124,42 +124,5 @@ document.onreadystatechange = function () {
         }
 
 
-// function allStudensShow() {
-//     jsonPost(location.origin + "/students/studentsalloutput", 5)
-//         .then(response => studget(JSON.parse(response)))
-//         .then(studget(studdata))
-// }
-//     allStudensShow();
-
-
-        // function empdata(studdata) {
-        //     // CLEAR TABLE BY DELETE ROWS
-        //     console.log(studdata)
-        //     for (let i = document.getElementById('employeeTable').getElementsByTagName('tr').length - 1; i; i--) {
-        //         document.getElementById('employeeTable').deleteRow(i);
-        //     }
-        //     var rowTable = 0;
-        //     for (var gr in studdata) {
-        //         var row = employeetable.insertRow(rowTable);
-        //         if (studdata[gr]['ASPT'] === 1) {
-        //             outDataASPT = 'Yes'
-        //         } else outDataASPT = 'No';
-        //         var cell1 = row.insertCell(0);
-        //         var cell2 = row.insertCell(1);
-        //         var cell3 = row.insertCell(2);
-        //         var cell4 = row.insertCell(3);
-        //         var cell5 = row.insertCell(4);
-        //         var cell6 = row.insertCell(5);
-        //         cell1.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['name'] + '</a>';
-        //         cell2.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['position'] + '</a>';
-        //         cell3.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['direction'] + '</a>';
-        //         cell4.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['company_name'] + '</a>';
-        //         cell5.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + outDataASPT + '</a>';
-        //         cell6.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['comment'] + '</a>';
-        //         rowTable++;
-        //     }
-        // }
-
-
     }
 }
