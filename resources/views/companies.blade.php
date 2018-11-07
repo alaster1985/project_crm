@@ -6,7 +6,7 @@
             <label for="status">Статус взаимодействия</label>
             <div>
                 <select class="form-control" name="status">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
                     <option value="Партнеры">Партнеры</option>
                     <option value="Ведется диалог">Ведется диалог</option>
                     <option value="Потенциальные">Потенциальные</option>
@@ -19,7 +19,7 @@
             <label for="type">Тип сотрудничества</label>
             <div>
                 <select class="form-control" name="type">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите тип</OPTION>
                     <option value="Трудоустройство">Трудоустройство</option>
                     <option value="Информационное">Информационное</option>
                     <option value="партнерство">партнерство</option>
@@ -101,7 +101,7 @@
             <label for="stack_id">Стэк технологий</label>
             <div>
                 <select class="form-control" id="stacks" name="stack_id">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите технологию</OPTION>
                 </select>
             </div>
         </div>
