@@ -52,16 +52,22 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-4 table-responsive">
         <div class="row">
-            <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table"> Список студентов </h4></div>
+            <div class="col-md-9 col-sm-8 col-xs-6">
+                <h4 class="name_table"> Список студентов </h4>
+            </div>
             <div class="col-md-3 col-sm-4 col-xs-6 table_bth">
                 <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
-                            class='glyphicon glyphicon-user' title="Добавить нового студента"></i>
+                            class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
-                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
+                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
+                </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
@@ -135,7 +141,7 @@
 
 
 @extends('layouts.footer')
-
+<script src="/js/reset.js"></script>
 <script src="/js/run.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/accordgroup.js"></script>

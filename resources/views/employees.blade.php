@@ -36,6 +36,10 @@
                 <button class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
                             class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
                 </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
+                </button>
             </div>
         </div>
         <div id="stres" class="table_scroll">
@@ -98,7 +102,7 @@
         </div>
         <div>
             <input class="form-control" type="hidden" name="ASPT" value="0"/>
-            <label><input type="checkbox" id= "chkbox" name="ASPT" value="1"/> Кандидат? </label>
+            <label><input type="checkbox" id="chkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
     {{--<script src="/js/run2.js"></script>--}}

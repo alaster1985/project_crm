@@ -1,5 +1,6 @@
 @extends('layouts.nav')
 @section('title', 'Компании')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div class="container-fluid">
     <div class="col-md-2 col-sm-6 ">
         <div>
@@ -40,6 +41,10 @@
                 </button>
                 <button class="btn btn-warning" onclick="window.location='{{ route("addcontper")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить контактное лицо"></i>
+                </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
