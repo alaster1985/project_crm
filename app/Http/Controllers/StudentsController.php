@@ -77,7 +77,7 @@ class StudentsController extends Controller
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('communication_tool' , 'cell')
+            ->where('communication_tool' , 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
 
@@ -368,7 +368,6 @@ class StudentsController extends Controller
     public function studentPersonaMobila(Request $request)
     {
 //        dd($request);
-//
         $this->sendSms($request->contact,$request->msg);
     }
 
