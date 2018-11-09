@@ -1,12 +1,13 @@
 @extends('layouts.nav')
 @section('title', 'Компании')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div class="container-fluid">
     <div class="col-md-2 col-sm-6 ">
         <div>
             <label for="status">Статус взаимодействия</label>
             <div>
                 <select class="form-control" name="status">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
                     <option value="Партнеры">Партнеры</option>
                     <option value="Ведется диалог">Ведется диалог</option>
                     <option value="Потенциальные">Потенциальные</option>
@@ -19,7 +20,7 @@
             <label for="type">Тип сотрудничества</label>
             <div>
                 <select class="form-control" name="type">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите тип</OPTION>
                     <option value="Трудоустройство">Трудоустройство</option>
                     <option value="Информационное">Информационное</option>
                     <option value="партнерство">партнерство</option>
@@ -40,6 +41,10 @@
                 </button>
                 <button class="btn btn-warning" onclick="window.location='{{ route("addcontper")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить контактное лицо"></i>
+                </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
@@ -101,7 +106,7 @@
             <label for="stack_id">Стэк технологий</label>
             <div>
                 <select class="form-control" id="stacks" name="stack_id">
-                    <OPTION SELECTED VALUE="0" disabled></OPTION>
+                    <OPTION SELECTED VALUE="0" disabled>Выберите технологию</OPTION>
                 </select>
             </div>
         </div>
