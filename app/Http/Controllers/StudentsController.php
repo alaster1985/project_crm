@@ -40,42 +40,8 @@ class StudentsController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function studentPersonaView()
+    public function studentPersonaView($id)
     {
-
-        return view('studentPersona');
-        $company = DB::table('persons')
-            ->select('stack_name')
-            ->join('students', 'persons.id', '=', 'students.person_id')
-            ->join('employment_students', 'employment_students.student_id', '=', 'students.id')
-            ->join('it_companies', 'it_companies.id', '=', 'employment_students.company_id')
-            ->join('stack_groups', 'stack_groups.company_id', '=', 'it_companies.id')
-            ->join('stacks', 'stack_groups.stack_id', '=', 'stacks.id')
-            ->where('students.person_id', '=', $id)
-            ->get();
-
-        $skill = DB::table('persons')
-            ->select('skill_name')
-            ->join('students', 'persons.id', '=', 'students.person_id')
-            ->join('skill_groups', 'skill_groups.person_id', '=', 'persons.id')
-            ->join('skills', 'skill_groups.skill_id', '=', 'skills.id')
-            ->where('students.person_id', '=', $id)
-            ->get();
-
-        $group = DB::table('persons')
-            ->select('group_name', 'learning_status', 'employment_status', 'direction', 'start_date', 'finish_date', 'homecoming_date')
-            ->join('students', 'persons.id', '=', 'students.person_id')
-            ->Join('groups', 'groups.id', '=', 'students.group_id')
-            ->join('directions', 'groups.direction_id', '=', 'directions.id')
-            ->where('students.person_id', '=', $id)
-            ->get();
-
-        $contact = DB::table('persons')
-            ->select('communication_tool', 'contact', 'contacts.comment')
-            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
-            ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('students.person_id', '=', $id)
-            ->get();
         $fone = DB::table('persons')
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
@@ -84,19 +50,7 @@ class StudentsController extends Controller
             ->where('students.person_id', '=', $id)
             ->first();
 
-        $student = DB::table('persons')
-            ->select('name', 'persons.address', 'CV', 'company_name', 'position', 'students.comment')
-            ->Join('contacts', 'persons.id', '=', 'contacts.person_id')
-            ->join('students', 'persons.id', '=', 'students.person_id')
-            ->leftjoin('employment_students', 'employment_students.student_id', '=', 'students.id')
-            ->leftjoin('it_companies', 'it_companies.id', '=', 'students.company_id')
-            ->leftjoin('positions', 'students.position_id', '=', 'positions.id')
-            ->where('students.person_id', '=', $id)
-            ->first();
-        return view('studentPersona', ['student' => $student, 'contact' => $contact, 'group' => $group, 'skill' => $skill, 'company' => $company, 'fone' => $fone]);
-//        $studentView = DB::table('person')->where('id_person', '=', $id)->first();01
-//        return view('studentPersona', ['studentView' => $studentView]);
-
+        return view('studentPersona', ['fone' => $fone]);
     }
 
     /**
