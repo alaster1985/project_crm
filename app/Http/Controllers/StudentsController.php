@@ -12,6 +12,7 @@ use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
+
 class StudentsController extends Controller
 {
 
@@ -39,8 +40,10 @@ class StudentsController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function studentPersonaView($id)
+    public function studentPersonaView()
     {
+
+        return view('studentPersona');
         $company = DB::table('persons')
             ->select('stack_name')
             ->join('students', 'persons.id', '=', 'students.person_id')
@@ -93,6 +96,7 @@ class StudentsController extends Controller
         return view('studentPersona', ['student' => $student, 'contact' => $contact, 'group' => $group, 'skill' => $skill, 'company' => $company, 'fone' => $fone]);
 //        $studentView = DB::table('person')->where('id_person', '=', $id)->first();01
 //        return view('studentPersona', ['studentView' => $studentView]);
+
     }
 
     /**
@@ -126,7 +130,7 @@ class StudentsController extends Controller
      */
     public function getStudyInfo(Request $request)
     {
-        $contacts = Student::select('students.person_id', 'group_name', 'learning_status', 'employment_status', 'CV', 'start_date', 'finish_date', 'homecoming_date', 'direction')
+        $contacts = Student::select('students.person_id', 'group_name', 'learning_status', 'employment_status', 'CV', 'start_date', 'finish_date', 'homecoming_date', 'direction', 'students.comment')
             ->join('groups', 'groups.id', '=', 'students.group_id')
             ->join('directions', 'directions.id', '=', 'groups.direction_id')
             ->where('students.person_id', $request->key)
@@ -168,6 +172,14 @@ class StudentsController extends Controller
     {
         Person::where('id', $request->id)->update([
             'name' => $request->field
+        ]);
+        return back();
+    }
+
+    public function studentChangeStudentComment(Request $request)
+    {
+        Student::where('person_id',$request->id)->update([
+            'comment' =>$request->field
         ]);
         return back();
     }
@@ -231,14 +243,17 @@ class StudentsController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function studentChangeContactSkill(Request $request)
+    public function studentChangeContactSkills(Request $request)
     {
         Skill_group::where('person_id', $request->id)
-            ->where('id', $request->field)
-//            ->join('skills', 'skills.id', '=', $request->counter)
-            ->update([
-                'skill_id' => $request->counter
-            ]);
+            ->delete();
+
+        for($i = 0;$i<count($request->field);$i++) {
+            Skill_group::insert(
+                ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
+            );
+        }
+
         return back();
     }
 
@@ -367,12 +382,18 @@ class StudentsController extends Controller
 
     public function studentPersonaMobila(Request $request)
     {
+
+
+        $contact = DB::table('contacts')->where('person_id', $request->id)->where('communication_tool', 'cell')->first();
+        $this->sendSms($contact->contact, $request->msg);
+
+
 //        dd($request);
         $this->sendSms($request->contact,$request->msg);
     }
 
 
-    public function sendSms($mobila,$mess)
+    public function sendSms($mobila, $mess)
     {
         if (isset($_POST['msg'])) {
             $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
