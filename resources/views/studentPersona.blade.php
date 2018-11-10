@@ -110,6 +110,7 @@
                     <textarea class="form-control" name="msg" rows="3"
                               placeholder="Введите текст сообщения:"></textarea>
                     </div>
+                    {{--{{$fone->contact}}--}}
                     <input type="hidden" name="contact" value="{{$fone->contact}}">
                     <button type="submit" class="btn btn-info">Отправить сообщение</button>
                 </form>
