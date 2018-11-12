@@ -20,7 +20,7 @@
             <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table">Список заданий</h4></div>
             <div class="col-md-3 col-sm-4 col-xs-6 table_bth">{{--блок для кнопок добавления задания и тд--}}
                 <button class="btn btn-warning" {{--onclick="window.location='{{ route("")}}'"--}}>
-                    <i class='glyphicon glyphicon-list-alt' title="Добавить нового студента"></i>
+                    <i class='glyphicon glyphicon-list-alt' title="Добавить нового задание"></i>
                 </button>
                 <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
                             {{--добавить RESET--}}
