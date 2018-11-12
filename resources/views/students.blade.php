@@ -65,8 +65,7 @@
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
                 </button>
-                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
-                            {{--добавить RESET--}}
+                <button class="btn btn-info" id="resetstudents"><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>

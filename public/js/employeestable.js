@@ -10,7 +10,6 @@ document.onreadystatechange = function () {
 
         var employeetable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
 
-
         httpGet(location.origin + "/direction")
             .then(response => funcSelectDirection(JSON.parse(response)));
 
@@ -80,6 +79,9 @@ document.onreadystatechange = function () {
 
         allEmployeesShow();
 
+        resetEmloyees.onclick = function(){
+            allEmployeesShow();
+        }
 
         direction_it.onchange = function () {
             let sel = direction_it.selectedIndex;
