@@ -8,6 +8,19 @@ let stack_name1 = document.getElementById("stacks1");
 let stack_name2 = document.getElementById("stacks2");
 let stack_name3 = document.getElementById("stacks3");
 
+
+
+group_name.onchange = function () {
+    let se = group_name.selectedIndex;
+    let option = group_name.options;
+    let va = option[se]
+    console.log(se)
+    console.log(option)
+    console.log(va.value)
+};
+
+
+
 function httpGet(url) {
     return new Promise(function (resolve) {
         let xhr = new XMLHttpRequest();
@@ -159,4 +172,8 @@ async function filling(startJSON) {
     }
 
     stack1(startJSON)
+
+
+
+
 }
