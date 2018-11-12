@@ -49,6 +49,7 @@ Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
 
 
+
 Route::get('addstudent', function () {
     return view('addstudent');
 })->name('addstud');
@@ -115,7 +116,7 @@ Route::post('students/ChangeAddress', 'StudentsController@studentChangeAddress')
 Route::post('students/ChangeCommTool', 'StudentsController@studentChangeCommTool')->name('studentChangeCommTool');
 Route::post('students/ChangeContact', 'StudentsController@studentChangeContact')->name('studentChangeContact');
 Route::post('students/ChangeContactComment', 'StudentsController@studentChangeContactComment')->name('studentChangeContactComment');
-Route::post('students/ChangeSkill', 'StudentsController@studentChangeContactSkill')->name('studentChangeContactSkill');
+Route::post('students/ChangeSkills', 'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 Route::post('students/ChangeGroup', 'StudentsController@studentChangeContactGroup')->name('studentChangeContactGroup');
 Route::post('students/ChangeLearningStatus', 'StudentsController@studentChangeContactLearningStatus')->name('studentChangeContactLearningStatus');
 Route::post('students/ChangeEmploymentStatus', 'StudentsController@studentChangeContactEmploymentStatus')->name('studentChangeContactEmploymentStatus');
@@ -125,9 +126,11 @@ Route::post('students/ChangeFinishDate', 'StudentsController@studentChangeContac
 Route::post('students/ChangeHomecomingDate', 'StudentsController@studentChangeContactHomecomingDate')->name('studentChangeContactHomecomingDate');
 Route::post('students/ChangeCompany', 'StudentsController@studentChangeContactCompany')->name('studentChangeContactCompany');
 Route::post('students/ChangeCompanyPosition', 'StudentsController@studentChangeContactCompanyPosition')->name('studentChangeContactCompanyPosition');
-
+Route::post('students/ChangeStudentComment', 'StudentsController@studentChangeStudentComment')->name('studentChangeStudentComment');
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
+
+Route::post('students/ChangeSkills', 'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
 
 

@@ -52,21 +52,27 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-4 table-responsive">
         <div class="row">
-            <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table"> Список студентов </h4></div>
+            <div class="col-md-9 col-sm-8 col-xs-6">
+                <h4 class="name_table"> Список студентов </h4>
+            </div>
             <div class="col-md-3 col-sm-4 col-xs-6 table_bth">
                 <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
-                            class='glyphicon glyphicon-user' title="Добавить нового студента"></i>
+                            class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
-                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
+                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
+                </button>
+                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                            {{--добавить RESET--}}
+                            class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
         <div id="stres" class="table_scroll">
-            <table id="myTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="myTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">ФИО
@@ -92,7 +98,7 @@
         <label for="learning_status">Статус обучения</label>
         <div>
             <select id="learningstatus" class="form-control" name="learning_status">
-                <OPTION SELECTED VALUE="0" disabled></OPTION>
+                <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
                 <option value="learning">learning</option>
                 <option value="graduated">graduated</option>
                 <option value="fell_of">fell_of</option>
@@ -102,7 +108,7 @@
         <label for="employment_status">Статус трудоустройства</label>
         <div>
             <select id="employmentstatus" name="employment_status" class="form-control">
-                <OPTION SELECTED VALUE="0" disabled></OPTION>
+                <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
                 <option value="employed">employed</option>
                 <option value="in_search">in_search</option>
                 <option value="not_relevant_in_IT">not_relevant_in_IT</option>
@@ -135,7 +141,7 @@
 
 
 @extends('layouts.footer')
-
+<script src="/js/reset.js"></script>
 <script src="/js/run.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/accordgroup.js"></script>
