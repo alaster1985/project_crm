@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('employees/show/{id}', 'EmployeesController@emploeePersonaView')->name('employee.view');
 
     Route::get('companies', 'CompaniesController@showCompanies')->name('ShowCompanies');
+    Route::post('companiesall', 'CompaniesController@showCompaniesall')->name('ShowCompanies');
     Route::get('companies/show/{id}', 'CompaniesController@companyPersonalView')->name('company.view');
 
     Route::get('tasks', 'TasksController@showTasks')->name('showTasks');

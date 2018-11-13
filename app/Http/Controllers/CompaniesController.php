@@ -22,6 +22,13 @@ class CompaniesController extends Controller
         return view('companies', ['all_companies' => $all_companies]);
     }
 
+    public function showCompaniesAll(Request $request)
+    {
+        $all_companies = DB::table('it_companies')
+        ->get();
+        return response()->json($all_companies);
+    }
+
     public function companyPersonalView($id)
     {
         $contact = $stack = DB::table('it_companies')
