@@ -1,79 +1,79 @@
 @extends('layouts.nav')
 @section('title', 'Add Components')
-@csrf
-{{--<form action="{{Route('add.component')}}" method="POST" enctype="multipart/form-data">--}}
-    {{--@csrf--}}
-    {{--<p>Добавление новых компонентов</p>--}}
-    {{--<p>Добавить новый скилл</p>--}}
-    {{--<p><input name="skill"></p>--}}
-    {{--<p>Добавить новую должность</p>--}}
-    {{--<p><input name="position"></p>--}}
-    {{--<p>Добавить новый стэк</p>--}}
-    {{--<p><input name="stack"></p>--}}
-    {{--<p>Добавить новое направление</p>--}}
-    {{--<p><input name="direction"></p>--}}
-    {{--<input type="submit" value="Save">--}}
-{{--</form>--}}
 
-{{--<div class="container">--}}
-    {{--<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Добавить нового--}}
-        {{--студента--}}
-    {{--</button>--}}
-
-    {{--<!-- Modal -->--}}
-    {{--<div class="modal fade" id="myModal" role="dialog">--}}
-        {{--<div class="modal-dialog">--}}
-
-            {{--<!-- Modal content-->--}}
-            {{--<div class="modal-content">--}}
-                {{--<div class="modal-header">--}}
-                    {{--<button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-                    {{--<h4 class="modal-title">Добавление нового студента</h4>--}}
-                {{--</div>--}}
-                {{--<div class="modal-body">--}}
-                    {{--<form action="{{Route('add.student')}}" method="post" enctype="multipart/form-data">--}}
-                        {{--@csrf--}}
-                        {{--<p>Введите данные</p>--}}
-                        {{--<p>Имя студента</p>--}}
-                        {{--<p><input name="student_name"></p>--}}
-                        {{--<input type="submit" value="Add new student">--}}
-                    {{--</form>--}}
-                {{--</div>--}}
-                {{--<div class="modal-footer">--}}
-                    {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
-
-
-<table>
-    <caption>Доступные компоненты</caption>
-    <tr>
-        <th>Скилл</th>
-        <th>Стэк</th>
-        <th>Должность</th>
-        <th>Направление</th>
-    </tr>
-    <tr>
-        <td>Строка2 Ячейка1</td>
-        <td>Строка2 Ячейка2</td>
-        <td>Строка2 Ячейка3</td>
-        <td>Строка2 Ячейка4</td>
-    </tr>
-    <tr>
-        <td>Строка3 Ячейка1</td>
-        <td>Строка3 Ячейка2</td>
-        <td>Строка3 Ячейка3</td>
-        <td>Строка3 Ячейка4</td>
-    </tr>
-    <tr>
-        <td>Строка4 Ячейка1</td>
-        <td>Строка4 Ячейка2</td>
-        <td>Строка4 Ячейка3</td>
-        <td>Строка4 Ячейка4</td>
-    </tr>
-</table>
-
+<div class="row">
+    <div class="form-group col-md-2 col-sm-3">
+        @if ($errors->has('skill_name'))
+            <div class="error">{{($errors->first('skill_name'))}}</div>
+        @endif
+        <label for="skill">SKILLS</label>
+        <input type="button" id="new_skill" name="new_skill_button" value="Add new skill">
+        <p class="help-block">доступные скилы</p>
+        <ul>
+            @foreach($skills as $skill)
+                <li>{{$skill->skill_name}}</li>
+            @endforeach
+        </ul>
+        <form action="{{Route('add.component')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div  id="new_skill_div">
+            </div>
+        </form>
+    </div>
+    <div class="form-group col-md-2 col-sm-3">
+        @if ($errors->has('stack_name'))
+            <div class="error">{{($errors->first('stack_name'))}}</div>
+        @endif
+        <label for="stacks">STACKS</label>
+        <input type="button" id="new_stack" name="new_stack_button" value="Add new stack">
+        <p class="help-block">доступные стэки технологий</p>
+        <ul>
+            @foreach($stacks as $stack)
+                <li>{{$stack->stack_name}}</li>
+            @endforeach
+        </ul>
+        <form action="{{Route('add.component')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div  id="new_stack_div">
+            </div>
+        </form>
+    </div>
+    <div class="form-group col-md-2 col-sm-3">
+        @if ($errors->has('position'))
+            <div class="error">{{($errors->first('position'))}}</div>
+        @endif
+        <label for="skill">POSITIONS</label>
+        <input type="button" id="new_position" name="new_position_button" value="Add new position">
+        <p class="help-block">доступные должности</p>
+        <ul>
+            @foreach($positions as $position)
+                <li>{{$position->position}}</li>
+            @endforeach
+        </ul>
+        <form action="{{Route('add.component')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div  id="new_position_div">
+            </div>
+        </form>
+    </div>
+    <div class="form-group col-md-2 col-sm-3">
+        @if ($errors->has('direction'))
+            <div class="error">{{($errors->first('direction'))}}</div>
+        @endif
+        <label for="skill">DIRECTIONS</label>
+        <input type="button" id="new_direction" name="new_direction_button" value="Add new direction">
+        <p class="help-block">доступные направления</p>
+        <ul>
+            @foreach($directions as $direction)
+                <li>{{$direction->direction}}</li>
+            @endforeach
+        </ul>
+        <form action="{{Route('add.component')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div  id="new_direction_div">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/js/run2.js"></script>
 @extends('layouts.footer')

@@ -9,6 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Support\Facades\DB;
+
 Route::middleware('auth')->group(function () {
 
     Route::get('auth', function () {
@@ -49,7 +52,6 @@ Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
 
 
-
 Route::get('addstudent', function () {
     return view('addstudent');
 })->name('addstud');
@@ -71,9 +73,13 @@ Route::get('addcontactperson', function () {
 Route::post('contacrperson/add', 'AddContactPersonController@store')->name('add.contactperson');
 
 Route::get('addcomponent', function () {
-    return view('addcomponent');
-})->name('addcomponent');
-Route::post('/addcomponent', 'AddComponentController@store')->name('add.component');
+    $skills = DB::table('skills')->get();
+    $stacks = DB::table('stacks')->get();
+    $directions = DB::table('directions')->get();
+    $positions = DB::table('positions')->get();
+    return view('addcomponent', compact('skills', 'stacks', 'directions', 'positions'));
+})->name('addcompot');
+Route::post('component/add', 'AddComponentController@store')->name('add.component');
 
 //JS
 
@@ -108,29 +114,41 @@ Route::post('students/getStudName', 'StudentsController@getStudentNameAddress');
 Route::post('students/getStudentContacts', 'StudentsController@getStudentContacts');
 Route::post('students/getStudyInfo', 'StudentsController@getStudyInfo');
 Route::post('students/getSkills', 'StudentsController@getSkills');
-Route::post('students/getStudyCompany','StudentsController@getStudyCompany');
+Route::post('students/getStudyCompany', 'StudentsController@getStudyCompany');
 
 //JS EDITION (O_o)
 Route::post('students/ChangeName', 'StudentsController@studentChangeName')->name('studentChangeName');
 Route::post('students/ChangeAddress', 'StudentsController@studentChangeAddress')->name('studentChangeAddress');
 Route::post('students/ChangeCommTool', 'StudentsController@studentChangeCommTool')->name('studentChangeCommTool');
 Route::post('students/ChangeContact', 'StudentsController@studentChangeContact')->name('studentChangeContact');
-Route::post('students/ChangeContactComment', 'StudentsController@studentChangeContactComment')->name('studentChangeContactComment');
-Route::post('students/ChangeSkills', 'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
+Route::post('students/ChangeContactComment',
+    'StudentsController@studentChangeContactComment')->name('studentChangeContactComment');
+Route::post('students/ChangeSkills',
+    'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 Route::post('students/ChangeGroup', 'StudentsController@studentChangeContactGroup')->name('studentChangeContactGroup');
-Route::post('students/ChangeLearningStatus', 'StudentsController@studentChangeContactLearningStatus')->name('studentChangeContactLearningStatus');
-Route::post('students/ChangeEmploymentStatus', 'StudentsController@studentChangeContactEmploymentStatus')->name('studentChangeContactEmploymentStatus');
-Route::post('students/ChangeDirection', 'StudentsController@studentChangeContactDirection')->name('studentChangeContactDirection');
-Route::post('students/ChangeStartDate', 'StudentsController@studentChangeContactStartDate')->name('studentChangeContactStartDate');
-Route::post('students/ChangeFinishDate', 'StudentsController@studentChangeContactFinishDate')->name('studentChangeContactFinishDate');
-Route::post('students/ChangeHomecomingDate', 'StudentsController@studentChangeContactHomecomingDate')->name('studentChangeContactHomecomingDate');
-Route::post('students/ChangeCompany', 'StudentsController@studentChangeContactCompany')->name('studentChangeContactCompany');
-Route::post('students/ChangeCompanyPosition', 'StudentsController@studentChangeContactCompanyPosition')->name('studentChangeContactCompanyPosition');
-Route::post('students/ChangeStudentComment', 'StudentsController@studentChangeStudentComment')->name('studentChangeStudentComment');
+Route::post('students/ChangeLearningStatus',
+    'StudentsController@studentChangeContactLearningStatus')->name('studentChangeContactLearningStatus');
+Route::post('students/ChangeEmploymentStatus',
+    'StudentsController@studentChangeContactEmploymentStatus')->name('studentChangeContactEmploymentStatus');
+Route::post('students/ChangeDirection',
+    'StudentsController@studentChangeContactDirection')->name('studentChangeContactDirection');
+Route::post('students/ChangeStartDate',
+    'StudentsController@studentChangeContactStartDate')->name('studentChangeContactStartDate');
+Route::post('students/ChangeFinishDate',
+    'StudentsController@studentChangeContactFinishDate')->name('studentChangeContactFinishDate');
+Route::post('students/ChangeHomecomingDate',
+    'StudentsController@studentChangeContactHomecomingDate')->name('studentChangeContactHomecomingDate');
+Route::post('students/ChangeCompany',
+    'StudentsController@studentChangeContactCompany')->name('studentChangeContactCompany');
+Route::post('students/ChangeCompanyPosition',
+    'StudentsController@studentChangeContactCompanyPosition')->name('studentChangeContactCompanyPosition');
+Route::post('students/ChangeStudentComment',
+    'StudentsController@studentChangeStudentComment')->name('studentChangeStudentComment');
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
 
-Route::post('students/ChangeSkills', 'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
+Route::post('students/ChangeSkills',
+    'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
 
 
