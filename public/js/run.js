@@ -21,6 +21,8 @@ var resetCompanies = document.getElementById("resetcompanies");
 var statvz = document.getElementById("statvz");
 var statsort = document.getElementById("statsort");
 
+// var alevel = document.getElementById("alevelTable");
+
 
 var accordionmenu = document.getElementById("accordionmenu");
 

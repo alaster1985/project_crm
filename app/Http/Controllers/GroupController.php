@@ -27,6 +27,14 @@ class GroupController extends Controller
         return view('education', ['all_groups' => $all_groups]);
     }
 
+    public function showAlevel()
+    {
+        $alevel = DB::table('groups')
+            ->leftJoin('directions', 'groups.direction_id', '=', 'directions.id')
+            ->get();
+        return response()->json($alevel);
+    }
+
     public function groupPersonaView($id)
     {
         $groupView = DB::table('groups')
