@@ -16,7 +16,7 @@ class CreateDirectionTable extends Migration
     {
         Schema::create('directions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('direction', 45);
+            $table->string('direction', 45)->unique();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

@@ -75,5 +75,6 @@
         </form>
     </div>
 </div>
-<script src="/js/run2.js"></script>
+
 @extends('layouts.footer')
+<script src="/js/run2.js"></script>
