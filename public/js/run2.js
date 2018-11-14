@@ -2,7 +2,7 @@ let group_name = document.getElementById("groups");
 let skill_name = document.getElementById("skills");
 let company_name = document.getElementById("companies");
 let position = document.getElementById("position");
-let direction = document.getElementById("direction");
+let direct = document.getElementById("direction");
 let direction_it = document.getElementById("direction_it");
 let member_name = document.getElementById("members");
 let stack_name1 = document.getElementById("stacks1");
@@ -76,7 +76,7 @@ httpGet(location.origin + "/direction")
 function funcSelectDirection(extData) {
     for (let i = 0; i < extData.length; i++) {
         elem = new Option(extData[i]['direction'], extData[i]['id']);
-        direction.appendChild(elem)
+        direct.appendChild(elem)
     }
 }
 

@@ -3,8 +3,11 @@ var ll;
 var globaldata = {};
 var studdata = {};
 
+var alevelDirection = document.getElementById("direction_it");
+
 
 function alevel(studdata) {
+    console
     // CLEAR TABLE BY DELETE ROWS
     globaldata = studdata;
     for (let i = document.getElementById('alevelTable').getElementsByTagName('tr').length - 1; i; i--) {
@@ -37,25 +40,14 @@ resetalevel.onclick = function(){
 }
 
 // Filters
-// statvz.onchange = function(){
-//     let sel = statvz.selectedIndex;
-//     let options = statvz.options;
-//     // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-//     for (let key in globaldata) {
-//         if (options[sel].value !== globaldata[key]['status']) {
-//             delete globaldata[key];
-//         }
-//     }
-//     companies(globaldata);
-// }
-//
-// statsort.onchange = function () {
-//     let sel = statsort.selectedIndex;
-//     let options = statsort.options;
-//     for (let key in globaldata) {
-//         if (options[sel].value !== globaldata[key]['type']) {
-//             delete globaldata[key];
-//         }
-//     }
-//     companies(globaldata);
-// }
+alevelDirection.onchange = function(){
+    let sel = alevelDirection.selectedIndex;
+    let options = alevelDirection.options;
+    text = alevelDirection.options[alevelDirection.selectedIndex].text;
+    for (let key in globaldata) {
+        if (text !== globaldata[key]['direction']) {
+            delete globaldata[key];
+        }
+    }
+    alevel(globaldata);
+}

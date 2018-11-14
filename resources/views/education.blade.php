@@ -92,6 +92,5 @@
 @extends('layouts.footer')
 {{--<script src="/js/modal.js"></script>--}}
 <script src="/js/run.js"></script>
-<script src="/js/run2.js"></script>
 <script src="/js/education.js"></script>
 
