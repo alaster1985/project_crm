@@ -14,7 +14,7 @@ class UploadCVController extends Controller
             mkdir($this->pathForCV, 0777, true);
         }
         foreach ($request->files as $file) {
-            $file->move($this->pathForCV, $file->getClientOriginalName().'_'.time());
+            $file->move($this->pathForCV, basename($request->file->getClientOriginalName(), '.'.$request->file->getClientOriginalExtension()).'_'.time(). '.' .$request->file->getClientOriginalExtension());
         }
     }
 }

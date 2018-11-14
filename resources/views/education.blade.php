@@ -38,8 +38,13 @@
                                       required>
                             </p>
                             <p>Направление</p>
-                            <p><input name="direction_id"></p>
+                            <p>
+                                <select class="form-control" id="direction" name="direction_it">
+                                    <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
+                                </select>
+                            </p>
                             </br>
+                            <script src="/js/run2.js"></script>
                             <input type="submit" value="Add new group">
                         </form>
                     </div>

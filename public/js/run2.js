@@ -3,23 +3,11 @@ let skill_name = document.getElementById("skills");
 let company_name = document.getElementById("companies");
 let position = document.getElementById("position");
 let direction = document.getElementById("direction");
+let direction_it = document.getElementById("direction_it");
 let member_name = document.getElementById("members");
 let stack_name1 = document.getElementById("stacks1");
 let stack_name2 = document.getElementById("stacks2");
 let stack_name3 = document.getElementById("stacks3");
-
-
-
-group_name.onchange = function () {
-    let se = group_name.selectedIndex;
-    let option = group_name.options;
-    let va = option[se]
-    console.log(se)
-    console.log(option)
-    console.log(va.value)
-};
-
-
 
 function httpGet(url) {
     return new Promise(function (resolve) {
@@ -40,7 +28,7 @@ httpGet(location.origin + "/students/groups")
 function funcSelectGroup(extData) {
     var oldgr = group_name.options[group_name.selectedIndex].value
     if (oldgr != '') {
-        group_name.appendChild(new Option(extData[(oldgr-1)]['group_name'], oldgr, true, true))
+        group_name.appendChild(new Option(extData[(oldgr - 1)]['group_name'], oldgr, true, true))
     }
 
     for (let i = 0; i < extData.length; i++) {
@@ -89,6 +77,16 @@ function funcSelectDirection(extData) {
     for (let i = 0; i < extData.length; i++) {
         elem = new Option(extData[i]['direction'], extData[i]['id']);
         direction.appendChild(elem)
+    }
+}
+
+httpGet(location.origin + "/direction")
+    .then(response => funcSelectDirection_it(JSON.parse(response)));
+
+function funcSelectDirection_it(extData) {
+    for (let i = 0; i < extData.length; i++) {
+        elem = new Option(extData[i]['direction'], extData[i]['id']);
+        direction_it.appendChild(elem)
     }
 }
 
@@ -172,8 +170,40 @@ async function filling(startJSON) {
     }
 
     stack1(startJSON)
+}
 
+new_skill.onclick = function () {
+    new_stack_div.innerHTML = ''
+    new_position_div.innerHTML = ''
+    new_direction_div.innerHTML = ''
+    new_skill_div.innerHTML =
+        '<input class="form-control" name="skill_name">\n' +
+        '<input type="submit" value="Confirm add">'
+}
 
+new_stack.onclick = function () {
+    new_position_div.innerHTML = ''
+    new_direction_div.innerHTML = ''
+    new_skill_div.innerHTML = ''
+    new_stack_div.innerHTML =
+        '<input class="form-control" name="stack_name">\n' +
+        '<input type="submit" value="Confirm add">'
+}
 
+new_direction.onclick = function () {
+    new_stack_div.innerHTML = ''
+    new_position_div.innerHTML = ''
+    new_skill_div.innerHTML = ''
+    new_direction_div.innerHTML =
+        '<input class="form-control" name="direction">\n' +
+        '<input type="submit" value="Confirm add">'
+}
 
+new_position.onclick = function () {
+    new_stack_div.innerHTML = ''
+    new_direction_div.innerHTML = ''
+    new_skill_div.innerHTML = ''
+    new_position_div.innerHTML =
+        '<input class="form-control" name="position">\n' +
+        '<input type="submit" value="Confirm add">'
 }
