@@ -32,8 +32,8 @@ function alevelAll() {
 }
 alevelAll();
 
-resetCompanies.onclick = function(){
-    allCompanies();
+resetalevel.onclick = function(){
+    alevelAll();
 }
 
 // Filters
