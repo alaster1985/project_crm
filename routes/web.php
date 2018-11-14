@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
+    Route::post('groupall', 'GroupController@showAlevel');
 });
 
 Auth::routes();

@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="table_scroll">
-            <table class="table table-bordered table-hover table-sm">
+            <table id="alevelTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Группа
@@ -91,4 +91,7 @@
     </ul>
 </div>
 @extends('layouts.footer')
-<script src="/js/modal.js"></script>
+{{--<script src="/js/modal.js"></script>--}}
+<script src="/js/run.js"></script>
+<script src="/js/education.js"></script>
+
