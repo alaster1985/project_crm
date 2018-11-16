@@ -73,90 +73,11 @@ Route::get('addcontactperson', function () {
 })->name('addcontper');
 Route::post('contacrperson/add', 'AddContactPersonController@store')->name('add.contactperson');
 
-Route::get('addcomponent', function () {
-    $skills = DB::table('skills')->get();
-    $stacks = DB::table('stacks')->get();
-    $directions = DB::table('directions')->get();
-    $positions = DB::table('positions')->get();
-    return view('addcomponent', compact('skills', 'stacks', 'directions', 'positions'));
-})->name('addcompot');
+Route::get('addcomponent', 'AddComponentController@index')->name('addcompot');
 Route::post('component/add', 'AddComponentController@store')->name('add.component');
 
-
-Route::get('add_current_student/{person}', function ($person) {
-    $person = DB::table('persons')->find($person);
-    $skills_id = DB::table('skill_groups')
-        ->get()
-        ->where('person_id', '=', $person->id)
-        ->pluck('skill_id')
-        ->toArray();
-    $skills = [];
-    foreach ($skills_id as $skill_id) {
-        $skill_name = DB::table('skills')
-            ->get()
-            ->where('id', '=', $skill_id)
-            ->pluck('skill_name')
-            ->toArray();
-        array_push($skills, $skill_name[0]);
-    }
-    $contacts = DB::table('contacts')
-        ->get()
-        ->where('person_id', '=', $person->id)
-        ->toArray();
-
-        $mob1 = $mob2 = $email = $skype = $other = [
-        'contact' => '',
-        'comment' => '',
-    ];
-    foreach ($contacts as $contact){
-        if ($contact->communication_tool === 'mob1'){
-            $mob1 = [
-                'contact' => $contact->contact,
-                'comment' => $contact->comment,
-            ];
-        }
-        if ($contact->communication_tool === 'mob2'){
-            $mob2 = [
-                'contact' => $contact->contact,
-                'comment' => $contact->comment,
-            ];
-        }
-        if ($contact->communication_tool === 'email'){
-            $email = [
-                'contact' => $contact->contact,
-                'comment' => $contact->comment,
-            ];
-        }
-        if ($contact->communication_tool === 'skype'){
-            $skype = [
-                'contact' => $contact->contact,
-                'comment' => $contact->comment,
-            ];
-        }
-        if ($contact->communication_tool === 'Other'){
-            $other = [
-                'contact' => $contact->contact,
-                'comment' => $contact->comment,
-            ];
-        }
-    }
-
-    return view('add_current_student', [
-        'name' => $person->name,
-        'address' => $person->address,
-        'skills' => implode(", ", $skills),
-        'mob1_contact' => $mob1['contact'],
-        'mob1_comment' => $mob1['comment'],
-        'mob2_contact' => $mob2['contact'],
-        'mob2_comment' => $mob2['comment'],
-        'email_contact' => $email['contact'],
-        'email_comment' => $email['comment'],
-        'skype_contact' => $skype['contact'],
-        'skype_comment' => $skype['comment'],
-        'other_contact' => $other['contact'],
-        'other_comment' => $other['comment'],
-    ]);
-})->name('add_cur_stud');
+Route::get('addcurrentstudent/{person}', 'AddCurrentStudentController@index')->name('add_cur_stud');
+Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store')->name('add.add_cur_stud');
 
 
 //JS
