@@ -15,7 +15,13 @@ var studgroups = document.getElementById("studgroups")
 var urlPart = window.location.pathname.split('/')
 var selectlearn = document.getElementById("learningstatus");
 var selectemployment = document.getElementById("employmentstatus");
+var resetStudents = document.getElementById("resetstudents");
+var resetEmloyees = document.getElementById("resetemployees");
+var resetCompanies = document.getElementById("resetcompanies");
+var statvz = document.getElementById("statvz");
+var statsort = document.getElementById("statsort");
 
+// var alevel = document.getElementById("alevelTable");
 
 
 var accordionmenu = document.getElementById("accordionmenu");
@@ -65,17 +71,3 @@ function jsonPostEdit(url, id, field, counter = null) {
     })
 }
 
-
-
-
-
-// fetch("localhost/json/",
-//     {
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         method: "POST",
-//         body: JSON.stringify({a: 1, b: 2})
-//     })
-//     .then(function(res){ console.log(res) })
