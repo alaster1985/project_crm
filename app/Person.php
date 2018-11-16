@@ -48,4 +48,9 @@ class Person extends Model
     {
         return $this->belongsTo('App\Alevel_member');
     }
+
+    public function fones()
+    {
+        return $this->belongsTo('App\Fone');
+    }
 }

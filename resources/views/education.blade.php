@@ -38,20 +38,24 @@
                                       required>
                             </p>
                             <p>Направление</p>
-                            <p><input name="direction_id"></p>
+                            <p>
+                                <select class="form-control" id="direction" name="direction_it">
+                                    <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
+                                </select>
+                            </p>
                             </br>
+                            <script src="/js/run2.js"></script>
                             <input type="submit" value="Add new group">
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
-                            {{--добавить RESET--}}
+                <button id="resetalevel" class="btn btn-info" ><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
         <div class="table_scroll">
-            <table class="table table-bordered table-hover table-sm">
+            <table id="alevelTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Группа
@@ -74,16 +78,19 @@
     <div class="col-md-2 col-sm-2 ">
     </div>
     <ul>
-        @if ($all_groups)
-            @foreach ($all_groups as $index)
-                <li>
-                    <a>{{$index->group_name}} : </a>
-                    <a href="{{route('group.view', ['id' => $index->id] )}}">View Group's page</a>
-                </li>
-            @endforeach
-            {{ $all_groups->links() }}
-        @endif
+        {{--@if ($all_groups)--}}
+            {{--@foreach ($all_groups as $index)--}}
+                {{--<li>--}}
+                    {{--<a>{{$index->group_name}} : </a>--}}
+                    {{--<a href="{{route('group.view', ['id' => $index->id] )}}">View Group's page</a>--}}
+                {{--</li>--}}
+            {{--@endforeach--}}
+            {{--{{ $all_groups->links() }}--}}
+        {{--@endif--}}
     </ul>
 </div>
 @extends('layouts.footer')
-<script src="/js/modal.js"></script>
+{{--<script src="/js/modal.js"></script>--}}
+<script src="/js/run.js"></script>
+<script src="/js/education.js"></script>
+

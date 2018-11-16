@@ -19,6 +19,12 @@ function allStudensShow() {
         .then(studget(studdata))
 }
 allStudensShow();
+
+resetStudents.onclick = function(){
+    allStudensShow();
+}
+
+
 // Select-filter employment status
 selectemployment.onchange = function(){
     let sel = selectemployment.selectedIndex;

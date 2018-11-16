@@ -6,7 +6,7 @@
         <div>
             <label for="status">Статус взаимодействия</label>
             <div>
-                <select class="form-control" name="status">
+                <select class="form-control" id="statvz" name="status">
                     <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
                     <option value="Партнеры">Партнеры</option>
                     <option value="Ведется диалог">Ведется диалог</option>
@@ -19,7 +19,7 @@
         <div>
             <label for="type">Тип сотрудничества</label>
             <div>
-                <select class="form-control" name="type">
+                <select class="form-control" id="statsort" name="type">
                     <OPTION SELECTED VALUE="0" disabled>Выберите тип</OPTION>
                     <option value="Трудоустройство">Трудоустройство</option>
                     <option value="Информационное">Информационное</option>
@@ -42,14 +42,13 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addcontper")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить контактное лицо"></i>
                 </button>
-                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
-                            {{--добавить RESET--}}
+                <button class="btn btn-info" id="resetcompanies"><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
         <div id="stres" class="table_scroll">
-            <table id="myTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="companiesTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-3 head" style="position: sticky;top: 0;background: white;">Название
@@ -69,34 +68,34 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if ($all_companies)
-                    @foreach ($all_companies as $index)
-                        <tr>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->company_name}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->status}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->type}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->site}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->address}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->logo}}</a>
-                            </td>
-                            <td>
-                                <a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->comment}}</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    {{ $all_companies->links() }}
-                @endif
+                {{--@if ($all_companies)--}}
+                    {{--@foreach ($all_companies as $index)--}}
+                        {{--<tr>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->company_name}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->status}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->type}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->site}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->address}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->logo}}</a>--}}
+                            {{--</td>--}}
+                            {{--<td>--}}
+                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->comment}}</a>--}}
+                            {{--</td>--}}
+                        {{--</tr>--}}
+                    {{--@endforeach--}}
+                    {{--{{ $all_companies->links() }}--}}
+                {{--@endif--}}
                 </tbody>
             </table>
         </div>
@@ -111,6 +110,9 @@
             </div>
         </div>
     </div>
-    <script src="/js/run2.js"></script>
+    {{--<script src="/js/run2.js"></script>--}}
 </div>
+<script src="/js/run.js"></script>
+<script src="/js/companies.js"></script>
+
 @extends('layouts.footer')
