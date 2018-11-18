@@ -16,7 +16,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12" id="start_date_group">asdad</div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12 parametr">Дата оканчания обучения:</div>
+            <div class="col-md-6 col-sm-6 col-xs-12 parametr">Дата окончания обучения:</div>
             <div class="col-md-6 col-sm-6 col-xs-12" id="finish_date_group">asdad</div>
         </div>
         <div class="row">
