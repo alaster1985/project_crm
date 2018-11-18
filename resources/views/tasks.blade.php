@@ -134,8 +134,9 @@
      @endforeach
      {{ $all_tasks->links() }}
  @endif--}}
+{{--
 
-{{--   @foreach ($doer as $index)
+   @foreach ($doer as $index)
        <a href="{{route('tasks.view', ['id' => $index->id] )}}">{{$index->name}}</a>
        <br>
    @endforeach
@@ -144,7 +145,8 @@
        <a href="{{route('tasks.view', ['id' => $index->id] )}}">{{$index->task_completed}}</a>
        <br>
    @endforeach
-</ul>--}}
+</ul>
+--}}
 
 
 @extends('layouts.footer')

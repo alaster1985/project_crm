@@ -6,18 +6,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function change_studentName(studName) {
         let studNameId = document.getElementById('name_student'); //div
         let studAddressId = document.getElementById('address_student');//div
-        let studentName = document.createElement('p');  //p in div
-        let studentAddress = document.createElement('p');  //p in div
+        let studentName = document.createElement('td');  //p in div
+        let studentAddress = document.createElement('td');  //p in div
 
-        studentName.innerHTML = studName[0]['name'] + '<button id="stname">Edit</button>';
-        studentAddress.innerHTML = studName[0]['address'] + '<button id="staddress">Edit</button>';
+
+        studentName.innerHTML = studName[0]['name'] +
+            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="stname"></button>';
+        studentAddress.innerHTML = studName[0]['address'] +
+            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="staddress"></button>';
 
         studNameId.appendChild(studentName);
         studAddressId.appendChild(studentAddress);
-
         document.getElementById('stname').onclick = function () {
 
-            studentName.innerHTML = "<input type='text' id='stnameInput' value=" + studName[0]['name'] + "><button id='stname'>Save</button>";
+            studentName.innerHTML = "<input type='text' id='stnameInput' value=" + studName[0]['name'] + ">" +
+                "<button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='stname'></button>";
 
             document.getElementById('stname').onclick = function () {
                 jsonPostEdit(location.origin + "/students/ChangeName", urlPart[3], document.getElementById('stnameInput').value);
@@ -25,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         };
         document.getElementById('staddress').onclick = function () {
-            studentAddress.innerHTML = "<input type='text' id='staddressInput' value=" + studName[0]['address'] + "><button id='stAddress'>Save</button>";
+            studentAddress.innerHTML = "<input type='text' id='staddressInput' value=" + studName[0]['address'] + ">" +
+                "<button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='stAddress'></button>";
 
             document.getElementById('stAddress').onclick = function () {
                 jsonPostEdit(location.origin + "/students/ChangeAddress", urlPart[3], document.getElementById('staddressInput').value);
@@ -55,11 +59,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let studcommunication_tool = document.createElement('p');
             let studcontact = document.createElement('p');
             let studcomment = document.createElement('p');
-            studcommunication_tool.innerHTML = studContacts[i]['communication_tool'] + '<button id=' + "CommToolButton" + i + '>Edit</button>';
+            studcommunication_tool.innerHTML = studContacts[i]['communication_tool'] +
+                '<button class=\'btn btn-link  glyphicon glyphicon-pencil\'  id=' + "CommToolButton" + i + '></button>';
             studcommunication_tool.id = 'stCommTool' + i;
-            studcontact.innerHTML = studContacts[i]['contact'] + '<button id=' + "ContactButton" + i + '>Edit</button>';
+            studcontact.innerHTML = studContacts[i]['contact'] +
+                '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ContactButton" + i + '></button>';
             studcontact.id = 'stCont' + i;
-            studcomment.innerHTML = studContacts[i]['comment'] + '<button id=' + "CommentButton" + i + '>Edit</button>';
+            studcomment.innerHTML = studContacts[i]['comment'] +
+                '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "CommentButton" + i + '></button>';
             studcomment.id = 'stComment' + i;
             contactId[i] = studContacts[i]['id'];
             document.getElementById('contactInfo').appendChild(div);
@@ -195,17 +202,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 document.getElementById('stSkills').onclick = function () {
                     var result = [];
-                    var resultCounterId =[];
+                    var resultCounterId = [];
                     var opt;
                     for (let i = 0; i < document.getElementById('stSkillsSelect').options.length; i++) {
                         opt = document.getElementById('stSkillsSelect').options[i];
-                        if(opt.selected){
+                        if (opt.selected) {
                             result.push(opt.value || opt.text);
-                            resultCounterId.push(document.getElementById('stSkillsSelect').options[i].index+1);
+                            resultCounterId.push(document.getElementById('stSkillsSelect').options[i].index + 1);
                         }
                     }
                     // console.log(result);
-                    jsonPostEdit(location.origin + "/students/ChangeSkills", urlPart[3], result,resultCounterId);
+                    jsonPostEdit(location.origin + "/students/ChangeSkills", urlPart[3], result, resultCounterId);
                     location.reload();
                 }
             }

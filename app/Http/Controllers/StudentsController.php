@@ -40,10 +40,10 @@ class StudentsController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function studentPersonaView()
+    public function studentPersonaView($id)
     {
 
-        return view('studentPersona');
+
         $company = DB::table('persons')
             ->select('stack_name')
             ->join('students', 'persons.id', '=', 'students.person_id')
