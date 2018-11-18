@@ -1,6 +1,9 @@
 @extends('layouts.nav')
 @section('title', 'Компании')
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
+
+
+
 <div class="container-fluid">
     <div class="col-md-2 col-sm-6 ">
         <div>
