@@ -46,7 +46,7 @@ class StudentsController extends Controller
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('communication_tool' , 'mob1')
+            ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
 
@@ -99,9 +99,23 @@ class StudentsController extends Controller
         $contacts = Student::select('company_name', 'position')
             ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
             ->join('positions', 'positions.id', '=', 'students.position_id')
+            //'stack_name'
+//            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
+//            ->join('stacks','stack_groups.stack_id','=','stacks.id')
             ->where('students.person_id', $request->key)
             ->get();
         return response($contacts);
+    }
+
+    public function getStudyCompanyStacks(Request $request)
+    {
+        $stacks = Student::select('stack_name', 'stacks.id')
+            ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
+            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
+            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->where('students.person_id', $request->key)
+            ->get();
+        return response($stacks);
     }
 
     /**
@@ -132,8 +146,8 @@ class StudentsController extends Controller
 
     public function studentChangeStudentComment(Request $request)
     {
-        Student::where('person_id',$request->id)->update([
-            'comment' =>$request->field
+        Student::where('person_id', $request->id)->update([
+            'comment' => $request->field
         ]);
         return back();
     }
@@ -202,7 +216,7 @@ class StudentsController extends Controller
         Skill_group::where('person_id', $request->id)
             ->delete();
 
-        for($i = 0;$i<count($request->field);$i++) {
+        for ($i = 0; $i < count($request->field); $i++) {
             Skill_group::insert(
                 ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
             );
@@ -343,7 +357,7 @@ class StudentsController extends Controller
 
 
 //        dd($request);
-        $this->sendSms($request->contact,$request->msg);
+        $this->sendSms($request->contact, $request->msg);
     }
 
 

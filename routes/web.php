@@ -115,6 +115,7 @@ Route::post('students/getStudentContacts', 'StudentsController@getStudentContact
 Route::post('students/getStudyInfo', 'StudentsController@getStudyInfo');
 Route::post('students/getSkills', 'StudentsController@getSkills');
 Route::post('students/getStudyCompany', 'StudentsController@getStudyCompany');
+Route::post('students/getStudyCompanyStacks', 'StudentsController@getStudyCompanyStacks');
 
 //JS EDITION (O_o)
 Route::post('students/ChangeName', 'StudentsController@studentChangeName')->name('studentChangeName');
@@ -149,6 +150,8 @@ Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatu
 
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
+
+
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
