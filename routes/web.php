@@ -150,6 +150,6 @@ Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatu
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
-
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
 

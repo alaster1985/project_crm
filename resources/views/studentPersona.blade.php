@@ -12,10 +12,7 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
 </button>
 
 
-{{--<div class="container-fluid ">
-    <div class="col-md-2 col-sm-12 col-xs-4">
-        <div id="studParam">
-        </div>--}}
+
 <div class="container-fluid personal_page">
     <div class="row ">
         <h4 class="name_table">Персональная страница студента </h4>
@@ -124,12 +121,11 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         </div>
     </div>
 </div>
-
-
 @extends('layouts.footer')
 <script src="/js/run.js"></script>
 {{--<script src="/js/search.js"></script>--}}
 {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
+<script src="/js/table.js"></script>
 <script src="/js/viewEditPersonalInformation.js"></script>
 
 
