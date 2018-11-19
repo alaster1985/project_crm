@@ -4,12 +4,15 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<?Php
+$id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
+?>
+<button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
+        class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
+</button>
 
 
-{{--<div class="container-fluid ">
-    <div class="col-md-2 col-sm-12 col-xs-4">
-        <div id="studParam">
-        </div>--}}
+
 <div class="container-fluid personal_page">
     <div class="row ">
         <h4 class="name_table">Персональная страница студента </h4>
@@ -118,12 +121,12 @@
         </div>
     </div>
 </div>
-
-
 @extends('layouts.footer')
 <script src="/js/run.js"></script>
 {{--<script src="/js/search.js"></script>--}}
 {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
 <script src="/js/viewEdit/viewEditPersonalInformation.js"></script>
+<script src="/js/table.js"></script>
+
 
 

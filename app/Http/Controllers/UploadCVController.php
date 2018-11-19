@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Group;
-use App\Http\Requests\StoreStudent;
+use Illuminate\Http\Request;
 
 class UploadCVController extends Controller
 {
     public $pathForCV;
-    public function upload(StoreStudent $request)
+    public function upload(Request $request)
     {
         $this->pathForCV = storage_path('CV/' . Group::find($request->group_id)->group_name);
         if (!file_exists($this->pathForCV)) {

@@ -14,6 +14,21 @@
         </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-4 table-responsive">
+        @if ($errors->has('group_name'))
+            <div class="error">{{($errors->first('group_name'))}}</div>
+        @endif
+        @if ($errors->has('start_date'))
+            <div class="error">{{($errors->first('start_date'))}}</div>
+        @endif
+        @if ($errors->has('finish_date'))
+            <div class="error">{{($errors->first('finish_date'))}}</div>
+        @endif
+        @if ($errors->has('homecoming_date'))
+            <div class="error">{{($errors->first('homecoming_date'))}}</div>
+        @endif
+        @if ($errors->has('direction_it'))
+            <div class="error">{{($errors->first('direction_t'))}}</div>
+        @endif
         <div class="row">
             <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table"> Список групп А-левел</h4></div>
             <div class="col-md-3 col-sm-4 col-xs-6 table_bth">
@@ -26,7 +41,7 @@
                             @csrf
                             <p>Добавление новой группы</p>
                             <p>Название группы</p>
-                            <p><input name="group_name"></p>
+                            <p><input name="group_name" required></p>
                             <p>Дата старта</p>
                             <p><input type="date" class="form-control" placeholder="Дата" name="start_date" required>
                             </p>
@@ -39,7 +54,7 @@
                             </p>
                             <p>Направление</p>
                             <p>
-                                <select class="form-control" id="direction" name="direction_it">
+                                <select required class="form-control" id="direction" name="direction_it">
                                     <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
                                 </select>
                             </p>
