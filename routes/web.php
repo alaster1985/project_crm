@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('tasks', 'TasksController@showTasks')->name('showTasks');
     Route::get('tasks/show/{id}', 'TasksController@tasksView')->name('tasks.view');
+    Route::post('alltasks', 'TasksController@allTasks');
+
 
     Route::post('groups/add', 'GroupController@store')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
