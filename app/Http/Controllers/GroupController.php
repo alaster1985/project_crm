@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Http\Requests\GroupAddFormaValidation;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
-    public function addGroup(GroupAddFormaValidation $request)
+    public function store(GroupAddFormaValidation $request)
     {
-        DB::table('groups')
-            ->insert([
-                'group_name' => $request->input('group_name'),
-                'start_date' => $request->input('start_date'),
-                'finish_date' => $request->input('finish_date'),
-                'homecoming_date' => $request->input('homecoming_date'),
-                'direction_id' => $request->input('direction_id'),
-            ]);
+        $group = new Group($request->toArray());
+        $group->direction_id = $request->direction_it;
+        $group->save();
         return redirect()->back();
     }
 
