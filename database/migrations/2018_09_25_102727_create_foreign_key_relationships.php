@@ -50,10 +50,6 @@ class CreateForeignKeyRelationships extends Migration
         Schema::table('groups', function (Blueprint $table) {
             $table->foreign('direction_id')->references('id')->on('directions');
         });
-        Schema::table('employment_students', function (Blueprint $table) {
-            $table->foreign('student_id')->references('id')->on('students');
-            $table->foreign('company_id')->references('id')->on('it_companies');
-        });
     }
 
     /**
