@@ -34,36 +34,21 @@ class AddCurrentStudentController extends Controller
             'contact' => '',
             'comment' => '',
         ];
-        foreach ($contacts as $contact){
-            if ($contact->communication_tool === 'mob1'){
-                $mob1 = [
-                    'contact' => $contact->contact,
-                    'comment' => $contact->comment,
-                ];
-            }
-            if ($contact->communication_tool === 'mob2'){
-                $mob2 = [
-                    'contact' => $contact->contact,
-                    'comment' => $contact->comment,
-                ];
-            }
-            if ($contact->communication_tool === 'email'){
-                $email = [
-                    'contact' => $contact->contact,
-                    'comment' => $contact->comment,
-                ];
-            }
-            if ($contact->communication_tool === 'skype'){
-                $skype = [
-                    'contact' => $contact->contact,
-                    'comment' => $contact->comment,
-                ];
-            }
-            if ($contact->communication_tool === 'Other'){
-                $other = [
-                    'contact' => $contact->contact,
-                    'comment' => $contact->comment,
-                ];
+        $params = [
+            'mob1' => $mob1,
+            'mob2' => $mob2,
+            'email' => $email,
+            'skype' => $skype,
+            'other' => $other
+        ];
+        foreach ($contacts as $contact) {
+            foreach ($params as $key => $value) {
+                if ($contact->communication_tool === $key) {
+                    $params[$key] = [
+                        'contact' => $contact->contact,
+                        'comment' => $contact->comment,
+                    ];
+                }
             }
         }
 
@@ -72,34 +57,34 @@ class AddCurrentStudentController extends Controller
             'name' => $person->name,
             'address' => $person->address,
             'skills' => implode(", ", $skills),
-            'mob1_contact' => $mob1['contact'],
-            'mob1_comment' => $mob1['comment'],
-            'mob2_contact' => $mob2['contact'],
-            'mob2_comment' => $mob2['comment'],
-            'email_contact' => $email['contact'],
-            'email_comment' => $email['comment'],
-            'skype_contact' => $skype['contact'],
-            'skype_comment' => $skype['comment'],
-            'other_contact' => $other['contact'],
-            'other_comment' => $other['comment'],
+            'mob1_contact' => $params['mob1']['contact'],
+            'mob1_comment' => $params['mob1']['comment'],
+            'mob2_contact' => $params['mob2']['contact'],
+            'mob2_comment' => $params['mob2']['comment'],
+            'email_contact' => $params['email']['contact'],
+            'email_comment' => $params['email']['comment'],
+            'skype_contact' => $params['skype']['contact'],
+            'skype_comment' => $params['skype']['comment'],
+            'other_contact' => $params['other']['contact'],
+            'other_comment' => $params['other']['comment'],
         ]);
     }
+
     protected $uploadFile;
 
     public function __construct()
     {
         $this->uploadFile = new UploadCVController();
     }
+
     public function store(Request $request, $person)
     {
-//        dd($request, $person);
         DB::transaction(function () use ($request, $person) {
             $this->uploadFile->upload($request);
             $student = new Student($request->toArray());
             $student->person_id = $person;
             if (!is_null($request->file)) {
-                $student->CV = $this->uploadFile->pathForCV . '/' . basename($request->file->getClientOriginalName(),
-                        '.' . $request->file->getClientOriginalExtension()) . '_' . time() . '.' . $request->file->getClientOriginalExtension();
+                $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
             } else {
                 $student->CV = null;
             }
