@@ -6,7 +6,7 @@
         <div>
             <label for="statusTasks">Статус выполнения</label>
             <div>
-                <select class="form-control" id="direction_it" name="direction_it">
+                <select class="form-control" id="statexec" name="direction_it">
                     <OPTION SELECTED VALUE="0" disabled>Выберите статус</option>
                     <option value="in_work">В работе</option>
                     <option value="done">Выполнено</option>
@@ -28,7 +28,7 @@
                 <button class="btn btn-warning" {{--onclick="window.location='{{ route("")}}'"--}}>{{--блок для кнопок добавления задания и тд--}}
                     <i class='glyphicon glyphicon-list-alt' title="Добавить нового задание"></i>
                 </button>
-                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                <button class="btn btn-info" id="resettasks"><i
                             {{--добавить RESET--}}
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
@@ -147,6 +147,7 @@
    @endforeach
 </ul>
 --}}
-
+<script src="/js/run.js"></script>
+<script src="/js/tasks.js"></script>
 
 @extends('layouts.footer')
