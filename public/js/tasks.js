@@ -56,18 +56,3 @@ statexec.onchange = function(){
     }
     tasks(globaldata);
 }
-
-
-//
-// statsort.onchange = function () {
-//     let sel = statsort.selectedIndex;
-//     let options = statsort.options;
-//     for (let key in globaldata) {
-//         if (options[sel].value !== globaldata[key]['type']) {
-//             delete globaldata[key];
-//         }
-//     }
-//     companies(globaldata);
-// }
-
-
