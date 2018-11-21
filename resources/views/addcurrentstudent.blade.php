@@ -22,9 +22,14 @@
                     <div class="error">{{($errors->first('group_id'))}}</div>
                 @endif
                 <div>
-                    <select required id="groups" name="group_id" class="form-control">
-                        <option selected disabled value="{{old('group_id')}}">Выберите группу</option>
+                    <select required id="group" name="group_id" class="form-control">
+                        <option selected disabled>Выберите группу</option>
+                        @foreach($groups as $key => $value){
+                        <option value="{{$key}}">{{$value}}</option>
+                        }
+                        @endforeach
                     </select>
+                    {{--<h3>{{$groups}}</h3>--}}
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>

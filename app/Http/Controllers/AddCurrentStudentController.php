@@ -51,12 +51,32 @@ class AddCurrentStudentController extends Controller
                 }
             }
         }
+        $studgr = DB::table('students')
+            ->where('person_id', '=', $person->id)
+            ->get(['group_id'])
+            ->pluck('group_id')
+            ->toArray();
+
+        $groups = DB::table('groups')
+            ->get(["group_name", 'id'])
+            ->pluck("group_name", 'id')
+            ->toArray();
+
+        foreach ($studgr as $val) {
+            $gr = DB::table('groups')
+                ->get(["group_name", 'id'])
+                ->where('id', '=', $val)
+                ->pluck("group_name", 'id')
+                ->toArray();
+            $groups = array_diff_key($groups, $gr);
+        }
 
         return view('addcurrentstudent', [
             'person' => $person->id,
             'name' => $person->name,
             'address' => $person->address,
             'skills' => implode(", ", $skills),
+            'groups' => $groups,
             'mob1_contact' => $params['mob1']['contact'],
             'mob1_comment' => $params['mob1']['comment'],
             'mob2_contact' => $params['mob2']['contact'],
@@ -72,18 +92,14 @@ class AddCurrentStudentController extends Controller
 
     protected $uploadFile;
 
-    public function __construct()
-    {
-        $this->uploadFile = new UploadCVController();
-    }
-
     public function store(Request $request, $person)
     {
         DB::transaction(function () use ($request, $person) {
-            $this->uploadFile->upload($request);
             $student = new Student($request->toArray());
             $student->person_id = $person;
             if (!is_null($request->file)) {
+                $this->uploadFile = new UploadCVController();
+                $this->uploadFile->upload($request);
                 $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
             } else {
                 $student->CV = null;

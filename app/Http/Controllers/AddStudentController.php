@@ -20,20 +20,17 @@ class AddStudentController extends Controller
 {
     protected $uploadFile;
 
-    public function __construct()
-    {
-        $this->uploadFile = new UploadCVController();
-    }
-
     public function store(StoreStudent $request)
     {
         DB::transaction(function () use ($request) {
-            $this->uploadFile->upload($request);
+
             $person = new Person($request->toArray());
             $person->save();
             $student = new Student($request->toArray());
             $student->person_id = $person->id;
             if (!is_null($request->file)) {
+                $this->uploadFile = new UploadCVController();
+                $this->uploadFile->upload($request);
                 $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
             } else {
                 $student->CV = null;
