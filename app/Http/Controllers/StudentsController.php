@@ -351,7 +351,6 @@ class StudentsController extends Controller
             );
 
             if ($message->sid) {
-//                echo "Ваше сообщение удачно отправлено!";
                 return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
             }
         }
