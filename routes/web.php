@@ -48,10 +48,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/sms', 'SmsController@index')->name('index');
-Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
+Route::get('/smsTo', 'SmsController@index')->name('index');
+Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
 
-Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
+Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
 
 
 Route::get('addstudent', function () {
