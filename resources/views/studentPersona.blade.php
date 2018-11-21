@@ -5,22 +5,29 @@
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <?Php
-$id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
+$id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
 ?>
-<button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
+{{--<button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
         class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
-</button>
-
+</button>--}}
 
 
 <div class="container-fluid personal_page">
-    <div class="row ">
-        <h4 class="name_table">Персональная страница студента </h4>
+    <div class="row">
+        <div class="col-md-11 col-sm-10 col-xs-12">
+            <h4 class="name_table">Персональная страница студента </h4>
+        </div>
+        <div class="col-md-1 col-sm-8 col-xs-12">
+            <button class="btn btn-warning glyphicon glyphicon-trash glyphicon-user">
+                <i class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
+            </button>
+        </div>
     </div>
 
 
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="headers_PP">Персональная информация.</div>
+
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">ФИО студента:</div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="name_student"></div>
@@ -32,7 +39,7 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         </div>
 
         <div class="headers_PP">Контактная информация.</div>
-        <div id ='contactInfo'>
+        <div id='contactInfo'>
 
         </div>
         <br>
@@ -41,8 +48,13 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         <div class="headers_PP">Информация об обучении.</div>
 
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Группа:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="group_student"></div>
+            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Группа:</div>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="group_student"></div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <button class="btn btn-link glyphicon glyphicon-plus"
+                        onclick="window.location='{{ route("add_cur_stud", [$id])}}'">
+                </button>
+            </div>
             </br>
         </div>
         <div class="row">
@@ -110,21 +122,21 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
                 <form action="{{Route('sendSMS')}}" method="post">
                     <div class="form-group">
                         @csrf
-                    <textarea class="form-control" name="msg" rows="3"
-                              placeholder="Введите текст сообщения:"></textarea>
+                        <textarea class="form-control" name="msg" rows="3"
+                                  placeholder="Введите текст сообщения:"></textarea>
                     </div>
                     {{--{{$fone->contact}}--}}
                     <input type="hidden" name="contact" value="{{$fone->contact}}">
                     <button type="submit" class="btn btn-info">Отправить сообщение</button>
                 </form>
             </div>
+
         </div>
+
     </div>
 </div>
 @extends('layouts.footer')
 <script src="/js/run.js"></script>
-{{--<script src="/js/search.js"></script>--}}
-{{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
 <script src="/js/table.js"></script>
 <script src="/js/viewEditPersonalInformation.js"></script>
 
