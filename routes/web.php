@@ -37,8 +37,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('tasks', 'TasksController@showTasks')->name('showTasks');
     Route::get('tasks/show/{id}', 'TasksController@tasksView')->name('tasks.view');
+    Route::post('alltasks', 'TasksController@allTasks');
 
-    Route::post('groups/add', 'GroupController@addGroup')->name('add.group');
+
+    Route::post('groups/add', 'GroupController@store')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
     Route::get('groups/show/{id}', 'GroupController@groupPersonaView')->name('group.view');
     Route::post('groupall', 'GroupController@showAlevel');
@@ -74,14 +76,12 @@ Route::get('addcontactperson', function () {
 })->name('addcontper');
 Route::post('contacrperson/add', 'AddContactPersonController@store')->name('add.contactperson');
 
-Route::get('addcomponent', function () {
-    $skills = DB::table('skills')->get();
-    $stacks = DB::table('stacks')->get();
-    $directions = DB::table('directions')->get();
-    $positions = DB::table('positions')->get();
-    return view('addcomponent', compact('skills', 'stacks', 'directions', 'positions'));
-})->name('addcompot');
+Route::get('addcomponent', 'AddComponentController@index')->name('addcompot');
 Route::post('component/add', 'AddComponentController@store')->name('add.component');
+
+Route::get('addcurrentstudent/{person}', 'AddCurrentStudentController@index')->name('add_cur_stud');
+Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store')->name('add.add_cur_stud');
+
 
 //JS
 
@@ -155,6 +155,6 @@ Route::get('qwerty',function (){
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
-
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 
 

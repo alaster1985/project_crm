@@ -18,9 +18,10 @@ var selectemployment = document.getElementById("employmentstatus");
 var resetStudents = document.getElementById("resetstudents");
 var resetEmloyees = document.getElementById("resetemployees");
 var resetCompanies = document.getElementById("resetcompanies");
+var resetTasks = document.getElementById("resettasks");
 var statvz = document.getElementById("statvz");
 var statsort = document.getElementById("statsort");
-
+var statexec = document.getElementById("statexec");
 // var alevel = document.getElementById("alevelTable");
 
 

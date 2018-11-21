@@ -6,7 +6,7 @@
         <div>
             <label for="statusTasks">Статус выполнения</label>
             <div>
-                <select class="form-control" id="direction_it" name="direction_it">
+                <select class="form-control" id="statexec" name="direction_it">
                     <OPTION SELECTED VALUE="0" disabled>Выберите статус</option>
                     <option value="in_work">В работе</option>
                     <option value="done">Выполнено</option>
@@ -17,12 +17,18 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-4 table-responsive">
         <div class="row">
-            <div class="col-md-9 col-sm-8 col-xs-6"><h4 class="name_table">Список заданий</h4></div>
-            <div class="col-md-3 col-sm-4 col-xs-6 table_bth">{{--блок для кнопок добавления задания и тд--}}
-                <button class="btn btn-warning" {{--onclick="window.location='{{ route("")}}'"--}}>
+            <div class="col-md-7 col-sm-8 col-xs-12">
+                <h4 class="name_table">Список заданий</h4>
+            </div>
+
+            <div class="col-md-5 col-sm-4 col-xs-12 table_bth" >
+                <button  class="btn btn-link btn-sm">Все</button>
+                <button  class="btn btn-link btn-sm">Входящие</button>
+                <button  class="btn btn-link btn-sm">Исходящие</button>
+                <button class="btn btn-warning" {{--onclick="window.location='{{ route("")}}'"--}}>{{--блок для кнопок добавления задания и тд--}}
                     <i class='glyphicon glyphicon-list-alt' title="Добавить нового задание"></i>
                 </button>
-                <button class="btn btn-info" {{--onclick="window.location='{{ route("addstud")}}'"--}}><i
+                <button class="btn btn-info" id="resettasks"><i
                             {{--добавить RESET--}}
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
@@ -128,8 +134,9 @@
      @endforeach
      {{ $all_tasks->links() }}
  @endif--}}
+{{--
 
-{{--   @foreach ($doer as $index)
+   @foreach ($doer as $index)
        <a href="{{route('tasks.view', ['id' => $index->id] )}}">{{$index->name}}</a>
        <br>
    @endforeach
@@ -138,7 +145,9 @@
        <a href="{{route('tasks.view', ['id' => $index->id] )}}">{{$index->task_completed}}</a>
        <br>
    @endforeach
-</ul>--}}
-
+</ul>
+--}}
+<script src="/js/run.js"></script>
+<script src="/js/tasks.js"></script>
 
 @extends('layouts.footer')

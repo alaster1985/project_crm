@@ -34,8 +34,7 @@ class AddStudentController extends Controller
             $student = new Student($request->toArray());
             $student->person_id = $person->id;
             if (!is_null($request->file)) {
-                $student->CV = $this->uploadFile->pathForCV . '/' . basename($request->file->getClientOriginalName(),
-                        '.' . $request->file->getClientOriginalExtension()) . '_' . time() . '.' . $request->file->getClientOriginalExtension();
+                $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
             } else {
                 $student->CV = null;
             }
