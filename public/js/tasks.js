@@ -12,7 +12,7 @@ function tasks(studdata) {
     }
     var rowTable = 0;
     for (var gr in studdata) {
-        let complit = studdata[gr]['task_completed'] == 0  ? 'Complited' : 'In process';
+        let complit = studdata[gr]['task_completed'] == 0  ? 'In process' : 'Complited';
         var row = tasksTable.insertRow(rowTable);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -24,8 +24,8 @@ function tasks(studdata) {
         cell1.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['task_name'] + '</a>';
         cell2.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['description'] + '</a>';
         cell3.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['dead_line'] + '</a>';
-        cell4.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['site'] + '</a>';
-        cell5.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['customerName'] + '</a>';
+        cell4.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['customerName'] + '</a>';
+        cell5.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['doerName'] + '</a>';
         cell6.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + studdata[gr]['doers_report'] + '</a>';
         cell7.innerHTML = '<a href="tasks/show/' + studdata[gr]['id'] + '">' + complit+ '</a>';
         rowTable++;
