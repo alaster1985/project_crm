@@ -130,7 +130,7 @@
                 <p class="help-block">*double click to reset stack select</p>
             </div>
         </div>
-        <script src="/js/run2.js"></script>
+        <script src="/js/selectors.js"></script>
         <div><input type="submit" value="Add new company"></div>
     </form>
 </div>

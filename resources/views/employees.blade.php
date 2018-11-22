@@ -106,7 +106,7 @@
             <label><input type="checkbox" id="chkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
-    {{--<script src="/js/run2.js"></script>--}}
+    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 @extends('layouts.footer')
 

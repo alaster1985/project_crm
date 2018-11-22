@@ -77,4 +77,4 @@
 </div>
 
 @extends('layouts.footer')
-<script src="/js/run2.js"></script>
+<script src="/js/selectors.js"></script>
