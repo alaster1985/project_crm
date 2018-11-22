@@ -82,6 +82,9 @@ Route::post('component/add', 'AddComponentController@store')->name('add.componen
 Route::get('addcurrentstudent/{person}', 'AddCurrentStudentController@index')->name('add_cur_stud');
 Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store')->name('add.add_cur_stud');
 
+Route::get('addcurrentemployee/{person}', 'AddCurrentEmployeeController@index')->name('add_cur_emp');
+Route::post('addcurrentemployee/add/{person}', 'AddCurrentEmployeeController@store')->name('add.add_cur_emp');
+
 
 //JS
 

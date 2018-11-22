@@ -139,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(response => change_studyInfo(JSON.parse(response)));
 
     function change_studyInfo(studyInfo) {
-        console.log(studyInfo);
         let i;
         var studentCommentMass = [];
         for (i = 0; i < studyInfo.length; i++) {

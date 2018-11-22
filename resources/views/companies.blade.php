@@ -113,7 +113,7 @@
             </div>
         </div>
     </div>
-    {{--<script src="/js/run2.js"></script>--}}
+    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 <script src="/js/run.js"></script>
 <script src="/js/companies.js"></script>
