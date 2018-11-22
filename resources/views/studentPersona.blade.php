@@ -10,6 +10,9 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
 <button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
         class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
 </button>
+<button class="btn btn-warning" onclick="window.location='{{ route("add_cur_emp", [$id])}}'"><i
+        class='glyphicon glyphicon-user' title="Записать в employee"> </i>
+</button>
 
 
 

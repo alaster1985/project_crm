@@ -11,6 +11,8 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
 </button>
 
+
+
 <div class="container-fluid personal_page">
     <div class="row ">
         <h4 class="name_table"> Персональная страница сотрудника</h4>
