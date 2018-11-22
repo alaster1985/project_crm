@@ -125,7 +125,7 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
 <script src="/js/run.js"></script>
 {{--<script src="/js/search.js"></script>--}}
 {{--<script src="/js/studentSelectGroupDirection.js"></script>--}}
-<script src="/js/table.js"></script>
+{{--<script src="/js/table.js"></script>--}}
 <script src="/js/viewEditPersonalInformation.js"></script>
 
 
