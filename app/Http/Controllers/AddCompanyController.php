@@ -15,14 +15,22 @@ use App\Stack_group;
 
 class AddCompanyController extends Controller
 {
+    protected $uploadFile;
+
     public function store(StoreCompany $request)
     {
         DB::transaction(function () use ($request) {
             $it_Company = new It_company();
             $it_Company->fill($request->input() + [
                     'comment' => $request->company_comment,
-                    'logo' => basename($_FILES["file"]["name"]),
                 ]);
+            if (!is_null($request->file)) {
+                $this->uploadFile = new UploadLogoController();
+                $this->uploadFile->upload($request);
+                $it_Company->logo = $this->uploadFile->pathForLogo . '/' . $this->uploadFile->newLogoName;
+            } else {
+                $it_Company->logo = null;
+            }
             $it_Company->save();
             foreach ($request->stacks as $value) {
                 if (empty($value['stack_id'])) {
