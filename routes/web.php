@@ -85,6 +85,8 @@ Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store
 Route::get('addcurrentemployee/{person}', 'AddCurrentEmployeeController@index')->name('add_cur_emp');
 Route::post('addcurrentemployee/add/{person}', 'AddCurrentEmployeeController@store')->name('add.add_cur_emp');
 
+Route::get('addtask', 'AddTaskController@index')->name('addtask');
+Route::post('task/add', 'AddTaskController@store')->name('add.task');
 
 //JS
 
