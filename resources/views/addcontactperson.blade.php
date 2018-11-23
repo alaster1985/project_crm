@@ -118,7 +118,7 @@
             </div>
         </div>
         <div><input type="submit" value="Add new contact person"></div>
-        <script src="/js/run2.js"></script>
+        <script src="/js/selectors.js"></script>
     </form>
 </div>
 @extends('layouts.footer')

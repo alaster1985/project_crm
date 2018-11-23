@@ -103,17 +103,17 @@
             </table>
         </div>
     </div>
-    <div class="col-md-2 col-sm-6 ">
-        <div>
-            <label for="stack_id">Стэк технологий</label>
-            <div>
-                <select class="form-control" id="stacks" name="stack_id">
-                    <OPTION SELECTED VALUE="0" disabled>Выберите технологию</OPTION>
-                </select>
-            </div>
-        </div>
-    </div>
-    {{--<script src="/js/run2.js"></script>--}}
+    {{--<div class="col-md-2 col-sm-6 ">--}}
+        {{--<div>--}}
+            {{--<label for="stack_id">Стэк технологий</label>--}}
+            {{--<div>--}}
+                {{--<select class="form-control" id="stacks" name="stack_id">--}}
+                    {{--<OPTION SELECTED VALUE="0" disabled>Выберите технологию</OPTION>--}}
+                {{--</select>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 <script src="/js/run.js"></script>
 <script src="/js/companies.js"></script>

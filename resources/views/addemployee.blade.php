@@ -139,7 +139,7 @@
             </div>
         </div>
         <div><input type="submit" value="Добавить нового сотрудника"></div>
-        <script src="/js/run2.js"></script>
+        <script src="/js/selectors.js"></script>
     </form>
 </div>
 

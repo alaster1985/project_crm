@@ -26,6 +26,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ALevelMemberEntityTableSeeder::class);
         $this->call(StudentEntityTableSeeder::class);
         $this->call(TaskTableSeeder::class);
-        $this->call(EmpolymentStudentSeeder::class);
     }
 }

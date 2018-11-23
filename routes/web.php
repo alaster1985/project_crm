@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('tasks', 'TasksController@showTasks')->name('showTasks');
     Route::get('tasks/show/{id}', 'TasksController@tasksView')->name('tasks.view');
+    Route::post('alltasks', 'TasksController@allTasks');
+
 
     Route::post('groups/add', 'GroupController@store')->name('add.group');
     Route::get('groups', 'GroupController@showGroups')->name('show.groups');
@@ -78,6 +80,11 @@ Route::post('component/add', 'AddComponentController@store')->name('add.componen
 Route::get('addcurrentstudent/{person}', 'AddCurrentStudentController@index')->name('add_cur_stud');
 Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store')->name('add.add_cur_stud');
 
+Route::get('addcurrentemployee/{person}', 'AddCurrentEmployeeController@index')->name('add_cur_emp');
+Route::post('addcurrentemployee/add/{person}', 'AddCurrentEmployeeController@store')->name('add.add_cur_emp');
+
+Route::get('addtask', 'AddTaskController@index')->name('addtask');
+Route::post('task/add', 'AddTaskController@store')->name('add.task');
 
 //JS
 

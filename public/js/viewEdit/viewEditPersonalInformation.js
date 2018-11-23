@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
         studentName.innerHTML = studName[0]['name'] +
-            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="stname"></button>';
+            '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="stname"></button>';
         studentAddress.innerHTML = studName[0]['address'] +
-            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="staddress"></button>';
+            '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="staddress"></button>';
 
         studNameId.appendChild(studentName);
         studAddressId.appendChild(studentAddress);
@@ -89,7 +89,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         CommTool.forEach(function (item, i, CommTool) {
             CommTool[i].addEventListener('click', function () {
                 selectList[i] = document.getElementById('stCommTool' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'stCommTools' + i + "></button>";
+// =======
+//                 selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select>" +
+//                     "<button id = " + 'stCommTools' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 httpGet(location.origin + "/communicationTools")
                     .then(response => fun(JSON.parse(response)));
 
@@ -112,7 +117,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         ContactTool.forEach(function (item, i, ContactTool) {
             ContactTool[i].addEventListener('click', function () {
                 input1[i] = document.getElementById('stCont' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 input1[i].innerHTML = "<input type='text' id=" + 'stContactInput' + i + " value='" + studContacts[i]['contact'] + "'><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id=" + 'ContactButton' + i + "></button>";
+// =======
+//                 input1[i].innerHTML = "<input type='text' id=" + 'stContactInput' + i + " value=" + studContacts[i]['contact'] + "><button  id=" + 'ContactButton' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 document.getElementById('ContactButton' + i).onclick = function () {
                     jsonPostEdit(location.origin + "/students/ChangeContact", urlPart[3], document.getElementById('stContactInput' + i).value, contactId[i]);
                     location.reload();
@@ -123,7 +132,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         CommentTool.forEach(function (item, i, CommentTool) {
             CommentTool[i].addEventListener('click', function () {
                 input2[i] = document.getElementById('stComment' + i);
-                input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value='"+studContacts[i]['comment']+"'><button class='btn btn-link  glyphicon glyphicon-floppy-saved'  id=" + 'CommentButton' + i + "></button>";
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
+//                 input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value='"+studContacts[i]['comment']+"'><button class='btn btn-link  glyphicon glyphicon-floppy-saved'  id=" + 'CommentButton' + i + "></button>";
+// =======
+                input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value=" + studContacts[i]['comment'] + "><button id=" + 'CommentButton' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 document.getElementById('CommentButton' + i).onclick = function () {
                     jsonPostEdit(location.origin + "/students/ChangeContactComment", urlPart[3], document.getElementById('stCommentInput' + i).value, contactId[i]);
                     location.reload();
@@ -138,7 +151,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(response => change_studyInfo(JSON.parse(response)));
 
     function change_studyInfo(studyInfo) {
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
         // console.log(studyInfo);
+// =======
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
         let i;
         var studentCommentMass = [];
         for (i = 0; i < studyInfo.length; i++) {
@@ -148,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let employment_status = document.createElement('p');
             let studentComment = document.createElement('p');
             let studentCV = document.createElement('p');
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
             group_name.innerHTML = studyInfo[i]['group_name'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "GroupNameButton" + i + '></button>';
             // GroupNameMass[i] = document.getElementById("GroupNameButton" + i);
             group_name.id = 'stGroupName' + i;
@@ -158,6 +175,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             studentComment.innerHTML = studyInfo[i]['comment'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCommentButton" + i + '></button>';
             studentComment.id = 'stCommenT' + i;
             studentCV.innerHTML = studyInfo[i]['CV'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCVButton" + i + '></button>';
+// =======
+            // group_name.innerHTML = studyInfo[i]['group_name'] + '<button id=' + "GroupNameButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+            // GroupNameMass[i] = document.getElementById("GroupNameButton" + i);
+            // group_name.id = 'stGroupName' + i;
+            // learning_status.innerHTML = studyInfo[i]['learning_status'] + '<button id=' + "LearningStatusButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+            // learning_status.id = 'stLearningStatus' + i;
+            // employment_status.innerHTML = studyInfo[i]['employment_status'] + '<button id=' + "EmploymentStatusButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+            // employment_status.id = 'stEmploymentStatus' + i;
+            // studentComment.innerHTML = studyInfo[i]['comment'] + '<button id=' + "StudentCommentButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+            // studentComment.id = 'stCommenT' + i;
+            // studentCV.innerHTML = studyInfo[i]['CV'] + '<button id=' + "StudentCVButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
             studentCV.id = 'stCV' + i;
             document.getElementById('group_student').appendChild(group_name);
             document.getElementById('learning_status_student').appendChild(learning_status);
@@ -184,12 +213,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             let skill_button = document.createElement('button');
             skill_button.id = 'SkillButton';
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
             skill_button.className='btn btn-link  glyphicon glyphicon-pencil';
+// =======
+            skill_button.setAttribute("class", "btn btn-link  glyphicon glyphicon-pencil");
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
             document.getElementById('skills_student').appendChild(skill_button);
 
 
             document.getElementById('SkillButton').onclick = function () {
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 document.getElementById('skills_student').innerHTML = "<select class=\"form-control\" id=" + 'stSkillsSelect' + " size=\"4\" name=\"skill_id[]\" multiple></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='stSkills'></button>";
+// =======
+                document.getElementById('skills_student').innerHTML = "<select class=\"form-control\" id=" + 'stSkillsSelect' + " size=\"4\" name=\"skill_id[]\" multiple></select><button id='stSkills' class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 httpGet(location.origin + "/skills")
                     .then(response => selectSkills(JSON.parse(response)));
 
@@ -258,9 +295,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 for (i = 0; i < company.length; i++) {
                     var company_name = document.createElement('p');
                     var position = document.createElement('p');
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                     company_name.innerHTML = company[i]['company_name'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "CompanyButton" + i + '></button>';
                     company_name.id = 'stCompany' + i;
                     position.innerHTML = company[i]['position'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "PositionButton" + i + '></button>';
+// =======
+//                     company_name.innerHTML = company[i]['company_name'] + '<button id=' + "CompanyButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+//                     company_name.id = 'stCompany' + i;
+//                     position.innerHTML = company[i]['position'] + '<button id=' + "PositionButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                     position.id = 'stPosition' + i;
                     document.getElementById('it_company_student').appendChild(company_name);
                     document.getElementById('position_student').appendChild(position);
@@ -274,7 +317,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 CompaniesNameMass.forEach(function (item, i, CompaniesNameMass) {
                     CompaniesNameMass[i].addEventListener('click', function () {
                         companyList[i] = document.getElementById('stCompany' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                         companyList[i].innerHTML = "<select id=" + 'stCompanyNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonCompanyName' + i + "></button>";
+// =======
+                        companyList[i].innerHTML = "<select id=" + 'stCompanyNameInput' + i + "></select><button id = " + 'ButtonCompanyName' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                         httpGet(location.origin + "/company")
                             .then(response => fun7(JSON.parse(response)));
 
@@ -300,7 +347,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 PositionsNameMass.forEach(function (item, i, PositionsNameMass) {
                     PositionsNameMass[i].addEventListener('click', function () {
                         positionList[i] = document.getElementById('stPosition' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                         positionList[i].innerHTML = "<select id=" + 'stPositionNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonPosition' + i + "></button>";
+// =======
+//                         positionList[i].innerHTML = "<select id=" + 'stPositionNameInput' + i + "></select><button id = " + 'ButtonPosition' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                         httpGet(location.origin + "/position")
                             .then(response => fun8(JSON.parse(response)));
 
@@ -392,7 +443,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             studentCommentMass.forEach(function (item, i, studentCommentMass) {
                 studentCommentMass[i].addEventListener('click', function () {
                     studentComm[i] = document.getElementById('stCommenT' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                     studentComm[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value='" + studyInfo[i]['comment'] + "'><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id=" + 'ButtonStudentComment' + i + "></button>";
+// =======
+//                     studentComm[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value=" + studyInfo[i]['comment'] + "><button id=" + 'ButtonStudentComment' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                     document.getElementById('ButtonStudentComment' + i).onclick = function () {
                         jsonPostEdit(location.origin + "/students/ChangeStudentComment", urlPart[3], document.getElementById('stCommentInput' + i).value);
                         location.reload();
@@ -442,7 +497,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         GroupNameMass.forEach(function (item, i, GroupNameMass) {
             GroupNameMass[i].addEventListener('click', function () {
                 groupList[i] = document.getElementById('stGroupName' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 groupList[i].innerHTML = "<select id=" + 'stGroupNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonGroupName' + i + "></button>";
+// =======
+//                 groupList[i].innerHTML = "<select id=" + 'stGroupNameInput' + i + "></select><button id = " + 'ButtonGroupName' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 httpGet(location.origin + "/students/groups")
                     .then(response => fun3(JSON.parse(response)));
 
@@ -468,7 +527,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         LearningStatusMass.forEach(function (item, i, LearningStatusMass) {
             LearningStatusMass[i].addEventListener('click', function () {
                 learningStatusList[i] = document.getElementById('stLearningStatus' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 learningStatusList[i].innerHTML = "<select id=" + 'stLearningStatusNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonLearningStatus' + i + "></button>";
+// =======
+//                 learningStatusList[i].innerHTML = "<select id=" + 'stLearningStatusNameInput' + i + "></select><button id = " + 'ButtonLearningStatus' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 httpGet(location.origin + "/learningStatus")
                     .then(response => fun4(JSON.parse(response)));
 
@@ -493,7 +556,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         EmploymentStatusMass.forEach(function (item, i, LearningStatusMass) {
             EmploymentStatusMass[i].addEventListener('click', function () {
                 employmentStatusList[i] = document.getElementById('stEmploymentStatus' + i);
+// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
                 employmentStatusList[i].innerHTML = "<select id=" + 'stEmploymentStatusNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonEmploymentStatus' + i + "></button>";
+// =======
+//                 employmentStatusList[i].innerHTML = "<select id=" + 'stEmploymentStatusNameInput' + i + "></select><button id = " + 'ButtonEmploymentStatus' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 httpGet(location.origin + "/employmentStatus")
                     .then(response => fun4(JSON.parse(response)));
 

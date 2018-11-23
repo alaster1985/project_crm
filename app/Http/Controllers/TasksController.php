@@ -32,4 +32,17 @@ Class TasksController extends Controller
             ->first();
         return view('taskView', ['taskView' => $taskView]);
     }
+
+    public function allTasks()
+    {
+        $tasks = DB::table('tasks')
+            ->select('tasks.id', 'task_name', 'description', 'dead_line', 'users.name as customerName', 'us.name as doerName','task_completed', 'doers_report')
+            ->join('users', 'users.id', '=', 'tasks.user_id_customer')
+            ->join('users as us', 'us.id', '=', 'tasks.user_id_doer')
+            ->get();
+        return response()->json($tasks);
+    }
+
+
+
 }
