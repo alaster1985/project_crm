@@ -3,8 +3,6 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Group;
 use App\Person;
-use App\Contact_person;
-use App\Skill;
 use App\Skill_group;
 use App\Student;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +38,7 @@ class StudentsController extends Controller
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('communication_tool' , 'mob1')
+            ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
         return view('studentPersona', ['fone' => $fone]);
@@ -85,6 +83,21 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
+//<<<<<<< HEAD
+
+    public function getStudyCompanyStacks(Request $request)
+    {
+        $stacks = Student::select('stack_name', 'stacks.id')
+            ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
+            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
+            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->where('students.person_id', $request->key)
+            ->get();
+        return response($stacks);
+    }
+
+//=======
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -110,8 +123,8 @@ class StudentsController extends Controller
     }
     public function studentChangeStudentComment(Request $request)
     {
-        Student::where('person_id',$request->id)->update([
-            'comment' =>$request->field
+        Student::where('person_id', $request->id)->update([
+            'comment' => $request->field
         ]);
         return back();
     }
@@ -173,7 +186,12 @@ class StudentsController extends Controller
     {
         Skill_group::where('person_id', $request->id)
             ->delete();
+//<<<<<<< HEAD
+
+//        for ($i = 0; $i < count($request->field); $i++) {
+//=======
         for($i = 0;$i<count($request->field);$i++) {
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
             Skill_group::insert(
                 ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
             );
@@ -296,7 +314,7 @@ class StudentsController extends Controller
         $contact = DB::table('contacts')->where('person_id', $request->id)->where('communication_tool', 'cell')->first();
         $this->sendSms($contact->contact, $request->msg);
 //        dd($request);
-        $this->sendSms($request->contact,$request->msg);
+        $this->sendSms($request->contact, $request->msg);
     }
     public function sendSms($mobila, $mess)
     {

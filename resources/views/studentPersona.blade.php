@@ -109,13 +109,11 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Стэк:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="stack_student">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="stack_student"></div>
+            <br><br>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Направление:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_student">ss</div>
-            </br></br>
-        </div>
+
+
 
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
@@ -137,7 +135,11 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
 </div>
 @extends('layouts.footer')
 <script src="/js/run.js"></script>
+
+<script src="/js/viewEdit/viewEditPersonalInformation.js"></script>
+{{--<script src="/js/table.js"></script>--}}
 <script src="/js/table.js"></script>
 <script src="/js/viewEditPersonalInformation.js"></script>
+
 
 
