@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Group;
 use App\Person;
-use App\Contact_person;
-use App\Skill;
 use App\Skill_group;
 use App\Student;
 use Illuminate\Support\Facades\DB;
@@ -99,9 +97,6 @@ class StudentsController extends Controller
         $contacts = Student::select('company_name', 'position')
             ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
             ->join('positions', 'positions.id', '=', 'students.position_id')
-            //'stack_name'
-//            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
-//            ->join('stacks','stack_groups.stack_id','=','stacks.id')
             ->where('students.person_id', $request->key)
             ->get();
         return response($contacts);

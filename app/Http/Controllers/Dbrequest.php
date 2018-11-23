@@ -20,7 +20,7 @@ class Dbrequest extends Controller
 
     public function direction()
     {
-        return response()->json(Direction::select('id','direction')->distinct()->get());
+        return response()->json(Direction::select('id','direction')->distinct()->orderBy('id')->get());
     }
 
     public function groups()
@@ -48,7 +48,7 @@ class Dbrequest extends Controller
 
     public function positions()
     {
-        return response()->json(Position::select('id','position')->distinct()->get());
+        return response()->json(Position::select('position','id')->distinct()->orderBy('id')->get());
     }
 
     public function member()

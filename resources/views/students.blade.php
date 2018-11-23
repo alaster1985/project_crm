@@ -130,6 +130,7 @@
         <div>
             <div id="studParam">
             </div>
+            <br><br>
             <div>
                 <div id="findResult">
                 </div>

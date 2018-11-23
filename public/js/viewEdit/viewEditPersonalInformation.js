@@ -1,5 +1,3 @@
-//class='btn btn-link  glyphicon glyphicon-pencil'
-//class ='btn btn-link  glyphicon glyphicon-floppy-saved'
 document.addEventListener("DOMContentLoaded", function (event) {
 
     jsonPost(location.origin + '/students/getStudName', urlPart[3])
@@ -114,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         ContactTool.forEach(function (item, i, ContactTool) {
             ContactTool[i].addEventListener('click', function () {
                 input1[i] = document.getElementById('stCont' + i);
-                input1[i].innerHTML = "<input type='text' id=" + 'stContactInput' + i + " value=" + studContacts[i]['contact'] + "><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id=" + 'ContactButton' + i + "></button>";
+                input1[i].innerHTML = "<input type='text' id=" + 'stContactInput' + i + " value='" + studContacts[i]['contact'] + "'><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id=" + 'ContactButton' + i + "></button>";
                 document.getElementById('ContactButton' + i).onclick = function () {
                     jsonPostEdit(location.origin + "/students/ChangeContact", urlPart[3], document.getElementById('stContactInput' + i).value, contactId[i]);
                     location.reload();
@@ -519,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     jsonPost(location.origin + '/students/getStudyCompanyStacks', urlPart[3])
         .then(response => company_stacks(JSON.parse(response)));
     function company_stacks(stacks) {
-        console.log(stacks);
+        //console.log(stacks);
         for (i = 0; i < stacks.length; i++) {
             let stack = document.createElement('a');
             stack.innerHTML = stacks[i]['stack_name'] + ' ';
