@@ -69,6 +69,36 @@
                         <button class="btn  btn-link btn-lg ">
                             <i class="glyphicon glyphicon-cog" title="Добавить компоненты"></i>
                         </button>
+
+                        <button class="btn btn-link btn-lg">{{--<a href="#openModalSMS"></a>--}}<i
+                                    class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
+                        </button>
+                        {{--<div id="openModalSMS" class="modalDialog">
+                            <div>
+                                <a href="#close" title="Закрыть" class="close">X</a>
+                                <form action="{{Route('')}}" method="post"
+                                      enctype="multipart/form-data">--}}{{-- Добавить роут для отправки смс на любой номер--}}{{--
+                                    <div id="openModalSMS" class="modalDialog">
+                                        <div>
+                                            <a href="#close" title="Закрыть" class="close">X</a>
+                                            <form action="{{Route('')}}" method="post"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                <p>Контактный номер:</p>
+                                                <p><input type="text" class="form-control"
+                                                          placeholder="Контактный номер" name="telNom" required>
+                                                </p>
+                                                <p>Текст сообщения:</p>
+                                                <p><input type="text" class="form-control" placeholder="Текст сообщения"
+                                                          name="textSMS" required>
+                                                </p>
+                                                <input type="submit" value="SEND SMS">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>--}}
                     </li>
                 </ul>
             </div>
