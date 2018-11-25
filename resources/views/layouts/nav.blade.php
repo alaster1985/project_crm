@@ -39,6 +39,7 @@
                     <li><a href="{{route('ShowCompanies')}}">Партнеры</a></li>
                     <li><a href="{{route('show.groups')}}">Группы А-левел</a></li>
                     <li><a href="{{route('showTasks')}}">Задания</a></li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
@@ -63,6 +64,11 @@
 
                             </ul>
                         </div>
+                    </li>
+                    <li>
+                        <button class="btn  btn-link btn-lg ">
+                            <i class="glyphicon glyphicon-cog" title="Добавить компоненты"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
