@@ -148,9 +148,7 @@ Route::post('students/ChangeStudentComment',
     'StudentsController@studentChangeStudentComment')->name('studentChangeStudentComment');
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
-Route::get('qwerty',function (){
-    App\Jobs\SendMessage::dispatch("TEST MESSAGE");
-});
+Route::get('qwerty',function (){App\Jobs\SendMessage::dispatch("TEST MESSAGE");});
 
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');

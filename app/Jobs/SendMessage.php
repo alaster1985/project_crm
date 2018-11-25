@@ -7,21 +7,21 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-//use Illuminate\Support\Facades\Redis;
+
 
 class SendMessage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-
+protected  $message;
     /**asd
      * Create a new job instance.
      *a
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-
+    $this->message = $data;
     }
 
     /**
@@ -31,6 +31,6 @@ class SendMessage implements ShouldQueue
      */
     public function handle()
     {
-
+    info($this->message);
     }
 }
