@@ -53,6 +53,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/smsTo', 'SmsController@index')->name('index');
 Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
 
+Route::get('/groupSendSms', 'GroupSendSmsController@index')->name('index');
+Route::post('/groupSendSms', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
+
 Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
 
 
