@@ -67,7 +67,7 @@
                     </li>
                     <li>
                         <button class="btn  btn-link btn-lg ">
-                            <i class="glyphicon glyphicon-cog" title="Добавить компоненты"></i>
+                            <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}" title="Добавить компоненты"></a>
                         </button>
 
                         <button class="btn btn-link btn-lg">{{--<a href="#openModalSMS"></a>--}}<i
