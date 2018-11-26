@@ -29,6 +29,7 @@ class StoreStudent extends FormRequest
             'address' => 'required|max:255',
             'group_id' => 'required',
             'learning_status' => 'required',
+            'file' => 'mimes:pdf|max:2048',
             'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
             'contacts.1.contact' => 'required_without_all:contacts.0.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
             'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact',
@@ -47,6 +48,8 @@ class StoreStudent extends FormRequest
             'group_id.required' => 'Group must be selected',
             'learning_status.required' => 'Please, select learning_status',
             'contacts.0.contact.required_without_all' => 'At least one contact must be specified',
+            'file.mime' => 'Nice try! But It was not a PDF',
+            'file.max' => 'Wow! Please give me some a little smaller file',
         ];
     }
 }

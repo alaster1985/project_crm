@@ -32,6 +32,7 @@ class StoreCompany extends FormRequest
             'stacks.0.stack_id' => 'required_without_all:stacks.1.stack_id,stacks.2.stack_id',
             'stacks.1.stack_id' => 'required_without_all:stacks.0.stack_id,stacks.2.stack_id',
             'stacks.2.stack_id' => 'required_without_all:stacks.0.stack_id,stacks.1.stack_id',
+            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
     public function messages()
@@ -46,6 +47,9 @@ class StoreCompany extends FormRequest
             'site.required' => 'Please, enter company site',
             'site.max' => 'Too long site. Max 45',
             'stacks.0.stack_id.required_without_all' => 'At least one stack must be specified',
+            'file.image' => 'It was not an image',
+            'file.mime' => 'Nice try! But It was not an image',
+            'file.max' => 'Wow! Please give me some a little smaller picture',
         ];
     }
 }

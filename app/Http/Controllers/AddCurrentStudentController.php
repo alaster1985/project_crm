@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UploadCVService;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -98,7 +99,7 @@ class AddCurrentStudentController extends Controller
             $student = new Student($request->toArray());
             $student->person_id = $person;
             if (!is_null($request->file)) {
-                $this->uploadFile = new UploadCVController();
+                $this->uploadFile = new UploadCVService();
                 $this->uploadFile->upload($request);
                 $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
             } else {

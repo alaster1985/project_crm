@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UploadLogoController extends Controller
+class UploadLogoService extends Controller
 {
     public $pathForLogo;
     public $newLogoName;
     public function upload(Request $request)
     {
         $this->pathForLogo = storage_path('Logo/');
-        $this->newLogoName = basename($request->file->getClientOriginalName(),
-                '.'.$request->file->getClientOriginalExtension())
+        $this->newLogoName = $request->company_name
             .'_'.time(). '.' .$request->file->getClientOriginalExtension();
         if (!file_exists($this->pathForLogo)) {
             mkdir($this->pathForLogo, 0777, true);
