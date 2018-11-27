@@ -73,6 +73,23 @@ class Dbrequest extends Controller
         return response()->json($students);
     }
 
+    public function smsphones(Request $request)
+    {
+
+    $aa = $request->all();
+        $contacts = DB::table('contacts')
+            ->get();
+//
+        foreach ($contacts as $item) {
+            foreach ($aa as $id) {
+                if (($id == $item->person_id) && ($item->communication_tool == 'mob1') ) {
+                    $array_numbers[] = $item->contact;
+                }
+            }
+        }
+
+        return response()->json($array_numbers);
+    }
 
 
     public function employeesdata()
