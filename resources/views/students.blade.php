@@ -130,6 +130,7 @@
         <div>
             <div id="studParam">
             </div>
+            <br><br>
             <div>
                 <div id="findResult">
                 </div>
@@ -140,7 +141,7 @@
 
 
 @extends('layouts.footer')
-<script src="/js/reset.js"></script>
+{{--<script src="/js/reset.js"></script>--}}
 <script src="/js/run.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/accordgroup.js"></script>

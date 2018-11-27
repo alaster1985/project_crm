@@ -44,7 +44,6 @@ document.onreadystatechange = function () {
 
         function studget(studdata) {
             // CLEAR TABLE BY DELETE ROWS
-            console.log(studdata)
             globaldata = studdata;
             for (let i = document.getElementById('employeeTable').getElementsByTagName('tr').length - 1; i; i--) {
                 document.getElementById('employeeTable').deleteRow(i);
@@ -110,8 +109,6 @@ document.onreadystatechange = function () {
         chkbox.onchange = function () {
 
             var olddata = globaldata;
-            console.log(olddata)
-            console.log(globaldata)
 
             let chkboxValue = chkbox.checked ? 1 : 0;
             // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
@@ -120,11 +117,7 @@ document.onreadystatechange = function () {
                     delete olddata[key];
                 }
             }
-            console.log(olddata)
-            console.log(globaldata)
             studget(olddata);
         }
-
-
     }
 }

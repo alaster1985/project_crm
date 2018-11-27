@@ -17,8 +17,10 @@ class Task extends Model
         'task_name',
         'description',
         'dead_line',
-        'user_id_costumer',
+        'user_id_customer',
         'user_id_doer',
+        'task_completed',
+        'doers_report',
     ];
 
     public function getQueueableRelations()

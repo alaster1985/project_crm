@@ -2,55 +2,85 @@
 
 namespace App\Http\Controllers;
 
+use App\Alevel_member;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class EmployeesController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addEmployee(Request $request)
     {
         $new = $request->input('employee_name');
         return redirect()->route('show.employees');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showEmployees()
     {
-
-        $all_employees = DB::table('persons')
-            ->select('persons.id','persons.name','persons.address as personsAddress','positions.position','directions.direction','it_companies.company_name','alevel_members.ASPT','alevel_members.comment as alevelcomment')
-            ->join('alevel_members', 'alevel_members.id', '=', 'persons.id')
-            ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
-            ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
-            ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')
-            ->paginate(8);
-
-        return view('employees', ['all_employees' => $all_employees]);
-
-        /*
-        $all_employees = DB::table('persons')->paginate(8);;
-//        return view('employees', ['all_employees' => $all_employees]);
-
-        $groups = DB::table('groups')->paginate(8);;
-        $directions = DB::table('directions')->paginate(8);;
-        return view('employees', ['all_employees' => $all_employees,
-            'directions' => $directions,
-            'groups' => $groups,]);
-*/
+        return view('employees');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function emploeePersonaView($id)
     {
-        $emploeeView = DB::table('alevel_members')
-            ->Join('persons', 'alevel_members.person_id', '=', 'persons.id')
-            ->join('contact_persons','contact_persons.person_id','=','persons.id')
-            ->where('contact_persons.person_id', '=', $id)
-            ->first();
-        return view('emploeePersona', ['emploeeView' => $emploeeView]);
-//        $emploeeView = DB::table('person')->where('id_person', '=', $id)->first();
-//        return view('emploeePersona', ['emploeeView' => $emploeeView]);
+        return view('emploeePersona');
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function getInformation(Request $request)
+    {
+        $contacts = Alevel_member::join('directions', 'directions.id', '=', 'alevel_members.direction_id')
+            ->where('alevel_members.person_id', $request->key)
+            ->get();
 
+        return response($contacts);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function employeeChangeDirection(Request $request)
+    {
+        Alevel_member::where('person_id', $request->id)
+            ->update([
+                'direction_id' => $request->field
+            ]);
+        return back();
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function employeeChangeComment(Request $request)
+    {
+        Alevel_member::where('person_id', $request->id)->update([
+            'comment' => $request->field
+        ]);
+        return back();
+    }
+
+//    public function TEST(){
+//        $id = User::find(Auth::id());
+//        echo $id;
+//        dd($id);
+//    }
 }

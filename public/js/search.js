@@ -16,7 +16,7 @@ $(".names-select2").select2({
             var  obj = {
                 key: params.term
             };
-            console.log(obj.name);
+            // console.log(obj.name);
             /* obj.term --то что ввёл пользователь,
              * но вы можете и обработать это ввод пред тем
              * как отправлять на сервер,
@@ -29,7 +29,7 @@ $(".names-select2").select2({
 
         processResults: function fun(extData, param) {
             document.getElementById('findResult').innerHTML = ''
-            console.log(extData)
+            // console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                 var u = document.createElement('a');
                 u.setAttribute('href', 'students/show/'+extData[gr]['id']);
@@ -41,21 +41,3 @@ $(".names-select2").select2({
     }
 });
 
-// searchall.addEventListener("keyup", function addelement() {
-//     if (searchall.value != "") {
-//         document.getElementById('findAllResult').innerHTML = ''
-//         jsonPost(location.origin+"/employees/findall", searchall.value)
-//             .then(response => fun(JSON.parse(response)))
-//             .then(fun(extData))
-//
-//         function fun(extData) {
-//             for (var gr = 0; gr < extData.length; gr++) {
-//                 var u = document.createElement('a');
-//                 u.setAttribute('href', extData[gr]['id']);
-//                 u.innerHTML = extData[gr]['name'];
-//                 findAllResult.appendChild(u)
-//                 findAllResult.appendChild(document.createElement('br'))
-//             }
-//         }
-//     }
-// });

@@ -18,9 +18,7 @@ Route::middleware('auth')->group(function () {
         return view('auth');
     })->name('index');
 
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('index');
+    Route::get('/', 'StudentsController@showStudents');
 
 
     Route::post('addimage', 'Files@addImage')->name('add.image');
@@ -53,9 +51,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/smsTo', 'SmsController@index')->name('index');
 Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
 
-Route::get('/groupSendSms', 'GroupSendSmsController@index')->name('index');
-Route::post('/groupSendSms', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
-
 Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
 
 
@@ -84,6 +79,13 @@ Route::post('component/add', 'AddComponentController@store')->name('add.componen
 
 Route::get('addcurrentstudent/{person}', 'AddCurrentStudentController@index')->name('add_cur_stud');
 Route::post('addcurrentstudent/add/{person}', 'AddCurrentStudentController@store')->name('add.add_cur_stud');
+
+Route::get('addcurrentemployee/{person}', 'AddCurrentEmployeeController@index')->name('add_cur_emp');
+Route::post('addcurrentemployee/add/{person}', 'AddCurrentEmployeeController@store')->name('add.add_cur_emp');
+
+Route::get('addtask', 'AddTaskController@index')->name('addtask');
+Route::post('task/add', 'AddTaskController@store')->name('add.task');
+
 
 
 //JS
@@ -120,17 +122,26 @@ Route::post('students/getStudentContacts', 'StudentsController@getStudentContact
 Route::post('students/getStudyInfo', 'StudentsController@getStudyInfo');
 Route::post('students/getSkills', 'StudentsController@getSkills');
 Route::post('students/getStudyCompany', 'StudentsController@getStudyCompany');
+Route::post('students/getStudyCompanyStacks', 'StudentsController@getStudyCompanyStacks');
+
+//JS GET DATA EMPLOYEE
+Route::post('employees/getInformation', 'EmployeesController@getInformation');
 
 //JS EDITION (O_o)
-Route::post('students/ChangeName', 'StudentsController@studentChangeName')->name('studentChangeName');
-Route::post('students/ChangeAddress', 'StudentsController@studentChangeAddress')->name('studentChangeAddress');
-Route::post('students/ChangeCommTool', 'StudentsController@studentChangeCommTool')->name('studentChangeCommTool');
-Route::post('students/ChangeContact', 'StudentsController@studentChangeContact')->name('studentChangeContact');
+Route::post('students/ChangeName',
+    'StudentsController@studentChangeName')->name('studentChangeName');
+Route::post('students/ChangeAddress',
+    'StudentsController@studentChangeAddress')->name('studentChangeAddress');
+Route::post('students/ChangeCommTool',
+    'StudentsController@studentChangeCommTool')->name('studentChangeCommTool');
+Route::post('students/ChangeContact',
+    'StudentsController@studentChangeContact')->name('studentChangeContact');
 Route::post('students/ChangeContactComment',
     'StudentsController@studentChangeContactComment')->name('studentChangeContactComment');
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
-Route::post('students/ChangeGroup', 'StudentsController@studentChangeContactGroup')->name('studentChangeContactGroup');
+Route::post('students/ChangeGroup',
+    'StudentsController@studentChangeContactGroup')->name('studentChangeContactGroup');
 Route::post('students/ChangeLearningStatus',
     'StudentsController@studentChangeContactLearningStatus')->name('studentChangeContactLearningStatus');
 Route::post('students/ChangeEmploymentStatus',
@@ -149,12 +160,20 @@ Route::post('students/ChangeCompanyPosition',
     'StudentsController@studentChangeContactCompanyPosition')->name('studentChangeContactCompanyPosition');
 Route::post('students/ChangeStudentComment',
     'StudentsController@studentChangeStudentComment')->name('studentChangeStudentComment');
+Route::post('students/chgroup',
+    'StudentsController@studentChangeGroup')->name('studentChangeGroup');
+Route::post('students/chearnstatus',
+    'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
 Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
 Route::get('qwerty',function (){App\Jobs\SendMessage::dispatch("TEST MESSAGE");});
 
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
+
+Route::post('employees/ChangeDirection', 'EmployeesController@employeeChangeDirection')->name('employeeChangeDirection');
+Route::post('employees/ChangeEmployeeComment','EmployeesController@employeeChangeComment')->name('employeeChangeComment');
+//Route::get('curentID','EmployeesController@TEST');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 

@@ -3,6 +3,16 @@
 @csrf
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<?Php
+$id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
+?>
+<button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
+        class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
+</button>
+
+
+
 <div class="container-fluid personal_page">
     <div class="row ">
         <h4 class="name_table"> Персональная страница сотрудника</h4>
@@ -11,59 +21,38 @@
         <div class="headers_PP">Персональная информация.</div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">ФИО сотрудника:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="name_emploee">aaaaaaaaaaaa</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="name_emploee"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Адрес сотрудника:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="address_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="address_emploee"></div>
             </br></br></br>
         </div>
 
         <div class="headers_PP">Контактная информация.</div>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Мобильный 1:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="mob1_emploee">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_mob1_emploee">asdad</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Мобильный 2:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="mob2_emploee">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_mob2_emploee">asdad</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Электронная почта:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="email_emploee">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_email_emploee">asdad</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Скайп:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="skype_emploee">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_skype_emploee">asdad</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 parametr">Другое:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="other">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_other_emploee">asdad</div>
-            </br></br></br>
+        <div id ='contactInfo'>
+
         </div>
         <div class="headers_PP">Информация о занятости.</div>
 
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Напрвление:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_emploee"></div>
             </br>
         </div>
         <div>
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Скиллы:</div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="skills_emploee">asdad</div>
+        <br><br>
         </div>
+
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Кандидат:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="ASPT">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="ASPT"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Комментарий:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="comment_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="comment_emploee"></div>
         </div>
 
     </div>
@@ -80,11 +69,11 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Стэк:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="stack_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="stack_emploee"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Направление:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_emploee"></div>
             </br></br>
         </div>
 
@@ -103,6 +92,7 @@
         </div>
     </div>
 </div>
-
+<script src="/js/run.js"></script>
+<script src="/js/viewEdit/viewEditEmployee.js"></script>
 
 @extends('layouts.footer')

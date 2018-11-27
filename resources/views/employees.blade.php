@@ -94,19 +94,19 @@
         </div>
     </div>
     <div class="col-md-2 col-sm-2">
-        <div>
-            <label for="skills">Скилл</label>
-            <select class="form-control" id="skill_name_employees" size="4" name="skill_id[]" multiple>
-                <option selected value="">Отсутствует</option>
-            </select>
-            <p class="help-block">*нажмите Ctrl для множественного выбора</p>
-        </div>
+        {{--<div>--}}
+            {{--<label for="skills">Скилл</label>--}}
+            {{--<select class="form-control" id="skill_name_employees" size="4" name="skill_id[]" multiple>--}}
+                {{--<option selected value="">Отсутствует</option>--}}
+            {{--</select>--}}
+            {{--<p class="help-block">*нажмите Ctrl для множественного выбора</p>--}}
+        {{--</div>--}}
         <div>
             <input class="form-control" type="hidden" name="ASPT" value="0"/>
             <label><input type="checkbox" id="chkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
-    {{--<script src="/js/run2.js"></script>--}}
+    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 @extends('layouts.footer')
 

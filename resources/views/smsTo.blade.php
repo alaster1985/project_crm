@@ -1,10 +1,14 @@
 @extends('layouts.nav')
-<h2>Отправка Сообщений </h2>
-<form action="{{Route('sendSmsTo')}}" method="post">
+<form action="{{Route('sendSmsTo')}}" method="post"
+      enctype="multipart/form-data">
     @csrf
-    Введите телефон:<br>
-    <input type="text" placeholder="+380955702380" name="mobile"><br>
-    Введите сообщение:<br>
-    <textarea placeholder="Message" name="msg"></textarea><br>
+    <p>Контактный номер:</p>
+    <p><input type="text" class="form-control"
+              placeholder="+380955702380" name="mobile" required>
+    </p>
+    <p>Текст сообщения:</p>
+    <p><input type="text" class="form-control" placeholder="Текст сообщения"
+              name="msg" required>
+    </p>
     <input type="submit" value="Отправить">
 </form>

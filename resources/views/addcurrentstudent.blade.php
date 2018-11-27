@@ -22,9 +22,14 @@
                     <div class="error">{{($errors->first('group_id'))}}</div>
                 @endif
                 <div>
-                    <select required id="groups" name="group_id" class="form-control">
-                        <option selected disabled value="{{old('group_id')}}">Выберите группу</option>
+                    <select required id="group" name="group_id" class="form-control">
+                        <option selected disabled>Выберите группу</option>
+                        @foreach($groups as $key => $value){
+                        <option value="{{$key}}">{{$value}}</option>
+                        }
+                        @endforeach
                     </select>
+                    {{--<h3>{{$groups}}</h3>--}}
                 </div>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -63,7 +68,10 @@
             </div>
             <div class="form-group col-md-2 col-sm-2">
                 <label for="rez">Резюме</label>
-                <input type="file" name="file" id="fileToUpload">
+                @if ($errors->has('file'))
+                    <div class="error">{{($errors->first('file'))}}</div>
+                @endif
+                <input type="file" name="file" accept="application/pdf" id="fileToUpload">
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
@@ -165,7 +173,7 @@
             </div>
         </div>
         <div><input type="submit" value="Add new student"></div>
-        <script src="/js/run2.js"></script>
+        <script src="/js/selectors.js"></script>
     </form>
 </div>
 

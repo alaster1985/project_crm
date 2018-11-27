@@ -46,7 +46,7 @@ class StudentsController extends Controller
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('communication_tool' , 'mob1')
+            ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
 
@@ -103,7 +103,21 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
+//<<<<<<< HEAD
 
+    public function getStudyCompanyStacks(Request $request)
+    {
+        $stacks = Student::select('stack_name', 'stacks.id')
+            ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
+            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
+            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->where('students.person_id', $request->key)
+            ->get();
+        return response($stacks);
+    }
+
+//=======
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -132,8 +146,8 @@ class StudentsController extends Controller
 
     public function studentChangeStudentComment(Request $request)
     {
-        Student::where('person_id',$request->id)->update([
-            'comment' =>$request->field
+        Student::where('person_id', $request->id)->update([
+            'comment' => $request->field
         ]);
         return back();
     }
@@ -201,16 +215,18 @@ class StudentsController extends Controller
     {
         Skill_group::where('person_id', $request->id)
             ->delete();
+//<<<<<<< HEAD
 
+//        for ($i = 0; $i < count($request->field); $i++) {
+//=======
         for($i = 0;$i<count($request->field);$i++) {
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
             Skill_group::insert(
                 ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
             );
         }
-
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -236,8 +252,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -250,7 +264,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -263,7 +276,6 @@ class StudentsController extends Controller
             ->update([
                 'groups.direction_id' => $request->field
             ]);
-
         //        Student::where('id', $request->id)
 //            ->join('groups','students.group_id','=','groups.id')
 //            ->update([
@@ -271,7 +283,6 @@ class StudentsController extends Controller
 //            ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -284,7 +295,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
