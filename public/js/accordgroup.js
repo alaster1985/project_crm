@@ -1,3 +1,5 @@
+var smsstud = document.getElementById('smsstud');
+
 var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
 var ll;
 var globaldata = {};
@@ -53,6 +55,7 @@ selectlearn.onchange = function () {
 function studget(studdata) {
     // CLEAR TABLE BY DELETE ROWS
     globaldata = studdata;
+//    console.log(studdata);
     for (let i = document.getElementById('myTable').getElementsByTagName('tr').length - 1; i; i--) {
         document.getElementById('myTable').deleteRow(i);
     }
@@ -93,9 +96,49 @@ navlink.forEach(studGroup)
 
 function studGroup(itemgr, idgr) {
     itemgr.onclick = function () {
+        console.log(globaldata)
+
         jsonPost(location.origin + "/students/studentsgroupoutput", itemgr.id)
             .then(response => studget(JSON.parse(response)))
             .then(studget(studdata))
     }
 }
 
+smsstud.onclick = function (){
+    console.log(globaldata)
+    let arr = [];
+    for (var pole in globaldata) {
+        arr.push(globaldata[pole]['person_id'])
+    }
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/sms/get",
+        // The key needs to match your method's input parameter (case-sensitive).
+        data: JSON.stringify(arr),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+            },
+        failure: function(errMsg) {
+            //
+        }
+    });
+    console.log(arr);
+
+}
+
+
+
+function sms(studdata) {
+    for (var pole in studdata) {
+        console.log(studdata[pole])
+    }
+
+//    return arr;
+}
+
+sms(globaldata);

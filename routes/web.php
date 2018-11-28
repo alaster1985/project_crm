@@ -53,6 +53,8 @@ Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
 
 Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
 
+Route::post('/sms/get', 'Dbrequest@smsphones')->name('sendSMS');
+
 
 Route::get('addstudent', function () {
     return view('addstudent');

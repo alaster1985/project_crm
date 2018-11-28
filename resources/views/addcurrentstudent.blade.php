@@ -68,7 +68,10 @@
             </div>
             <div class="form-group col-md-2 col-sm-2">
                 <label for="rez">Резюме</label>
-                <input type="file" name="file" id="fileToUpload">
+                @if ($errors->has('file'))
+                    <div class="error">{{($errors->first('file'))}}</div>
+                @endif
+                <input type="file" name="file" accept="application/pdf" id="fileToUpload">
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 use App\Group;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UploadCVController extends Controller
+class UploadCVService extends Controller
 {
     public $pathForCV;
     public $newCVName;

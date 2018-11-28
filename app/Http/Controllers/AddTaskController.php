@@ -13,7 +13,7 @@ class AddTaskController extends Controller
     {
         $task = new Task();
         $task->fill($request->input() + [
-                'user_id_customer' => Auth::user()->id,
+                'user_id_customer' => Auth::id(),
             ]);
         $task->save();
         return redirect()->back();
@@ -21,7 +21,7 @@ class AddTaskController extends Controller
 
     public function index()
     {
-        $usersIdDoer = DB::table('users')->get();
+        $usersIdDoer = DB::table('users')->get()->whereNotIn('id', Auth::id());
         return view('addtask', compact('usersIdDoer'));
     }
 }

@@ -8,10 +8,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UploadLogoService;
 use App\Http\Requests\StoreCompany;
 use Illuminate\Support\Facades\DB;
 use App\It_company;
 use App\Stack_group;
+
 
 class AddCompanyController extends Controller
 {
@@ -25,7 +27,7 @@ class AddCompanyController extends Controller
                     'comment' => $request->company_comment,
                 ]);
             if (!is_null($request->file)) {
-                $this->uploadFile = new UploadLogoController();
+                $this->uploadFile = new UploadLogoService();
                 $this->uploadFile->upload($request);
                 $it_Company->logo = $this->uploadFile->pathForLogo . '/' . $this->uploadFile->newLogoName;
             } else {

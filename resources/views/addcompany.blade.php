@@ -37,7 +37,10 @@
 
             <div class="form-group col-md-2 col-sm-2">
                 <label for="file">Логотип</label>
-                <input type="file" name="file" id="fileToUpload">
+                @if ($errors->has('file'))
+                    <div style="color: red">{{($errors->first('file'))}}</div>
+                @endif
+                <input type="file" accept=".jpeg,.png,.jpg,.gif,.svg"  name="file" id="fileToUpload">
                 <p class="help-block">*не обязательное поле</p>
             </div>
 

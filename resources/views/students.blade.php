@@ -59,7 +59,7 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
                 </button>
-                <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
+                <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
