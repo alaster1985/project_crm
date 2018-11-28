@@ -83,7 +83,7 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
-//<<<<<<< HEAD
+
 
     public function getStudyCompanyStacks(Request $request)
     {
@@ -96,8 +96,7 @@ class StudentsController extends Controller
         return response($stacks);
     }
 
-//=======
-//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response

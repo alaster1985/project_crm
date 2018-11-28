@@ -42,7 +42,7 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
         </div>
         <div>
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Скиллы:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="skills_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="skills_emploee"></div>
         <br><br>
         </div>
 
@@ -61,20 +61,15 @@ $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST
 
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Место работы:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="it_company_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="it_company_emploee"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Позиция:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="position_emploee">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="position_emploee"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Стэк:</div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="stack_emploee"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Направление:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_emploee"></div>
-            </br></br>
         </div>
 
         <div class="row">

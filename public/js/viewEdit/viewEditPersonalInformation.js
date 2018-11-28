@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
 //                 input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value='"+studContacts[i]['comment']+"'><button class='btn btn-link  glyphicon glyphicon-floppy-saved'  id=" + 'CommentButton' + i + "></button>";
 // =======
-                input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value=" + studContacts[i]['comment'] + "><button id=" + 'CommentButton' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
+                input2[i].innerHTML = "<input type='text' id=" + 'stCommentInput' + i + " value='" + studContacts[i]['comment'] + "'><button id=" + 'CommentButton' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
 // >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
                 document.getElementById('CommentButton' + i).onclick = function () {
                     jsonPostEdit(location.origin + "/students/ChangeContactComment", urlPart[3], document.getElementById('stCommentInput' + i).value, contactId[i]);

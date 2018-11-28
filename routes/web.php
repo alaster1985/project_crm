@@ -122,9 +122,14 @@ Route::post('students/getSkills', 'StudentsController@getSkills');
 Route::post('students/getStudyCompany', 'StudentsController@getStudyCompany');
 Route::post('students/getStudyCompanyStacks', 'StudentsController@getStudyCompanyStacks');
 
+//JS GET COMPANY DATA
+Route::post('company/getCompanyName', 'CompaniesController@getCompanyName');
+
+
+
 //JS GET DATA EMPLOYEE
 Route::post('employees/getInformation', 'EmployeesController@getInformation');
-
+Route::post('employee/getEmployeeCompany','EmployeesController@getEmployeeCompany');
 //JS EDITION (O_o)
 Route::post('students/ChangeName',
     'StudentsController@studentChangeName')->name('studentChangeName');
@@ -165,8 +170,15 @@ Route::post('students/chearnstatus',
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
+Route::post('employee/getStudyCompanyStacks','EmployeesController@getStudyCompanyStacks')->name('getStudyCompanyStacks');
+Route::post('employee/ChangeCompanyPosition','EmployeesController@employeeChangePosition')->name('employeeChangeCompany');
+Route::post('employee/ChangeCompany','EmployeesController@employeeChangeCompany')->name('employeeChangeCompany');
 Route::post('employees/ChangeDirection', 'EmployeesController@employeeChangeDirection')->name('employeeChangeDirection');
 Route::post('employees/ChangeEmployeeComment','EmployeesController@employeeChangeComment')->name('employeeChangeComment');
+Route::post('employees/ChangeASPT', 'EmployeesController@employeeChangeASPT')->name('employeeChangeASPT');
+
+Route::post('company/ChangeName',
+    'CompaniesController@companyChangeName')->name('companyChangeName');
 //Route::get('curentID','EmployeesController@TEST');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
