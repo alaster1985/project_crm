@@ -11,7 +11,7 @@
 
 
 
-    <title>Главная страница A-Level</title>
+    <title>Главная страница  A-Level</title>
 </head>
 <body>
 
