@@ -1,6 +1,4 @@
-// var smsstud = document.getElementById('buttonsend');
 var smsstud = document.getElementById('smsstud');
-var msgfield = document.getElementById('msgfield');
 
 var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
 var ll;
@@ -107,8 +105,7 @@ function studGroup(itemgr, idgr) {
 }
 
 smsstud.onclick = function (){
-   let mytext = document.getElementById('msgfield').value;
-//   console.log(mytext);
+    console.log(globaldata)
     let arr = [];
     for (var pole in globaldata) {
         arr.push(globaldata[pole]['person_id'])
@@ -120,28 +117,28 @@ smsstud.onclick = function (){
         type: "POST",
         url: location.origin + "/sms/get",
         // The key needs to match your method's input parameter (case-sensitive).
-        data: JSON.stringify([arr, mytext]),
+        data: JSON.stringify(arr),
         contentType: "application/json",
         dataType: "json",
         success: function(data){
             console.log(data);
             },
-        failure: function(errMsg){
+        failure: function(errMsg) {
             //
         }
     });
-    // console.log(arr);
+    console.log(arr);
 
 }
 
 
 
-// function sms(studdata) {
-//     for (var pole in studdata) {
-//         console.log(studdata[pole])
-//     }
-//
-// //    return arr;
-// }
-//
-// sms(globaldata);
+function sms(studdata) {
+    for (var pole in studdata) {
+        console.log(studdata[pole])
+    }
+
+//    return arr;
+}
+
+sms(globaldata);

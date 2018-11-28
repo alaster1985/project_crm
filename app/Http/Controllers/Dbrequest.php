@@ -10,7 +10,6 @@ use App\Person;
 use App\Position;
 use App\Student;
 use App\Alevel_member;
-use Twilio\Rest\Client;
 
 
 use Illuminate\Http\Request;
@@ -77,9 +76,7 @@ class Dbrequest extends Controller
     public function smsphones(Request $request)
     {
 
-        $aa = $request->get(0);
-        $textmessage = $request->get(1);
-
+    $aa = $request->all();
         $contacts = DB::table('contacts')
             ->get();
 //
@@ -90,31 +87,8 @@ class Dbrequest extends Controller
                 }
             }
         }
-//        return response()->json($array_numbers);
-     //   dd($request);
-//        return response()->json($request);
 
-
-        foreach($array_numbers as $mob)
-        {
-            if (isset($mob) && isset($textmessage)) {
-                $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
-                $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
-                $client = new Client($accountSid, $authToken);
-                $message = $client->messages->create(
-                    $mob, array(
-                        'from' => '+14133393335',
-                        'body' => $textmessage
-                    )
-                );
-
-
-            }
-        }
-        if ($message->sid) {
-            return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
-        }
-
+        return response()->json($array_numbers);
     }
 
 
