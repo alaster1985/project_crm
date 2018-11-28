@@ -67,13 +67,14 @@
                     </li>
                     <li>
                         <button class="btn  btn-link btn-lg ">
-                            <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}" title="Добавить компоненты"></a>
+                            <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
+                               title="Добавить компоненты"></a>
                         </button>
 
-                        <button class="btn btn-link btn-lg"><a href="#openModalSMS"></a><i
+                        <button class="btn btn-link btn-lg">{{--<a href="#openModalSMS"></a>--}}<i
                                     class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                         </button>
-                        <div id="openModalSMS" class="modalDialog">
+                        {{--<div id="openModalSMS" class="modalDialog">
                             <div>
                                 <a href="#close" title="Закрыть" class="close">X</a>
                                 <form action="{{Route('sendSmsTo')}}" method="post"
@@ -90,7 +91,7 @@
                                     <input type="submit" value="Отправить">
                                 </form>
                             </div>
-                        </div>
+                        </div>--}}
                     </li>
                 </ul>
             </div>

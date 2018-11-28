@@ -25,7 +25,7 @@
                 <button  class="btn btn-link btn-sm">Все</button>
                 <button  class="btn btn-link btn-sm">Входящие</button>
                 <button  class="btn btn-link btn-sm">Исходящие</button>
-                <button class="btn btn-warning" onclick="window.location='{{ route("addtask")}}'">блок для кнопок добавления задания и тд
+                <button class="btn btn-warning" onclick="window.location='{{ route("addtask")}}'">
                     <i class='glyphicon glyphicon-list-alt' title="Добавить нового задание"></i>
                 </button>
                 <button class="btn btn-info" id="resettasks"><i

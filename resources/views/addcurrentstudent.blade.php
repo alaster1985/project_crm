@@ -1,8 +1,8 @@
 @extends('layouts.nav')
 @section('title', 'Add Student')
-{{--<div>--}}
-{{--<embed height="1" src="/js/123.mp3">--}}
-{{--</div>--}}
+<div>
+<embed height="1" src="/js/123.mp3">
+</div>
 <div class="container-fluid">
     <form action="{{Route('add.add_cur_stud', [$person])}}" method="POST" enctype="multipart/form-data">
         @csrf
