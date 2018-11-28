@@ -115,7 +115,7 @@ class Dbrequest extends Controller
         $findstudents = DB::table('students')
             ->leftJoin('persons', 'students.person_id', '=', 'persons.id')
             ->where('persons.name', 'LIKE', "%{$request->key}%")
-            ->limit(7)
+            ->limit(10)
             ->get();
         return response()->json($findstudents);
     }
