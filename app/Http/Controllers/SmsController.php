@@ -13,12 +13,12 @@ class SmsController extends Controller
         $mobila = $request->mobile;
         $text = $request->msg;
         if (isset($mobila) && isset($text)) {
-            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
-            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
+            $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
+            $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
             $client = new Client($accountSid, $authToken);
             $message = $client->messages->create(
                 $mobila, array(
-                    'from' => '+18178138897',
+                    'from' => '+14133393335',
                     'body' => $text
                 )
             );

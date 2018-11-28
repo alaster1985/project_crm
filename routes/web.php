@@ -51,7 +51,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/smsTo', 'SmsController@index')->name('index');
 Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
 
-Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
+//Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
+Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
+
+
+Route::post('/sms/get', 'Dbrequest@smsphones')->name('rassilka');
 
 
 Route::get('addstudent', function () {
@@ -86,8 +90,6 @@ Route::post('addcurrentemployee/add/{person}', 'AddCurrentEmployeeController@sto
 Route::get('addtask', 'AddTaskController@index')->name('addtask');
 Route::post('task/add', 'AddTaskController@store')->name('add.task');
 
-
-
 //JS
 
 Route::get('students/groups', 'Dbrequest@groups');
@@ -115,7 +117,7 @@ Route::post('students/studentsalloutput', 'Dbrequest@studentsAllOutput');
 
 Route::post('employees/findall', 'Dbrequest@findAll');
 
-//JS GET DATA
+//JS GET DATA STUDENT
 Route::post('students/studedition', 'Dbrequest@studedit');
 Route::post('students/getStudName', 'StudentsController@getStudentNameAddress');
 Route::post('students/getStudentContacts', 'StudentsController@getStudentContacts');
@@ -164,10 +166,6 @@ Route::post('students/chgroup',
     'StudentsController@studentChangeGroup')->name('studentChangeGroup');
 Route::post('students/chearnstatus',
     'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
-Route::post('students/chgroup', 'StudentsController@studentChangeGroup')->name('studentChangeGroup');
-Route::post('students/chearnstatus', 'StudentsController@studentChangeLearnStatus')->name('studentChangeLearnStatus');
-Route::get('qwerty',function (){App\Jobs\SendMessage::dispatch("TEST MESSAGE");});
-
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 

@@ -60,12 +60,14 @@ document.onreadystatechange = function () {
                 var cell4 = row.insertCell(3);
                 var cell5 = row.insertCell(4);
                 var cell6 = row.insertCell(5);
+                let aaa;
+                if (!studdata[gr]['comment']) {aaa = ''} else {aaa = studdata[gr]['comment']}
                 cell1.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['name'] + '</a>';
                 cell2.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['position'] + '</a>';
                 cell3.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['direction'] + '</a>';
                 cell4.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['company_name'] + '</a>';
                 cell5.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + outDataASPT + '</a>';
-                cell6.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + studdata[gr]['comment'] + '</a>';
+                cell6.innerHTML = '<a href="employees/show/' + studdata[gr]['person_id'] + '">' + aaa + '</a>';
                 rowTable++;
             }
         }
