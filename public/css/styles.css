@@ -54,13 +54,13 @@ body {
     color: red
 }
 
-form {
+/*form {
     display: block;
     overflow-x: hidden;
-    /*background: whitesmoke;*/
+    !*background: whitesmoke;*!
     opacity: 1;
     height: 89%;
-}
+}*/
 
 .headers_PP {
     font-style: italic;
