@@ -3,7 +3,8 @@ $(".names-select2").select2({
     allowClear: true,
     placeholder: "Поиск по сайту",
     ajax: {
-        url: location.origin+"/employees/findall", // адрес бэкэн-обработчика (url)
+//        url: location.origin+"/employees/findall", // адрес бэкэн-обработчика (url)
+        url: location.origin+"/employees/findstudents", // адрес бэкэн-обработчика (url)
         delay: 250,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -29,7 +30,7 @@ $(".names-select2").select2({
 
         processResults: function fun(extData, param) {
             document.getElementById('findResult').innerHTML = ''
-            // console.log(extData)
+//            console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
                 var u = document.createElement('a');
                 u.setAttribute('href', 'students/show/'+extData[gr]['id']);
