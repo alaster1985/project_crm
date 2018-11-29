@@ -12,7 +12,6 @@
     "laravel/framework": "5.7.*",
     "laravel/tinker": "^1.0",
     "maatwebsite/excel": "^3.1",
-    "predis/predis": "^1.1",
     "santigarcor/laratrust": "5.0.*",
     "twbs/bootstrap": "^4.1",
     "twilio/sdk": "^5.23"
@@ -65,3 +64,4 @@
   "minimum-stability": "dev",
   "prefer-stable": true
 }
+
