@@ -1,22 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Contact;
 use App\Group;
 use App\Person;
-use App\Contact_person;
-use App\Skill;
 use App\Skill_group;
 use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
-
 class StudentsController extends Controller
 {
-
-
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -35,7 +28,6 @@ class StudentsController extends Controller
         return view('students', ['all_students' => $all_students, 'directions' => $directions, 'groups' => $groups,
             'learning_status' => $learningStatus, 'employment_status' => $employmentStatus]);
     }
-
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -46,38 +38,29 @@ class StudentsController extends Controller
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
             ->join('students', 'persons.id', '=', 'students.person_id')
-            ->where('communication_tool' , 'mob1')
+            ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
-
         return view('studentPersona', ['fone' => $fone]);
     }
-
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getStudentNameAddress(Request $request)
     {
-
         $person = Person::where('id', $request->key)->get();
         return response($person);
-
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function getStudentContacts(Request $request)
     {
-
         $contacts = Contact::where('person_id', $request->key)
             ->get();
-
         return response($contacts);
     }
-
-
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -89,11 +72,8 @@ class StudentsController extends Controller
             ->join('directions', 'directions.id', '=', 'groups.direction_id')
             ->where('students.person_id', $request->key)
             ->get();
-
-
         return response($contacts);
     }
-
     public function getStudyCompany(Request $request)
     {
         $contacts = Student::select('company_name', 'position')
@@ -103,7 +83,21 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
+//<<<<<<< HEAD
 
+    public function getStudyCompanyStacks(Request $request)
+    {
+        $stacks = Student::select('stack_name', 'stacks.id')
+            ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
+            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
+            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->where('students.person_id', $request->key)
+            ->get();
+        return response($stacks);
+    }
+
+//=======
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -116,8 +110,6 @@ class StudentsController extends Controller
             ->get();
         return response($skills);
     }
-
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -129,15 +121,13 @@ class StudentsController extends Controller
         ]);
         return back();
     }
-
     public function studentChangeStudentComment(Request $request)
     {
-        Student::where('person_id',$request->id)->update([
-            'comment' =>$request->field
+        Student::where('person_id', $request->id)->update([
+            'comment' => $request->field
         ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -149,7 +139,6 @@ class StudentsController extends Controller
         ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -163,7 +152,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -177,7 +165,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -190,9 +177,7 @@ class StudentsController extends Controller
                 'comment' => $request->field
             ]);
         return back();
-
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -201,16 +186,18 @@ class StudentsController extends Controller
     {
         Skill_group::where('person_id', $request->id)
             ->delete();
+//<<<<<<< HEAD
 
+//        for ($i = 0; $i < count($request->field); $i++) {
+//=======
         for($i = 0;$i<count($request->field);$i++) {
+//>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
             Skill_group::insert(
                 ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
             );
         }
-
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -223,7 +210,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -236,8 +222,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -250,7 +234,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -263,7 +246,6 @@ class StudentsController extends Controller
             ->update([
                 'groups.direction_id' => $request->field
             ]);
-
         //        Student::where('id', $request->id)
 //            ->join('groups','students.group_id','=','groups.id')
 //            ->update([
@@ -271,7 +253,6 @@ class StudentsController extends Controller
 //            ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -284,7 +265,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -297,7 +277,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -310,7 +289,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -323,7 +301,6 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
     public function studentChangeContactCompanyPosition(Request $request)
     {
         Student::where('person_id', $request->id)
@@ -332,28 +309,28 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-
-
-    public function sendSms(Request $request)
+    public function studentPersonaMobila(Request $request)
     {
-       $mobila = $request->contact;
-       $mess = $request->msg;
-
-        if (isset($mess)) {
-            $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
-            $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
+        $contact = DB::table('contacts')->where('person_id', $request->id)->where('communication_tool', 'cell')->first();
+        $this->sendSms($contact->contact, $request->msg);
+//        dd($request);
+        $this->sendSms($request->contact, $request->msg);
+    }
+    public function sendSms($mobila, $mess)
+    {
+        if (isset($_POST['msg'])) {
+            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
+            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
             $client = new Client($accountSid, $authToken);
             $message = $client->messages->create(
                 "$mobila", array(
-                    'from' => '+14133393335',
+                    'from' => '+18178138897',
                     'body' => $mess
                 )
             );
-
             if ($message->sid) {
-                return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
+                echo "Ваше сообщение удачно отправлено!";
             }
         }
     }
-
 }
