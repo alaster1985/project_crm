@@ -126,6 +126,7 @@ Route::post('students/getStudyCompanyStacks', 'StudentsController@getStudyCompan
 
 //JS GET COMPANY DATA
 Route::post('company/getCompanyName', 'CompaniesController@getCompanyName');
+Route::post('company/getCompanyStack', 'CompaniesController@getCompanyStack');
 
 
 
@@ -181,6 +182,13 @@ Route::post('employees/ChangeASPT', 'EmployeesController@employeeChangeASPT')->n
 
 Route::post('company/ChangeName',
     'CompaniesController@companyChangeName')->name('companyChangeName');
+Route::post('company/ChangeAddress',
+    'CompaniesController@companyChangeAddress')->name('companyChangeAddress');
+Route::post('company/ChangeComment',
+    'CompaniesController@companyChangeComment')->name('companyChangeComment');
+Route::post('company/ChangeCommentStack',
+    'CompaniesController@ChangeCommentStack')->name('ChangeCommentStack');
+
 //Route::get('curentID','EmployeesController@TEST');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
