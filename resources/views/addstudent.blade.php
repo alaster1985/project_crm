@@ -28,7 +28,10 @@
                 @endif
                 <div>
                     <select required id="groups" name="group_id" class="form-control">
-                        <option selected disabled value="{{old('group_id')}}">Выберите группу</option>
+                        <option selected disabled>Выберите группу</option>
+                        @foreach($groups as $group)
+                            <option value="{{$group->id}}">{{$group->group_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*обязательное поле</p>
@@ -59,6 +62,9 @@
                 <label for="skill_id">Скилл</label>
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
                     <option selected disabled>Отсутствует</option>
+                    @foreach($skills as $skill)
+                        <option value="{{$skill->id}}">{{$skill->skill_name}}</option>
+                    @endforeach
                 </select>
                 <p class="help-block">*не обязательное поле</p>
                 <p class="help-block">*выбор нескольких значений через 'ctrl'</p>
@@ -93,6 +99,9 @@
                 <div>
                     <select id="members" name="member_id" class="form-control">
                         <option selected value="">Выберите ответственного HR</option>
+                        @foreach($members as $member)
+                            <option value="{{$member['id']}}">{{$member['name']}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -102,6 +111,9 @@
                 <div>
                     <select id="companies" name="company_id" class="form-control">
                         <option selected value="">Выберите компанию</option>
+                        @foreach($companies as $company)
+                            <option value="{{$company->id}}">{{$company->company_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -112,6 +124,9 @@
                 <div>
                     <select id="position" name="position_id" class="form-control">
                         <option selected value="">Выберите должность</option>
+                        @foreach($positions as $position)
+                            <option value="{{$position->id}}">{{$position->position}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -170,7 +185,7 @@
             </div>
         </div>
         <div><input type="submit" value="Add new student"></div>
-        <script src="/js/selectors.js"></script>
+        {{--<script src="/js/selectors.js"></script>--}}
 {{--        $audio = "<embed src="/js/123.mp3">";
         echo $audio;--}}
     </form>

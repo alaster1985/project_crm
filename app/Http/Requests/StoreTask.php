@@ -26,7 +26,7 @@ class StoreTask extends FormRequest
      */
     public function rules()
     {
-        $users_id = DB::table('users')
+        $users = DB::table('users')
             ->get(['id'])
             ->whereNotIn('id', Auth::id())
             ->pluck('id')
@@ -38,7 +38,7 @@ class StoreTask extends FormRequest
             'dead_line' => 'required|date|after_or_equal:today|before:today + 1 year',
             'user_id_doer' => [
                 'required',
-                Rule::in($users_id),
+                Rule::in($users),
             ],
         ];
     }
