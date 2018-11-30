@@ -29,14 +29,32 @@ $(".names-select2").select2({
          * (напр. просто берём подмассив) */
 
         processResults: function fun(extData, param) {
+            let newdata = {};
+
+            function unique(arr) {
+                var result = [];
+                nextInput:
+                    for (var i = 0; i < arr.length; i++) {
+                        var str = arr[i]; // для каждого элемента
+                        for (var j = 0; j < result.length; j++) { // ищем, был ли он уже?
+                            if (result[j] == str) continue nextInput; // если да, то следующий
+                        }
+                        result.push(str);
+                    }
+
+                return result;
+            }
+            newdata = unique(extData)
+
             document.getElementById('findResult').innerHTML = ''
-//            console.log(extData)
-            for (var gr = 0; gr < extData.length; gr++) {
+
+            for (var gr = 0; gr < newdata.length; gr++) {
                 var u = document.createElement('a');
-                u.setAttribute('href', 'students/show/'+extData[gr]['id']);
-                u.innerHTML = extData[gr]['name'];
+                u.setAttribute('href', 'students/show/'+newdata[gr]['id']);
+                u.innerHTML = newdata[gr]['name'];
                 findResult.appendChild(u)
                 findResult.appendChild(document.createElement('br'))
+
             }
         }
     }
