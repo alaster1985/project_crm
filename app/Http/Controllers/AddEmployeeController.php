@@ -44,4 +44,12 @@ class AddEmployeeController extends Controller
         });
         return redirect()->back();
     }
+    public function index()
+    {
+        $skills = DB::table('skills')->get();
+        $companies = DB::table('it_companies')->get();
+        $positions = DB::table('positions')->get();
+        $directions = DB::table('directions')->get();
+        return view('addemployee', compact('skills', 'companies', 'positions', 'directions'));
+    }
 }

@@ -9,6 +9,9 @@
             <div>
                 <select class="form-control" id="direction_it" name="direction_it">
                     <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
+                    @foreach($directions as $direction)
+                        <option value="{{$direction->id}}">{{$direction->direction}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -56,6 +59,9 @@
                             <p>
                                 <select required class="form-control" id="direction" name="direction_it">
                                     <OPTION SELECTED VALUE="0" disabled>Выберите направление</option>
+                                    @foreach($directions as $direction)
+                                        <option value="{{$direction->id}}">{{$direction->direction}}</option>
+                                    @endforeach
                                 </select>
                             </p>
                             </br>

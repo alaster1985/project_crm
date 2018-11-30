@@ -1,10 +1,10 @@
-let group_name = document.getElementById("groups");
-let skill_name = document.getElementById("skills");
-let company_name = document.getElementById("companies");
-let position = document.getElementById("position");
-let direct = document.getElementById("direction");
-let direction_it = document.getElementById("direction_it");
-let member_name = document.getElementById("members");
+// let group_name = document.getElementById("groups");
+// let skill_name = document.getElementById("skills");
+// let company_name = document.getElementById("companies");
+// let position = document.getElementById("position");
+// let direct = document.getElementById("direction");
+// let direction_it = document.getElementById("direction_it");
+// let member_name = document.getElementById("members");
 let stack_name1 = document.getElementById("stacks1");
 let stack_name2 = document.getElementById("stacks2");
 let stack_name3 = document.getElementById("stacks3");
@@ -22,83 +22,83 @@ function httpGet(url) {
     });
 }
 
-httpGet(location.origin + "/students/groups")
-    .then(response => funcSelectGroup(JSON.parse(response)))
+// httpGet(location.origin + "/students/groups")
+//     .then(response => funcSelectGroup(JSON.parse(response)))
+//
+// function funcSelectGroup(extData) {
+//     var oldgr = group_name.options[group_name.selectedIndex].value
+//     if (oldgr != '') {
+//         group_name.appendChild(new Option(extData[(oldgr - 1)]['group_name'], oldgr, true, true))
+//     }
+//
+//     for (let i = 0; i < extData.length; i++) {
+//         if (group_name.options[group_name.selectedIndex].value == extData[i]['id']) {
+//             continue
+//         }
+//         elem = new Option(extData[i]['group_name'], extData[i]['id']);
+//         group_name.appendChild(elem)
+//     }
+// }
 
-function funcSelectGroup(extData) {
-    var oldgr = group_name.options[group_name.selectedIndex].value
-    if (oldgr != '') {
-        group_name.appendChild(new Option(extData[(oldgr - 1)]['group_name'], oldgr, true, true))
-    }
+// httpGet(location.origin + "/skills")
+//     .then(response => funcSelectSkill(JSON.parse(response)));
+//
+// function funcSelectSkill(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['skill_name'], extData[i]['id']);
+//         skill_name.appendChild(elem)
+//     }
+// }
 
-    for (let i = 0; i < extData.length; i++) {
-        if (group_name.options[group_name.selectedIndex].value == extData[i]['id']) {
-            continue
-        }
-        elem = new Option(extData[i]['group_name'], extData[i]['id']);
-        group_name.appendChild(elem)
-    }
-}
+// httpGet(location.origin + "/company")
+//     .then(response => funcSelectCompany(JSON.parse(response)));
+//
+// function funcSelectCompany(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['company_name'], extData[i]['id']);
+//         company_name.appendChild(elem)
+//     }
+// }
 
-httpGet(location.origin + "/skills")
-    .then(response => funcSelectSkill(JSON.parse(response)));
+// httpGet(location.origin + "/position")
+//     .then(response => funcSelectPosition(JSON.parse(response)));
+//
+// function funcSelectPosition(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['position'], extData[i]['id']);
+//         position.appendChild(elem)
+//     }
+// }
 
-function funcSelectSkill(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['skill_name'], extData[i]['id']);
-        skill_name.appendChild(elem)
-    }
-}
+// httpGet(location.origin + "/direction")
+//     .then(response => funcSelectDirection(JSON.parse(response)));
+//
+// function funcSelectDirection(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['direction'], extData[i]['id']);
+//         direct.appendChild(elem)
+//     }
+// }
+//
+// httpGet(location.origin + "/direction")
+//     .then(response => funcSelectDirection_it(JSON.parse(response)));
+//
+// function funcSelectDirection_it(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['direction'], extData[i]['id']);
+//         direction_it.appendChild(elem)
+//     }
+// }
 
-httpGet(location.origin + "/company")
-    .then(response => funcSelectCompany(JSON.parse(response)));
-
-function funcSelectCompany(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['company_name'], extData[i]['id']);
-        company_name.appendChild(elem)
-    }
-}
-
-httpGet(location.origin + "/position")
-    .then(response => funcSelectPosition(JSON.parse(response)));
-
-function funcSelectPosition(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['position'], extData[i]['id']);
-        position.appendChild(elem)
-    }
-}
-
-httpGet(location.origin + "/direction")
-    .then(response => funcSelectDirection(JSON.parse(response)));
-
-function funcSelectDirection(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['direction'], extData[i]['id']);
-        direct.appendChild(elem)
-    }
-}
-
-httpGet(location.origin + "/direction")
-    .then(response => funcSelectDirection_it(JSON.parse(response)));
-
-function funcSelectDirection_it(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['direction'], extData[i]['id']);
-        direction_it.appendChild(elem)
-    }
-}
-
-httpGet(location.origin + "/members")
-    .then(response => funcSelectMember(JSON.parse(response)));
-
-function funcSelectMember(extData) {
-    for (let i = 0; i < extData.length; i++) {
-        elem = new Option(extData[i]['name'], extData[i]['id']);
-        member_name.appendChild(elem)
-    }
-}
+// httpGet(location.origin + "/members")
+//     .then(response => funcSelectMember(JSON.parse(response)));
+//
+// function funcSelectMember(extData) {
+//     for (let i = 0; i < extData.length; i++) {
+//         elem = new Option(extData[i]['name'], extData[i]['id']);
+//         member_name.appendChild(elem)
+//     }
+// }
 
 httpGet(location.origin + "/stacks")
     .then(responseText => {

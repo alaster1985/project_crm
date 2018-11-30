@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Alevel_member;
 use App\Http\Requests\StoreStudent;
+use App\Person;
 use App\Services\UploadCVService;
 use App\Student;
 use Illuminate\Http\Request;
@@ -12,6 +14,15 @@ class AddCurrentStudentController extends Controller
 {
     public function index($person)
     {
+        $members = [];
+        foreach (Alevel_member::all()->where('ASPT', '=', '0') as $member) {
+            $persona = Person::find($member->person_id);
+            array_push($members, [
+                'id' => Alevel_member::where('person_id', $persona->id)->first()->id,
+                'name' => $persona->name,
+            ]);
+        }
+        $companies = DB::table('it_companies')->get();
         $person = DB::table('persons')->find($person);
         $skills_id = DB::table('skill_groups')
             ->get()
@@ -72,6 +83,7 @@ class AddCurrentStudentController extends Controller
                 ->toArray();
             $groups = array_diff_key($groups, $gr);
         }
+        $positions = DB::table('positions')->get();
 
         return view('addcurrentstudent', [
             'person' => $person->id,
@@ -79,6 +91,9 @@ class AddCurrentStudentController extends Controller
             'address' => $person->address,
             'skills' => implode(", ", $skills),
             'groups' => $groups,
+            'members' => $members,
+            'companies' => $companies,
+            'positions' => $positions,
             'mob1_contact' => $params['mob1']['contact'],
             'mob1_comment' => $params['mob1']['comment'],
             'mob2_contact' => $params['mob2']['contact'],
@@ -94,7 +109,7 @@ class AddCurrentStudentController extends Controller
 
     protected $uploadFile;
 
-    public function store(StoreStudent $request, $person)
+    public function store(Request $request, $person) // need request
     {
         DB::transaction(function () use ($request, $person) {
             $student = new Student($request->toArray());
@@ -109,6 +124,6 @@ class AddCurrentStudentController extends Controller
             $student->comment = $request->student_comment;
             $student->save();
         });
-        return redirect()->back();
+        return redirect()->route('ShowAllStudents');
     }
 }

@@ -18,8 +18,12 @@ class GroupController extends Controller
 
     public function showGroups()
     {
+        $directions = DB::table('directions')->get();
         $all_groups = DB::table('groups')->paginate(8);
-        return view('education', ['all_groups' => $all_groups]);
+        return view('education', [
+            'all_groups' => $all_groups,
+            'directions' => $directions,
+            ]);
     }
 
     public function showAlevel()

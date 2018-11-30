@@ -10,8 +10,6 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
-
 Route::middleware('auth')->group(function () {
 
     Route::get('auth', function () {
@@ -56,24 +54,16 @@ Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
 Route::post('/sms/get', 'Dbrequest@smsphones')->name('sendSMS');
 
 
-Route::get('addstudent', function () {
-    return view('addstudent');
-})->name('addstud');
+Route::get('addstudent', 'AddStudentController@index')->name('addstud');
 Route::post('student/add', 'AddStudentController@store')->name('add.student');
 
-Route::get('addcompany', function () {
-    return view('addcompany');
-})->name('addcomp');
+Route::get('addcompany', 'AddCompanyController@index')->name('addcomp');
 Route::post('company/add', 'AddCompanyController@store')->name('add.company');
 
-Route::get('addemployee', function () {
-    return view('addemployee');
-})->name('addempl');
+Route::get('addemployee', 'AddEmployeeController@index')->name('addempl');
 Route::post('employee/add', 'AddEmployeeController@store')->name('add.employee');
 
-Route::get('addcontactperson', function () {
-    return view('addcontactperson');
-})->name('addcontper');
+Route::get('addcontactperson', 'AddContactPersonController@index')->name('addcontper');
 Route::post('contacrperson/add', 'AddContactPersonController@store')->name('add.contactperson');
 
 Route::get('addcomponent', 'AddComponentController@index')->name('addcompot');
