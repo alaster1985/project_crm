@@ -48,4 +48,8 @@ class AddCompanyController extends Controller
         });
         return redirect()->back();
     }
+    public function index()
+    {
+        return view('addcompany');
+    }
 }

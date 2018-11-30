@@ -8,7 +8,7 @@
 $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
 ?>
 <button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
-        class='glyphicon glyphicon-user' title="Записать в новую группу"> </i>
+        class='glyphicon glyphicon-user' title="Записать в студенты"> </i>
 </button>
 
 
