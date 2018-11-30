@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(response => change_studyInfo(JSON.parse(response)));
 
     function change_studyInfo(studyInfo) {
-        console.log(studyInfo);
+        // console.log(studyInfo);
         let i;
         var employCommentMass = [];
         var DirectionStatusMass = [];
@@ -160,7 +160,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             direction.id = 'employDirection' + i;
             employComment.innerHTML = studyInfo[i]['comment'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "EmployCommentButton" + i + '></button>';
             employComment.id = 'employCommenT' + i;
-            candidate.innerHTML = studyInfo[i]['ASPT'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ASPTBUTTON" + i + '></button>';
+            if(studyInfo[i]['ASPT'] === 0) {
+                candidate.innerHTML = 'No' + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ASPTBUTTON" + i + '></button>';
+            }
+            else{
+                candidate.innerHTML = 'Yes' + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ASPTBUTTON" + i + '></button>';
+            }
             candidate.id = 'candidate' + i;
 
             document.getElementById('ASPT').appendChild(candidate);
@@ -213,55 +218,54 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //change ASPT
         var ASPTlist = [];
         var sel6 = [];
+        var option = document.createElement('option');
+        option.innerHTML = 0;
+        var option1 = document.createElement('option');
+        option1.innerHTML = 1;
+
         ASPTMass.forEach(function (item, i, ASPTMass) {
             ASPTMass[i].addEventListener('click', function () {
                 ASPTlist[i] = document.getElementById('candidate' + i);
                 ASPTlist[i].innerHTML = "<select id=" + 'employASPTInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonDirection' + i + "></button>";
-                httpGet(location.origin + "/direction")
-                    .then(response => fun4(JSON.parse(response)));
 
-                function fun4(extData) {
-                    for (let gr = 0; gr < extData.length; gr++) {
-                        let selectOption = new Option(extData[gr]['direction']);
-                        document.getElementById('employASPTInput' + i).appendChild(selectOption)
-                    }
-                    sel6[i] = document.getElementById('employASPTInput' + i);
-                }
-
+                document.getElementById('employASPTInput' + i).appendChild(option);
+                document.getElementById('employASPTInput' + i).appendChild(option1);
+                sel6[i] = document.getElementById('employASPTInput' + i);
                 document.getElementById('ButtonDirection' + i).onclick = function () {
-                    sel5[i] = sel5[i].options[sel5[i].selectedIndex].index + 1;
-                    jsonPostEdit(location.origin + "/employees/ChangeDirection", urlPart[3], sel5[i]);
-                    location.reload();
+                    jsonPostEdit(location.origin + "/employees/ChangeASPT", urlPart[3], sel6[i].value);
+                     location.reload();
                 }
             })
         });
 
 
-        /*
+
+
+
         //get skills
         jsonPost(location.origin + '/students/getSkills', urlPart[3])
-            .then(response => change_studentSkills(JSON.parse(response)));
+            .then(response => change_employeeSkills(JSON.parse(response)));
 
-        function change_studentSkills(skills) {
+        function change_employeeSkills(skills) {
             var skillMass = [];
             var skillId = [];
             var GroupId = [];
             for (i = 0; i < skills.length; i++) {
                 var skill = document.createElement('a');
                 skill.innerHTML = skills[i]['skill_name'] + ' ';
-                skill.id = 'stSkill';
-                document.getElementById('skills_student').appendChild(skill);
+                skill.id = 'employSkill';
+                document.getElementById('skills_emploee').appendChild(skill);
                 skillMass[i] = document.getElementById("SkillButton" + i);
                 GroupId[i] = skills[i]['skillGroupId'];
             }
             let skill_button = document.createElement('button');
             skill_button.id = 'SkillButton';
             skill_button.className='btn btn-link  glyphicon glyphicon-pencil';
-            document.getElementById('skills_student').appendChild(skill_button);
+            document.getElementById('skills_emploee').appendChild(skill_button);
 
 
             document.getElementById('SkillButton').onclick = function () {
-                document.getElementById('skills_student').innerHTML = "<select class=\"form-control\" id=" + 'stSkillsSelect' + " size=\"4\" name=\"skill_id[]\" multiple></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='stSkills'></button>";
+                document.getElementById('skills_emploee').innerHTML = "<select class=\"form-control\" id=" + 'stSkillsSelect' + " size=\"4\" name=\"skill_id[]\" multiple></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='stSkills'></button>";
                 httpGet(location.origin + "/skills")
                     .then(response => selectSkills(JSON.parse(response)));
 
@@ -288,9 +292,99 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     location.reload();
                 }
             }
-        */
+        }
 
     }
 
+    //get company status
+    jsonPost(location.origin + '/employee/getEmployeeCompany', urlPart[3])
+        .then(response => change_companyInfo(JSON.parse(response)));
 
+    function change_companyInfo(company) {
+        // console.log(company);
+        var CompaniesNameMass = [];
+        var PositionsNameMass = [];
+        let i;
+        for (i = 0; i < company.length; i++) {
+            var company_name = document.createElement('p');
+            var position = document.createElement('p');
+
+            company_name.innerHTML = company[i]['company_name'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "CompanyButton" + i + '></button>';
+            company_name.id = 'stCompany' + i;
+            position.innerHTML = company[i]['position'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "PositionButton" + i + '></button>';
+
+            position.id = 'stPosition' + i;
+            document.getElementById('it_company_emploee').appendChild(company_name);
+            document.getElementById('position_emploee').appendChild(position);
+            CompaniesNameMass[i] = document.getElementById("CompanyButton" + i)
+            PositionsNameMass[i] = document.getElementById("PositionButton" + i)
+        }
+
+        //company name
+        var sel6 = [];
+        var companyList = [];
+        CompaniesNameMass.forEach(function (item, i, CompaniesNameMass) {
+            CompaniesNameMass[i].addEventListener('click', function () {
+                companyList[i] = document.getElementById('stCompany' + i);
+                companyList[i].innerHTML = "<select id=" + 'stCompanyNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonCompanyName' + i + "></button>";
+
+                companyList[i].innerHTML = "<select id=" + 'stCompanyNameInput' + i + "></select><button id = " + 'ButtonCompanyName' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'></button>";
+                httpGet(location.origin + "/company")
+                    .then(response => fun7(JSON.parse(response)));
+
+                function fun7(extData) {
+                    for (let gr = 0; gr < extData.length; gr++) {
+                        let selectOption = new Option(extData[gr]['company_name']);
+                        document.getElementById('stCompanyNameInput' + i).appendChild(selectOption)
+                    }
+                    sel6[i] = document.getElementById('stCompanyNameInput' + i);
+                }
+
+                document.getElementById('ButtonCompanyName' + i).onclick = function () {
+                    sel6[i] = sel6[i].options[sel6[i].selectedIndex].index + 1;
+                    jsonPostEdit(location.origin + "/employee/ChangeCompany", urlPart[3], sel6[i]);
+                    location.reload();
+                }
+            })
+        });
+
+        //position
+        var sel7 = [];
+        var positionList = [];
+        PositionsNameMass.forEach(function (item, i, PositionsNameMass) {
+            PositionsNameMass[i].addEventListener('click', function () {
+                positionList[i] = document.getElementById('stPosition' + i);
+                positionList[i].innerHTML = "<select id=" + 'stPositionNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonPosition' + i + "></button>";
+
+                httpGet(location.origin + "/position")
+                    .then(response => fun8(JSON.parse(response)));
+
+                function fun8(extData) {
+                    for (let gr = 0; gr < extData.length; gr++) {
+                        let selectOption = new Option(extData[gr]['position']);
+                        document.getElementById('stPositionNameInput' + i).appendChild(selectOption)
+                    }
+                    sel7[i] = document.getElementById('stPositionNameInput' + i);
+                }
+
+                document.getElementById('ButtonPosition' + i).onclick = function () {
+                    sel7[i] = sel7[i].options[sel7[i].selectedIndex].index + 1;
+                    jsonPostEdit(location.origin + "/employee/ChangeCompanyPosition", urlPart[3], sel7[i]);
+                    location.reload();
+                }
+            })
+        });
+
+    }
+
+    jsonPost(location.origin + '/employee/getStudyCompanyStacks', urlPart[3])
+        .then(response => company_stacks(JSON.parse(response)));
+    function company_stacks(stacks) {
+        //console.log(stacks);
+        for (i = 0; i < stacks.length; i++) {
+            let stack = document.createElement('a');
+            stack.innerHTML = stacks[i]['stack_name'] + ' ';
+            document.getElementById('stack_emploee').appendChild(stack);
+        }
+    }
 });

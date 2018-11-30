@@ -13,18 +13,23 @@
         <div class="headers_PP">Общая информация.</div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Название:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="name_company">aaaaaaaaaaaa</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="name_company"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Адрес компании:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="address_company">asdad</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="address_company"></div>
+            </br></br>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Коментарий:</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="company_comment"></div>
             </br></br>
         </div>
         <div class="headers_PP">Спецификация.</div>
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12 parametr">Стэк:</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="stack_company">asdad</div>
-            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_company">asdad</div>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="stack_company"></div>
+            <div class="col-md-4 col-sm-12 col-xs-12" id="comment_company"></div>
 
         </div>
     </div>
@@ -50,3 +55,5 @@
 </div>
 
 @extends('layouts.footer')
+<script src="/js/run.js"></script>
+<script src="/js/viewEdit/viewEditCompanies.js"></script>
