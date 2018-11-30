@@ -2,13 +2,13 @@
 <div>
 
     <title>Статистика</title>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://www.google.com/jsapi" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     @csrf
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <script>
+    <script type="text/javascript">
 
     function getgoogle(){
             let self = this;
@@ -24,7 +24,6 @@
                 dataType: "json",
                 success: function(dat){
 
-                    let s;
                     var backend = 0;
                     var frontend = 0;
                     var fullStack = 0;
@@ -32,24 +31,37 @@
                     var PM = 0;
                     var design = 0;
 
+                    var backendemployed = 0;
+                    var frontendemployed = 0;
+                    var fullStackemployed = 0;
+                    var salesemployed = 0;
+                    var PMemployed = 0;
+                    var designemployed = 0;
+
                     for(let i=0; i< dat.length; i++ ){
 
                         if (dat[i]['direction'] =='backend' ) {
+                            if (dat[i]['employment_status'] == 'employed') { backendemployed++; }
                             backend++;
                         }
                         if (dat[i]['direction'] =='frontend' ) {
+                            if (dat[i]['employment_status'] == 'employed') { frontendemployed++; }
                             frontend++;
                         }
                         if (dat[i]['direction'] =='fullStack' ) {
+                            if (dat[i]['employment_status'] == 'employed') { fullStackemployed++; }
                             fullStack++;
                         }
                         if (dat[i]['direction'] =='sales' ) {
+                            if (dat[i]['employment_status'] == 'employed') { salesemployed++; }
                             sales++;
                         }
                         if (dat[i]['direction'] =='PM' ) {
+                            if (dat[i]['employment_status'] == 'employed') { PMemployed++; }
                             PM++;
                         }
                         if (dat[i]['direction'] =='design' ) {
+                            if (dat[i]['employment_status'] == 'employed') { designemployed++; }
                             design++;
                         }
                     }
@@ -67,13 +79,32 @@
                             ['PM', PM],
                             ['design', design],
                         ]);
+
+                        var data1 = google.visualization.arrayToDataTable([
+                            ['Direction', 'Backend', 'Frontend', 'Fullstack', 'Sales', 'PM', 'Design'],
+                            ['Directions', backendemployed, frontendemployed,fullStackemployed,
+                                salesemployed, PMemployed, designemployed]
+                        ]);
+
                         var options = {
-                            title: 'На сегодняшний день студентами А-левел являются 100500человек',
+                            title: 'На сегодняшний день студентами А-левел являются '+ dat.length+ ' человек',
                             is3D: true,
                             pieResidueSliceLabel: 'Остальное'
                         };
+
+                        var options1 = {
+                            title : 'Employeed students',
+                            vAxis: {title: 'Persons'},
+                            // hAxis: {title: 'Direction'},
+                            seriesType: 'bars',
+                            series: {5: {type: 'line'}}
+                        };
+
                         var chart = new google.visualization.PieChart(document.getElementById('circle'));
+                        var chart1 = new google.visualization.ComboChart(document.getElementById('chart_div'));
+
                         chart.draw(data, options);
+                        chart1.draw(data1, options1);
                     }
                 },
                 failure: function(errMsg) {
@@ -84,35 +115,13 @@
         getgoogle();
     </script>
 
-
-
-
-    <script src="https://www.google.com/jsapi"></script>
     <script>
         google.load("visualization", "1", {packages:["corechart"]});
-        google.setOnLoadCallback(drawChart);
-
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['employment_status', 'employed', 'in_search', 'not_relevant_in_IT', 'refused','in_IT_not_in_direction','Other'],
-                ['2018', 20, 30, 40, 50, 70, 10],
-                ['2017', 50, 30, 50, 10, 40, 0],
-                ['2016', 10, 9, 40, 70, 5, 70]
-            ]);
-            var options = {
-                title: 'Статистика по трудоустройству',
-                hAxis: {title: 'Год'},
-                vAxis: {title: 'Человек'}
-            };
-            var chart = new google.visualization.ColumnChart(document.getElementById('employment'));
-            chart.draw(data, options);
-        }
     </script>
 
     <div class="row">
-    <div class="col-md-6 col-sm-6" id="circle" style="width: 500px; height: 400px;"></div>
-    <div class="col-md-6 col-sm-6" id="employment" style="width: 500px; height: 400px;"></div>
+        <div class="col-md-6 col-sm-6" id="circle" style="width: 500px; height: 400px;"></div>
+        <div class="col-md-6 col-sm-6" id="chart_div" style="width: 500px; height: 400px;"></div>
     </div>
 </div>
 {{--
