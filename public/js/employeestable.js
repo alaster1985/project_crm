@@ -99,27 +99,61 @@ document.onreadystatechange = function () {
         position_it.onchange = function () {
             let sel = position_it.selectedIndex;
             let options = position_it.options;
-            // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-            for (let key in globaldata) {
-                if (options[sel].value !== globaldata[key]['position']) {
-                    delete globaldata[key];
+            var dat;
+            self = this;
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/employees/data",
+                data: JSON.stringify([1,4,7]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(dat){
+                    self.dat = dat;
+
+                    for (let key in dat) {
+                        if (options[sel].value !== dat[key]['position']) {
+                            delete dat[key];
+                        }
+                    }
+                    studget(dat);
+                    },
+                failure: function(errMsg) {
+                    //
                 }
-            }
-            studget(globaldata);
+            })
         }
 
         chkbox.onchange = function () {
-
-            var olddata = globaldata;
-
             let chkboxValue = chkbox.checked ? 1 : 0;
-            // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-            for (let key in olddata) {
-                if (chkboxValue !== olddata[key]['ASPT']) {
-                    delete olddata[key];
+            var dat;
+            self = this;
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/employees/data",
+                data: JSON.stringify([1,4,7]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(dat){
+                    self.dat = dat;
+
+                    for (let key in dat) {
+                        if (chkboxValue !== dat[key]['ASPT']) {
+                            delete dat[key];
+                        }
+                    }
+                    studget(dat);
+
+                },
+                failure: function(errMsg) {
+                    //
                 }
-            }
-            studget(olddata);
+            })
         }
     }
 }

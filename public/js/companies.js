@@ -50,13 +50,30 @@ resetCompanies.onclick = function(){
 statvz.onchange = function(){
     let sel = statvz.selectedIndex;
     let options = statvz.options;
-    // alert('Выбрана опция ' + options[sel].text + ' ' + options[sel].value);
-    for (let key in globaldata) {
-        if (options[sel].value !== globaldata[key]['status']) {
-            delete globaldata[key];
+    var dat;
+    self = this;
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/companiesall",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+            self.dat = dat;
+            for (let key in dat) {
+                if (options[sel].value !== dat[key]['status']) {
+                    delete dat[key];
+                }
+            }
+            companies(dat);
+        },
+        failure: function(errMsg) {
+            //
         }
-    }
-    companies(globaldata);
+    })
 }
 
 statsort.onchange = function () {

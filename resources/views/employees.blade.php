@@ -62,31 +62,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--  @if ($all_employees)
-                      @foreach ($all_employees as $index)
-                          <tr>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->name}}</a>
-                              </td>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->position}}</a>
-                              </td>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->direction}}</a>
-                              </td>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->company_name}}</a>
-                              </td>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->ASPT}}</a>
-                              </td>
-                              <td>
-                                  <a href="{{route('employee.view', ['id' => $index->id] )}}">{{$index->alevelcomment}}</a>
-                              </td>
-                          </tr>
-                      @endforeach
-                      {{ $all_employees->links() }}
-                  @endif--}}
                 </tbody>
             </table>
         </div>
@@ -94,24 +69,14 @@
         </div>
     </div>
     <div class="col-md-2 col-sm-2">
-        {{--<div>--}}
-            {{--<label for="skills">Скилл</label>--}}
-            {{--<select class="form-control" id="skill_name_employees" size="4" name="skill_id[]" multiple>--}}
-                {{--<option selected value="">Отсутствует</option>--}}
-            {{--</select>--}}
-            {{--<p class="help-block">*нажмите Ctrl для множественного выбора</p>--}}
-        {{--</div>--}}
         <div>
             <input class="form-control" type="hidden" name="ASPT" value="0"/>
             <label><input type="checkbox" id="chkbox" name="ASPT" value="1"/> Кандидат? </label>
         </div>
     </div>
-    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 @extends('layouts.footer')
 
 <script src="/js/run.js"></script>
-{{--<script src="/js/search.js"></script>--}}
-{{--<script src="/js/accordgroup.js"></script>--}}
 <script src="/js/employeestable.js"></script>
 
