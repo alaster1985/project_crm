@@ -48,7 +48,6 @@ resetTasks.onclick = function(){
 statexec.onchange = function(){
     var dat;
     let sel = statexec.selectedIndex;
-    console.log(sel)
     let options = statexec.options;
     self = this;
     $.ajax({

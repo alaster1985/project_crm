@@ -93,19 +93,9 @@
     <div class="col-md-2 col-sm-2 ">
     </div>
     <ul>
-        {{--@if ($all_groups)--}}
-            {{--@foreach ($all_groups as $index)--}}
-                {{--<li>--}}
-                    {{--<a>{{$index->group_name}} : </a>--}}
-                    {{--<a href="{{route('group.view', ['id' => $index->id] )}}">View Group's page</a>--}}
-                {{--</li>--}}
-            {{--@endforeach--}}
-            {{--{{ $all_groups->links() }}--}}
-        {{--@endif--}}
     </ul>
 </div>
 @extends('layouts.footer')
-{{--<script src="/js/modal.js"></script>--}}
 <script src="/js/run.js"></script>
 <script src="/js/education.js"></script>
 
