@@ -21,7 +21,7 @@ class CreateALevelMemberEntityTable extends Migration
             $table->integer('direction_id')->nullable()->unsigned();
             $table->integer('company_id')->nullable()->unsigned();
             $table->text('comment')->nullable();
-            $table->boolean('ASPT')->default(0);
+            $table->boolean('ASPT')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

@@ -55,7 +55,7 @@ class StoreTask extends FormRequest
             'dead_line.after_or_equal' => 'Please, set dead_line from today till "Bright future!"',
             'dead_line.before' => 'Please, set dead_line within one year (365 days)',
             'user_id_doer.required' => 'ChosenOne must be here',
-            'user_id_doer.in' => 'Nice try ;) But set ChosenOne from this select',
+            'user_id_doer.in' => 'Nice try BRO ;) But set ChosenOne from this select',
         ];
     }
 }
