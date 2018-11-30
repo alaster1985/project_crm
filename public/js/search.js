@@ -31,19 +31,22 @@ $(".names-select2").select2({
         processResults: function fun(extData, param) {
             let newdata = {};
 
+
             function unique(arr) {
                 var result = [];
                 nextInput:
                     for (var i = 0; i < arr.length; i++) {
-                        var str = arr[i]; // для каждого элемента
+//                        var str = arr[i]['name']; // для каждого элемента
                         for (var j = 0; j < result.length; j++) { // ищем, был ли он уже?
-                            if (result[j] == str) continue nextInput; // если да, то следующий
+                            if (result[j]['name'] == arr[i]['name']) continue nextInput; // если да, то следующий
                         }
-                        result.push(str);
+                        result.push(arr[i]);
                     }
-
+                    console.log(result)
                 return result;
             }
+            // console.log(unique(extData))
+
             newdata = unique(extData)
 
             document.getElementById('findResult').innerHTML = ''
