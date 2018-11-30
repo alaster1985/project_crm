@@ -41,13 +41,31 @@ resetalevel.onclick = function(){
 
 // Filters
 alevelDirection.onchange = function(){
+
     let sel = alevelDirection.selectedIndex;
     let options = alevelDirection.options;
     text = alevelDirection.options[alevelDirection.selectedIndex].text;
-    for (let key in globaldata) {
-        if (text !== globaldata[key]['direction']) {
-            delete globaldata[key];
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/groupall",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+            self.dat = dat;
+            for (let key in dat) {
+                if (text !== dat[key]['direction']) {
+                    delete dat[key];
+                }
+            }
+            alevel(dat);
+        },
+        failure: function(errMsg) {
+            //
         }
-    }
-    alevel(globaldata);
+    })
 }
