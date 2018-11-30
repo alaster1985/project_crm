@@ -71,49 +71,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--@if ($all_companies)--}}
-                    {{--@foreach ($all_companies as $index)--}}
-                        {{--<tr>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->company_name}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->status}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->type}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->site}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->address}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->logo}}</a>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                                {{--<a href="{{route('company.view', ['id' => $index->id] )}}">{{$index->comment}}</a>--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
-                    {{--@endforeach--}}
-                    {{--{{ $all_companies->links() }}--}}
-                {{--@endif--}}
                 </tbody>
             </table>
         </div>
     </div>
-    {{--<div class="col-md-2 col-sm-6 ">--}}
-        {{--<div>--}}
-            {{--<label for="stack_id">Стэк технологий</label>--}}
-            {{--<div>--}}
-                {{--<select class="form-control" id="stacks" name="stack_id">--}}
-                    {{--<OPTION SELECTED VALUE="0" disabled>Выберите технологию</OPTION>--}}
-                {{--</select>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--<script src="/js/selectors.js"></script>--}}
 </div>
 <script src="/js/run.js"></script>
 <script src="/js/companies.js"></script>
