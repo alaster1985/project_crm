@@ -44,12 +44,40 @@ selectemployment.onchange = function(){
 selectlearn.onchange = function () {
     let sel = selectlearn.selectedIndex;
     let options = selectlearn.options;
-        for (let key in globaldata) {
-            if (options[sel].value !== globaldata[key]['learning_status']) {
-                delete globaldata[key];
+
+    var dat;
+    self = this;
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/students/studentsalloutput",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+            self.dat = dat;
+            for (let key in dat) {
+                if (options[sel].value !== dat[key]['learning_status']) {
+                    delete dat[key];
+                }
             }
+            studget(dat);
+        },
+        failure: function(errMsg) {
+            //
         }
-    studget(globaldata);
+    })
+
+
+
+    //     for (let key in globaldata) {
+    //         if (options[sel].value !== globaldata[key]['learning_status']) {
+    //             delete globaldata[key];
+    //         }
+    //     }
+    // studget(globaldata);
 }
 
 function studget(studdata) {
@@ -105,7 +133,7 @@ function studGroup(itemgr, idgr) {
 }
 
 smsstud.onclick = function (){
-    console.log(globaldata)
+//    console.log(globaldata)
     let arr = [];
     for (var pole in globaldata) {
         arr.push(globaldata[pole]['person_id'])
@@ -121,13 +149,13 @@ smsstud.onclick = function (){
         contentType: "application/json",
         dataType: "json",
         success: function(data){
-            console.log(data);
+//            console.log(data);
             },
         failure: function(errMsg) {
             //
         }
     });
-    console.log(arr);
+//    console.log(arr);
 
 }
 
@@ -135,7 +163,7 @@ smsstud.onclick = function (){
 
 function sms(studdata) {
     for (var pole in studdata) {
-        console.log(studdata[pole])
+//        console.log(studdata[pole])
     }
 
 //    return arr;

@@ -29,9 +29,14 @@ $(".names-select2").select2({
          * (напр. просто берём подмассив) */
 
         processResults: function fun(extData, param) {
+            let arr =[];
             document.getElementById('findResult').innerHTML = ''
 //            console.log(extData)
             for (var gr = 0; gr < extData.length; gr++) {
+                //
+                // arr.push(extData[gr]['name']);
+                // console.log(arr);
+
                 var u = document.createElement('a');
                 u.setAttribute('href', 'students/show/'+extData[gr]['id']);
                 u.innerHTML = extData[gr]['name'];
