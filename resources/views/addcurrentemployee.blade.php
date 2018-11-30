@@ -74,12 +74,6 @@
                 <label for="skills">Скилл</label>
                 <h3>{{$skills}}</h3>
             </div>
-
-            <div class="form-group col-md-3 col-sm-2">
-                <input class="form-control" type="hidden" name="ASPT" value="0"/>
-                <label><input type="checkbox" name="ASPT" value="1"/> Кандидат? </label>
-                <p class="help-block">*обязательное поле</p>
-            </div>
         </div>
         <p><label>Контакты</label></p>
         <div class="row">

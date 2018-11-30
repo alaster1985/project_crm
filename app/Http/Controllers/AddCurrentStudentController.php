@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\Http\Requests\StoreCurrentStudent;
 use App\Http\Requests\StoreStudent;
 use App\Person;
 use App\Services\UploadCVService;
@@ -109,7 +110,7 @@ class AddCurrentStudentController extends Controller
 
     protected $uploadFile;
 
-    public function store(Request $request, $person) // need request
+    public function store(StoreCurrentStudent $request, $person)
     {
         DB::transaction(function () use ($request, $person) {
             $student = new Student($request->toArray());

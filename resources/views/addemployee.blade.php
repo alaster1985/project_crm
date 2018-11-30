@@ -91,12 +91,6 @@
                 </select>
                 <p class="help-block">*обязательное поле</p>
             </div>
-
-            <div class="form-group col-md-3 col-sm-2">
-                <input class="form-control" type="hidden" name="ASPT" value="0"/>
-                <label><input type="checkbox" name="ASPT" value="1"/> Кандидат? </label>
-                <p class="help-block">*обязательное поле</p>
-            </div>
         </div>
         <p><label>Контакты</label></p>
         @if ($errors->has('*.contact'))
@@ -105,48 +99,38 @@
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>
-                <p>Номер телефона</p>
                 <input hidden name="contacts[0][communication_tool]" value="mob1">
-                <p><input class="form-control" name="contacts[0][contact]" value="{{old('contacts.0.contact]')}}"></p>
-                <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[0][comment]" value="{{old('contacts.0.comment')}}"></p>
+                <p><input class="form-control" placeholder="Номер формате +380ХХХХХХХХХ" type="tel" {{--pattern="/^\+380\d{3}\d{2}\d{2}\d{2}$/"--}} maxlength="13" name="contacts[0][contact]" value="{{old('contacts.0.contact')}}"></p>
+                <p><input class="form-control" placeholder="Комментарий" name="contacts[0][comment]" value="{{old('contacts.0.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
                 <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
-                <p>Номер телефона</p>
                 <input hidden name="contacts[1][communication_tool]" value="mob2">
-                <p><input class="form-control" name="contacts[1][contact]" value="{{old('contacts.1.contact')}}"></p>
-                <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[1][comment]" value="{{old('contacts.1.comment')}}"></p>
+                <p><input class="form-control" placeholder="Номер формате +380ХХХХХХХХХ" type="tel" maxlength="13" name="contacts[1][contact]" value="{{old('contacts.1.contact')}}"></p>
+                <p><input class="form-control" placeholder="Комментарий" name="contacts[1][comment]" value="{{old('contacts.1.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
-                <p>мыло</p>
                 <input hidden name="contacts[2][communication_tool]" value="email">
-                <p><input class="form-control" name="contacts[2][contact]" value="{{old('contacts.2.contact')}}"></p>
-                <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[2][comment]" value="{{old('contacts.2.comment')}}"></p>
+                <p><input class="form-control" placeholder="Введите email" type="email" name="contacts[2][contact]" value="{{old('contacts.2.contact')}}"></p>
+                <p><input class="form-control" placeholder="Комментарий" name="contacts[2][comment]" value="{{old('contacts.2.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
-                <p>Скайп</p>
                 <input hidden name="contacts[3][communication_tool]" value="skype">
-                <p><input class="form-control" name="contacts[3][contact]" value="{{old('contacts.3.contact')}}"></p>
-                <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[3][comment]" value="{{old('contacts.3.comment')}}"></p>
+                <p><input class="form-control" placeholder="Skype login" name="contacts[3][contact]" value="{{old('contacts.3.contact')}}"></p>
+                <p><input class="form-control" placeholder="Комментарий" name="contacts[3][comment]" value="{{old('contacts.3.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
-                <p>Контакт</p>
                 <input hidden name="contacts[4][communication_tool]" value="Other">
-                <p><input class="form-control" name="contacts[4][contact]" value="{{old('contacts.4.contact')}}"></p>
-                <p>Коментарий</p>
-                <p><input class="form-control" name="contacts[4][comment]" value="{{old('contacts.4.comment')}}"></p>
+                <p><input class="form-control" placeholder="Контакт" name="contacts[4][contact]" value="{{old('contacts.4.contact')}}"></p>
+                <p><input class="form-control" placeholder="Комментарий" name="contacts[4][comment]" value="{{old('contacts.4.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
