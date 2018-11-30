@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 
 class StoreStudent extends FormRequest
@@ -24,10 +26,17 @@ class StoreStudent extends FormRequest
      */
     public function rules()
     {
+        $groups = DB::table('groups')
+            ->get(['id'])
+            ->pluck('id')
+            ->toArray();
         return [
             'name' => 'required|max:45',
             'address' => 'required|max:255',
-            'group_id' => 'required',
+            'group_id' => [
+                'required',
+                Rule::in($groups)
+                ],
             'learning_status' => 'required',
             'file' => 'mimes:pdf|max:2048',
             'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',

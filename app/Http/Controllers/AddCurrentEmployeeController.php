@@ -52,11 +52,18 @@ class AddCurrentEmployeeController extends Controller
             }
         }
 
+        $companies = DB::table('it_companies')->get();
+        $positions = DB::table('positions')->get();
+        $directions = DB::table('directions')->get();
+
         return view('addcurrentemployee', [
             'person' => $person->id,
             'name' => $person->name,
             'address' => $person->address,
             'skills' => implode(", ", $skills),
+            'companies' => $companies,
+            'positions' => $positions,
+            'directions' => $directions,
             'mob1_contact' => $params['mob1']['contact'],
             'mob1_comment' => $params['mob1']['comment'],
             'mob2_contact' => $params['mob2']['contact'],
@@ -78,6 +85,6 @@ class AddCurrentEmployeeController extends Controller
             $alevel_Member->comment = $request->employee_comment;
             $alevel_Member->save();
         });
-        return redirect()->back();
+        return redirect()->route('show.employees');
     }
 }

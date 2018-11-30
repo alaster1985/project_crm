@@ -37,6 +37,9 @@
                 @endif
                 <select class="form-control" id="companies" name="company_id">
                     <option selected disabled>Выберите компанию</option>
+                    @foreach($companies as $company)
+                        <option value="{{$company->id}}">{{$company->company_name}}</option>
+                    @endforeach
                 </select>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -47,6 +50,9 @@
                 @endif
                 <select class="form-control" id="position" name="position_id">
                     <option selected disabled>Выберите должность</option>
+                    @foreach($positions as $position)
+                        <option value="{{$position->id}}">{{$position->position}}</option>
+                    @endforeach
                 </select>
                 <p class="help-block">*обязательное поле</p>
             </div>
@@ -58,6 +64,9 @@
                 @endif
                 <select class="form-control" id="direction" name="direction_id">
                     <option selected disabled>Выберите направление</option>
+                    @foreach($directions as $direction)
+                        <option value="{{$direction->id}}">{{$direction->direction}}</option>
+                    @endforeach
                 </select>
                 <p class="help-block">*обязательное поле</p>
             </div>

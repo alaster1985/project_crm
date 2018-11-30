@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alevel_member;
 use App\Http\Requests\StoreStudent;
 use App\Services\UploadCVService;
 use Illuminate\Support\Facades\DB;
@@ -56,5 +57,21 @@ class AddStudentController extends Controller
             }
         });
         return redirect()->back();
+    }
+    public function index()
+    {
+        $groups = DB::table('groups')->get();
+        $skills = DB::table('skills')->get();
+        $companies = DB::table('it_companies')->get();
+        $members = [];
+        foreach (Alevel_member::all()->where('ASPT', '=', '0') as $member) {
+            $person = Person::find($member->person_id);
+            array_push($members, [
+                'id' => Alevel_member::where('person_id', $person->id)->first()->id,
+                'name' => $person->name,
+            ]);
+        }
+        $positions = DB::table('positions')->get();
+        return view('addstudent', compact('groups', 'skills', 'companies', 'members', 'positions'));
     }
 }

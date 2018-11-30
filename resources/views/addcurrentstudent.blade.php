@@ -24,9 +24,8 @@
                 <div>
                     <select required id="group" name="group_id" class="form-control">
                         <option selected disabled>Выберите группу</option>
-                        @foreach($groups as $key => $value){
+                        @foreach($groups as $key => $value)
                         <option value="{{$key}}">{{$value}}</option>
-                        }
                         @endforeach
                     </select>
                     {{--<h3>{{$groups}}</h3>--}}
@@ -110,6 +109,9 @@
                 <div>
                     <select id="members" name="member_id" class="form-control">
                         <option selected value="">Выберите ответственного HR</option>
+                        @foreach($members as $member)
+                            <option value="{{$member['id']}}">{{$member['name']}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -119,6 +121,9 @@
                 <div>
                     <select id="companies" name="company_id" class="form-control">
                         <option selected value="">Выберите компанию</option>
+                        @foreach($companies as $company)
+                            <option value="{{$company->id}}">{{$company->company_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -128,6 +133,9 @@
                 <div>
                     <select id="position" name="position_id" class="form-control">
                         <option selected value="">Выберите должность</option>
+                        @foreach($positions as $position)
+                            <option value="{{$position->id}}">{{$position->position}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <p class="help-block">*не обязательное поле</p>
@@ -173,7 +181,7 @@
             </div>
         </div>
         <div><input type="submit" value="Add new student"></div>
-        <script src="/js/selectors.js"></script>
+        {{--<script src="/js/selectors.js"></script>--}}
     </form>
 </div>
 
