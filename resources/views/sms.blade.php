@@ -13,7 +13,7 @@
     function getgoogle(){
             let self = this;
 
-            $.ajax({
+           $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

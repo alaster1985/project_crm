@@ -39,20 +39,39 @@ function allTasks() {
 }
 allTasks();
 
+
 resetTasks.onclick = function(){
     allTasks();
 }
 
 // Filters
 statexec.onchange = function(){
-
+    var dat;
     let sel = statexec.selectedIndex;
+    console.log(sel)
     let options = statexec.options;
-    for (let key in globaldata) {
+    self = this;
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/alltasks",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+            self.dat = dat;
+            for (let key in dat) {
 
-        if ((sel -1)!== globaldata[key]['task_completed']) {
-            delete globaldata[key];
+                if ((sel -1)!== dat[key]['task_completed']) {
+                    delete dat[key];
+                }
+            }
+            tasks(dat);
+        },
+        failure: function(errMsg) {
+            //
         }
-    }
-    tasks(globaldata);
+    })
 }
