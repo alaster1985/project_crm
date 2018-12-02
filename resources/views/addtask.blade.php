@@ -3,15 +3,15 @@
 <div class="container-fluid">
     <form action="{{Route('add.task')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <p>Добавить тасочку</p>
+        <p>Добавить задачу</p>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
-                <label for="task_name">Заголовок таски</label>
+                <label for="task_name">Заголовок задачи</label>
                 @if ($errors->has('task_name'))
                 <div class="error">{{($errors->first('task_name'))}}</div>
                 @endif
                 <input class="form-control" name="task_name"
-                       value="{{old('task_name')}}" placeholder="Заголовок таски">
+                       value="{{old('task_name')}}" placeholder="Заголовок задачи">
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group  col-md-3 col-sm-2">
@@ -24,7 +24,7 @@
                 <p class="help-block">*обязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
-                <label for="dead_line">дед Лайн</label>
+                <label for="dead_line">Срок выполнения</label>
                 @if ($errors->has('dead_line'))
                 <div class="error">{{($errors->first('dead_line'))}}</div>
                 @endif

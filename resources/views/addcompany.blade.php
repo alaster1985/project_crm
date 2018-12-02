@@ -52,7 +52,8 @@
 
             <div class="form-group col-md-3 col-sm-2">
                 <label for="company_comment">Комментарий</label>
-                <input class="form-control" name="company_comment" value="{{old('company_comment')}}">
+                <input class="form-control" name="company_comment" value="{{old('company_comment')}}"
+                       placeholder="Комментарий">
                 <p class="help-block">*не обязательное поле</p>
             </div>
 
@@ -122,49 +123,37 @@
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="stack1">Стэк 1</label>
-                <div>
-                    <select class="form-control" id="stacks1" name="stacks[0][stack_id]">
-                        <option selected disabled>Выберите стэк</option>
-                        </br>
-                    </select>
-                </div>
-                <div>
-                    <p><input class="form-control" name="stacks[0][stack_comment]"
-                              value="{{old('stacks.0.stack_comment')}}"
-                              placeholder="Комментарий к стэк-технологии"></p>
-                    <p class="help-block">*не обязательное поле</p>
-                </div>
+                <select class="form-control" id="stacks1" name="stacks[0][stack_id]">
+                    <option selected disabled>Выберите стэк</option>
+                </select>
+                </br>
+                <p><input class="form-control" name="stacks[0][stack_comment]"
+                          value="{{old('stacks.0.stack_comment')}}"
+                          placeholder="Комментарий к стэк-технологии"></p>
+                <p class="help-block">*не обязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="stack1">Стэк 2</label>
-                <div>
-                    <select class="form-control" id="stacks2" name="stacks[1][stack_id]">
-                        <option selected disabled>Выберите стэк</option>
-                        </br>
-                    </select>
-                </div>
-                <div>
-                    <p><input class="form-control" name="stacks[1][stack_comment]"
-                              value="{{old('stacks.1.stack_comment')}}"
-                              placeholder="Комментарий к стэк-технологии"></p>
-                    <p class="help-block">*не обязательное поле</p>
-                    <p class="help-block">*double click to reset stack select</p>
-                </div>
+                <select class="form-control" id="stacks2" name="stacks[1][stack_id]">
+                    <option selected disabled>Выберите стэк</option>
+                </select>
+                </br>
+                <p><input class="form-control" name="stacks[1][stack_comment]"
+                          value="{{old('stacks.1.stack_comment')}}"
+                          placeholder="Комментарий к стэк-технологии"></p>
+                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*double click to reset stack select</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="stack1">Стэк 3</label>
-                <div>
-                    <select class="form-control" id="stacks3" name="stacks[2][stack_id]">
-                        <option selected disabled>Выберите стэк</option>
-                        </br>
-                    </select>
-                </div>
-                <div>
-                    <p><input class="form-control" name="stacks[2][stack_comment]"
-                              value="{{old('stacks.2.stack_comment')}}" placeholder="Комментарий к стэк-технологии"></p>
-                    <p class="help-block">*не обязательное поле</p>
-                    <p class="help-block">*double click to reset stack select</p>
-                </div>
+                <select class="form-control" id="stacks3" name="stacks[2][stack_id]">
+                    <option selected disabled>Выберите стэк</option>
+                </select>
+                </br>
+                <p><input class="form-control" name="stacks[2][stack_comment]"
+                          value="{{old('stacks.2.stack_comment')}}" placeholder="Комментарий к стэк-технологии"></p>
+                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*double click to reset stack select</p>
             </div>
         </div>
         <script src="/js/selectors.js"></script>
