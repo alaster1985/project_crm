@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ImageValidation;
+use App\Task;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,13 @@ Class TasksController extends Controller
             ->get();
         return response()->json($tasks);
     }
+
+    public function getTaskInfo(Request $request){
+        $tasks= Task::where('id', $request->key)
+            ->get();
+        return response($tasks);
+    }
+
 
 
 

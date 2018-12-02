@@ -37,7 +37,11 @@
         <div class="headers_PP">Информация о контактных лицах.</div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">ФИО сотрудника:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="name_emploee_company">aaaaaaaaaaaa</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="name_emploee_company"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Контакты:</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="communication_tool"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Позиция:</div>

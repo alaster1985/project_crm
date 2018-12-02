@@ -42,3 +42,5 @@
         </div>
     </div>
 </div>
+<script src="/js/run.js"></script>
+<script src="/js/viewEdit/viewEditTasks.js"></script>
