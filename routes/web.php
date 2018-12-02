@@ -53,6 +53,10 @@ Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroup
 
 Route::post('/sms/get', 'Dbrequest@smsphones')->name('rassilka');
 
+Route::get('/sendMail', 'EmailSendController@index')->name('index');
+Route::post('/sendMail', 'EmailSendController@SendMail')->name('sendMailTo');
+
+
 Route::get('addstudent', 'AddStudentController@index')->name('addstud');
 Route::post('student/add', 'AddStudentController@store')->name('add.student');
 
@@ -181,5 +185,8 @@ Route::post('company/ChangeCommentStack',
 //Route::get('curentID','EmployeesController@TEST');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
+
+
+
 
 
