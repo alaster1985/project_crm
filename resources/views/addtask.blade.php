@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div><input type="submit" value="Add new task"></div>
+        <div><input type="submit" value="Добавить задачу"></div>
     </form>
 </div>
 
