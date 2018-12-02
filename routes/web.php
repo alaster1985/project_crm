@@ -16,7 +16,12 @@ Route::middleware('auth')->group(function () {
         return view('auth');
     })->name('index');
 
-    Route::get('/', 'StudentsController@showStudents');
+    Route::get('alevel', function () {
+        return view('sms');
+    })->name('alevel');
+
+
+        Route::get('/', 'StudentsController@showStudents');
 
 
     Route::post('addimage', 'Files@addImage')->name('add.image');
