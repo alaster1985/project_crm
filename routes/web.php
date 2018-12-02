@@ -46,13 +46,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/sms', 'SmsController@index')->name('index');
-Route::post('/sms', 'SmsController@sendSMS')->name('sendSMS');
+Route::get('/smsTo', 'SmsController@index')->name('index');
+Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
+Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
+Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
 
-Route::post('/sms', 'StudentsController@studentPersonaMobila')->name('sendSMS');
-
-Route::post('/sms/get', 'Dbrequest@smsphones')->name('sendSMS');
-
+Route::post('/sms/get', 'Dbrequest@smsphones')->name('rassilka');
 
 Route::get('addstudent', 'AddStudentController@index')->name('addstud');
 Route::post('student/add', 'AddStudentController@store')->name('add.student');

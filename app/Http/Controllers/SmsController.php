@@ -1,33 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Twilio\Rest\Client;
+use Illuminate\Http\Request;
 
 
 class SmsController extends Controller
 {
-    public function sendSms()
+    public function sendSmsTo(Request $request)
     {
-        if (isset($_POST['msg'])) {
-            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
-            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
-
+        $mobila = $request->mobile;
+        $text = $request->msg;
+        if (isset($mobila) && isset($text)) {
+            $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
+            $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
             $client = new Client($accountSid, $authToken);
             $message = $client->messages->create(
-                '+380955702380', array(
-                    'from' => '+18178138897',
-                    'body' => $_POST['msg']
+                $mobila, array(
+                    'from' => '+14133393335',
+                    'body' => $text
                 )
             );
-
             if ($message->sid) {
-                echo "Ваше сообщение удачно отправлено!";
+                return redirect()->back() ->with('alert  ', 'Новая версия');
             }
         }
     }
 
     public function index()
     {
-        return view('sms');
+        return view('smsTo');
     }
+
 }

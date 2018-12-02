@@ -124,13 +124,3 @@
         <div class="col-md-6 col-sm-6" id="chart_div" style="width: 500px; height: 400px;"></div>
     </div>
 </div>
-{{--
-<div>
-<h2>Отправка Сообщений </h2>
-<form action="{{Route('sendSMS')}}" method="post">
-    @csrf
-    Введите сообщение:<br>
-    <textarea placeholder="Message" name="msg"></textarea><br>
-    <input type="submit" value="Отправить">
-</form>
-</div>--}}
