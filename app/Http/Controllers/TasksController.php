@@ -45,12 +45,18 @@ Class TasksController extends Controller
     }
 
     public function getTaskInfo(Request $request){
-        $tasks= Task::where('id', $request->key)
-            ->get();
+        $tasks =[ Task::
+        join('users','users.id','=','user_id_customer')
+        ->where('tasks.id', $request->key)
+            ->get(),
+            Task::
+            join('users','users.id','=','user_id_doer')
+                ->where('tasks.id', $request->key)
+                ->get(),
+
+            ];
         return response($tasks);
     }
-
-
 
 
 }

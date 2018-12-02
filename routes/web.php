@@ -211,6 +211,9 @@ ROUTE::post('groups/ChangeHomecomingDate','GroupController@ChangeHomecomingDate'
 //TASKS JSON
 Route::post('tasks/getTaskInfo', 'TasksController@getTaskInfo');
 
-Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
-
-
+Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
+ROUTE::post('profiles/info','ProfilesController@getProfileInfo');
+ROUTE::post('profiles/changeUserName','ProfilesController@changeUserName');
+ROUTE::post('profiles/changeUserPassword','ProfilesController@changeUserPassword');
+ROUTE::post('profiles/changeUserEmail','ProfilesController@changeUserEmail');
+///profiles/changeUserEmail

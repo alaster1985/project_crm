@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(response => change_groupInfo(JSON.parse(response)));
 
     function change_groupInfo(groupInfo) {
-        console.log(groupInfo);
+        //console.log(groupInfo);
         let groupNameId = document.getElementById('name_group'); //div
         let groupName = document.createElement('td');  //p in div
 
