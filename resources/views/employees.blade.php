@@ -43,6 +43,14 @@
                 </button>
             </div>
         </div>
+        <div>
+            <form action="{{Route('rassilka')}}" method="post">
+                @csrf
+                Введите сообщение:<br>
+                <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
+                <input id="buttonsend" type="submit" value="Отправить">
+            </form>
+        </div>
         <div id="stres" class="table_scroll">
             <table id="employeeTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
                 <thead>
@@ -65,6 +73,7 @@
                 </tbody>
             </table>
         </div>
+
         <div class="col-md-2 col-sm-6 ">
         </div>
     </div>
@@ -75,6 +84,7 @@
         </div>
     </div>
 </div>
+
 @extends('layouts.footer')
 
 <script src="/js/run.js"></script>
