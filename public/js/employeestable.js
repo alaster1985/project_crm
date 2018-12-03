@@ -155,5 +155,39 @@ document.onreadystatechange = function () {
                 }
             })
         }
+
+
+
+        smsstud.onclick = function (){
+    console.log(globaldata)
+            let arr = [];
+            for (var pole in globaldata) {
+                arr.push(globaldata[pole]['person_id'])
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/sms/get",
+                // The key needs to match your method's input parameter (case-sensitive).
+                data: JSON.stringify(arr),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data){
+            console.log(data);
+                },
+                failure: function(errMsg) {
+                    //
+                }
+            });
+//    console.log(arr);
+
+        }
+
+
+
+
+
     }
 }

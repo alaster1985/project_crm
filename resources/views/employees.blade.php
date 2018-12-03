@@ -32,7 +32,7 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addempl")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового сотрудника"></i>
                 </button>
-                <button class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
