@@ -1,6 +1,11 @@
+
+
 document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         var globaldata;
+
+        var smsemp = document.getElementById('smsemp');
+
         let direction_it = document.getElementById("direction_it");
         let position_it = document.getElementById("position_it");
         let chkbox = document.getElementById("chkbox");
@@ -157,9 +162,8 @@ document.onreadystatechange = function () {
         }
 
 
-
-        smsstud.onclick = function (){
-    console.log(globaldata)
+        smsemp.onclick = function (){
+            let mytext = document.getElementById('msgfield').value;
             let arr = [];
             for (var pole in globaldata) {
                 arr.push(globaldata[pole]['person_id'])
@@ -171,20 +175,19 @@ document.onreadystatechange = function () {
                 type: "POST",
                 url: location.origin + "/sms/get",
                 // The key needs to match your method's input parameter (case-sensitive).
-                data: JSON.stringify(arr),
+                data: JSON.stringify([arr, mytext]),
                 contentType: "application/json",
                 dataType: "json",
                 success: function(data){
-            console.log(data);
+//                    console.log(data);
                 },
-                failure: function(errMsg) {
-                    //
+                failure: function(errMsg){
+//                    console.log(mytext)
                 }
             });
-//    console.log(arr);
+            // console.log(arr);
 
         }
-
 
 
 
