@@ -7,7 +7,6 @@ var alevelDirection = document.getElementById("direction_it");
 
 
 function alevel(studdata) {
-    console
     // CLEAR TABLE BY DELETE ROWS
     globaldata = studdata;
     for (let i = document.getElementById('alevelTable').getElementsByTagName('tr').length - 1; i; i--) {
