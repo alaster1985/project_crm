@@ -70,7 +70,7 @@
                         </form>
                     </div>
                 </div>
-                <button id="resetalevel" class="btn btn-info" ><i
+                <button id="resetalevel" class="btn btn-info"><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>

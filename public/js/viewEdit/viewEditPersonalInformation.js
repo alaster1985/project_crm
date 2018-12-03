@@ -374,70 +374,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             }
 
-            //get direction
-            // var sel5 = [];
-            // var directionList = [];
-            // DirectionStatusMass.forEach(function (item, i, DirectionStatusMass) {
-            //     DirectionStatusMass[i].addEventListener('click', function () {
-            //         directionList[i] = document.getElementById('stDirection' + i);
-            //         directionList[i].innerHTML = "<select id=" + 'stDirectionNameInput' + i + "></select><button id = " + 'ButtonDirection' + i + ">Save</button>";
-            //         httpGet(location.origin + "/direction")
-            //             .then(response => fun4(JSON.parse(response)));
-            //
-            //         function fun4(extData) {
-            //             for (let gr = 0; gr < extData.length; gr++) {
-            //                 let selectOption = new Option(extData[gr]['direction']);
-            //                 document.getElementById('stDirectionNameInput' + i).appendChild(selectOption)
-            //             }
-            //             sel5[i] = document.getElementById('stDirectionNameInput' + i);
-            //         }
-            //
-            //         document.getElementById('ButtonDirection' + i).onclick = function () {
-            //             sel5[i] = sel5[i].options[sel5[i].selectedIndex].index + 1;
-            //             jsonPostEdit(location.origin + "/students/ChangeDirection", urlPart[3], sel5[i]);
-            //             location.reload();
-            //         }
-            //     })
-            // });
-
-            //Finish DATE CHANGE
-            // var finishDate = [];
-            // FinishDateMass.forEach(function (item, i, FinishDateMass) {
-            //     FinishDateMass[i].addEventListener('click', function () {
-            //         finishDate[i] = document.getElementById('stFinishDate' + i);
-            //         finishDate[i].innerHTML = "<input type='date' id=" + 'stFinishDataInput' + i + " value=" + studyInfo[i]['finish_date'] + "><button id=" + 'ButtonFinishData' + i + ">Save</button>";
-            //         document.getElementById('ButtonFinishData' + i).onclick = function () {
-            //             jsonPostEdit(location.origin + "/students/ChangeFinishDate", urlPart[3], document.getElementById('stFinishDataInput' + i).value, studyInfo[i]['group_name']);
-            //             location.reload();
-            //         }
-            //     })
-            // });
-            //Start Date Change
-            // var startDate = [];
-            // StartDateMass.forEach(function (item, i, StartDateMass) {
-            //     StartDateMass[i].addEventListener('click', function () {
-            //         startDate[i] = document.getElementById('stStartDate' + i);
-            //         startDate[i].innerHTML = "<input type='date' id=" + 'stStartDataInput' + i + " value=" + studyInfo[i]['start_date'] + "><button id=" + 'ButtonStartData' + i + ">Save</button>";
-            //         document.getElementById('ButtonStartData' + i).onclick = function () {
-            //             jsonPostEdit(location.origin + "/students/ChangeStartDate", urlPart[3], document.getElementById('stStartDataInput' + i).value, studyInfo[i]['group_name']);
-            //             location.reload();
-            //         }
-            //     })
-            // });
-
-            //Homecoming Date
-            // var homeDate = [];
-            // HomecomingDateMass.forEach(function (item, i, HomecomingDateMass) {
-            //     HomecomingDateMass[i].addEventListener('click', function () {
-            //         homeDate[i] = document.getElementById('stHomecomingDate' + i);
-            //         homeDate[i].innerHTML = "<input type='date' id=" + 'stHomeComingDataInput' + i + " value=" + studyInfo[i]['homecoming_date'] + "><button id=" + 'ButtonHomeComing' + i + ">Save</button>";
-            //         document.getElementById('ButtonHomeComing' + i).onclick = function () {
-            //             jsonPostEdit(location.origin + "/students/ChangeHomecomingDate", urlPart[3], document.getElementById('stHomeComingDataInput' + i).value, studyInfo[i]['group_name']);
-            //             location.reload();
-            //         }
-            //     })
-            // });
-
             //STUDENT COMMENT
             var studentComm = [];
             studentCommentMass.forEach(function (item, i, studentCommentMass) {
@@ -482,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
         //get groups
-
+        //
         var GroupNameMass = [];
         var LearningStatusMass = [];
         var EmploymentStatusMass = [];

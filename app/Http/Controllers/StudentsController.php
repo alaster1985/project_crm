@@ -41,7 +41,8 @@ class StudentsController extends Controller
             ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
-        return view('studentPersona', ['fone' => $fone]);
+        $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
+        return view('studentPersona', ['fone' => $fone,'id'=>$id]);
     }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
