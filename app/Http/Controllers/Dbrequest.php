@@ -90,9 +90,6 @@ class Dbrequest extends Controller
                 }
             }
         }
-//        return response()->json($array_numbers);
-        //   dd($request);
-//        return response()->json($request);
 
 
         foreach($array_numbers as $mob)
@@ -118,13 +115,32 @@ class Dbrequest extends Controller
     }
     function sendMail(Request $request)
     {
+        $aa = $request->get(0);
+        $text = $request->get(1);
+        $contacts = DB::table('contacts')
+            ->get();
 
-        $text = $request->msg;
-        Mail::raw("$text", function ($message) {
-            $message->subject("Информация от A-level");
-            $message->to("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
-        });
+        foreach ($contacts as $item) {
+            foreach ($aa as $id) {
+                if (($id == $item->person_id) && ($item->communication_tool == 'email') ) {
+                    $array_mails[] = $item->contact;
+                }
+            }
+        }
+
+        foreach($array_mails as $newmail)
+        {
+            Mail::raw("$text", function ($message) {
+                $message->subject("Информация от A-level");
+                $message->to("$newmail");
+            });
+        }
+
         return redirect()->back() ->with('alert  ', 'Новая версия');
+
+
+
+
     }
 
 
@@ -133,6 +149,8 @@ class Dbrequest extends Controller
     {
         $employeesdata = DB::table('alevel_members')
             ->leftJoin('persons', 'alevel_members.person_id', '=', 'persons.id')
+ //           ->leftJoin('users', 'alevel_members.person_id', '=', 'users.id')
+            ->leftJoin('contacts', 'alevel_members.person_id', '=', 'contacts.person_id')
             ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
             ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
             ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')
