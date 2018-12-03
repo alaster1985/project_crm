@@ -59,7 +59,7 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
                 </button>
-                <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
+                <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("rassilka")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
                 <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
@@ -91,7 +91,14 @@
             </table>
         </div>
     </div>
-
+    <div>
+        <form action="{{Route('rassilka')}}" method="post">
+            @csrf
+            Введите сообщение:<br>
+            <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
+            <input id="buttonsend" type="submit" value="Отправить">
+        </form>
+    </div>
     <div class="col-md-2 col-sm-2 col-xs-4">
         <div class="row"></div>
         <label for="learning_status">Статус обучения</label>

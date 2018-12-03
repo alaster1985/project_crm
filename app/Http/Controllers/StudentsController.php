@@ -309,28 +309,26 @@ class StudentsController extends Controller
             ]);
         return back();
     }
-    public function studentPersonaMobila(Request $request)
+    public function sendSms(Request $request)
     {
-        $contact = DB::table('contacts')->where('person_id', $request->id)->where('communication_tool', 'cell')->first();
-        $this->sendSms($contact->contact, $request->msg);
-//        dd($request);
-        $this->sendSms($request->contact, $request->msg);
-    }
-    public function sendSms($mobila, $mess)
-    {
-        if (isset($_POST['msg'])) {
-            $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
-            $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
+        $mobila = $request->contact;
+        $mess = $request->msg;
+
+        if (isset($mess)) {
+            $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
+            $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
             $client = new Client($accountSid, $authToken);
             $message = $client->messages->create(
                 "$mobila", array(
-                    'from' => '+18178138897',
+                    'from' => '+14133393335',
                     'body' => $mess
                 )
             );
+
             if ($message->sid) {
-                echo "Ваше сообщение удачно отправлено!";
+                return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
             }
         }
     }
+
 }
