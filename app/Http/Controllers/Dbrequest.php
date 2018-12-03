@@ -127,10 +127,6 @@ class Dbrequest extends Controller
         return redirect()->back() ->with('alert  ', 'Новая версия');
     }
 
-    public function index()
-    {
-        return view('mailTo');
-    }
 
 
     public function employeesdata()
