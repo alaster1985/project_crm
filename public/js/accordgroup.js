@@ -1,5 +1,6 @@
 // var smsstud = document.getElementById('buttonsend');
 var smsstud = document.getElementById('smsstud');
+var emailstud = document.getElementById('emailstud');
 var msgfield = document.getElementById('msgfield');
 
 var mytable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
@@ -134,8 +135,11 @@ function studGroup(itemgr, idgr) {
     }
 }
 
+
+
+
 smsstud.onclick = function (){
-    let mytext = document.getElementById('msgfield').value;
+   let mytext = document.getElementById('msgfield').value;
 //   console.log(mytext);
     let arr = [];
     for (var pole in globaldata) {
@@ -162,6 +166,33 @@ smsstud.onclick = function (){
 
 }
 
+emailstud.onclick = function (){
+   let mytext = document.getElementById('msgfield').value;
+//   console.log(mytext);
+    let arr = [];
+    for (var pole in globaldata) {
+        arr.push(globaldata[pole]['person_id'])
+    }
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/email/get",
+        // The key needs to match your method's input parameter (case-sensitive).
+        data: JSON.stringify([arr, mytext]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+        },
+        failure: function(errMsg){
+            //
+        }
+    });
+    // console.log(arr);
+
+}
 
 
 // function sms(studdata) {

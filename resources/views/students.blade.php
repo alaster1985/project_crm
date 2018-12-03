@@ -62,7 +62,7 @@
                 <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("rassilka")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
-                <button class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
+                <button id="emailstud" class="btn btn-info" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
                 </button>
                 <button class="btn btn-info" id="resetstudents"><i
