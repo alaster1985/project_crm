@@ -8,7 +8,7 @@
     @csrf
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <script type="text/javascript" async>
+    <script type="text/javascript">
 
     function getgoogle(){
             let self = this;
