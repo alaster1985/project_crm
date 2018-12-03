@@ -10,6 +10,7 @@ use App\Person;
 use App\Position;
 use App\Student;
 use App\Alevel_member;
+use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Mail;
 
@@ -143,10 +144,6 @@ class Dbrequest extends Controller
 
     }
 
-    public function index()
-    {
-        return view('mailTo');
-    }
 
 
     public function employeesdata()

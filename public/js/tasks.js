@@ -5,6 +5,7 @@ var studdata = {};
 
 
 function tasks(studdata) {
+//    console.log(studdata)
     // CLEAR TABLE BY DELETE ROWS
     globaldata = studdata;
     for (let i = document.getElementById('tasksT').getElementsByTagName('tr').length - 1; i; i--) {
