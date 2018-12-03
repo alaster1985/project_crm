@@ -29,9 +29,9 @@ class StoreContactPerson extends FormRequest
             'position_id' => 'required',
             'direction_id' => 'required',
             'company_id' => 'required',
-            'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
-            'contacts.1.contact' => 'required_without_all:contacts.0.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact',
-            'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact',
+            'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact|regex:/^\+380\d{3}\d{2}\d{2}\d{2}$/|nullable',
+            'contacts.1.contact' => 'required_without_all:contacts.0.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact|regex:/^\+380\d{3}\d{2}\d{2}\d{2}$/|nullable',
+            'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact|nullable|email',
             'contacts.3.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.4.contact',
             'contacts.4.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.3.contact',
         ];
@@ -47,6 +47,7 @@ class StoreContactPerson extends FormRequest
             'direction_id.required' => 'Please, select direction',
             'company_id.required' => 'Please, select company',
             'contacts.0.contact.required_without_all' => 'At least one contact must be specified',
+            'contacts.0.contact.regex' => 'Follow to the format',
         ];
     }
 }

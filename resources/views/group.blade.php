@@ -9,19 +9,25 @@
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Название:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="name_group">aaaaaaaaaaaa</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="name_group"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 parametr">Направление:</div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="direction_group"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 parametr">Дата начала обучения:</div>
-            <div class="col-md-6 col-sm-6 col-xs-12" id="start_date_group">asdad</div>
+            <div class="col-md-6 col-sm-6 col-xs-12" id="start_date_group"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 parametr">Дата окончания обучения:</div>
-            <div class="col-md-6 col-sm-6 col-xs-12" id="finish_date_group">asdad</div>
+            <div class="col-md-6 col-sm-6 col-xs-12" id="finish_date_group"></div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 parametr">Дата защиты проекта:</div>
-            <div class="col-md-6 col-sm-6 col-xs-12" id="homecoming_date_group">asdad</div>
+            <div class="col-md-6 col-sm-6 col-xs-12" id="homecoming_date_group"></div>
         </div>
     </div>
 </div>
+<script src="/js/run.js"></script>
+<script src="/js/viewEdit/viewEditGroups.js"></script>

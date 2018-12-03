@@ -16,7 +16,12 @@ Route::middleware('auth')->group(function () {
         return view('auth');
     })->name('index');
 
-    Route::get('/', 'StudentsController@showStudents');
+    Route::get('alevel', function () {
+        return view('sms');
+    })->name('alevel');
+
+
+        Route::get('/', 'StudentsController@showStudents');
 
 
     Route::post('addimage', 'Files@addImage')->name('add.image');
@@ -117,7 +122,7 @@ Route::post('students/getStudyCompanyStacks', 'StudentsController@getStudyCompan
 //JS GET COMPANY DATA
 Route::post('company/getCompanyName', 'CompaniesController@getCompanyName');
 Route::post('company/getCompanyStack', 'CompaniesController@getCompanyStack');
-
+Route::post('company/getContactPersonInfo', 'CompaniesController@getContactPersonInfo');
 
 
 //JS GET DATA EMPLOYEE
@@ -163,6 +168,7 @@ Route::post('students/chearnstatus',
 Route::post('students/ChangeSkills',
     'StudentsController@studentChangeContactSkills')->name('studentChangeContactSkills');
 
+//employee jsonpost
 Route::post('employee/getStudyCompanyStacks','EmployeesController@getStudyCompanyStacks')->name('getStudyCompanyStacks');
 Route::post('employee/ChangeCompanyPosition','EmployeesController@employeeChangePosition')->name('employeeChangeCompany');
 Route::post('employee/ChangeCompany','EmployeesController@employeeChangeCompany')->name('employeeChangeCompany');
@@ -170,6 +176,7 @@ Route::post('employees/ChangeDirection', 'EmployeesController@employeeChangeDire
 Route::post('employees/ChangeEmployeeComment','EmployeesController@employeeChangeComment')->name('employeeChangeComment');
 Route::post('employees/ChangeASPT', 'EmployeesController@employeeChangeASPT')->name('employeeChangeASPT');
 
+//companies jsonpost
 Route::post('company/ChangeName',
     'CompaniesController@companyChangeName')->name('companyChangeName');
 Route::post('company/ChangeAddress',
@@ -178,9 +185,35 @@ Route::post('company/ChangeComment',
     'CompaniesController@companyChangeComment')->name('companyChangeComment');
 Route::post('company/ChangeCommentStack',
     'CompaniesController@ChangeCommentStack')->name('ChangeCommentStack');
-
+ROUTE::post('company/ChangeCompanyStack',
+    'CompaniesController@ChangeCompanyStack');
 //Route::get('curentID','EmployeesController@TEST');
+ROUTE::post('company/ChangeContactName',
+    'CompaniesController@ChangeContactName');
+ROUTE::Post('company/ChangeCommTool',
+    'CompaniesController@ChangeCommTool');
+ROUTE::Post('company/ChangeCommToolNumber',
+    'CompaniesController@ChangeCommToolNumber');
 
-Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
+//groups get
+ROUTE::post('groups/getGroupInformation', 'GroupController@getGroupInformation');
+//GROUPS JSON
+ROUTE::post('groups/groupNameChange','GroupController@groupNameChange');
+ROUTE::post('groups/changeGroupsDirection','GroupController@changeGroupsDirection');
+ROUTE::post('groups/ChangeStartDate','GroupController@ChangeStartDate');
+ROUTE::post('groups/ChangeEndDate','GroupController@ChangeEndDate');
+ROUTE::post('groups/ChangeHomecomingDate','GroupController@ChangeHomecomingDate');
 
 
+//TASKS get
+
+
+//TASKS JSON
+Route::post('tasks/getTaskInfo', 'TasksController@getTaskInfo');
+
+Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
+ROUTE::post('profiles/info','ProfilesController@getProfileInfo');
+ROUTE::post('profiles/changeUserName','ProfilesController@changeUserName');
+ROUTE::post('profiles/changeUserPassword','ProfilesController@changeUserPassword');
+ROUTE::post('profiles/changeUserEmail','ProfilesController@changeUserEmail');
+///profiles/changeUserEmail

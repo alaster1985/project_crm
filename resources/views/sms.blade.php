@@ -2,7 +2,8 @@
 <div>
 
     <title>Статистика</title>
-    <script src="https://www.google.com/jsapi" async></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     @csrf
@@ -30,7 +31,6 @@
                     var sales = 0;
                     var PM = 0;
                     var design = 0;
-
                     var backendemployed = 0;
                     var frontendemployed = 0;
                     var fullStackemployed = 0;
@@ -66,8 +66,10 @@
                         }
                     }
 
-                    google.load("visualization", "1", {packages: ["corechart"]});
-                    google.setOnLoadCallback(drawChart);
+                    // google.load("visualization", "1", {packages: ["corechart"]});
+                    // google.setOnLoadCallback(drawChart);
+                    google.charts.load("visualization", "1", {packages: ["corechart"]});
+                    google.charts.setOnLoadCallback(drawChart);
 
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable([
@@ -79,19 +81,16 @@
                             ['PM', PM],
                             ['design', design],
                         ]);
-
                         var data1 = google.visualization.arrayToDataTable([
                             ['Direction', 'Backend', 'Frontend', 'Fullstack', 'Sales', 'PM', 'Design'],
                             ['Directions', backendemployed, frontendemployed,fullStackemployed,
                                 salesemployed, PMemployed, designemployed]
                         ]);
-
                         var options = {
                             title: 'На сегодняшний день студентами А-левел являются '+ dat.length+ ' человек',
                             is3D: true,
                             pieResidueSliceLabel: 'Остальное'
                         };
-
                         var options1 = {
                             title : 'Employeed students',
                             vAxis: {title: 'Persons'},
@@ -115,9 +114,9 @@
         getgoogle();
     </script>
 
-    <script>
-        google.load("visualization", "1", {packages:["corechart"]});
-    </script>
+    {{--<script>--}}
+        {{--google.load("visualization", "1", {packages:["corechart"]});--}}
+    {{--</script>--}}
 
     <div class="row">
         <div class="col-md-6 col-sm-6" id="circle" style="width: 500px; height: 400px;"></div>

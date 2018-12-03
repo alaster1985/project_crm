@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\Http\Requests\StoreCurrentEmployee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -77,7 +78,7 @@ class AddCurrentEmployeeController extends Controller
         ]);
     }
 
-    public function store(Request $request, $person)
+    public function store(StoreCurrentEmployee $request, $person)
     {
         DB::transaction(function () use ($request, $person) {
             $alevel_Member = new Alevel_member($request->toArray());

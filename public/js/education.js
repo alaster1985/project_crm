@@ -7,7 +7,6 @@ var alevelDirection = document.getElementById("direction_it");
 
 
 function alevel(studdata) {
-    console
     // CLEAR TABLE BY DELETE ROWS
     globaldata = studdata;
     for (let i = document.getElementById('alevelTable').getElementsByTagName('tr').length - 1; i; i--) {
@@ -20,10 +19,10 @@ function alevel(studdata) {
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-        cell1.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['group_name'] + '</a>';
-        cell2.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['direction'] + '</a>';
-        cell3.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['start_date'] + '</a>';
-        cell4.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['finish_date'] + '</a>';
+        cell1.innerHTML = '<a href="groups/show/' + studdata[gr]['id'] + '">' + studdata[gr]['group_name'] + '</a>';
+        cell2.innerHTML = '<a href="groups/show/' + studdata[gr]['id'] + '">' + studdata[gr]['direction'] + '</a>';
+        cell3.innerHTML = '<a href="groups/show/' + studdata[gr]['id'] + '">' + studdata[gr]['start_date'] + '</a>';
+        cell4.innerHTML = '<a href="groups/show/' + studdata[gr]['id'] + '">' + studdata[gr]['finish_date'] + '</a>';
         rowTable++;
     }
 }
