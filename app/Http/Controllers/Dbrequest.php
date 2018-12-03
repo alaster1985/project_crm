@@ -10,6 +10,7 @@ use App\Person;
 use App\Position;
 use App\Student;
 use App\Alevel_member;
+use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Mail;
 

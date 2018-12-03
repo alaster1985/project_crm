@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ImageValidation;
 use App\Task;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -34,13 +35,19 @@ Class TasksController extends Controller
         return view('taskView', ['taskView' => $taskView]);
     }
 
-    public function allTasks()
+    public function allTasks(Request $request)
     {
+
+
         $tasks = DB::table('tasks')
             ->select('tasks.id', 'task_name', 'description', 'dead_line', 'users.name as customerName', 'us.name as doerName','task_completed', 'doers_report')
             ->join('users', 'users.id', '=', 'tasks.user_id_customer')
             ->join('users as us', 'us.id', '=', 'tasks.user_id_doer')
+            ->where('us.id', '=', Auth::id())
+            ->orWhere('users.id', '=', Auth::id())
+//                ->having('users.name', '=', Auth::id())
             ->get();
+//        return response()->json(Auth::id());
         return response()->json($tasks);
     }
 
