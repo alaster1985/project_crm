@@ -1,6 +1,11 @@
+
+
 document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         var globaldata;
+
+        var smsemp = document.getElementById('smsemp');
+
         let direction_it = document.getElementById("direction_it");
         let position_it = document.getElementById("position_it");
         let chkbox = document.getElementById("chkbox");
@@ -155,5 +160,37 @@ document.onreadystatechange = function () {
                 }
             })
         }
+
+
+        smsemp.onclick = function (){
+            let mytext = document.getElementById('msgfield').value;
+            let arr = [];
+            for (var pole in globaldata) {
+                arr.push(globaldata[pole]['person_id'])
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/sms/get",
+                // The key needs to match your method's input parameter (case-sensitive).
+                data: JSON.stringify([arr, mytext]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data){
+//                    console.log(data);
+                },
+                failure: function(errMsg){
+//                    console.log(mytext)
+                }
+            });
+            // console.log(arr);
+
+        }
+
+
+
+
     }
 }
