@@ -19,10 +19,11 @@ class EmailSendController
         $email = $request->email;
         $text = $request->msg;
         $tema = $request->tema;
+        $po4ty = array("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
 
         Mail::raw("$text", function ($message) {
             $message->subject("qwe");
-            $message->to("igor.baranchuk333@gmail.com");
+            $message->to("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
         });
         return redirect()->back() ->with('alert  ', 'Новая версия');
     }
