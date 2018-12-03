@@ -57,6 +57,7 @@ Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
 Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
 
 Route::post('/sms/get', 'Dbrequest@smsphones')->name('rassilka');
+Route::post('/email/get', 'Dbrequest@sendMail')->name('sendMails');
 
 Route::get('/sendMail', 'EmailSendController@index')->name('index');
 Route::post('/sendMail', 'EmailSendController@SendMail')->name('sendMailTo');
