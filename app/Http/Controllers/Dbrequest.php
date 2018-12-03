@@ -11,6 +11,7 @@ use App\Position;
 use App\Student;
 use App\Alevel_member;
 use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -114,6 +115,21 @@ class Dbrequest extends Controller
             return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
         }
 
+    }
+    function sendMail(Request $request)
+    {
+
+        $text = $request->msg;
+        Mail::raw("$text", function ($message) {
+            $message->subject("Информация от A-level");
+            $message->to("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
+        });
+        return redirect()->back() ->with('alert  ', 'Новая версия');
+    }
+
+    public function index()
+    {
+        return view('mailTo');
     }
 
 
