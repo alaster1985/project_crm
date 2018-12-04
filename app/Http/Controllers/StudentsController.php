@@ -43,7 +43,19 @@ class StudentsController extends Controller
             ->first();
         $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
         return view('studentPersona', ['fone' => $fone,'id'=>$id]);
+
+        $mail = DB::table('persons')
+            ->select('contact')
+            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
+            ->join('students', 'persons.id', '=', 'students.person_id')
+            ->where('communication_tool', 'email')
+            ->where('students.person_id', '=', $id)
+            ->first();
+        $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
+        return view('studentPersona', ['fone' => $fone,'id'=>$id]);
     }
+
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

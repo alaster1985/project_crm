@@ -18,12 +18,13 @@ class EmailSendController
     {
 
         $text = $request->msg;
-
-        $po4ty = array("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
-
-        Mail::send(array('text' => 'view'), $po4ty);
-        return redirect()->back() ->with('alert  ', 'Новая версия');
-    }
+        $mail = $request->email;
+        Mail::raw("$text", function ($message) use ($mail) {
+            $message->subject("Информация от A-level");
+            $message->to("$mail");
+        });
+            return redirect()->back() ->with('alert  ', 'Новая версия');
+        }
 
     public function index()
     {
