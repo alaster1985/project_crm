@@ -39,9 +39,9 @@ class StoreStudent extends FormRequest
                 ],
             'learning_status' => 'required',
             'file' => 'mimes:pdf|max:2048',
-            'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact|regex:/^\+380\d{3}\d{2}\d{2}\d{2}$/|nullable',
+            'contacts.0.contact' => 'required_without_all:contacts.1.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact|regex:/^\+380\d{3}\d{2}\d{2}\d{2}$/',
             'contacts.1.contact' => 'required_without_all:contacts.0.contact,contacts.2.contact,contacts.3.contact,contacts.4.contact|regex:/^\+380\d{3}\d{2}\d{2}\d{2}$/|nullable',
-            'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact|nullable|email',
+            'contacts.2.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.3.contact,contacts.4.contact|email',
             'contacts.3.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.4.contact',
             'contacts.4.contact' => 'required_without_all:contacts.0.contact,contacts.1.contact,contacts.2.contact,contacts.3.contact',
         ];

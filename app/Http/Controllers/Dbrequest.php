@@ -10,7 +10,9 @@ use App\Person;
 use App\Position;
 use App\Student;
 use App\Alevel_member;
-
+use Illuminate\Support\Facades\Auth;
+use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +78,9 @@ class Dbrequest extends Controller
     public function smsphones(Request $request)
     {
 
-    $aa = $request->all();
+        $aa = $request->get(0);
+        $textmessage = $request->get(1);
+
         $contacts = DB::table('contacts')
             ->get();
 //
@@ -88,14 +92,66 @@ class Dbrequest extends Controller
             }
         }
 
-        return response()->json($array_numbers);
+
+        foreach($array_numbers as $mob)
+        {
+            if (isset($mob) && isset($textmessage)) {
+                $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
+                $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
+                $client = new Client($accountSid, $authToken);
+                $message = $client->messages->create(
+                    $mob, array(
+                        'from' => '+14133393335',
+                        'body' => $textmessage
+                    )
+                );
+
+
+            }
+        }
+        if ($message->sid) {
+            return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
+        }
+
     }
+    function sendMail(Request $request)
+    {
+        $aa = $request->get(0);
+        $text = $request->get(1);
+        $contacts = DB::table('contacts')
+            ->get();
+
+        foreach ($contacts as $item) {
+            foreach ($aa as $id) {
+                if (($id == $item->person_id) && ($item->communication_tool == 'email') ) {
+                    $array_mails[] = $item->contact;
+                }
+            }
+        }
+
+        foreach($array_mails as $newmail)
+        {
+            Mail::raw("$text", function ($message) {
+                $message->subject("Информация от A-level");
+                $message->to("$newmail");
+            });
+        }
+
+        return redirect()->back() ->with('alert  ', 'Новая версия');
+
+
+
+
+    }
+
 
 
     public function employeesdata()
     {
         $employeesdata = DB::table('alevel_members')
             ->leftJoin('persons', 'alevel_members.person_id', '=', 'persons.id')
+ //           ->leftJoin('users', 'alevel_members.person_id', '=', 'users.id')
+            ->leftJoin('contacts', 'alevel_members.person_id', '=', 'contacts.person_id')
             ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
             ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
             ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')

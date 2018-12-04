@@ -27,7 +27,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- Бренд или название сайта (отображается в левой части меню) -->
-                <a class="navbar-brand" href="{{route('index')}}" title="A-level">
+                {{--<a class="navbar-brand" href="{{route('index')}}" title="A-level">--}}
+                <a class="navbar-brand" href="{{route('alevel')}}" title="A-level">
                     <img style="max-width:100px; margin-top: -7px;"
                          src="/images/logo.png"> </a>
             </div>
