@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <form action="{{Route('add.add_cur_stud', [$person])}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <p>Записать текущего in группу</p>
+        <h4 class="name_table">Записать текущего in группу</h4>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО студента</label>
@@ -149,7 +149,7 @@
                 <label for="communication_tool">Мобильный 1</label>
                 <p>Номер телефона</p>
                 <h3>{{$mob1_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$mob1_comment}}</h3>
                 <p class="help-block">*used for SMS sending</p>
             </div>
@@ -157,32 +157,32 @@
                 <label for="communication_tool">Мобильный 2</label>
                 <p>Номер телефона</p>
                 <h3>{{$mob2_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$mob2_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
-                <p>мыло</p>
+                <p>E-mail</p>
                 <h3>{{$email_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$email_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
                 <p>Скайп</p>
                 <h3>{{$skype_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$skype_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
                 <p>Контакт</p>
                 <h3>{{$other_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$other_comment}}</h3>
             </div>
         </div>
-        <div><input type="submit" value="Add new student"></div>
+        <div><input  class=" button btn-info" type="submit" value="Add new student"></div>
         {{--<script src="/js/selectors.js"></script>--}}
     </form>
 </div>

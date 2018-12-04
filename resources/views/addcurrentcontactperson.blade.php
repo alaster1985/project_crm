@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <form action="{{Route('add.add_cur_contp', [$person])}}" method="post" enctype="multipart/form-data">
         @csrf
-        <p>Добавление нового контактного лица</p>
+        <h4 class="name_table">Добавление нового контактного лица</h4>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО контактного лица</label>
@@ -105,7 +105,7 @@
                 <h3>{{$other_comment}}</h3>
             </div>
         </div>
-        <div><input type="submit" value="Add new contact person"></div>
+        <div><input class=" button btn-info" type="submit" value="Add new contact person"></div>
         <script src="/js/selectors.js"></script>
     </form>
 </div>
