@@ -62,6 +62,7 @@ Route::post('/email/get', 'Dbrequest@sendMail')->name('sendMails');
 
 Route::get('/sendMail', 'EmailSendController@index')->name('index');
 Route::post('/sendMail', 'EmailSendController@SendMail')->name('sendMailTo');
+Route::post('/mail', 'StudentsController@sendMail')->name('sendMail');
 
 
 Route::get('addstudent', 'AddStudentController@index')->name('addstud');
