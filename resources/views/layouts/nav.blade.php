@@ -71,7 +71,8 @@
                             <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
                                title="Добавить компоненты"></a>
                         </button>
-
+                    </li>
+                    <li>
                         <button class="btn btn-link btn-lg" type="button" data-toggle="modal" data-target="#SMSModal">
                             <i class='glyphicon glyphicon-comment' title="Отправить SMS на любой номер"></i>
                         </button>
