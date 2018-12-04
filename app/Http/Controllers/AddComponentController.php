@@ -22,7 +22,7 @@ class AddComponentController extends Controller
         $param = key($arr);
         $component = ComponentFactory::get($param, $arr);
         $component->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'DONE!');
     }
 
     public function index()

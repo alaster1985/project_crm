@@ -2,7 +2,8 @@ var tasksTable = document.getElementById('tasksT').getElementsByTagName('tbody')
 var ll;
 var globaldata = {};
 var studdata = {};
-
+var inbut = document.getElementById('inbut');
+var outbut = document.getElementById('outbut');
 
 function tasks(studdata) {
 //    console.log(studdata)
@@ -75,3 +76,84 @@ statexec.onchange = function(){
         }
     })
 }
+
+inbut.onclick = function(){
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/alltasks",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/idu",
+                data: JSON.stringify([1,4,7]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(idu){
+                    for (let key in dat) {
+                        if (idu !== dat[key]['doerName']) {
+                            delete dat[key];
+                        }
+                    }
+                    tasks(dat);
+                },
+                failure: function(errMsg) {
+                    //
+                }
+            })
+        },
+        failure: function(errMsg) {
+            //
+        }
+    })
+}
+
+outbut.onclick = function(){
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: location.origin + "/alltasks",
+        data: JSON.stringify([1,4,7]),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(dat){
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/idu",
+                data: JSON.stringify([1,4,7]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(idu){
+                    for (let key in dat) {
+                        if (idu !== dat[key]['customerName']) {
+                            delete dat[key];
+                        }
+                    }
+                    tasks(dat);
+                },
+                failure: function(errMsg) {
+                    //
+                }
+            })
+        },
+        failure: function(errMsg) {
+            //
+        }
+    })
+}
+

@@ -20,6 +20,13 @@ use Illuminate\Support\Facades\DB;
 class Dbrequest extends Controller
 {
 
+    public function idu()
+    {
+        $result = DB::table('users')->find(Auth::id())->name;
+        return response()->json($result);
+    }
+
+
     public function direction()
     {
         return response()->json(Direction::select('id','direction')->distinct()->orderBy('id')->get());
@@ -150,8 +157,8 @@ class Dbrequest extends Controller
     {
         $employeesdata = DB::table('alevel_members')
             ->leftJoin('persons', 'alevel_members.person_id', '=', 'persons.id')
- //           ->leftJoin('users', 'alevel_members.person_id', '=', 'users.id')
-            ->leftJoin('contacts', 'alevel_members.person_id', '=', 'contacts.person_id')
+// //           ->leftJoin('users', 'alevel_members.person_id', '=', 'users.id')
+//            ->leftJoin('contacts', 'alevel_members.person_id', '=', 'contacts.person_id')
             ->leftJoin('positions', 'alevel_members.position_id', '=', 'positions.id')
             ->leftJoin('directions', 'alevel_members.direction_id', '=', 'directions.id')
             ->leftJoin('it_companies', 'alevel_members.company_id', '=', 'it_companies.id')

@@ -1,32 +1,18 @@
 @extends('layouts.nav')
 @section('title', 'Add Contact Person')
 <div class="container-fluid">
-    @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-    @endif
-    <form action="{{Route('add.contactperson')}}" method="post" enctype="multipart/form-data">
+    <form action="{{Route('add.add_cur_contp', [$person])}}" method="post" enctype="multipart/form-data">
         @csrf
         <p>Добавление нового контактного лица</p>
         <div class="row">
-
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО контактного лица</label>
-                @if ($errors->has('name'))
-                    <div style="color: red">{{($errors->first('name'))}}</div>
-                @endif
-                <input class="form-control" name="name" value="{{old('name')}}" placeholder="ФИО контактного лица">
-                <p class="help-block">*обязательное поле</p>
+                <h3>{{$name}}</h3>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес контактного лица</label>
-                @if ($errors->has('address'))
-                    <div style="color: red">{{($errors->first('address'))}}</div>
-                @endif
-                <input class="form-control" name="address" value="{{old('address')}}" placeholder="Адрес контактного лица">
-                <p class="help-block">*обязательное поле</p>
+                <h3>{{$address}}</h3>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="contact_person_comment">Комментарий</label>
@@ -80,45 +66,42 @@
         </div>
 
         <p><label>Контакты</label></p>
-        @if ($errors->has('*.contact'))
-            <div class="error">{{($errors->first('*.contact'))}}</div>
-        @endif
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>
-                <input hidden name="contacts[0][communication_tool]" value="mob1">
-                <p><input class="form-control" placeholder="Номер формате +380ХХХХХХХХХ" type="tel" {{--pattern="/^\+380\d{3}\d{2}\d{2}\d{2}$/"--}} maxlength="13" name="contacts[0][contact]" value="{{old('contacts.0.contact')}}"></p>
-                <p><input class="form-control" placeholder="Комментарий" name="contacts[0][comment]" value="{{old('contacts.0.comment')}}"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p>Номер телефона</p>
+                <h3>{{$mob1_contact}}</h3>
+                <p>Коментарий</p>
+                <h3>{{$mob1_comment}}</h3>
                 <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
-                <input hidden name="contacts[1][communication_tool]" value="mob2">
-                <p><input class="form-control" placeholder="Номер формате +380ХХХХХХХХХ" type="tel" maxlength="13" name="contacts[1][contact]" value="{{old('contacts.1.contact')}}"></p>
-                <p><input class="form-control" placeholder="Комментарий" name="contacts[1][comment]" value="{{old('contacts.1.comment')}}"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p>Номер телефона</p>
+                <h3>{{$mob2_contact}}</h3>
+                <p>Коментарий</p>
+                <h3>{{$mob2_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
-                <input hidden name="contacts[2][communication_tool]" value="email">
-                <p><input class="form-control" placeholder="Введите email" type="email" name="contacts[2][contact]" value="{{old('contacts.2.contact')}}"></p>
-                <p><input class="form-control" placeholder="Комментарий" name="contacts[2][comment]" value="{{old('contacts.2.comment')}}"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p>мыло</p>
+                <h3>{{$email_contact}}</h3>
+                <p>Коментарий</p>
+                <h3>{{$email_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
-                <input hidden name="contacts[3][communication_tool]" value="skype">
-                <p><input class="form-control" placeholder="Skype login" name="contacts[3][contact]" value="{{old('contacts.3.contact')}}"></p>
-                <p><input class="form-control" placeholder="Комментарий" name="contacts[3][comment]" value="{{old('contacts.3.comment')}}"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p>Скайп</p>
+                <h3>{{$skype_contact}}</h3>
+                <p>Коментарий</p>
+                <h3>{{$skype_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
-                <input hidden name="contacts[4][communication_tool]" value="Other">
-                <p><input class="form-control" placeholder="Контакт" name="contacts[4][contact]" value="{{old('contacts.4.contact')}}"></p>
-                <p><input class="form-control" placeholder="Комментарий" name="contacts[4][comment]" value="{{old('contacts.4.comment')}}"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p>Контакт</p>
+                <h3>{{$other_contact}}</h3>
+                <p>Коментарий</p>
+                <h3>{{$other_comment}}</h3>
             </div>
         </div>
         <div><input type="submit" value="Add new contact person"></div>

@@ -16,7 +16,7 @@ class AddTaskController extends Controller
                 'user_id_customer' => Auth::id(),
             ]);
         $task->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'DONE!');
     }
 
     public function index()
