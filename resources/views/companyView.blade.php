@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div id="imga">
-            <img src="/images/app.jpg" alt="Логотип компании" id="pic"/>
+            <img src="{{asset($logo)}}" alt="Логотип компании" id="pic"/>
         </div>
         <div class="headers_PP">Общая информация.</div>
         <div class="row">
