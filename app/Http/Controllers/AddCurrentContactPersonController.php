@@ -2,30 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Alevel_member;
-use App\Http\Requests\StoreCurrentEmployee;
-use Illuminate\Http\Request;
+use App\Contact_person;
+use App\Http\Requests\StoreCurrentContactPerson;
 use Illuminate\Support\Facades\DB;
 
-class AddCurrentEmployeeController extends Controller
+class AddCurrentContactPersonController extends Controller
 {
     public function index($person)
     {
         $person = DB::table('persons')->find($person);
-        $skills_id = DB::table('skill_groups')
-            ->get()
-            ->where('person_id', '=', $person->id)
-            ->pluck('skill_id')
-            ->toArray();
-        $skills = [];
-        foreach ($skills_id as $skill_id) {
-            $skill_name = DB::table('skills')
-                ->get()
-                ->where('id', '=', $skill_id)
-                ->pluck('skill_name')
-                ->toArray();
-            array_push($skills, $skill_name[0]);
-        }
         $contacts = DB::table('contacts')
             ->get()
             ->where('person_id', '=', $person->id)
@@ -57,11 +42,10 @@ class AddCurrentEmployeeController extends Controller
         $positions = DB::table('positions')->get();
         $directions = DB::table('directions')->get();
 
-        return view('addcurrentemployee', [
+        return view('addcurrentcontactperson', [
             'person' => $person->id,
             'name' => $person->name,
             'address' => $person->address,
-            'skills' => implode(", ", $skills),
             'companies' => $companies,
             'positions' => $positions,
             'directions' => $directions,
@@ -78,14 +62,14 @@ class AddCurrentEmployeeController extends Controller
         ]);
     }
 
-    public function store(StoreCurrentEmployee $request, $person)
+    public function store(StoreCurrentContactPerson $request, $person)
     {
         DB::transaction(function () use ($request, $person) {
-            $alevel_Member = new Alevel_member($request->toArray());
-            $alevel_Member->person_id = $person;
-            $alevel_Member->comment = $request->employee_comment;
-            $alevel_Member->save();
+            $contact_Person = new Contact_person($request->toArray());
+            $contact_Person->person_id = $person;
+            $contact_Person->comment = $request->contact_person_comment;
+            $contact_Person->save();
         });
-        return redirect()->route('show.employees')->with('message', 'DONE!');
+        return redirect()->route('ShowCompanies');
     }
 }

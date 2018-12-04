@@ -1,6 +1,10 @@
 @extends('layouts.nav')
 @section('title', 'Add Components')
-
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 <div class="container-fluid personal_page">
     <div class="row">
         <div class="form-group col-md-3 col-sm-12 col-xs-12">

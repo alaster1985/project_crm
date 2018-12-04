@@ -2,6 +2,7 @@
 @section('title', 'Задачи')
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div class="container-fluid ">
+
     <div class="col-md-2 col-sm-4 col-xs-4">
         <div>
             <label for="statusTasks">Статус выполнения</label>

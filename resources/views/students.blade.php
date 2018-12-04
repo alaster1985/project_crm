@@ -10,6 +10,11 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <div class="container-fluid ">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <div class="col-md-2 col-sm-4 col-xs-4">
 
         <div id="menu">
