@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Alevel_member;
 use App\Http\Requests\StoreCurrentStudent;
-use App\Http\Requests\StoreStudent;
 use App\Person;
 use App\Services\UploadCVService;
 use App\Student;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AddCurrentStudentController extends Controller
@@ -125,6 +123,6 @@ class AddCurrentStudentController extends Controller
             $student->comment = $request->student_comment;
             $student->save();
         });
-        return redirect()->route('ShowAllStudents');
+        return redirect()->route('ShowAllStudents')->with('message', 'DONE!');
     }
 }

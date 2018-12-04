@@ -19,7 +19,7 @@ class GroupController extends Controller
         $group = new Group($request->toArray());
         $group->direction_id = $request->direction_it;
         $group->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'DONE!');
     }
 
     /**

@@ -1,7 +1,11 @@
 @extends('layouts.nav')
 @section('title', 'Компании')
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
-
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 
 
 <div class="container-fluid">

@@ -22,6 +22,7 @@ var resetTasks = document.getElementById("resettasks");
 var statvz = document.getElementById("statvz");
 var statsort = document.getElementById("statsort");
 var statexec = document.getElementById("statexec");
+var mytext = document.getElementById("mytext");
 // var alevel = document.getElementById("alevelTable");
 
 
@@ -72,3 +73,9 @@ function jsonPostEdit(url, id, field, counter = null) {
     })
 }
 
+
+
+// mytext.onclick = function(){
+//     document.getElementById("mytext").disabled = true;
+//     setTimeout(function() {document.getElementById("mytext").disabled = false;}, 2000)
+// }

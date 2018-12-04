@@ -114,12 +114,8 @@
         getgoogle();
     </script>
 
-    {{--<script>--}}
-        {{--google.load("visualization", "1", {packages:["corechart"]});--}}
-    {{--</script>--}}
-
     <div class="row">
-        <div class="col-md-6 col-sm-6" id="circle" style="width: 500px; height: 400px;"></div>
-        <div class="col-md-6 col-sm-6" id="chart_div" style="width: 500px; height: 400px;"></div>
+        <div class="col-md-6 col-sm-6" id="circle" style="width: 50%; height: 90%;"></div>
+        <div class="col-md-6 col-sm-6" id="chart_div" style="width: 50%; height: 90%;"></div>
     </div>
 </div>

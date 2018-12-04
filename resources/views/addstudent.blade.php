@@ -1,6 +1,11 @@
 @extends('layouts.nav')
 @section('title', 'Add Student')
 <div class="container-fluid">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <form action="{{Route('add.student')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <p>Добавление нового студента</p>
@@ -174,8 +179,11 @@
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
-        <div><input type="submit" value="Add new student"></div>
+        <div><input id="mytext" type="submit" value="Add new student"></div>
     </form>
 </div>
+
+
+<script src="/js/run.js"></script>
 
 @extends('layouts.footer')

@@ -46,8 +46,9 @@ class AddCompanyController extends Controller
                 $stack_Group->save();
             }
         });
-        return redirect()->back();
+        return redirect()->route('ShowCompanies')->with('message', 'DONE!');
     }
+
     public function index()
     {
         return view('addcompany');

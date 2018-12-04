@@ -42,7 +42,7 @@ class AddEmployeeController extends Controller
                 $skill_Group->save();
             }
         });
-        return redirect()->back();
+        return redirect()->route('show.employees');
     }
     public function index()
     {
