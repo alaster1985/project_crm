@@ -39,14 +39,6 @@
 
     </div>
 
-    <div>
-        <form action="{{Route('rassilka')}}" method="post">
-            @csrf
-            Введите сообщение:<br>
-            <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
-            <input id="buttonsend" type="submit" value="Отправить">
-        </form>
-    </div>
 
     <div class="col-md-8 col-sm-6 table-responsive">
         <div class="row">
@@ -87,6 +79,14 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="col-md-2 col-sm-6">
+        <form action="{{Route('rassilka')}}" method="post">
+            @csrf
+            Введите сообщение:<br>
+            <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
+            <input id="buttonsend" type="submit" value="Отправить">
+        </form>
     </div>
 </div>
 <script src="/js/run.js"></script>

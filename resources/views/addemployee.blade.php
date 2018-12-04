@@ -86,7 +86,7 @@
                     <div class="error">{{($errors->first('skill_id'))}}</div>
                 @endif
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
-                    <option selected value="">Отсутствует</option>
+                    <option selected value="" disabled>Отсутствует</option>
                     @foreach($skills as $skill)
                         <option value="{{$skill->id}}">{{$skill->skill_name}}</option>
                     @endforeach

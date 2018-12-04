@@ -8,12 +8,12 @@
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО контактного лица</label>
-                <h3>{{$name}}</h3>
+                <h4>{{$name}}</h4>
             </div>
 
             <div class="form-group  col-md-3 col-sm-2">
                 <label for="person_address">Адрес контактного лица</label>
-                <h3>{{$address}}</h3>
+                <h4>{{$address}}</h4>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="contact_person_comment">Комментарий</label>
@@ -62,47 +62,40 @@
                 </select>
                 <p class="help-block">*обязательное поле</p>
             </div>
-
-
         </div>
 
         <p><label>Контакты</label></p>
         <div class="row">
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 1</label>
-                <p>Номер телефона</p>
-                <h3>{{$mob1_contact}}</h3>
+                <h4>{{$mob1_contact}}</h4>
                 <p>Комментарий</p>
-                <h3>{{$mob1_comment}}</h3>
+                <h4>{{$mob1_comment}}</h4>
                 <p class="help-block">*used for SMS sending</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Мобильный 2</label>
-                <p>Номер телефона</p>
-                <h3>{{$mob2_contact}}</h3>
+                <h4>{{$mob2_contact}}</h4>
                 <p>Комментарий</p>
-                <h3>{{$mob2_comment}}</h3>
+                <h4>{{$mob2_comment}}</h4>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
-                <p>E-mail</p>
-                <h3>{{$email_contact}}</h3>
+                <h4>{{$email_contact}}</h4>
                 <p>Комментарий</p>
-                <h3>{{$email_comment}}</h3>
+                <h4>{{$email_comment}}</h4>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
-                <p>Скайп</p>
-                <h3>{{$skype_contact}}</h3>
+                <h4>{{$skype_contact}}</h4>
                 <p>Комментарий</p>
-                <h3>{{$skype_comment}}</h3>
+                <h4>{{$skype_comment}}</h4>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
-                <p>Контакт</p>
-                <h3>{{$other_contact}}</h3>
+                <h4>{{$other_contact}}</h4>
                 <p>Комментарий</p>
-                <h3>{{$other_comment}}</h3>
+                <h4>{{$other_comment}}</h4>
             </div>
         </div>
         <div><input class=" button btn-info" type="submit" value="Add new contact person"></div>
