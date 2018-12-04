@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div id="imga">
-            <img src="/images/app.jpg" alt="Логотип компании" id="pic"/>
+            <img src="{{asset($logo)}}" alt="Логотип компании" id="pic"/>
         </div>
         <div class="headers_PP">Общая информация.</div>
         <div class="row">
@@ -30,7 +30,6 @@
             <div class="col-md-4 col-sm-12 col-xs-12 parametr">Стэк:</div>
             <div class="col-md-4 col-sm-12 col-xs-12" id="stack_company"></div>
             <div class="col-md-4 col-sm-12 col-xs-12" id="comment_company"></div>
-
         </div>
     </div>
     <div class="col-md-6 col-xs-12">

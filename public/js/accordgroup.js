@@ -72,15 +72,6 @@ selectlearn.onchange = function () {
             //
         }
     })
-
-
-
-    //     for (let key in globaldata) {
-    //         if (options[sel].value !== globaldata[key]['learning_status']) {
-    //             delete globaldata[key];
-    //         }
-    //     }
-    // studget(globaldata);
 }
 
 function studget(studdata) {
@@ -140,7 +131,6 @@ function studGroup(itemgr, idgr) {
 
 smsstud.onclick = function (){
    let mytext = document.getElementById('msgfield').value;
-//   console.log(mytext);
     let arr = [];
     for (var pole in globaldata) {
         arr.push(globaldata[pole]['person_id'])
@@ -156,19 +146,16 @@ smsstud.onclick = function (){
         contentType: "application/json",
         dataType: "json",
         success: function(data){
-            console.log(data);
+            //
         },
         failure: function(errMsg){
             //
         }
     });
-    // console.log(arr);
-
 }
 
 emailstud.onclick = function (){
    let mytext = document.getElementById('msgfield').value;
-//   console.log(globaldata);
     let arr = [];
     for (var pole in globaldata) {
         arr.push(globaldata[pole]['person_id'])
@@ -184,14 +171,12 @@ emailstud.onclick = function (){
         contentType: "application/json",
         dataType: "json",
         success: function(data){
-            console.log(data);
+            //
         },
         failure: function(errMsg){
-            console.log(data);
+            //
         }
     });
-    // console.log(arr);
-
 }
 
 

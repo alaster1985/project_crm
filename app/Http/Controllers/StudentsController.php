@@ -7,6 +7,7 @@ use App\Skill_group;
 use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Twilio\Rest\Client;
 class StudentsController extends Controller
 {
@@ -41,9 +42,20 @@ class StudentsController extends Controller
             ->where('communication_tool', 'mob1')
             ->where('students.person_id', '=', $id)
             ->first();
+
+        $mail = DB::table('persons')
+            ->select('contact')
+            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
+            ->join('students', 'persons.id', '=', 'students.person_id')
+            ->where('communication_tool', 'email')
+            ->where('students.person_id', '=', $id)
+            ->first();
         $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
-        return view('studentPersona', ['fone' => $fone,'id'=>$id]);
+        return view('studentPersona', ['fone' => $fone,'mail' => $mail,'id'=>$id]);
+
     }
+
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -330,5 +342,18 @@ class StudentsController extends Controller
             }
         }
     }
+
+    public function sendMail(Request $request)
+    {
+        $mail = $request->mail;
+        $text = $request->msg1;
+
+        Mail::raw("$text", function ($message) use ($mail) {
+            $message->subject("Информация от A-level");
+            $message->to("$mail");
+        });
+        return redirect()->back() ->with('alert  ', 'Новая версия');
+    }
+
 
 }

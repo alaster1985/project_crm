@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Employee')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 <div class="container-fluid">
     <form action="{{Route('add.employee')}}" method="post" enctype="multipart/form-data">
         @csrf

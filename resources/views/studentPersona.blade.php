@@ -16,12 +16,15 @@
         </div>
         <div class="col-md-1 col-sm-8 col-xs-12">
             <div class="row">
-            <button class="btn btn-info" onclick="window.location='{{ route("add_cur_emp", [$id])}}'"><i
+                <button class="btn btn-info" onclick="window.location='{{ route("add_cur_emp", [$id])}}'"><i
                         class='glyphicon glyphicon-user' title="Записать в сотрудники"> </i>
-            </button>
-            <button class="btn btn-warning ">
-                <i class='glyphicon glyphicon-trash' title="Удалить студента"> </i>
-            </button>
+                </button>
+                <button class="btn btn-info" onclick="window.location='{{ route("add_cur_contp", [$id])}}'"><i
+                        class='glyphicon glyphicon-user' title="Записать в контактные лица"> </i>
+                </button>
+                <button class="btn btn-warning ">
+                    <i class='glyphicon glyphicon-trash' title="Удалить студента"> </i>
+                </button>
             </div>
         </div>
     </div>
@@ -116,7 +119,6 @@
         </div>
 
 
-
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <form action="{{Route('sendSMS')}}" method="post">
@@ -128,6 +130,21 @@
                     {{--{{$fone->contact}}--}}
                     <input type="hidden" name="contact" value="{{$fone->contact}}">
                     <button type="submit" class="btn btn-info">Отправить сообщение</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <form action="{{Route('sendMail')}}" method="post">
+                    <div class="form-group">
+                        @csrf
+                        <textarea class="form-control" name="msg1" rows="3"
+                                  placeholder="Введите текст письма:"></textarea>
+                    </div>
+                    <input type="hidden" name="mail" value="{{$mail->contact}}">
+                    <button type="submit" class="btn btn-info">Отправить письмо</button>
                 </form>
             </div>
 

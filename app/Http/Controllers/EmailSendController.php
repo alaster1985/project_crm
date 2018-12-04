@@ -16,17 +16,15 @@ class EmailSendController
 {
     function sendMail(Request $request)
     {
-        $email = $request->email;
-        $text = $request->msg;
-        $tema = $request->tema;
-        $po4ty = array("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
 
-        Mail::raw("$text", function ($message) {
-            $message->subject("С уважением, администрация A-level!");
-            $message->to("igor.baranchuk333@gmail.com","igor.baranchuk.st@gmail.com");
+        $text = $request->msg;
+        $mail = $request->email;
+        Mail::raw("$text", function ($message) use ($mail) {
+            $message->subject("Информация от A-level");
+            $message->to("$mail");
         });
-        return redirect()->back() ->with('alert  ', 'Новая версия');
-    }
+            return redirect()->back() ->with('alert  ', 'Молодец');
+        }
 
     public function index()
     {

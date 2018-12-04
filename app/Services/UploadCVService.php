@@ -11,7 +11,7 @@ class UploadCVService extends Controller
     public $newCVName;
     public function upload(Request $request)
     {
-        $this->pathForCV = storage_path('CV/' . Group::find($request->group_id)->group_name);
+        $this->pathForCV = public_path('CV/' . Group::find($request->group_id)->group_name);
         $this->newCVName = basename($request->file->getClientOriginalName(),
                 '.'.$request->file->getClientOriginalExtension())
             .'_'.time(). '.' .$request->file->getClientOriginalExtension();
