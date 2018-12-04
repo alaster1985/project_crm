@@ -1,6 +1,5 @@
 @extends('layouts.nav')
 @section('title', 'Add Company')
-
 <div class="container-fluid">
     <form action="{{Route('add.company')}}" method="POST" enctype="multipart/form-data">
         @csrf

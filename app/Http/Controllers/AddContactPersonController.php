@@ -35,7 +35,7 @@ class AddContactPersonController extends Controller
                 $contact->save();
             };
         });
-        return redirect()->back();
+        return redirect()->back()->with('message', 'DONE!');
     }
     public function index()
     {

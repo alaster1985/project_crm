@@ -3,6 +3,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
 <div class="container-fluid">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <div class="col-md-2 col-sm-4 ">
         <div>
             <label for="groups">Направление в IT</label>

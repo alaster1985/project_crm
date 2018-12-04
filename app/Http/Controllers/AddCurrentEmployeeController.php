@@ -86,6 +86,6 @@ class AddCurrentEmployeeController extends Controller
             $alevel_Member->comment = $request->employee_comment;
             $alevel_Member->save();
         });
-        return redirect()->route('show.employees');
+        return redirect()->route('show.employees')->with('message', 'DONE!');
     }
 }

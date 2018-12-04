@@ -1,6 +1,11 @@
 @extends('layouts.nav')
 @section('title', 'Add Task')
 <div class="container-fluid">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <form action="{{Route('add.task')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <p>Добавить задачу</p>

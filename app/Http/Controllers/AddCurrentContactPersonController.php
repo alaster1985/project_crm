@@ -70,6 +70,6 @@ class AddCurrentContactPersonController extends Controller
             $contact_Person->comment = $request->contact_person_comment;
             $contact_Person->save();
         });
-        return redirect()->back();
+        return redirect()->route('ShowCompanies');
     }
 }
