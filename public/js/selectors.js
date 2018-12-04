@@ -178,7 +178,7 @@ new_skill.onclick = function () {
     new_direction_div.innerHTML = ''
     new_skill_div.innerHTML =
         '<input class="form-control" name="skill_name">\n' +
-        '<input type="submit" value="Confirm add">'
+        '<input class=" button btn-info" type="submit" value="Confirm add">'
 }
 
 new_stack.onclick = function () {
@@ -187,7 +187,7 @@ new_stack.onclick = function () {
     new_skill_div.innerHTML = ''
     new_stack_div.innerHTML =
         '<input class="form-control" name="stack_name">\n' +
-        '<input type="submit" value="Confirm add">'
+        '<input class=" button btn-info" type="submit" value="Confirm add">'
 }
 
 new_direction.onclick = function () {
@@ -196,7 +196,7 @@ new_direction.onclick = function () {
     new_skill_div.innerHTML = ''
     new_direction_div.innerHTML =
         '<input class="form-control" name="direction">\n' +
-        '<input type="submit" value="Confirm add">'
+        '<input class=" button btn-info" type="submit" value="Confirm add">'
 }
 
 new_position.onclick = function () {
@@ -205,5 +205,5 @@ new_position.onclick = function () {
     new_skill_div.innerHTML = ''
     new_position_div.innerHTML =
         '<input class="form-control" name="position">\n' +
-        '<input type="submit" value="Confirm add">'
+        '<input class=" button btn-info" type="submit" value="Confirm add">'
 }

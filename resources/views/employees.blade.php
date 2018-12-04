@@ -37,25 +37,12 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addempl")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового сотрудника"></i>
                 </button>
-                <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
-                            class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
-                </button>
-                <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
-                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
-                </button>
                 <button class="btn btn-info" id="resetemployees"><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
             </div>
         </div>
-        <div>
-            <form action="{{Route('rassilka')}}" method="post">
-                @csrf
-                Введите сообщение:<br>
-                <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
-                <input id="buttonsend" type="submit" value="Отправить">
-            </form>
-        </div>
+
         <div id="stres" class="table_scroll">
             <table id="employeeTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
                 <thead>
@@ -83,6 +70,21 @@
         </div>
     </div>
     <div class="col-md-2 col-sm-2">
+        <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                    class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
+        </button>
+        <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                    class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
+        </button>
+
+        <div>
+            <form action="{{Route('rassilka')}}" method="post">
+                @csrf
+                <br>
+                <textarea id="msgfield" placeholder="Введите сообщение для выбраных сотрудников" name="msg"></textarea><br>
+                <input id="buttonsend" type="submit" value="Отправить">
+            </form>
+        </div>
         <div>
             <input class="form-control" type="hidden" name="ASPT" value="0"/>
             <label><input type="checkbox" id="chkbox" name="ASPT" value="1"/> Кандидат? </label>
