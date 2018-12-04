@@ -1,6 +1,5 @@
 @extends('layouts.nav')
 @section('title', 'Информация о компании')
-
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="container-fluid personal_page">
@@ -31,7 +30,6 @@
             <div class="col-md-4 col-sm-12 col-xs-12 parametr">Стэк:</div>
             <div class="col-md-4 col-sm-12 col-xs-12" id="stack_company"></div>
             <div class="col-md-4 col-sm-12 col-xs-12" id="comment_company"></div>
-
         </div>
     </div>
     <div class="col-md-6 col-xs-12">
