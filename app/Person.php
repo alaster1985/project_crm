@@ -53,4 +53,8 @@ class Person extends Model
     {
         return $this->belongsTo('App\Fone');
     }
+    public function mails()
+    {
+        return $this->belongsTo('App\Mail');
+    }
 }

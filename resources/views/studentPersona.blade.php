@@ -133,6 +133,21 @@
 
         </div>
 
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <form action="{{Route('sendMail')}}" method="post">
+                    <div class="form-group">
+                        @csrf
+                        <textarea class="form-control" name="msg1" rows="3"
+                                  placeholder="Введите текст письма:"></textarea>
+                    </div>
+                    <input type="hidden" name="mail" value="{{$mail->contact}}">
+                    <button type="submit" class="btn btn-info">Отправить письмо</button>
+                </form>
+            </div>
+
+        </div>
+
     </div>
 </div>
 @extends('layouts.footer')
