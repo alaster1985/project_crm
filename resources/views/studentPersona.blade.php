@@ -16,12 +16,15 @@
         </div>
         <div class="col-md-1 col-sm-8 col-xs-12">
             <div class="row">
-            <button class="btn btn-info" onclick="window.location='{{ route("add_cur_emp", [$id])}}'"><i
+                <button class="btn btn-info" onclick="window.location='{{ route("add_cur_emp", [$id])}}'"><i
                         class='glyphicon glyphicon-user' title="Записать в сотрудники"> </i>
-            </button>
-            <button class="btn btn-warning ">
-                <i class='glyphicon glyphicon-trash' title="Удалить студента"> </i>
-            </button>
+                </button>
+                <button class="btn btn-info" onclick="window.location='{{ route("add_cur_contp", [$id])}}'"><i
+                        class='glyphicon glyphicon-user' title="Записать в контактные лица"> </i>
+                </button>
+                <button class="btn btn-warning ">
+                    <i class='glyphicon glyphicon-trash' title="Удалить студента"> </i>
+                </button>
             </div>
         </div>
     </div>
@@ -114,7 +117,6 @@
             <div class="col-md-6 col-sm-12 col-xs-12" id="stack_student"></div>
             <br><br>
         </div>
-
 
 
         <div class="row">
