@@ -1,5 +1,6 @@
 @extends('layouts.nav')
 @section('title', 'Информация о компании')
+
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="container-fluid personal_page">

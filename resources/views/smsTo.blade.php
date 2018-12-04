@@ -1,4 +1,5 @@
 @extends('layouts.nav')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <form action="{{Route('sendSmsTo')}}" method="post"
       enctype="multipart/form-data">
     @csrf
