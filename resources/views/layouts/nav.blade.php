@@ -48,7 +48,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropMenu">
                             <ul>
-                                <li><a class="dropdown-item" href={{route('user')}}>Профиль</a></li>
+                                <li><a class="dropdown-item" href={{ route('profile', Auth::user()) }}>Профиль</a></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
