@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Components')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
