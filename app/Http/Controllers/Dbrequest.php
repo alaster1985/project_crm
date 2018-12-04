@@ -131,7 +131,7 @@ class Dbrequest extends Controller
 
         foreach($array_mails as $newmail)
         {
-            Mail::raw("$text", function ($message) {
+            Mail::raw("$text", function ($message) use ($newmail) {
                 $message->subject("Информация от A-level");
                 $message->to("$newmail");
             });
