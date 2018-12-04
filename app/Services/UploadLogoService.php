@@ -11,7 +11,7 @@ class UploadLogoService extends Controller
     public $newLogoName;
     public function upload(Request $request)
     {
-        $this->pathForLogo = storage_path('Logo/');
+        $this->pathForLogo = public_path('Logo');
         $this->newLogoName = $request->company_name
             .'_'.time(). '.' .$request->file->getClientOriginalExtension();
         if (!file_exists($this->pathForLogo)) {
