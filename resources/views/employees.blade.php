@@ -10,7 +10,7 @@
             {{ session()->get('message') }}
         </div>
     @endif
-    <div class="col-md-2 col-sm-4 ">
+        <div class="col-md-2 col-sm-4 col-xs-4 col-xs-4">
         <div>
             <label for="groups">Должность сотрудника</label>
             <div>
@@ -65,23 +65,22 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="col-md-2 col-sm-6 ">
-        </div>
     </div>
-    <div class="col-md-2 col-sm-2">
-        <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
-                    class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
-        </button>
-        <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
-                    class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
-        </button>
-
+    <div class="col-md-2 col-sm-2 col-xs-4">
+        <div>
+            <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                        class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
+            </button>
+            <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                        class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
+            </button>
+        </div>
         <div>
             <form action="{{Route('rassilka')}}" method="post">
                 @csrf
                 <br>
-                <textarea id="msgfield" placeholder="Введите сообщение для выбраных сотрудников" name="msg"></textarea><br>
+                <textarea id="msgfield" placeholder="Введите сообщение для выбраных сотрудников"
+                          name="msg"></textarea><br>
                 <input id="buttonsend" type="submit" value="Отправить">
             </form>
         </div>
