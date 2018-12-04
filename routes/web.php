@@ -179,8 +179,4 @@ Route::post('company/ChangeComment',
 Route::post('company/ChangeCommentStack',
     'CompaniesController@ChangeCommentStack')->name('ChangeCommentStack');
 
-//Route::get('curentID','EmployeesController@TEST');
-
-Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
-
 
