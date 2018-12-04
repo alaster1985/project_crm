@@ -174,8 +174,11 @@
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
-        <div><input type="submit" value="Add new student"></div>
+        <div><input id="mytext" type="submit" value="Add new student"></div>
     </form>
 </div>
+
+
+<script src="/js/run.js"></script>
 
 @extends('layouts.footer')

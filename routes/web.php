@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/idu', 'Dbrequest@idu')->name('idu');
 
 Route::get('/smsTo', 'SmsController@index')->name('index');
 Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
