@@ -44,7 +44,7 @@
         </div>
 
         <div id="stres" class="table_scroll">
-            <table id="employeeTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="employeeTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                     <th class="col-xs-3 head" style="position: sticky;top: 0;background: white;">ФИО
