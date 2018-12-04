@@ -5,13 +5,14 @@ document.onreadystatechange = function () {
         var globaldata;
 
         var smsemp = document.getElementById('smsemp');
+        var emailemp = document.getElementById('emailemp');
 
         let direction_it = document.getElementById("direction_it");
         let position_it = document.getElementById("position_it");
         let chkbox = document.getElementById("chkbox");
         let skill_name_employees = document.getElementById("skill_name_employees");
         let outDataASPT;
-// let directionemployment = document.getElementById("direction_it");
+        // let directionemployment = document.getElementById("direction_it");
 
         var employeetable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
 
@@ -50,6 +51,7 @@ document.onreadystatechange = function () {
         function studget(studdata) {
             // CLEAR TABLE BY DELETE ROWS
             globaldata = studdata;
+            console.log(studdata)
             for (let i = document.getElementById('employeeTable').getElementsByTagName('tr').length - 1; i; i--) {
                 document.getElementById('employeeTable').deleteRow(i);
             }
@@ -185,9 +187,37 @@ document.onreadystatechange = function () {
 //                    console.log(mytext)
                 }
             });
-            // console.log(arr);
-
         }
+
+        emailemp.onclick = function (){
+            let mytext = document.getElementById('msgfield').value;
+            let arr = [];
+            for (var pole in globaldata) {
+                arr.push(globaldata[pole]['person_id'])
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: location.origin + "/email/get",
+                // The key needs to match your method's input parameter (case-sensitive).
+                data: JSON.stringify([arr, mytext]),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data){
+                    //
+                },
+                failure: function(errMsg){
+                    //
+                }
+            });
+        }
+
+
+
+
+
 
 
 
