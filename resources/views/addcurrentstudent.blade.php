@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Student')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 <div>
 <embed height="1" src="/js/123.mp3">
 </div>

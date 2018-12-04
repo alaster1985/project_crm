@@ -1,4 +1,5 @@
 @extends('layouts.nav')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <div>
 
     <title>Статистика</title>

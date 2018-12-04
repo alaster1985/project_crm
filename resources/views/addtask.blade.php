@@ -1,5 +1,7 @@
 @extends('layouts.nav')
 @section('title', 'Add Task')
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
+
 <div class="container-fluid">
     @if(session()->has('message'))
         <div class="alert alert-success">
