@@ -7,10 +7,31 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Mail;
+
 
 class EmployeesController extends Controller
 {
+    public function emploeePersonaView($id)
+    {
+        $fone = DB::table('persons')
+            ->select('contact')
+            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
+            ->where('communication_tool', 'mob1')
+            ->where('person_id', '=', $id)
+            ->first();
 
+        $mail = DB::table('persons')
+            ->select('contact')
+            ->join('contacts', 'persons.id', '=', 'contacts.person_id')
+            ->where('communication_tool', 'email')
+            ->where('person_id', '=', $id)
+            ->first();
+        $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
+        return view('emploeePersona', ['fone' => $fone,'mail' => $mail,'id'=>$id]);
+
+    }
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -33,11 +54,10 @@ class EmployeesController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function emploeePersonaView($id)
-    {
-        $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
-        return view('emploeePersona',['id'=>$id]);
-    }
+//    public function emploeePersonaView($id)
+//    {
+//        return view('emploeePersona');
+//    }
 
     /**
      * @param Request $request
@@ -135,6 +155,39 @@ class EmployeesController extends Controller
             ->where('alevel_members.person_id', $request->key)
             ->get();
         return response($stacks);
+    }
+    public function sendSms1(Request $request)
+    {
+        $mobila = $request->contact;
+        $mess = $request->msg;
+
+        if (isset($mess)) {
+            $accountSid = "AC1df6f09949519b33a45168cb3c568d24";
+            $authToken = "bfff6970a1a4e5913b079b82d4b6c617";
+            $client = new Client($accountSid, $authToken);
+            $message = $client->messages->create(
+                "$mobila", array(
+                    'from' => '+14133393335',
+                    'body' => $mess
+                )
+            );
+
+            if ($message->sid) {
+                return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
+            }
+        }
+    }
+
+    public function sendMail1(Request $request)
+    {
+        $mail = $request->mail;
+        $text = $request->msg1;
+
+        Mail::raw("$text", function ($message) use ($mail) {
+            $message->subject("Информация от A-level");
+            $message->to("$mail");
+        });
+        return redirect()->back() ->with('alert  ', 'Новая версия');
     }
 
 }
