@@ -39,15 +39,6 @@
 
     </div>
 
-    <div>
-        <form action="{{Route('rassilka')}}" method="post">
-            @csrf
-            Введите сообщение:<br>
-            <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
-            <input id="buttonsend" type="submit" value="Отправить">
-        </form>
-    </div>
-
     <div class="col-md-8 col-sm-6 table-responsive">
         <div class="row">
             <div class="col-md-9 col-sm-8"><h4 class="name_table">Список компаний</h4></div>

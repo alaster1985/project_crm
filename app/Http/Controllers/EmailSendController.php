@@ -23,8 +23,8 @@ class EmailSendController
             $message->subject("Информация от A-level");
             $message->to("$mail");
         });
-            return redirect()->back() ->with('alert  ', 'Молодец');
-        }
+        return redirect()->back()->with('alert  ', 'Молодец');
+    }
 
     public function index()
     {

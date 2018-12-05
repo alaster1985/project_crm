@@ -37,10 +37,10 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addempl")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового сотрудника"></i>
                 </button>
-                <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                <button id="smsemp" class="btn btn-info" onclick="window.location='{{ route("rassilka")}}'"><i
                             class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
                 </button>
-                <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("addempl")}}'"><i
+                <button id="emailemp" class="btn btn-info" onclick="window.location='{{ route("sendMails")}}'"><i
                             class='glyphicon glyphicon-envelope' title="Отправить E-mail"></i>
                 </button>
                 <button class="btn btn-info" id="resetemployees"><i
@@ -53,7 +53,6 @@
                 @csrf
                 Введите сообщение:<br>
                 <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
-                <input id="buttonsend" type="submit" value="Отправить">
             </form>
         </div>
         <div id="stres" class="table_scroll">
