@@ -4,9 +4,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<?Php
-$id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
-?>
 <button class="btn btn-warning" onclick="window.location='{{ route("add_cur_stud", [$id])}}'"><i
         class='glyphicon glyphicon-user' title="Записать в студенты"> </i>
 </button>

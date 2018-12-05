@@ -323,7 +323,6 @@ class StudentsController extends Controller
     }
     public function sendSms(Request $request)
     {
-        dd($request);
         $mobila = $request->contact;
         $mess = $request->msg;
 

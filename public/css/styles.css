@@ -131,3 +131,10 @@ body {
 .close:hover {
     background: #00d9ff;
 }
+
+#msgfield{
+
+    width: 100%;
+    height:20%;
+}
+

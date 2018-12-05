@@ -64,12 +64,7 @@
                 <button class="btn btn-warning" onclick="window.location='{{ route("addstud")}}'"><i
                             class='glyphicon glyphicon-user' title="Добавить нового студента"> </i>
                 </button>
-                <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("rassilka")}}'"><i
-                            class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
-                </button>
-                <button id="emailstud" class="btn btn-info" onclick="window.location='{{ route("sendMails")}}'"><i
-                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
-                </button>
+
                 <button class="btn btn-info" id="resetstudents"><i
                             class='glyphicon glyphicon-refresh' title="Reset"> </i>
                 </button>
@@ -96,63 +91,76 @@
             </table>
         </div>
     </div>
-        <div>
-            <form action="{{Route('rassilka')}}" method="post">
-                @csrf
-                Введите сообщение:<br>
-                <textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>
-            </form>
-        </div>
+
     <div class="col-md-2 col-sm-2 col-xs-4">
-        <div class="row"></div>
-        <label for="learning_status">Статус обучения</label>
-        <div>
-            <select id="learningstatus" class="form-control" name="learning_status">
-                <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
-                <option value="learning">learning</option>
-                <option value="graduated">graduated</option>
-                <option value="fell_of">fell_of</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        <label for="employment_status">Статус трудоустройства</label>
-        <div>
-            <select id="employmentstatus" name="employment_status" class="form-control">
-                <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
-                <option value="employed">employed</option>
-                <option value="in_search">in_search</option>
-                <option value="not_relevant_in_IT">not_relevant_in_IT</option>
-                <option value="refused">refused</option>
-                <option value="in_IT_not_in_direction">in_IT_not_in_direction</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-
-
-        <div>
-            <br/>
-            <select class="names-select2"></select>
-            <style>
-                select {
-                    width: 195px; /* Ширина списка в пикселах */
-                }
-            </style>
-        </div>
-        <div>
-            <div id="studParam">
-            </div>
-            <br><br>
+        <div class="row">
             <div>
-                <div id="findResult">
+                <button id="smsstud" class="btn btn-info" onclick="window.location='{{ route("rassilka")}}'"><i
+                            class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
+                </button>
+                <button id="emailstud" class="btn btn-info" onclick="window.location='{{ route("sendMails")}}'"><i
+                            class='glyphicon glyphicon-envelope' title="Отправить E-mail"> </i>
+                </button>
+                </br>
+            </div>
+            <div>
+                <p></p>
+                <form action="{{Route('rassilka')}}" method="post">
+                    @csrf
+                    {{--<label> Введите сообщение для выбранных студентов: </label>--}}
+                    <textarea id="msgfield" placeholder="Введите сообщение для выбранных студентов"
+                              name="msg"></textarea><br>
+                </form>
+            </div>
+
+            <label for="learning_status">Статус обучения</label>
+            <div>
+                <select id="learningstatus" class="form-control" name="learning_status">
+                    <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
+                    <option value="learning">learning</option>
+                    <option value="graduated">graduated</option>
+                    <option value="fell_of">fell_of</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <label for="employment_status">Статус трудоустройства</label>
+            <div>
+                <select id="employmentstatus" name="employment_status" class="form-control">
+                    <OPTION SELECTED VALUE="0" disabled>Выберите статус</OPTION>
+                    <option value="employed">employed</option>
+                    <option value="in_search">in_search</option>
+                    <option value="not_relevant_in_IT">not_relevant_in_IT</option>
+                    <option value="refused">refused</option>
+                    <option value="in_IT_not_in_direction">in_IT_not_in_direction</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+
+            <div>
+                <br/>
+                <select class="names-select2"></select>
+                <style>
+                    select {
+                        width: 220px; /* Ширина списка в пикселах */
+                    }
+                </style>
+            </div>
+            <div>
+                <div id="studParam">
+                </div>
+                <br><br>
+                <div>
+                    <div id="findResult">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-@extends('layouts.footer')
-{{--<script src="/js/reset.js"></script>--}}
-<script src="/js/run.js"></script>
-<script src="/js/search.js"></script>
-<script src="/js/accordgroup.js"></script>
+    @extends('layouts.footer')
+    {{--<script src="/js/reset.js"></script>--}}
+    <script src="/js/run.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/accordgroup.js"></script>

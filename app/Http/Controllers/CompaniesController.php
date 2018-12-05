@@ -47,7 +47,12 @@ class CompaniesController extends Controller
      */
     public function companyPersonalView()
     {
-        return view('companyView');
+        $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"]))-1];
+        $logo = DB::table('it_companies')
+            ->where('id', '=', $id)
+            ->get(['logo'])
+            ->pluck('logo')[0];
+        return view('companyView', compact('logo'));
     }
 
     /**

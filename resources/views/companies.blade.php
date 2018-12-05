@@ -39,6 +39,7 @@
 
     </div>
 
+
     <div class="col-md-8 col-sm-6 table-responsive">
         <div class="row">
             <div class="col-md-9 col-sm-8"><h4 class="name_table">Список компаний</h4></div>
@@ -55,16 +56,16 @@
             </div>
         </div>
         <div id="stres" class="table_scroll">
-            <table id="companiesTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="companiesTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
-                    <th class="col-xs-3 head" style="position: sticky;top: 0;background: white;">Название
+                    <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Название
                     </th>
-                    <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Статус
+                    <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Статус
                     </th>
                     <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Тип
                     </th>
-                    <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Сайт
+                    <th class="col-xs-5 head" style="position: sticky;top: 0;background: white;">Сайт
                     </th>
                     <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Адрес
                     </th>
@@ -79,6 +80,14 @@
             </table>
         </div>
     </div>
+    {{--<div class="col-md-2 col-sm-6">--}}
+        {{--<form action="{{Route('rassilka')}}" method="post">--}}
+            {{--@csrf--}}
+            {{--Введите сообщение:<br>--}}
+            {{--<textarea id="msgfield" placeholder="Message" name="msg"></textarea><br>--}}
+            {{--<input id="buttonsend" type="submit" value="Отправить">--}}
+        {{--</form>--}}
+    {{--</div>--}}
 </div>
 <script src="/js/run.js"></script>
 <script src="/js/companies.js"></script>

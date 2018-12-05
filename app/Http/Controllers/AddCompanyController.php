@@ -29,7 +29,7 @@ class AddCompanyController extends Controller
             if (!is_null($request->file)) {
                 $this->uploadFile = new UploadLogoService();
                 $this->uploadFile->upload($request);
-                $it_Company->logo = $this->uploadFile->pathForLogo . '/' . $this->uploadFile->newLogoName;
+                $it_Company->logo = 'Logo/' . $this->uploadFile->newLogoName;
             } else {
                 $it_Company->logo = null;
             }

@@ -22,9 +22,6 @@
                 <button class="btn btn-info" onclick="window.location='{{ route("add_cur_contp", [$id])}}'"><i
                         class='glyphicon glyphicon-user' title="Записать в контактные лица"> </i>
                 </button>
-                <button class="btn btn-warning ">
-                    <i class='glyphicon glyphicon-trash' title="Удалить студента"> </i>
-                </button>
             </div>
         </div>
     </div>

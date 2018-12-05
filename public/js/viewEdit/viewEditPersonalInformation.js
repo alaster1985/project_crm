@@ -174,8 +174,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             employment_status.id = 'stEmploymentStatus' + i;
             studentComment.innerHTML = studyInfo[i]['comment'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCommentButton" + i + '></button>';
             studentComment.id = 'stCommenT' + i;
-            studentCV.innerHTML = studyInfo[i]['CV'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCVButton" + i + '></button>';
-// =======
+            let weack   = studyInfo[i]['CV']
+            console.log(weack);
+            studentCV.innerHTML = "<a id='studentCVCV'>'CV'</a>" + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCVButton" + i + '></button>';
+            //studyInfo[i]['CV']
+            // =======
             // group_name.innerHTML = studyInfo[i]['group_name'] + '<button id=' + "GroupNameButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
             // GroupNameMass[i] = document.getElementById("GroupNameButton" + i);
             // group_name.id = 'stGroupName' + i;
@@ -196,6 +199,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             studentCommentMass[i] = document.getElementById('StudentCommentButton' + i);
         }
         //get skills
+        // document.getElementById('studentCVCV')
+        document.getElementById('studentCVCV').onclick = function(){
+            jsonPostEdit(location.origin + "/students/CVView", urlPart[3], weack);
+        };
+
         jsonPost(location.origin + '/students/getSkills', urlPart[3])
             .then(response => change_studentSkills(JSON.parse(response)));
 

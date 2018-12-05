@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +72,8 @@ class EmployeesController extends Controller
         return response($contacts);
     }
 
-    public function getEmployeeCompany(Request $request){
+    public function getEmployeeCompany(Request $request)
+    {
         $contacts = Alevel_member::select('company_name', 'position')
             ->join('it_companies', 'it_companies.id', '=', 'alevel_members.company_id')
             ->join('positions', 'positions.id', '=', 'alevel_members.position_id')
@@ -109,8 +111,9 @@ class EmployeesController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function employeeChangeASPT(Request $request){
-        Alevel_member::where('person_id',$request->id)->update([
+    public function employeeChangeASPT(Request $request)
+    {
+        Alevel_member::where('person_id', $request->id)->update([
             'ASPT' => $request->field
         ]);
         return back();
@@ -120,7 +123,8 @@ class EmployeesController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function employeeChangeCompany(Request $request){
+    public function employeeChangeCompany(Request $request)
+    {
         Alevel_member::where('person_id', $request->id)
             ->update([
                 'company_id' => $request->field
@@ -132,20 +136,22 @@ class EmployeesController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function employeeChangePosition(Request $request){
-            Alevel_member::where('person_id', $request->id)
-                ->update([
-                    'position_id' => $request->field
-                ]);
-            return back();
+    public function employeeChangePosition(Request $request)
+    {
+        Alevel_member::where('person_id', $request->id)
+            ->update([
+                'position_id' => $request->field
+            ]);
+        return back();
 
     }
 
-    public function getStudyCompanyStacks(Request $request){
+    public function getStudyCompanyStacks(Request $request)
+    {
         $stacks = Alevel_member::select('stack_name', 'stacks.id')
             ->join('it_companies', 'it_companies.id', '=', 'alevel_members.company_id')
-            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
-            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->join('stack_groups', 'stack_groups.company_id', '=', 'it_companies.id')
+            ->join('stacks', 'stack_groups.stack_id', '=', 'stacks.id')
             ->where('alevel_members.person_id', $request->key)
             ->get();
         return response($stacks);
