@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Alevel_member;
+use App\Group;
 use App\Http\Requests\StoreStudent;
 use App\Services\UploadCVService;
 use Illuminate\Support\Facades\DB;
@@ -33,7 +34,8 @@ class AddStudentController extends Controller
             if (!is_null($request->file)) {
                 $this->uploadFile = new UploadCVService();
                 $this->uploadFile->upload($request);
-                $student->CV = $this->uploadFile->pathForCV . '/' . $this->uploadFile->newCVName;
+//                dd('CV/' . $this->uploadFile->newCVName);
+                $student->CV = 'CV/' . Group::find($request->group_id)->group_name . '/' . $this->uploadFile->newCVName;
             } else {
                 $student->CV = null;
             }
