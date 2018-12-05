@@ -79,42 +79,47 @@
         </div>
         <p><label>Контакты</label></p>
         <div class="row">
-            <div class="form-group col-md-2 col-sm-3">
-                <label for="communication_tool">Мобильный 1</label>
-                <p>Номер телефона</p>
-                <h3>{{$mob1_contact}}</h3>
-                <p>Комментарий</p>
-                <h3>{{$mob1_comment}}</h3>
-                <p class="help-block">*used for SMS sending</p>
-            </div>
-            <div class="form-group col-md-2 col-sm-3">
-                <label for="communication_tool">Мобильный 2</label>
-                <p>Номер телефона</p>
-                <h3>{{$mob2_contact}}</h3>
-                <p>Комментарий</p>
-                <h3>{{$mob2_comment}}</h3>
-            </div>
-            <div class="form-group col-md-2 col-sm-3">
-                <label for="communication_tool">Электронная почта</label>
-                <p>E-mail</p>
-                <h3>{{$email_contact}}</h3>
-                <p>Комментарий</p>
-                <h3>{{$email_comment}}</h3>
-            </div>
-            <div class="form-group col-md-2 col-sm-3">
-                <label for="communication_tool">Скайп</label>
-                <p>Скайп</p>
-                <h3>{{$skype_contact}}</h3>
-                <p>Комментарий</p>
-                <h3>{{$skype_comment}}</h3>
-            </div>
-            <div class="form-group col-md-2 col-sm-3">
-                <label for="communication_tool">Другое</label>
-                <p>Контакт</p>
-                <h3>{{$other_contact}}</h3>
-                <p>Комментарий</p>
-                <h3>{{$other_comment}}</h3>
-            </div>
+            @if($mob1_contact)
+                <div class="form-group col-md-2 col-sm-3">
+                    <label for="communication_tool">Мобильный 1</label>
+                    <h3>{{$mob1_contact}}</h3>
+                    <p>Комментарий</p>
+                    <h3>{{$mob1_comment}}</h3>
+                    <p class="help-block">*used for SMS sending</p>
+                </div>
+            @endif
+            @if ($mob2_contact)
+                <div class="form-group col-md-2 col-sm-3">
+                    <label for="communication_tool">Мобильный 2</label>
+                    <h3>{{$mob2_contact}}</h3>
+                    <p>Комментарий</p>
+                    <h3>{{$mob2_comment}}</h3>
+                </div>
+            @endif
+            @if($email_contact)
+                <div class="form-group col-md-2 col-sm-3">
+                    <label for="communication_tool">Электронная почта</label>
+                    <h3>{{$email_contact}}</h3>
+                    <p>Комментарий</p>
+                    <h3>{{$email_comment}}</h3>
+                </div>
+            @endif
+            @if($skype_contact)
+                <div class="form-group col-md-2 col-sm-3">
+                    <label for="communication_tool">Скайп</label>
+                    <h3>{{$skype_contact}}</h3>
+                    <p>Комментарий</p>
+                    <h3>{{$skype_comment}}</h3>
+                </div>
+            @endif
+            @if($other_contact)
+                <div class="form-group col-md-2 col-sm-3">
+                    <label for="communication_tool">Другое</label>
+                    <h3>{{$other_contact}}</h3>
+                    <p>Комментарий</p>
+                    <h3>{{$other_comment}}</h3>
+                </div>
+            @endif
         </div>
         <div><input class=" button btn-info" type="submit" value="Добавить нового сотрудника"></div>
         <script src="/js/selectors.js"></script>
