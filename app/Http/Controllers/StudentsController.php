@@ -1,14 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Contact;
 use App\Group;
 use App\Person;
+use App\Services\UploadCVService;
 use App\Skill_group;
 use App\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Twilio\Rest\Client;
+
 class StudentsController extends Controller
 {
     /**
@@ -29,6 +33,7 @@ class StudentsController extends Controller
         return view('students', ['all_students' => $all_students, 'directions' => $directions, 'groups' => $groups,
             'learning_status' => $learningStatus, 'employment_status' => $employmentStatus]);
     }
+
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -37,6 +42,12 @@ class StudentsController extends Controller
     {
         $cv = DB::table('students')
             ->select('CV')
+            ->where('students.person_id', '=', $id)
+            ->first();
+
+        $studentGroup = DB::table('students')
+            ->select('group_name', 'group_id')
+            ->join('groups', 'groups.id', '=', 'students.group_id')
             ->where('students.person_id', '=', $id)
             ->first();
 
@@ -56,7 +67,7 @@ class StudentsController extends Controller
             ->where('students.person_id', '=', $id)
             ->first();
         $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
-        return view('studentPersona', ['fone' => $fone,'mail' => $mail,'id'=>$id, 'cv' => $cv]);
+        return view('studentPersona', ['fone' => $fone, 'mail' => $mail, 'id' => $id, 'cv' => $cv, 'studentGroup' => $studentGroup]);
 
     }
 
@@ -69,6 +80,7 @@ class StudentsController extends Controller
         $person = Person::where('id', $request->key)->get();
         return response($person);
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -79,6 +91,7 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -92,6 +105,7 @@ class StudentsController extends Controller
             ->get();
         return response($contacts);
     }
+
     public function getStudyCompany(Request $request)
     {
         $contacts = Student::select('company_name', 'position')
@@ -107,8 +121,8 @@ class StudentsController extends Controller
     {
         $stacks = Student::select('stack_name', 'stacks.id')
             ->join('it_companies', 'it_companies.id', '=', 'students.company_id')
-            ->join('stack_groups','stack_groups.company_id','=','it_companies.id')
-            ->join('stacks','stack_groups.stack_id','=','stacks.id')
+            ->join('stack_groups', 'stack_groups.company_id', '=', 'it_companies.id')
+            ->join('stacks', 'stack_groups.stack_id', '=', 'stacks.id')
             ->where('students.person_id', $request->key)
             ->get();
         return response($stacks);
@@ -127,6 +141,7 @@ class StudentsController extends Controller
             ->get();
         return response($skills);
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -138,6 +153,7 @@ class StudentsController extends Controller
         ]);
         return back();
     }
+
     public function studentChangeStudentComment(Request $request)
     {
         Student::where('person_id', $request->id)->update([
@@ -145,6 +161,7 @@ class StudentsController extends Controller
         ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -156,6 +173,7 @@ class StudentsController extends Controller
         ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -169,6 +187,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -182,6 +201,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -195,6 +215,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -207,7 +228,7 @@ class StudentsController extends Controller
 
 //        for ($i = 0; $i < count($request->field); $i++) {
 //=======
-        for($i = 0;$i<count($request->field);$i++) {
+        for ($i = 0; $i < count($request->field); $i++) {
 //>>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0
             Skill_group::insert(
                 ['skill_id' => $request->counter[$i], 'person_id' => $request->id]
@@ -215,6 +236,7 @@ class StudentsController extends Controller
         }
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -227,6 +249,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -239,6 +262,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -251,6 +275,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -270,6 +295,7 @@ class StudentsController extends Controller
 //            ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -282,6 +308,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -294,6 +321,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -306,6 +334,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -318,6 +347,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     public function studentChangeContactCompanyPosition(Request $request)
     {
         Student::where('person_id', $request->id)
@@ -326,6 +356,7 @@ class StudentsController extends Controller
             ]);
         return back();
     }
+
     public function sendSms(Request $request)
     {
         $mobila = $request->contact;
@@ -343,7 +374,7 @@ class StudentsController extends Controller
             );
 
             if ($message->sid) {
-                return redirect()->back() ->with('alert  ', 'Сообщение отправлено');
+                return redirect()->back()->with('alert  ', 'Сообщение отправлено');
             }
         }
     }
@@ -357,8 +388,32 @@ class StudentsController extends Controller
             $message->subject("Информация от A-level");
             $message->to("$mail");
         });
-        return redirect()->back() ->with('alert  ', 'Новая версия');
+        return redirect()->back()->with('alert  ', 'Новая версия');
     }
 
+    public function updateCV(Request $request)
+    {
+        //$student->CV = 'CV/' . Group::find($request->group_id)->group_name . '/' . $this->uploadFile->newCVName;
+        $student = DB::table('students')
+            ->join('persons','persons.id','=','students.person_id')
+            ->where('students.person_id','=',$request->id)
+            ->first();
+        //dd($student);
+        if (!is_null($request->file)) {
+            $uploadFile = new UploadCVService();
+            $uploadFile->upload($request);
+            //dd($uploadFile);
+            //$student->CV = 'CV/' . Group::find($request->group_id)->group_name . '/' . $uploadFile->newCVName;
+            DB::table('students')
+                ->join('persons','persons.id','=','students.person_id')
+                ->where('students.person_id','=',$request->id)
+                ->update([
+                   'CV' => 'CV/' . Group::find($request->group_id)->group_name . '/' . $uploadFile->newCVName
+                ]);
+            return redirect()->back();
+        } else {
+            return redirect()->route('/');
+        }
 
+    }
 }

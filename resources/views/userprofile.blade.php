@@ -21,7 +21,7 @@
             {{--</div>--}}
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 parametr">Логин пользователя:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="login_user"></div>
+                <div class="col-md-6 col-sm-12 col-xs-12" id="login_user"></div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 parametr">Пароль:</div>

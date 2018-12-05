@@ -13,6 +13,10 @@
 </head>
 <body>
 <header>
+    <?php
+        use Illuminate\Support\Facades\Auth;
+        $user = Auth::user();
+    ?>
     <!-- Классы navbar и navbar-default (базовые классы меню) -->
     <nav class=" navbar navbar-default navbar-fixed-top ">
         <!-- Контейнер (определяет ширину Navbar) -->
@@ -49,7 +53,11 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropMenu">
                             <ul>
                                 <li><a class="dropdown-item" href={{ route('profile', Auth::user()) }}>Профиль</a></li>
-                                <li>
+                                @if($user->hasRole('super_admin') || $user->hasRole('admin'))
+                                <li><a class="dropdown-item" href={{ route('dashboard', Auth::user()) }}>Админка</a></li>
+                                @endif
+                                    <li>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -67,10 +75,12 @@
                         </div>
                     </li>
                     <li>
+                        @if($user->hasRole('super_admin') || $user->hasRole('admin'))
                         <button class="btn  btn-link btn-lg ">
                             <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
                                title="Добавить компоненты"></a>
                         </button>
+                        @endif
                     </li>
                     <li>
                         <button class="btn btn-link btn-lg" type="button" data-toggle="modal" data-target="#SMSModal">

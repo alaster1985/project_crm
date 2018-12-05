@@ -96,6 +96,15 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Резюме:</div>
             <div class="col-md-6 col-sm-12 col-xs-12" id="rez_student"><p><a id="CV-student" href={{asset($cv->CV)}}>CV</a></p></div>
+            <form action="{{route('updatestudent.cv')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{$id}}">
+                {{--{{var_dump($studentGroup)}}--}}
+                <input type="hidden" name="group_id" value="{{$studentGroup->group_id}}">
+                <input type="file" name="file" accept="application/pdf" id="fileToUpload">
+                <br>
+                <button  type="submit" >Отправить</button>
+                {{ csrf_field() }}
+            </form>
         </div>
     </div>
     <div class="col-md-6 col-xs-12">

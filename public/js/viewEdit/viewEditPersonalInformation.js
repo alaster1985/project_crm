@@ -59,8 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let studcommunication_tool = document.createElement('p');
             let studcontact = document.createElement('p');
             let studcomment = document.createElement('p');
-            studcommunication_tool.innerHTML = studContacts[i]['communication_tool'] +
-                '<button class=\'btn btn-link  glyphicon glyphicon-pencil\'  id=' + "CommToolButton" + i + '></button>';
+            studcommunication_tool.innerHTML = studContacts[i]['communication_tool'];
             studcommunication_tool.id = 'stCommTool' + i;
             studcontact.innerHTML = studContacts[i]['contact'] +
                 '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ContactButton" + i + '></button>';
@@ -80,39 +79,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var CommentTool = [];
         var sel = [];
         for (let count = 0; count < studContacts.length; count++) {
-            CommTool[count] = document.getElementById('CommToolButton' + count);
+            //CommTool[count] = document.getElementById('CommToolButton' + count);
             ContactTool[count] = document.getElementById('ContactButton' + count);
             CommentTool[count] = document.getElementById('CommentButton' + count);
         }
 
-        var selectList = [];
-        CommTool.forEach(function (item, i, CommTool) {
-            CommTool[i].addEventListener('click', function () {
-                selectList[i] = document.getElementById('stCommTool' + i);
-// <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
-                selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'stCommTools' + i + "></button>";
-// =======
-//                 selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select>" +
-//                     "<button id = " + 'stCommTools' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
-// >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
-                httpGet(location.origin + "/communicationTools")
-                    .then(response => fun(JSON.parse(response)));
-
-                function fun(extData) {
-                    for (let gr = 0; gr < extData.length; gr++) {
-                        let selectOption = new Option(extData[gr]['communication_tool']);
-                        document.getElementById("stCommToolInput" + i).appendChild(selectOption)
-                    }
-                    sel[i] = document.getElementById('stCommToolInput' + i);
-                }
-
-                document.getElementById('stCommTools' + i).onclick = function () {
-                    sel[i] = sel[i].options[sel[i].selectedIndex].text;
-                    jsonPostEdit(location.origin + "/students/ChangeCommTool", urlPart[3], sel[i], contactId[i]);
-                    location.reload();
-                }
-            })
-        });
+//         var selectList = [];
+//         CommTool.forEach(function (item, i, CommTool) {
+//             CommTool[i].addEventListener('click', function () {
+//                 selectList[i] = document.getElementById('stCommTool' + i);
+// // <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
+//                 selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'stCommTools' + i + "></button>";
+// // =======
+// //                 selectList[i].innerHTML = "<select id=" + 'stCommToolInput' + i + "></select>" +
+// //                     "<button id = " + 'stCommTools' + i + " class ='btn btn-link  glyphicon glyphicon-floppy-saved'>Save</button>";
+// // >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
+//                 httpGet(location.origin + "/communicationTools")
+//                     .then(response => fun(JSON.parse(response)));
+//
+//                 function fun(extData) {
+//                     for (let gr = 0; gr < extData.length; gr++) {
+//                         let selectOption = new Option(extData[gr]['communication_tool']);
+//                         document.getElementById("stCommToolInput" + i).appendChild(selectOption)
+//                     }
+//                     sel[i] = document.getElementById('stCommToolInput' + i);
+//                 }
+//
+//                 document.getElementById('stCommTools' + i).onclick = function () {
+//                     sel[i] = sel[i].options[sel[i].selectedIndex].text;
+//                     jsonPostEdit(location.origin + "/students/ChangeCommTool", urlPart[3], sel[i], contactId[i]);
+//                     location.reload();
+//                 }
+//             })
+//         });
         var input1 = [];
         ContactTool.forEach(function (item, i, ContactTool) {
             ContactTool[i].addEventListener('click', function () {
@@ -219,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var skillId = [];
             var GroupId = [];
             for (i = 0; i < skills.length; i++) {
-                var skill = document.createElement('a');
+                var skill = document.createElement('i');
                 skill.innerHTML = skills[i]['skill_name'] + ' ';
                 skill.id = 'stSkill';
                 document.getElementById('skills_student').appendChild(skill);
@@ -537,7 +536,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function company_stacks(stacks) {
         //console.log(stacks);
         for (i = 0; i < stacks.length; i++) {
-            let stack = document.createElement('a');
+            let stack = document.createElement('i');
             stack.innerHTML = stacks[i]['stack_name'] + ' ';
             document.getElementById('stack_student').appendChild(stack);
         }
