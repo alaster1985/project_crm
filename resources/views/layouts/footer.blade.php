@@ -1,11 +1,7 @@
 </body>
 <footer class="navbar-fixed-bottom">
-
-    <!-- указать наши данные -->
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+        <a href="https://a-level.com.ua/">A-LEVEL UKRAINE</a>
     </div>
-    <!-- Copyright -->
-
 </footer>
 </html>

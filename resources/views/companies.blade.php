@@ -56,16 +56,16 @@
             </div>
         </div>
         <div id="stres" class="table_scroll">
-            <table id="companiesTable" class="table {{--table-striped--}} table-bordered table-hover table-sm">
+            <table id="companiesTable" class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
-                    <th class="col-xs-3 head" style="position: sticky;top: 0;background: white;">Название
+                    <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Название
                     </th>
-                    <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Статус
+                    <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Статус
                     </th>
                     <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Тип
                     </th>
-                    <th class="col-xs-2 head" style="position: sticky;top: 0;background: white;">Сайт
+                    <th class="col-xs-5 head" style="position: sticky;top: 0;background: white;">Сайт
                     </th>
                     <th class="col-xs-1 head" style="position: sticky;top: 0;background: white;">Адрес
                     </th>
