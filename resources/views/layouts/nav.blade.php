@@ -71,28 +71,66 @@
                             <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
                                title="Добавить компоненты"></a>
                         </button>
-
-                        <button class="btn btn-link btn-lg">{{--<a href="#openModalSMS"></a>--}}<i
-                                    class='glyphicon glyphicon-comment' title="Отправить СМС"></i>
+                    </li>
+                    <li>
+                        <button class="btn btn-link btn-lg" type="button" data-toggle="modal" data-target="#SMSModal">
+                            <i class='glyphicon glyphicon-comment' title="Отправить SMS на любой номер"></i>
                         </button>
-                        {{--<div id="openModalSMS" class="modalDialog">
-                            <div>
-                                <a href="#close" title="Закрыть" class="close">X</a>
-                                <form action="{{Route('sendSmsTo')}}" method="post"
-                                      enctype="multipart/form-data">
-                                    @csrf
-                                    <p>Контактный номер:</p>
-                                    <p><input type="text" class="form-control"
-                                              placeholder="+380955702380" name="mobile" required>
-                                    </p>
-                                    <p>Текст сообщения:</p>
-                                    <p><input type="text" class="form-control" placeholder="Текст сообщения"
-                                              name="msg" required>
-                                    </p>
-                                    <input type="submit" value="Отправить">
-                                </form>
+                        <div id="SMSModal" class="modal fade">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" type="button" data-dismiss="modal">×</button>
+                                        <h4 class="modal1-title">Отправить SMS</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{Route('sendSmsTo')}}" method="post"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <p>Контактный номер:</p>
+                                            <p><input type="text" class="form-control"
+                                                      placeholder="+380955702380" name="mobile" required>
+                                            </p>
+                                            <p>Текст сообщения:</p>
+                                            <p><input type="text" class="form-control" placeholder="Текст сообщения"
+                                                      name="msg" required>
+                                            </p>
+                                            <input type="submit" value="Отправить">
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        </div>--}}
+                        </div>
+
+                        <button class="btn btn-link btn-lg" type="button" data-toggle="modal"
+                                data-target="#myModal"><i
+                                    class='glyphicon glyphicon-envelope' title="Отправить email на любой адрес"></i>
+                        </button>
+                        <div id="myModal" class="modal fade">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" type="button" data-dismiss="modal">×</button>
+                                        <h4 class="modal-title">Отправить email</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{Route('sendSmsTo')}}" method="post"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <p>Контактный номер:</p>
+                                            <p><input type="text" class="form-control"
+                                                      placeholder="+380955702380" name="mobile" required>
+                                            </p>
+                                            <p>Текст сообщения:</p>
+                                            <p><input type="text" class="form-control" placeholder="Текст сообщения"
+                                                      name="msg" required>
+                                            </p>
+                                            <input type="submit" value="Отправить">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

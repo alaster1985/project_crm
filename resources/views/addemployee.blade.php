@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <form action="{{Route('add.employee')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <p>Добавление нового сотрудника</p>
+        <h4 class="name_table">Добавление нового сотрудника</h4>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО сотрудника</label>
@@ -86,7 +86,7 @@
                     <div class="error">{{($errors->first('skill_id'))}}</div>
                 @endif
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
-                    <option selected value="">Отсутствует</option>
+                    <option selected value="" disabled>Отсутствует</option>
                     @foreach($skills as $skill)
                         <option value="{{$skill->id}}">{{$skill->skill_name}}</option>
                     @endforeach
@@ -136,7 +136,7 @@
                 <p class="help-block">*не обязательное поле</p>
             </div>
         </div>
-        <div><input type="submit" value="Добавить нового сотрудника"></div>
+        <div><input class=" button btn-info" type="submit" value="Добавить нового сотрудника"></div>
         {{--<script src="/js/selectors.js"></script>--}}
     </form>
 </div>

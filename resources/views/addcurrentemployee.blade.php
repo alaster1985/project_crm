@@ -2,10 +2,10 @@
 @section('title', 'Add Employee')
 <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-<div class="container-fluid">
+<div class="container-fluid personal_page">
     <form action="{{Route('add.add_cur_emp', [$person])}}" method="post" enctype="multipart/form-data">
         @csrf
-        <p>Добавление нового сотрудника</p>
+        <h4 class="name_table"> Добавление нового сотрудника</h4>
         <div class="row">
             <div class="form-group col-md-3 col-sm-2">
                 <label for="person_name">ФИО сотрудника</label>
@@ -83,7 +83,7 @@
                 <label for="communication_tool">Мобильный 1</label>
                 <p>Номер телефона</p>
                 <h3>{{$mob1_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$mob1_comment}}</h3>
                 <p class="help-block">*used for SMS sending</p>
             </div>
@@ -91,32 +91,32 @@
                 <label for="communication_tool">Мобильный 2</label>
                 <p>Номер телефона</p>
                 <h3>{{$mob2_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$mob2_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Электронная почта</label>
-                <p>мыло</p>
+                <p>E-mail</p>
                 <h3>{{$email_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$email_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Скайп</label>
                 <p>Скайп</p>
                 <h3>{{$skype_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$skype_comment}}</h3>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
                 <p>Контакт</p>
                 <h3>{{$other_contact}}</h3>
-                <p>Коментарий</p>
+                <p>Комментарий</p>
                 <h3>{{$other_comment}}</h3>
             </div>
         </div>
-        <div><input type="submit" value="Добавить нового сотрудника"></div>
+        <div><input class=" button btn-info" type="submit" value="Добавить нового сотрудника"></div>
         <script src="/js/selectors.js"></script>
     </form>
 </div>
