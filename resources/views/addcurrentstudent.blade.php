@@ -148,9 +148,9 @@
             @if($mob1_contact)
                 <div class="form-group col-md-2 col-sm-3">
                     <label for="communication_tool">Мобильный 1</label>
-                    <h4>{{$mob1_contact}}</h4>
+                    <h3>{{$mob1_contact}}</h3>
                     <p>Комментарий</p>
-                    <h4>{{$mob1_comment}}</h4>
+                    <h3>{{$mob1_comment}}</h3>
                     <p class="help-block">*used for SMS sending</p>
                 </div>
             @endif
@@ -165,9 +165,9 @@
             @if($email_contact)
                 <div class="form-group col-md-2 col-sm-3">
                     <label for="communication_tool">Электронная почта</label>
-                    <h4>{{$email_contact}}</h4>
+                    <h3>{{$email_contact}}</h3>
                     <p>Комментарий</p>
-                    <h4>{{$email_comment}}</h4>
+                    <h3>{{$email_comment}}</h3>
                 </div>
             @endif
             @if($skype_contact)
@@ -175,17 +175,17 @@
                     <label for="communication_tool">Скайп</label>
                     <h3>{{$skype_contact}}</h3>
                     <p>Комментарий</p>
-                    <h4>{{$skype_comment}}</h4>
+                    <h3>{{$skype_comment}}</h3>
                 </div>
             @endif
-            {{--@if($other_contact)--}}
+            @if($other_contact)
                 <div class="form-group col-md-2 col-sm-3">
                     <label for="communication_tool">Другое</label>
-                    <h4>{{$other_contact}}</h4>
+                    <h3>{{$other_contact}}</h3>
                     <p>Комментарий</p>
-                    <h4>{{$other_comment}}</h4>
+                    <h3>{{$other_comment}}</h3>
                 </div>
-            {{--@endif--}}
+            @endif
         </div>
         <div><input class=" button btn-info" type="submit" value="Add new student"></div>
     </form>
