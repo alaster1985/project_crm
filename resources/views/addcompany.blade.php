@@ -44,7 +44,7 @@
                     <div style="color: red">{{($errors->first('file'))}}</div>
                 @endif
                 <input type="file" accept=".jpeg,.png,.jpg,.gif,.svg" name="file" id="fileToUpload">
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
 
         </div>
@@ -55,7 +55,7 @@
                 <label for="company_comment">Комментарий</label>
                 <input class="form-control" name="company_comment" value="{{old('company_comment')}}"
                        placeholder="Комментарий">
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
 
 
@@ -131,7 +131,7 @@
                 <p><input class="form-control" name="stacks[0][stack_comment]"
                           value="{{old('stacks.0.stack_comment')}}"
                           placeholder="Комментарий к стэк-технологии"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="stack1">Стэк 2</label>
@@ -142,7 +142,7 @@
                 <p><input class="form-control" name="stacks[1][stack_comment]"
                           value="{{old('stacks.1.stack_comment')}}"
                           placeholder="Комментарий к стэк-технологии"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
                 <p class="help-block">*double click to reset stack select</p>
             </div>
             <div class="form-group col-md-2 col-sm-3">
@@ -153,7 +153,7 @@
                 </br>
                 <p><input class="form-control" name="stacks[2][stack_comment]"
                           value="{{old('stacks.2.stack_comment')}}" placeholder="Комментарий к стэк-технологии"></p>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
                 <p class="help-block">*double click to reset stack select</p>
             </div>
         </div>

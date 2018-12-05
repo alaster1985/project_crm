@@ -61,7 +61,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="student_comment">Комментарий</label>
                 <input class="form-control" name="student_comment" value="{{old('student_comment')}}">
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skill_id">Скилл</label>
@@ -73,7 +73,7 @@
                     <div class="error">{{($errors->first('file'))}}</div>
                 @endif
                 <input type="file" name="file" accept="application/pdf" id="fileToUpload">
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
         </div>
         <div class="row">
@@ -103,7 +103,7 @@
                             Other
                         </option>
                     </select>
-                    <p class="help-block">*не обязательное поле</p>
+                    <p class="help-block">*необязательное поле</p>
                 </div>
             </div>
             <div class="form-group col-md-3 col-sm-3">
@@ -116,7 +116,7 @@
                         @endforeach
                     </select>
                 </div>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
             <div class="form-group col-md-3 col-sm-2">
                 <label for="companies">IT компания</label>
@@ -128,7 +128,7 @@
                         @endforeach
                     </select>
                 </div>
-                <p class="help-block">*не обязательное поле</p>
+                <p class="help-block">*необязательное поле</p>
             </div>
             <div class="form-group col-md-2 col-sm-2">
                 <label for="position">Должность</label>
