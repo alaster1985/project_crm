@@ -35,6 +35,11 @@ class StudentsController extends Controller
      */
     public function studentPersonaView($id)
     {
+        $cv = DB::table('students')
+            ->select('CV')
+            ->where('students.person_id', '=', $id)
+            ->first();
+
         $fone = DB::table('persons')
             ->select('contact')
             ->join('contacts', 'persons.id', '=', 'contacts.person_id')
@@ -51,7 +56,7 @@ class StudentsController extends Controller
             ->where('students.person_id', '=', $id)
             ->first();
         $id = explode('/', $_SERVER["REQUEST_URI"])[count(explode('/', $_SERVER["REQUEST_URI"])) - 1];
-        return view('studentPersona', ['fone' => $fone,'mail' => $mail,'id'=>$id]);
+        return view('studentPersona', ['fone' => $fone,'mail' => $mail,'id'=>$id, 'cv' => $cv]);
 
     }
 

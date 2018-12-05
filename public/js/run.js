@@ -26,6 +26,9 @@ var mytext = document.getElementById("mytext");
 // var alevel = document.getElementById("alevelTable");
 
 
+// var resume = document.getElementById("resume");
+// resume.innerHTML = '<a href="students/show/' + 'aaa' + '">' + 'Download CV' + '</a>';
+
 var accordionmenu = document.getElementById("accordionmenu");
 
 function httpGet(url) {
