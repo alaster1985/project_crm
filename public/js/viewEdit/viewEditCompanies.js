@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         };
 
-        var contactId=[];
+        var contactId = [];
         for (i = 0; i < ContactPersonInfo.length; i++) {
 
             let div = document.createElement('div');
@@ -177,8 +177,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let employCommunication_tool = document.createElement('p');
             let employContact = document.createElement('p');
             let employComment = document.createElement('p');
-            employCommunication_tool.innerHTML = ContactPersonInfo[i]['communication_tool'] +
-                '<button class=\'btn btn-link  glyphicon glyphicon-pencil\'  id=' + "CommToolButton" + i + '></button>';
+            employCommunication_tool.innerHTML = ContactPersonInfo[i]['communication_tool'];
             employCommunication_tool.id = 'employCommTool' + i;
             employContact.innerHTML = ContactPersonInfo[i]['contact'] +
                 '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ContactButton" + i + '></button>';
@@ -198,34 +197,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var CommentTool = [];
         var sel = [];
         for (let count = 0; count < ContactPersonInfo.length; count++) {
-            CommTool[count] = document.getElementById('CommToolButton' + count);
+            //CommTool[count] = document.getElementById('CommToolButton' + count);
             ContactTool[count] = document.getElementById('ContactButton' + count);
             CommentTool[count] = document.getElementById('CommentButton' + count);
         }
 
-        var selectList = [];
-        CommTool.forEach(function (item, i, CommTool) {
-            CommTool[i].addEventListener('click', function () {
-                selectList[i] = document.getElementById('employCommTool' + i);
-                selectList[i].innerHTML = "<select id=" + 'employCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'employCommTools' + i + "></button>";
-                httpGet(location.origin + "/communicationTools")
-                    .then(response => CommToolSelect(JSON.parse(response)));
-
-                function CommToolSelect(extData) {
-                    for (let gr = 0; gr < extData.length; gr++) {
-                        let selectOption = new Option(extData[gr]['communication_tool']);
-                        document.getElementById("employCommToolInput" + i).appendChild(selectOption)
-                    }
-                    sel[i] = document.getElementById('employCommToolInput' + i);
-                }
-
-                document.getElementById('employCommTools' + i).onclick = function () {
-                    sel[i] = sel[i].options[sel[i].selectedIndex].text;
-                    jsonPostEdit(location.origin + "/company/ChangeCommTool", ContactPersonInfo[0]['person_id'], sel[i], contactId[i]);
-                    //location.reload();
-                }
-            })
-        });
+        // var selectList = [];
+        // CommTool.forEach(function (item, i, CommTool) {
+        //     CommTool[i].addEventListener('click', function () {
+        //         selectList[i] = document.getElementById('employCommTool' + i);
+        //         selectList[i].innerHTML = "<select id=" + 'employCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'employCommTools' + i + "></button>";
+        //         httpGet(location.origin + "/communicationTools")
+        //             .then(response => CommToolSelect(JSON.parse(response)));
+        //
+        //         function CommToolSelect(extData) {
+        //             for (let gr = 0; gr < extData.length; gr++) {
+        //                 let selectOption = new Option(extData[gr]['communication_tool']);
+        //                 document.getElementById("employCommToolInput" + i).appendChild(selectOption)
+        //             }
+        //             sel[i] = document.getElementById('employCommToolInput' + i);
+        //         }
+        //
+        //         document.getElementById('employCommTools' + i).onclick = function () {
+        //             sel[i] = sel[i].options[sel[i].selectedIndex].text;
+        //             jsonPostEdit(location.origin + "/company/ChangeCommTool", ContactPersonInfo[0]['person_id'], sel[i], contactId[i]);
+        //             //location.reload();
+        //         }
+        //     })
+        // });
         var input1 = [];
         ContactTool.forEach(function (item, i, ContactTool) {
             ContactTool[i].addEventListener('click', function () {
@@ -251,40 +250,92 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // })
 
 
-            var position = document.createElement('p');
+        //     var position = document.createElement('p');
+        //
+        //     position.innerHTML = ContactPersonInfo[i]['position'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "PositionButton" + i + '></button>';
+        //     position.id = 'stPosition';
+        //     PositionsNameMass = document.getElementById('position_emploee_company');
+        //     PositionsNameMass.appendChild(position);
+        //     PositionsNameMass= document.getElementById("PositionButton")
+        //
+        //
+        // //position
+        // var sel7 = [];
+        // var positionList = [];
+        // PositionsNameMass.forEach(function (item, i, PositionsNameMass) {
+        //     PositionsNameMass[i].addEventListener('click', function () {
+        //         positionList[i] = document.getElementById('stPosition' + i);
+        //         positionList[i].innerHTML = "<select id=" + 'stPositionNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonPosition' + i + "></button>";
+        //
+        //         httpGet(location.origin + "/position")
+        //             .then(response => fun8(JSON.parse(response)));
+        //
+        //         function fun8(extData) {
+        //             for (let gr = 0; gr < extData.length; gr++) {
+        //                 let selectOption = new Option(extData[gr]['position']);
+        //                 document.getElementById('stPositionNameInput' + i).appendChild(selectOption)
+        //             }
+        //             sel7[i] = document.getElementById('stPositionNameInput' + i);
+        //         }
+        //
+        //         document.getElementById('ButtonPosition' + i).onclick = function () {
+        //             sel7[i] = sel7[i].options[sel7[i].selectedIndex].index + 1;
+        //             jsonPostEdit(location.origin + "/employee/ChangeCompanyPosition", urlPart[3], sel7[i]);
+        //             location.reload();
+        //         }
+        //     })
+        //});
 
-            position.innerHTML = ContactPersonInfo[i]['position'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "PositionButton" + i + '></button>';
-            position.id = 'stPosition';
-            document.getElementById('position_emploee_company').appendChild(position);
-            PositionsNameMass[0] = document.getElementById("PositionButton")
+        // let direction_personId = document.getElementById('direction_emploee_company');
+        let direction_personId = document.createElement('p');
+        direction_personId.innerHTML = ContactPersonInfo[0]['direction'] +
+            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="direction_person"></button>';
+        document.getElementById('direction_emploee_company').appendChild(direction_personId);
+
+        let position_personId = document.createElement('p');
+
+        position_personId.innerHTML = ContactPersonInfo[0]['position'] +
+            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="position_person"></button>';
+        document.getElementById('position_emploee_company').appendChild(position_personId);
 
 
-        //position
-        var sel7 = [];
-        var positionList = [];
-        PositionsNameMass.forEach(function (item, i, PositionsNameMass) {
-            PositionsNameMass[i].addEventListener('click', function () {
-                positionList[i] = document.getElementById('stPosition' + i);
-                positionList[i].innerHTML = "<select id=" + 'stPositionNameInput' + i + "></select><button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'ButtonPosition' + i + "></button>";
+        let comment_personId = document.createElement('p');
+        comment_personId.innerHTML = ContactPersonInfo[0]['comment'] +
+            '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="direction_person"></button>';
+        document.getElementById('comment_emploee_company').appendChild(comment_personId);
+        //document.getElementById('position_person').onclick = function () {
 
-                httpGet(location.origin + "/position")
-                    .then(response => fun8(JSON.parse(response)));
+            // nameContact.innerHTML = "<input type='text' id='contactNameInput' value='" + ContactPersonInfo[0]['name'] + "'>" +
+            //     "<button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='contactNameButton'></button>";
+            //
+            // document.getElementById('contactNameButton').onclick = function () {
+            //     jsonPostEdit(location.origin + "/company/ChangeContactName", urlPart[3], document.getElementById('contactNameInput').value, ContactPersonInfo[0]['person_id']);
+            //     location.reload();
+            // }
+        // };
+            //CommTool[i].addEventListener('click', function () {
+            //         selectList[i] = document.getElementById('employCommTool' + i);
+            //         selectList[i].innerHTML = "<select id=" + 'employCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'employCommTools' + i + "></button>";
+            //         httpGet(location.origin + "/communicationTools")
+            //             .then(response => CommToolSelect(JSON.parse(response)));
+            //
+            //         function CommToolSelect(extData) {
+            //             for (let gr = 0; gr < extData.length; gr++) {
+            //                 let selectOption = new Option(extData[gr]['communication_tool']);
+            //                 document.getElementById("employCommToolInput" + i).appendChild(selectOption)
+            //             }
+            //             sel[i] = document.getElementById('employCommToolInput' + i);
+            //         }
+            //
+            //         document.getElementById('employCommTools' + i).onclick = function () {
+            //             sel[i] = sel[i].options[sel[i].selectedIndex].text;
+            //             jsonPostEdit(location.origin + "/company/ChangeCommTool", ContactPersonInfo[0]['person_id'], sel[i], contactId[i]);
+            //             //location.reload();
+            //         }
+            //     })
+            // });
 
-                function fun8(extData) {
-                    for (let gr = 0; gr < extData.length; gr++) {
-                        let selectOption = new Option(extData[gr]['position']);
-                        document.getElementById('stPositionNameInput' + i).appendChild(selectOption)
-                    }
-                    sel7[i] = document.getElementById('stPositionNameInput' + i);
-                }
-
-                document.getElementById('ButtonPosition' + i).onclick = function () {
-                    sel7[i] = sel7[i].options[sel7[i].selectedIndex].index + 1;
-                    jsonPostEdit(location.origin + "/employee/ChangeCompanyPosition", urlPart[3], sel7[i]);
-                    location.reload();
-                }
-            })
-        });
+        //let direction_personId = document.getElementById('direction_emploee_company');
 
     }
 

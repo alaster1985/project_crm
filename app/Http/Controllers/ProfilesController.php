@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 
@@ -16,35 +17,44 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function getProfileInfo(Request $request ){
+    public function getProfileInfo(Request $request)
+    {
 
-        $user= User::where('id',$request->key)
+        $user = User::where('id', $request->key)
             ->get();
 
         return response($user);
     }
 
-    public function changeUserName(Request $request){
+    public function changeUserName(Request $request)
+    {
 
-        User::where('id',$request->id)
+        User::where('id', $request->id)
             ->update([
                 'name' => $request->field
             ]);
 
         return back();
     }
+
     //ProfilesController@changeUserPassword
 
-    public function changeUserPassword(Request $request){
-        User::where('id',$request->id)
-            ->update([
-                'password' => bcrypt($request->field)
-            ]);
-        return back();
+    public function changeUserPassword(Request $request)
+    {
+        if ($request->field == null) {
+            return back();
+        } else {
+            User::where('id', $request->id)
+                ->update([
+                    'password' => bcrypt($request->field)
+                ]);
+            return back();
+        }
     }
 
-    public function changeUserEmail(Request $request){
-        User::where('id',$request->id)
+    public function changeUserEmail(Request $request)
+    {
+        User::where('id', $request->id)
             ->update([
                 'email' => $request->field
             ]);
