@@ -18,7 +18,7 @@ class ITCompanyTableSeeder extends Seeder
             'type' => 'Трудоустройство',
             'site' => 'какой-то сайт на укозе',
             'address' => 'где-то в центре Харькова',
-            'logo' => 'тут путь к файлу лого1',
+            'logo' => 'Logo/brilliant.jpg',
             'comment' => 'какой-то полезный текст',
         ]);
         DB::table('it_companies')->insert([
@@ -27,7 +27,7 @@ class ITCompanyTableSeeder extends Seeder
             'type' => 'Отсутствует',
             'site' => 'какой-то сайт на третьей воде на киселе',
             'address' => 'где-то в Дергачах',
-            'logo' => 'тут путь к файлу лого2',
+            'logo' => 'Logo/topaz.png',
             'comment' => 'тут может быть Ваша реклама!',
         ]);
     }

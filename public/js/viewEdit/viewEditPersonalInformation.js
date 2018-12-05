@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let learning_status = document.createElement('p');
             let employment_status = document.createElement('p');
             let studentComment = document.createElement('p');
-            let studentCV = document.createElement('p');
+            //let studentCV = document.createElement('p');
 // <<<<<<< HEAD:public/js/viewEdit/viewEditPersonalInformation.js
             group_name.innerHTML = studyInfo[i]['group_name'] + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "GroupNameButton" + i + '></button>';
             // GroupNameMass[i] = document.getElementById("GroupNameButton" + i);
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             studentComment.id = 'stCommenT' + i;
             let weack   = studyInfo[i]['CV']
             console.log(weack);
-            studentCV.innerHTML = "<a id='studentCVCV'>'CV'</a>" + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCVButton" + i + '></button>';
+            //studentCV.innerHTML = "<a id='studentCVCV'>'CV'</a>" + '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "StudentCVButton" + i + '></button>';
             //studyInfo[i]['CV']
             // =======
             // group_name.innerHTML = studyInfo[i]['group_name'] + '<button id=' + "GroupNameButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
@@ -189,20 +189,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // studentComment.id = 'stCommenT' + i;
             // studentCV.innerHTML = studyInfo[i]['CV'] + '<button id=' + "StudentCVButton" + i + ' class=\'btn btn-link  glyphicon glyphicon-pencil\'></button>';
 // >>>>>>> e01e21b03325ee973aab1aa2e3fef0b387c76aa0:public/js/viewEditPersonalInformation.js
-            studentCV.id = 'stCV' + i;
+            //studentCV.id = 'stCV' + i;
             document.getElementById('group_student').appendChild(group_name);
             document.getElementById('learning_status_student').appendChild(learning_status);
             document.getElementById('employment_status_student').appendChild(employment_status);
             document.getElementById('comment_student').appendChild(studentComment);
-            document.getElementById('rez_student').appendChild(studentCV);
+            //document.getElementById('rez_student').appendChild(studentCV);
             studentCommentMass[i] = document.getElementById('StudentCommentButton' + i);
         }
         //get skills
         // document.getElementById('studentCVCV')
-        document.getElementById('studentCVCV').onclick = function(){
-            jsonPostEdit(location.origin + "/students/CVView", urlPart[3], weack);
-        };
+        //document.getElementById('studentCVCV').onclick = function(){
+          //  jsonPostEdit(location.origin + "/students/CVView", urlPart[3], weack);
+        //};
 
+        //STUDENT CV
+        // let studentCV = document.createElement('a');
+        // studentCV.innerHTML = 'CV';
+        // document.getElementById('rez_student').appendChild(studentCV);
+        // document.getElementById('rez_student').onclcick = function(){
+        //   document.getElementById('CV-student');
+        // };
         jsonPost(location.origin + '/students/getSkills', urlPart[3])
             .then(response => change_studentSkills(JSON.parse(response)));
 

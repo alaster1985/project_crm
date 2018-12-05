@@ -51,13 +51,19 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/idu', 'Dbrequest@idu')->name('idu');
 
-    Route::get('/smsTo', 'SmsController@index')->name('index');
-    Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
-    Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
-    Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
+Route::get('/smsTo', 'SmsController@index')->name('index');
+Route::post('/smsTo', 'SmsController@sendSmsTo')->name('sendSmsTo');
+Route::post('/sms', 'StudentsController@sendSms')->name('sendSMS');
+Route::post('/sms1', 'EmployeesController@sendSms1')->name('sendSMS1');
+Route::post('/smsGroup', 'GroupSendSmsController@sendGroupSms')->name('sendGroupSms');
 
     Route::post('/sms/get', 'Dbrequest@smsphones')->name('rassilka');
     Route::post('/email/get', 'Dbrequest@sendMail')->name('sendMails');
+
+Route::get('/sendMail', 'EmailSendController@index')->name('index');
+Route::post('/sendMail', 'EmailSendController@SendMail')->name('sendMailTo');
+Route::post('/mail', 'StudentsController@sendMail')->name('sendMail');
+Route::post('/mail1', 'EmployeesController@sendMail1')->name('sendMail1');
 
     Route::get('/sendMail', 'EmailSendController@index')->name('index');
     Route::post('/sendMail', 'EmailSendController@SendMail')->name('sendMailTo');

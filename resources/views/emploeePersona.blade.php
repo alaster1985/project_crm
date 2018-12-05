@@ -73,17 +73,36 @@
         </div>
 
         <div class="row">
-            {{--  <div class="col-md-8 col-sm-12 col-xs-12">
-                  <form action="{{Route('sendSMS')}}" method="post">
-                      <div class="form-group">
-                          @csrf
-                          <textarea class="form-control" name="msg" rows="3"
-                                    placeholder="Введите текст сообщения:"></textarea>
-                      </div>
-                      <input type="hidden" name="contact" value="{{$fone->contact}}">
-                      <button type="submit" class="btn btn-info">Отправить сообщение</button>
-                  </form>
-              </div>--}}
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <form action="{{Route('sendSMS1')}}" method="post">
+                        <div class="form-group">
+                            @csrf
+                            <textarea class="form-control" name="msg" rows="3"
+                                      placeholder="Введите текст сообщения:"></textarea>
+                        </div>
+                        {{--{{$fone->contact}}--}}
+                        <input type="hidden" name="contact" value="{{$fone->contact}}">
+                        <button type="submit" class="btn btn-info">Отправить сообщение</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <form action="{{Route('sendMail1')}}" method="post">
+                        <div class="form-group">
+                            @csrf
+                            <textarea class="form-control" name="msg1" rows="3"
+                                      placeholder="Введите текст письма:"></textarea>
+                        </div>
+                        <input type="hidden" name="mail" value="{{$mail->contact}}">
+                        <button type="submit" class="btn btn-info">Отправить письмо</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

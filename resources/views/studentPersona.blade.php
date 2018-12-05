@@ -22,6 +22,10 @@
                 <button class="btn btn-info" onclick="window.location='{{ route("add_cur_contp", [$id])}}'"><i
                         class='glyphicon glyphicon-user' title="Записать в контактные лица"> </i>
                 </button>
+
+
+                {{--<p><a href={{asset($cv->CV)}} download>Скачать файл</a></p>--}}
+
             </div>
         </div>
     </div>
@@ -91,7 +95,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 parametr">Резюме:</div>
-            <div class="col-md-6 col-sm-12 col-xs-12" id="rez_student"></div>
+            <div class="col-md-6 col-sm-12 col-xs-12" id="rez_student"><p><a id="CV-student" href={{asset($cv->CV)}}>CV</a></p></div>
         </div>
     </div>
     <div class="col-md-6 col-xs-12">

@@ -124,15 +124,15 @@
                                         <h4 class="modal-title">Отправить email</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{Route('sendSmsTo')}}" method="post"
+                                        <form action="{{Route('sendMailTo')}}" method="post"
                                               enctype="multipart/form-data">
                                             @csrf
-                                            <p>Контактный номер:</p>
+                                            <p>Почта:</p>
                                             <p><input type="text" class="form-control"
-                                                      placeholder="+380955702380" name="mobile" required>
+                                                      placeholder="igor.baranchuk333@gmail.com" name="email" required>
                                             </p>
-                                            <p>Текст сообщения:</p>
-                                            <p><input type="text" class="form-control" placeholder="Текст сообщения"
+                                            <p>Текст письма:</p>
+                                            <p><input type="text" class="form-control" placeholder="Текст письма"
                                                       name="msg" required>
                                             </p>
                                             <input type="submit" value="Отправить">
