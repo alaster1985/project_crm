@@ -46,8 +46,11 @@ class StoreContactPerson extends FormRequest
             'position_id.required' => 'Position must be selected',
             'direction_id.required' => 'Please, select direction',
             'company_id.required' => 'Please, select company',
-            'contacts.0.contact.required_without_all' => 'At least one contact must be specified',
+            'contacts.0.contact.required_without_all' => 'Contacts must be specified',
             'contacts.0.contact.regex' => 'Follow to the format',
+            'contacts.1.contact.regex' => 'Follow to the format mob 2',
+            'contacts.2.contact.required_without_all' => 'Contacts must be specified',
+            'contacts.2.contact.regex' => 'Follow to the format email',
         ];
     }
 }

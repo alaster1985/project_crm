@@ -57,8 +57,11 @@ class StoreStudent extends FormRequest
             'group_id.required' => 'Group must be selected',
             'group_id.in' => 'Nice try BRO ;) But set group from this select',
             'learning_status.required' => 'Please, select learning_status',
-            'contacts.0.contact.required_without_all' => 'At least one contact must be specified',
-            'contacts.0.contact.regex' => 'Follow to the format',
+            'contacts.0.contact.required_without_all' => 'Contacts must be specified',
+            'contacts.0.contact.regex' => 'Follow to the format mob 1',
+            'contacts.1.contact.regex' => 'Follow to the format mob 2',
+            'contacts.2.contact.required_without_all' => 'Contacts must be specified',
+            'contacts.2.contact.email' => 'Follow to the format email',
             'file.mime' => 'Nice try! But It was not a PDF',
             'file.max' => 'Wow! Please give me some a little smaller file',
         ];

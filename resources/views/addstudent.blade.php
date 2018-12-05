@@ -68,7 +68,7 @@
             <div class="form-group col-md-3 col-sm-2">
                 <label for="skill_id">Скилл</label>
                 <select class="form-control" id="skills" size="4" name="skill_id[]" multiple>
-                    <option selected disabled>Отсутствует</option>
+                    <option disabled>Отсутствует</option>
                     @foreach($skills as $skill)
                         <option value="{{$skill->id}}">{{$skill->skill_name}}</option>
                     @endforeach
