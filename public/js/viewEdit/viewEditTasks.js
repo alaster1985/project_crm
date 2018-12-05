@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 "<button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='taskNameButton'></button>";
 
             document.getElementById('taskNameButton').onclick = function () {
-                jsonPostEdit(location.origin + "/students/ChangeName", urlPart[3], document.getElementById('employNameInput').value);
+                jsonPostEdit(location.origin + "/task/ChangeName", urlPart[3], document.getElementById('employNameInput').value);
                 location.reload();
             }
         };

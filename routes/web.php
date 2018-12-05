@@ -230,6 +230,7 @@ Route::post('/mail1', 'EmployeesController@sendMail1')->name('sendMail1');
     ROUTE::post('profiles/changeUserName', 'ProfilesController@changeUserName');
     ROUTE::post('profiles/changeUserPassword', 'ProfilesController@changeUserPassword');
     ROUTE::post('profiles/changeUserEmail', 'ProfilesController@changeUserEmail');
+    ROUTE::post("task/ChangeName",'TasksController@changeTaskName');
 ///profiles/changeUserEmail
 
     Route::middleware('role:admin|super_admin')->group(function () {

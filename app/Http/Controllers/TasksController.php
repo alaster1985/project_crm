@@ -65,5 +65,12 @@ Class TasksController extends Controller
         return response($tasks);
     }
 
-
+    public function changeTaskName(Request $request){
+        DB::table('tasks')
+            ->where('id',$request->id)
+            ->update([
+                'name' => $request->field,
+            ]);
+        return back();
+    }
 }

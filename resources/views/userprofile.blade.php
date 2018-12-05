@@ -21,17 +21,14 @@
             {{--</div>--}}
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 parametr">Логин пользователя:</div>
-                <br>
                 <div class="col-md-6 col-sm-12 col-xs-12" id="login_user"></div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 parametr">Пароль:</div>
-                <br>
                 <div type="hidden" class="col-md-6 col-sm-12 col-xs-12" id="Pass_user"></div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 parametr">"Электронная почта":</div>
-                <br>
                 <div class="col-md-6 col-sm-12 col-xs-12" id="Mail_user"></div>
             </div>
         </div>
