@@ -66,7 +66,6 @@
                             design++;
                         }
                     }
-
                     // google.load("visualization", "1", {packages: ["corechart"]});
                     // google.setOnLoadCallback(drawChart);
                     google.charts.load("visualization", "1", {packages: ["corechart"]});
