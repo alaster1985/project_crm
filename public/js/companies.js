@@ -29,7 +29,7 @@ function companies(studdata) {
         cell3.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['type'] + '</a>';
         cell4.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['site'] + '</a>';
         cell5.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + studdata[gr]['address'] + '</a>';
-        cell6.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + logo + '</a>';
+        cell6.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + "<img src=" + logo + " width=\"50\" height=\"50\" alt="+logo+">" + '</a>';
         cell7.innerHTML = '<a href="companies/show/' + studdata[gr]['id'] + '">' + comment + '</a>';
         rowTable++;
     }
