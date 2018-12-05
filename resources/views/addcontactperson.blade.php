@@ -116,7 +116,7 @@
             </div>
             <div class="form-group col-md-2 col-sm-3">
                 <label for="communication_tool">Другое</label>
-                <input hidden name="contacts[4][communication_tool]" value="Other">
+                <input hidden name="contacts[4][communication_tool]" value="other">
                 <p><input class="form-control" placeholder="Контакт" name="contacts[4][contact]" value="{{old('contacts.4.contact')}}"></p>
                 <p><input class="form-control" placeholder="Комментарий" name="contacts[4][comment]" value="{{old('contacts.4.comment')}}"></p>
                 <p class="help-block">*не обязательное поле</p>
