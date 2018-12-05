@@ -73,14 +73,6 @@ selectlearn.onchange = function () {
         }
     })
 
-
-
-    //     for (let key in globaldata) {
-    //         if (options[sel].value !== globaldata[key]['learning_status']) {
-    //             delete globaldata[key];
-    //         }
-    //     }
-    // studget(globaldata);
 }
 
 function studget(studdata) {
@@ -162,7 +154,6 @@ smsstud.onclick = function (){
             //
         }
     });
-    // console.log(arr);
 
 }
 
@@ -190,19 +181,6 @@ emailstud.onclick = function (){
             console.log(data);
         }
     });
-    // console.log(arr);
 
 }
 
-
-
-
-// function sms(studdata) {
-//     for (var pole in studdata) {
-//         console.log(studdata[pole])
-//     }
-//
-// //    return arr;
-// }
-//
-// sms(globaldata);
