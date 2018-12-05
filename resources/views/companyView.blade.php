@@ -44,15 +44,15 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12 parametr">Позиция:</div>
-            <div class="col-md-9 col-sm-12 col-xs-12" id="position_emploee_company">asdad</div>
+            <div class="col-md-9 col-sm-12 col-xs-12" id="position_emploee_company"></div>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12 parametr">Направление:</div>
-            <div class="col-md-9 col-sm-12 col-xs-12" id="direction_emploee_company">asdad</div>
+            <div class="col-md-9 col-sm-12 col-xs-12" id="direction_emploee_company"></div>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12 parametr">Комментарий:</div>
-            <div class="col-md-9 col-sm-12 col-xs-12" id="comment_emploee_company">asdad</div>
+            <div class="col-md-9 col-sm-12 col-xs-12" id="comment_emploee_company"></div>
         </div>
     </div>
 </div>

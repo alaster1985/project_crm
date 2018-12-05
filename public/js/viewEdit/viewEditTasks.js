@@ -13,6 +13,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
             '   <button class=\'btn btn-link  glyphicon glyphicon-pencil\' id="nameTask"></button>';
         nameTaskId.appendChild(nameTask);
 
+
+        document.getElementById('nameTask').onclick = function () {
+
+            nameTask.innerHTML = "<input type='text' id='taskNameInput' value='" + taskInfo[0][0]['task_name']  + "'>" +
+                "<button class ='btn btn-link  glyphicon glyphicon-floppy-saved' id='taskNameButton'></button>";
+
+            document.getElementById('taskNameButton').onclick = function () {
+                jsonPostEdit(location.origin + "/students/ChangeName", urlPart[3], document.getElementById('employNameInput').value);
+                location.reload();
+            }
+        };
+
+
+
+
+
+
         //task description
         let taskDesciptionId = document.getElementById('description_task'); //div
         let taskDesciption= document.createElement('td');

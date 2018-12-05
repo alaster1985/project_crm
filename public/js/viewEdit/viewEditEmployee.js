@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 let employCommunication_tool = document.createElement('p');
                 let employContact = document.createElement('p');
                 let employComment = document.createElement('p');
-                employCommunication_tool.innerHTML = employeeContact[i]['communication_tool'] +
-                    '<button class=\'btn btn-link  glyphicon glyphicon-pencil\'  id=' + "CommToolButton" + i + '></button>';
+                employCommunication_tool.innerHTML = employeeContact[i]['communication_tool'];
+                    //'<button class=\'btn btn-link  glyphicon glyphicon-pencil\'  id=' + "CommToolButton" + i + '></button>';
                 employCommunication_tool.id = 'employCommTool' + i;
                 employContact.innerHTML = employeeContact[i]['contact'] +
                     '<button class=\'btn btn-link  glyphicon glyphicon-pencil\' id=' + "ContactButton" + i + '></button>';
@@ -85,34 +85,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var CommentTool = [];
             var sel = [];
             for (let count = 0; count < employeeContact.length; count++) {
-                CommTool[count] = document.getElementById('CommToolButton' + count);
-                ContactTool[count] = document.getElementById('ContactButton' + count);
+                // CommTool[count] = document.getElementById('CommToolButton' + count);
+                 ContactTool[count] = document.getElementById('ContactButton' + count);
                 CommentTool[count] = document.getElementById('CommentButton' + count);
             }
-
-            var selectList = [];
-            CommTool.forEach(function (item, i, CommTool) {
-                CommTool[i].addEventListener('click', function () {
-                    selectList[i] = document.getElementById('employCommTool' + i);
-                    selectList[i].innerHTML = "<select id=" + 'employCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'employCommTools' + i + "></button>";
-                    httpGet(location.origin + "/communicationTools")
-                        .then(response => CommToolSelect(JSON.parse(response)));
-
-                    function CommToolSelect(extData) {
-                        for (let gr = 0; gr < extData.length; gr++) {
-                            let selectOption = new Option(extData[gr]['communication_tool']);
-                            document.getElementById("employCommToolInput" + i).appendChild(selectOption)
-                        }
-                        sel[i] = document.getElementById('employCommToolInput' + i);
-                    }
-
-                    document.getElementById('employCommTools' + i).onclick = function () {
-                        sel[i] = sel[i].options[sel[i].selectedIndex].text;
-                        jsonPostEdit(location.origin + "/students/ChangeCommTool", urlPart[3], sel[i], contactId[i]);
-                        location.reload();
-                    }
-                })
-            });
+            //
+            // var selectList = [];
+            // CommTool.forEach(function (item, i, CommTool) {
+            //     CommTool[i].addEventListener('click', function () {
+            //         selectList[i] = document.getElementById('employCommTool' + i);
+            //         selectList[i].innerHTML = "<select id=" + 'employCommToolInput' + i + "></select><button class='btn btn-link  glyphicon glyphicon-floppy-saved' id = " + 'employCommTools' + i + "></button>";
+            //         httpGet(location.origin + "/communicationTools")
+            //             .then(response => CommToolSelect(JSON.parse(response)));
+            //
+            //         function CommToolSelect(extData) {
+            //             for (let gr = 0; gr < extData.length; gr++) {
+            //                 let selectOption = new Option(extData[gr]['communication_tool']);
+            //                 document.getElementById("employCommToolInput" + i).appendChild(selectOption)
+            //             }
+            //             sel[i] = document.getElementById('employCommToolInput' + i);
+            //         }
+            //
+            //         document.getElementById('employCommTools' + i).onclick = function () {
+            //             sel[i] = sel[i].options[sel[i].selectedIndex].text;
+            //             jsonPostEdit(location.origin + "/students/ChangeCommTool", urlPart[3], sel[i], contactId[i]);
+            //             location.reload();
+            //         }
+            //     })
+            // });
             var input1 = [];
             ContactTool.forEach(function (item, i, ContactTool) {
                 ContactTool[i].addEventListener('click', function () {
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var skillId = [];
             var GroupId = [];
             for (i = 0; i < skills.length; i++) {
-                var skill = document.createElement('a');
+                var skill = document.createElement('i');
                 skill.innerHTML = skills[i]['skill_name'] + ' ';
                 skill.id = 'employSkill';
                 document.getElementById('skills_emploee').appendChild(skill);
@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function company_stacks(stacks) {
         //console.log(stacks);
         for (i = 0; i < stacks.length; i++) {
-            let stack = document.createElement('a');
+            let stack = document.createElement('i');
             stack.innerHTML = stacks[i]['stack_name'] + ' ';
             document.getElementById('stack_emploee').appendChild(stack);
         }
