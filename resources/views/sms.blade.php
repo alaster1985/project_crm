@@ -114,8 +114,10 @@
         getgoogle();
     </script>
 
-    <div class="row">
+    <div class="row" id="grafik1">
         <div class="col-md-6 col-sm-6" id="circle" style="width: 50%; height: 90%;"></div>
         <div class="col-md-6 col-sm-6" id="chart_div" style="width: 50%; height: 90%;"></div>
     </div>
 </div>
+
+@extends('layouts.footer')
