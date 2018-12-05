@@ -13,11 +13,11 @@
 </head>
 <body>
 <header>
-    <?php
-        use Illuminate\Support\Facades\Auth;
-        $user = Auth::user();
-    ?>
-    <!-- Классы navbar и navbar-default (базовые классы меню) -->
+<?php
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+?>
+<!-- Классы navbar и navbar-default (базовые классы меню) -->
     <nav class=" navbar navbar-default navbar-fixed-top ">
         <!-- Контейнер (определяет ширину Navbar) -->
         <div class="container-fluid">
@@ -54,9 +54,10 @@
                             <ul>
                                 <li><a class="dropdown-item" href={{ route('profile', Auth::user()) }}>Профиль</a></li>
                                 @if($user->hasRole('super_admin') || $user->hasRole('admin'))
-                                <li><a class="dropdown-item" href={{ route('dashboard', Auth::user()) }}>Админка</a></li>
+                                    <li><a class="dropdown-item" href={{ route('dashboard', Auth::user()) }}>Админка</a>
+                                    </li>
                                 @endif
-                                    <li>
+                                <li>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -76,10 +77,10 @@
                     </li>
                     <li>
                         @if($user->hasRole('super_admin') || $user->hasRole('admin'))
-                        <button class="btn  btn-link btn-lg ">
-                            <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
-                               title="Добавить компоненты"></a>
-                        </button>
+                            <button class="btn  btn-link btn-lg ">
+                                <a class="glyphicon glyphicon-cog" href="{{route('addcompot')}}"
+                                   title="Добавить компоненты"></a>
+                            </button>
                         @endif
                     </li>
                     <li>
